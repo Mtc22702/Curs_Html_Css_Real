@@ -1,0 +1,2513 @@
+/* ============================================================
+   ADARTA DETAILING AUTO — CSS (ordonat + comentat)
+   - NU schimbă aspectul: aceleași valori, aceiași selectori
+   - Doar reordonare logică + note explicative (RO)
+============================================================ */
+
+/* ============================================================
+   1) DESIGN TOKENS / VARIABILE (THEME)
+   - Aici definim culorile, umbrele, radius, spacing.
+   - Avantaj: schimbi tema dintr-un singur loc.
+============================================================ */
+:root {
+  --bg-page: #133a4d;
+  --bg-section: #066b9d;
+  --bg-navbar: #333232;
+  --bg-footer: #333232;
+  --bg-contact: #066b9d;
+
+  --text-main: #e9f2ff;
+  --text-muted: #b6c8e6;
+
+  --accent-gold: #f4c542;
+  --accent-gold-hover: #ffd56a;
+  --accent-blue: #2da7ff;
+
+  --border-strong: rgba(45, 167, 255, 0.7);
+
+  --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.55);
+
+  --glow-blue:
+    0 0 16px rgba(45, 167, 255, 0.55), 0 0 44px rgba(45, 167, 255, 0.32),
+    0 0 72px rgba(45, 167, 255, 0.18);
+
+  --glow-blue_2:
+    0 0 14px rgba(45, 167, 255, 0.45), 0 0 10px rgba(45, 167, 255, 0.28);
+
+  --glow-gold:
+    0 0 14px rgba(244, 197, 66, 0.45), 0 0 30px rgba(244, 197, 66, 0.28);
+
+  --overlay-hero: rgba(0, 0, 0, 0.22);
+
+  --input-bg: #133a4d;
+  --input-border: rgba(45, 167, 255, 0.55);
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-blur: 14px;
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  --page-pad: clamp(12px, 3vw, 24px);
+  --section-pad: clamp(16px, 3vw, 24px);
+  --radius: 10px;
+
+  --nav-overlay-bg: rgba(0, 0, 0, 0.62);
+  --nav-panel-bg: rgba(51, 50, 50, 0.96);
+}
+
+/* ============================================================
+   2) RESET + BAZĂ GLOBALĂ
+   - Reset: elimină margini/padding implicite, box-model predictibil.
+   - Baza: font, culori, comportament scroll, stil implicit pt elemente.
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utilitar accesibilitate:
+   - .sr-only ascunde vizual textul, dar îl păstrează pentru cititoare de ecran.
+   - Util pentru label-uri, descrieri, texte pentru iconițe etc. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   3) LAYOUT GENERIC (secțiuni, grile)
+   - Clase reutilizabile: .section, .cards-3, .cards-4, .section-cta
+   - Ideea: aceste reguli sunt folosite în mai multe pagini/zone.
+============================================================ */
+.section {
+  background: var(--bg-section);
+  padding: var(--section-pad);
+  margin: 16px var(--page-pad);
+  border-radius: var(--radius);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.cards-3,
+.cards-4 {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cards-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* container tipic pentru buton central (CTA) într-o secțiune */
+.section-cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+   4) COMPONENTE: CARDURI (HOME) — .card generic + variații #magazin
+   - .card este componentă reutilizabilă.
+   - #magazin .card suprascrie pentru carduri în secțiunea magazinului.
+============================================================ */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  padding: 15px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  border-radius: 10px;
+}
+
+.card figcaption {
+  margin-top: 12px;
+  padding: 14px;
+  text-align: center;
+  color: var(--text-main);
+
+  /* Observație:
+     - Ai lăsat un “layer” comentat (fundal + blur) — ok, rămâne opțional.
+     - Nu schimbăm nimic, doar păstrăm comentariul tău. */
+  /*background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);*/
+  border-radius: 10px;
+}
+
+/* VARIAȚII pentru secțiunea Magazin (homepage) */
+#magazin .card {
+  display: flex;
+  padding: 0;
+}
+
+#magazin .card figure {
+  align-items: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  padding: 15px;
+}
+
+#magazin .card img {
+  height: 150px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 15px;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+}
+
+#magazin .card figcaption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  margin-top: 12px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+#magazin .card .card-pret-homepage {
+  font-size: 14px;
+  font-weight: 550;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+/* ============================================================
+   5) COMPONENTE: BUTOANE (globale)
+   - .btn = bază (look & feel + tranzitii)
+   - .btn-lg / .btn-sm = mărimi
+   - .btn-primary / .btn-secondary = “variante” (importance/culoare)
+============================================================ */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  border-radius: 10px;
+  color: var(--text-main);
+  background: transparent;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.12s ease;
+}
+
+.btn-lg {
+  margin-top: 10px;
+  min-width: 220px;
+  padding: 12px 0;
+}
+
+.btn-sm {
+  margin-top: 10px;
+  min-width: 160px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+/* Primary = CTA principal (vizual mai “greu”) */
+.btn-primary {
+  background: var(--accent-gold);
+  color: #0b0f14;
+  border-color: #ffd56a;
+  box-shadow: var(--glow-gold);
+}
+
+/* Secondary = CTA secundar (în designul tău inițial era plin albastru) */
+.btn-secondary {
+  background: #448db1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-color: #39718d;
+  box-shadow: var(--glow-blue_2);
+}
+
+/* Interacțiuni comune */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold-hover);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.35),
+    var(--glow-gold);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(244, 197, 66, 0.8);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(45, 167, 255, 0.3),
+    0 0 18px rgba(244, 197, 66, 0.22);
+}
+
+/* Focus vizibil = accesibilitate (tastatură) */
+.btn:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   6) HEADER + NAVBAR (DESKTOP)
+   - Layout: grid în 3 zone (stânga / centru / dreapta)
+   - Hover underline gradient, search input, iconițe etc.
+============================================================ */
+header {
+  position: relative;
+  background: var(--bg-navbar);
+  margin: 16px var(--page-pad);
+  padding: 10px var(--page-pad);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft), var(--glow-blue);
+}
+
+/* strat decorativ: contur suplimentar cu opacitate */
+header::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(45, 167, 255, 0.95);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header .navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 22px;
+}
+
+.navbar a {
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.navbar a.is-active {
+  color: var(--accent-gold);
+}
+
+.navbar a:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  min-width: 0;
+}
+
+.nav-left ul.nav-links-left,
+.nav-right ul.nav-links-right {
+  display: flex;
+  gap: 20px;
+  min-width: 0;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(45, 167, 255, 0.25));
+}
+
+.nav-icons {
+  display: flex;
+  gap: 22px;
+  font-size: 18px;
+}
+
+.nav-left ul.nav-links-left a,
+.nav-right ul.nav-links-right a {
+  position: relative;
+  padding: 6px 2px;
+}
+
+.nav-left ul.nav-links-left a:hover,
+.nav-right ul.nav-links-right a:hover {
+  color: var(--accent-gold);
+}
+
+/* underline animat (desktop) */
+.nav-left ul.nav-links-left a::after,
+.nav-right ul.nav-links-right a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+  transition: width 150ms ease;
+  box-shadow:
+    0 0 6px rgba(244, 197, 66, 0.4),
+    0 0 10px rgba(45, 167, 255, 0.35);
+}
+
+.nav-left ul.nav-links-left a:hover::after,
+.nav-right ul.nav-links-right a:hover::after {
+  width: 100%;
+}
+
+/* ---- Search (zona centrală) ---- */
+.nav-center {
+  display: none;
+  justify-content: center;
+  min-width: 0;
+}
+
+.nav-center form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.nav-center input[type='search'] {
+  width: 230px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-main);
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.nav-center input[type='search']::placeholder {
+  color: rgba(233, 242, 255, 0.75);
+}
+
+.nav-center input[type='search']:focus {
+  border-color: #448db1;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 0 0 3px rgba(45, 167, 255, 0.18),
+    0 0 14px rgba(45, 167, 255, 0.35);
+}
+
+.nav-center button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid #448db1;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.35);
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-center button:hover {
+  transform: translateY(-1px);
+  border-color: #f4c542;
+  box-shadow:
+    0 0 16px rgba(45, 167, 255, 0.35),
+    0 0 18px rgba(244, 197, 66, 0.28);
+}
+
+.nav-center button:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   7) HERO (HOME)
+   - Imagine full cover + overlay + text box + CTA-uri.
+   - Observație UX (din discuția noastră):
+     - Primary = “Programează un serviciu”
+     - Secondary poate fi “ghost/outline” în interiorul hero-ului.
+============================================================ */
+.hero {
+  width: 100%;
+  padding: 16px var(--page-pad);
+}
+
+.hero-media {
+  position: relative;
+  min-height: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 167, 255, 0.4);
+  box-shadow:
+    var(--shadow-strong),
+    0 0 22px rgba(45, 167, 255, 0.3);
+}
+
+.hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-hero);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  height: auto;
+  padding: 0 var(--page-pad);
+}
+
+.hero-content {
+  position: absolute;
+  left: 10%;
+  bottom: 120px;
+  max-width: 520px;
+  padding: 16px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(45, 167, 255, 0.45);
+  background: rgba(8, 20, 40, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.hero-actions {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+}
+
+/* “secondary” special în hero:
+   - Aici suprascrii intenționat .btn-secondary global ca să fie mai discret.
+   - NU afectează restul site-ului, doar butonul secundar din hero. */
+.hero-actions .btn-secondary {
+  background: transparent;
+  border: 2px solid rgba(45, 167, 255, 0.75);
+  color: rgba(230, 245, 255, 0.95);
+  box-shadow: none;
+  opacity: 0.92;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+}
+
+.hero-actions .btn-secondary:hover {
+  background: rgba(45, 167, 255, 0.12);
+  opacity: 1;
+}
+
+/* ============================================================
+   8) CONTACT + HARTĂ
+   - Layout în 2 coloane pe desktop, 1 coloană pe mobile.
+============================================================ */
+#contact {
+  background: var(--bg-contact);
+}
+
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+#contact .contact-title {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+#contact .contact-quote {
+  text-align: center;
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+#contact .contact-gallery {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--accent-gold);
+}
+
+#contact .contact-gallery:hover {
+  color: var(--accent-gold-hover);
+}
+
+#contact .contact-list {
+  max-width: 300px;
+}
+
+#contact .contact-list li {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+#contact .map-box {
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 167, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 0 18px rgba(45, 167, 255, 0.45),
+    0 0 48px rgba(45, 167, 255, 0.25);
+}
+
+#contact .map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ============================================================
+   9) FOOTER
+   - Grid 3 coloane (desktop), 1 coloană (mobile).
+============================================================ */
+.footer {
+  margin: 0 var(--page-pad) 16px;
+}
+
+.footer-inner {
+  background: var(--bg-footer);
+  border-radius: 8px;
+  padding: 8px var(--page-pad) 6px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  box-shadow: 0 0 10px rgba(45, 167, 255, 0.25);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  text-align: center;
+  gap: 18px;
+}
+
+.footer-col h3 {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-main);
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 18px;
+  row-gap: 6px;
+  justify-content: center;
+}
+
+.footer-col li {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--text-muted);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.footer-col a {
+  color: inherit;
+  transition: color 160ms ease;
+}
+
+.footer-col a:hover {
+  color: var(--accent-gold);
+}
+
+.copyright {
+  margin-top: 6px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   10) ABOUT PAGE (fix brands)
+   - Stiluri “scoped” pe .about-page pentru a nu afecta alte pagini.
+   - Include: hero media, grid story, brands, thumbs + lightbox.
+============================================================ */
+.about-page main {
+  padding-bottom: 24px;
+}
+
+.about-page .about-hero {
+  padding: 16px var(--page-pad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-page .about-hero-media {
+  width: 100%;
+  height: clamp(360px, 60vh, 520px);
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 167, 255, 0.4);
+  /*background: rgba(255, 255, 255, 0.06);*/
+  background: var(--bg-section);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    var(--shadow-strong),
+    0 0 22px rgba(45, 167, 255, 0.3);
+}
+
+.about-page .about-hero-img {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    var(--shadow-soft),
+    0 0 18px rgba(45, 167, 255, 0.22);
+}
+
+.about-page .about-hero-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+}
+
+.about-page .about-hero-caption {
+  margin-top: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+
+.about-page .about-story-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-page .about-story h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.about-page .about-story h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.about-page .about-story-text p {
+  margin: 0 0 12px;
+}
+
+.about-page .about-story-image {
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    var(--shadow-soft),
+    0 0 18px rgba(45, 167, 255, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page .about-story-photo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.about-page .about-brands-inner {
+  max-width: calc(3 * 140px + 2 * 32px);
+  margin: 0 auto;
+}
+
+.about-page .about-brands h2 {
+  text-align: center;
+  margin: 0 auto 18px;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.about-page .about-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 140px);
+  justify-content: center;
+  gap: 32px;
+}
+
+.about-page .about-brand-box {
+  width: 140px;
+  height: 140px;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+/* thumbs + lightbox */
+.about-page .about-thumbs {
+  width: 100%;
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  /*background: rgba(255, 255, 255, 0.06);*/
+  background: var(--bg-section);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-page .about-thumb {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: var(--glass-inset);
+  transition:
+    transform 140ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.about-page .about-thumb img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-page .about-thumb:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 197, 66, 0.75);
+  box-shadow: 0 0 14px rgba(244, 197, 66, 0.18);
+}
+
+/* responsive thumbs */
+@media (max-width: 900px) {
+  .about-page .about-thumbs {
+    grid-template-columns: repeat(8, 120px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+
+  .about-page .about-thumb {
+    scroll-snap-align: start;
+  }
+
+  .about-page .about-thumb img {
+    height: 86px;
+  }
+}
+
+/* lightbox (fără JS) */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  place-items: center;
+  padding: 18px;
+}
+
+.lightbox:target {
+  display: grid;
+}
+
+.lightbox .lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.lightbox img {
+  position: relative;
+  z-index: 2;
+  max-width: min(1000px, 92vw);
+  max-height: 86vh;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 24px rgba(45, 167, 255, 0.25);
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lightbox .lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================
+   11) REGISTER + LOGIN (body.register)
+   - Stiluri scoped pe body.register: nu afectează restul site-ului.
+   - Structură: hero background + container form + inputs + checkbox + submit.
+============================================================ */
+body.register {
+  --gap-vertical: 16px;
+}
+
+body.register .register-main {
+  padding: 0;
+}
+
+body.register header {
+  margin-bottom: var(--gap-vertical);
+}
+
+body.register .hero-register {
+  position: relative;
+  margin: var(--gap-vertical) var(--page-pad);
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 760px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  box-shadow:
+    var(--shadow-strong),
+    0 0 22px rgba(45, 167, 255, 0.25);
+}
+
+body.register .hero-media-register {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body.register .hero-media-register .register-bg {
+  width: 100%;
+  height: 760px;
+  object-fit: cover;
+  display: block;
+}
+
+body.register .hero-register::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 1;
+  pointer-events: none;
+}
+
+body.register .hero-register .register-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: min(520px, 92vw);
+}
+
+body.register .hero-register .register-container {
+  width: 100%;
+  padding: clamp(22px, 3vw, 40px);
+  border-radius: 16px;
+  border: 1px solid rgba(45, 167, 255, 0.45);
+  background: rgba(8, 20, 40, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+body.register .hero-register .register-container h2 {
+  margin: 0 0 22px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 800;
+  text-align: center;
+}
+
+body.register .hero-register .input-group {
+  margin-bottom: 14px;
+}
+
+body.register .hero-register .register-form input[type='text'],
+body.register .hero-register .register-form input[type='email'],
+body.register .hero-register .register-form input[type='password'] {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.96);
+  color: #1c1c1c;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+body.register .hero-register .register-form input[type='text']:focus,
+body.register .hero-register .register-form input[type='email']:focus,
+body.register .hero-register .register-form input[type='password']:focus {
+  border-color: rgba(79, 182, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(79, 182, 255, 0.18);
+}
+
+body.register .hero-register .checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 18px;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input[type='checkbox'] {
+  margin-right: 6px;
+}
+
+.checkbox-container a {
+  margin-left: 12px;
+  font-size: 12px;
+  text-decoration: none;
+  color: #bfe7ff;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+body.register .hero-register .terms-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+body.register .hero-register .register-form input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  border-radius: 4px;
+  accent-color: #2b78a5;
+  cursor: pointer;
+}
+
+body.register .hero-register .checkbox-container a {
+  font-size: 13px;
+  color: #bfe7ff;
+  text-decoration: underline;
+}
+
+body.register .hero-register .btn-submit {
+  width: 100%;
+  height: 46px;
+  border: 0;
+  border-radius: 12px;
+  background: #2b78a5;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+body.register .hero-register .btn-submit:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+body.register .hero-register .login-redirect {
+  margin-top: 16px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+body.register .hero-register .login-redirect a {
+  color: #bfe7ff;
+  font-weight: 700;
+  border: 1px solid rgba(45, 167, 255, 0.65);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+body.register .hero-register .login-redirect a:hover {
+  text-decoration: underline;
+}
+
+body.register .footer {
+  margin-top: var(--gap-vertical);
+}
+
+/* ============================================================
+   12) RESPONSIVE (GLOBAL)
+   - Reguli generale pentru layout + header/nav + cards + register.
+   - Notă: la final mai ai “mobile nav overlay” separat (secțiunea 15).
+============================================================ */
+@media (max-width: 980px) {
+  .cards-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-left {
+    flex: 1 1 auto;
+    gap: 18px;
+  }
+
+  .nav-right {
+    flex: 0 0 auto;
+    margin-left: auto;
+    gap: 16px;
+  }
+
+  .nav-left ul.nav-links-left,
+  .nav-right ul.nav-links-right {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .nav-center {
+    flex: 1 1 100%;
+    order: 3;
+    justify-content: center;
+  }
+
+  .nav-center form {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-center input[type='search'] {
+    width: 100%;
+    min-width: 0;
+  }
+
+  body.register .hero-register {
+    min-height: 650px;
+  }
+
+  body.register .hero-media-register .register-bg {
+    height: 650px;
+  }
+
+  body.register .hero-register::after {
+    background: rgba(0, 0, 0, 0.32);
+  }
+}
+
+@media (max-width: 900px) {
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .map-box {
+    height: 260px;
+  }
+
+  .about-page .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page .about-brands-grid {
+    grid-template-columns: repeat(3, 110px);
+    gap: 18px;
+  }
+
+  .about-page .about-brand-box {
+    width: 110px;
+    height: 110px;
+  }
+
+  .about-page .about-brands-inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .footer-col ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    margin: 12px var(--page-pad);
+    padding: 10px var(--page-pad);
+  }
+
+  .section {
+    margin: 12px var(--page-pad);
+  }
+
+  .cards-3,
+  .cards-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page .about-hero-media {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .about-page .about-hero-img {
+    height: 220px;
+  }
+
+  .hero-inner {
+    height: auto;
+    padding: 0;
+  }
+
+  .hero-content {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    bottom: 225px;
+    scale: 0.75;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: calc(100% - 24px);
+    bottom: 18px;
+  }
+
+  .hero-actions .btn,
+  .section-cta .btn {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .nav-center button {
+    padding: 0 12px;
+  }
+
+  .logo img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  #magazin .card figure {
+    padding: 12px;
+  }
+
+  #magazin .card img {
+    max-width: 140px;
+    height: 140px;
+  }
+
+  body.register .hero-register {
+    min-height: 720px;
+    border-radius: 10px;
+  }
+
+  body.register .hero-media-register .register-bg {
+    height: 720px;
+  }
+
+  body.register .hero-register .register-container {
+    padding: 22px 16px;
+  }
+
+  .about-page .about-brands-grid {
+    grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+    gap: 14px;
+    padding: 10px;
+  }
+
+  .about-page .about-brand-box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 395px) {
+  .hero-content {
+    left: 12px;
+    right: 12px;
+    max-width: none;
+    bottom: 180px;
+    scale: 0.75;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-center form {
+    max-width: 100%;
+  }
+
+  .nav-center button {
+    width: 100%;
+  }
+
+  .hero-content {
+    bottom: 160px;
+  }
+}
+
+/* ============================================================
+   13) CATALOG PRODUSE (SCOPED) — body.product-catalog
+   - Toate regulile sunt “îngrădite” în body.product-catalog ca să
+     nu se amestece cu alte pagini.
+============================================================ */
+body.product-catalog .magazin {
+  padding: 0;
+}
+
+body.product-catalog .magazin-container {
+  margin: 16px var(--page-pad);
+  padding: var(--section-pad);
+  border-radius: var(--radius);
+  background: #066b9d;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 28px;
+}
+
+/* ---- filtre ---- */
+body.product-catalog .filtre {
+  background: #216181;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--glass-inset);
+}
+
+body.product-catalog .filtre-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.product-catalog .filtre-titlu {
+  font-size: 16px;
+  font-weight: 550;
+  margin: 0;
+}
+
+body.product-catalog .filtre-reset {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 6px;
+  border-radius: 8px;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+body.product-catalog .filtre-reset:hover {
+  color: var(--accent-gold);
+  background: rgba(244, 197, 66, 0.08);
+}
+
+body.product-catalog .filtru {
+  margin-top: 16px;
+}
+
+body.product-catalog .filtru-titlu {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: rgba(233, 242, 255, 0.9);
+  margin-bottom: 10px;
+}
+
+body.product-catalog .filtru-optiune {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(233, 242, 255, 0.92);
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+body.product-catalog .filtru-optiune input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2b78a5;
+  cursor: pointer;
+}
+
+body.product-catalog .filtru-range {
+  width: 100%;
+  accent-color: var(--accent-blue);
+}
+
+body.product-catalog .filtru-titlu-rand {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+body.product-catalog .filtru-valori {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+body.product-catalog .filtru-rating {
+  display: flex;
+  gap: 6px;
+}
+
+body.product-catalog .filtru-rating button {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(233, 242, 255, 0.9);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-catalog .filtru-rating button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 197, 66, 0.7);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.2);
+}
+
+/* ---- produse ---- */
+body.product-catalog .produse {
+  min-width: 0;
+}
+
+body.product-catalog .produse-bara {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--glass-inset);
+  margin-bottom: 16px;
+}
+
+body.product-catalog .produse-numar {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+body.product-catalog .sortare {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(233, 242, 255, 0.9);
+}
+
+body.product-catalog .sortare-select {
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(19, 58, 77, 0.55);
+  color: var(--text-main);
+  outline: none;
+}
+
+body.product-catalog .sortare-select:focus {
+  border-color: rgba(79, 182, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(79, 182, 255, 0.18);
+}
+
+body.product-catalog .produse-grila {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+body.product-catalog .produs {
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(0deg, var(--glass-bg), var(--glass-bg)), #1a77a5;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  transition:
+    transform 160ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+body.product-catalog .produs:hover {
+  transform: none;
+  border-color: rgba(244, 197, 66, 0.95);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(45, 167, 255, 0.28),
+    var(--glow-blue_2);
+}
+
+body.product-catalog .produs-imagine {
+  width: min(240px, 70%);
+  height: auto;
+  object-fit: contain;
+  margin: 15px auto;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.product-catalog .produs-titlu,
+body.product-catalog .produs-pret {
+  background: #216080;
+  text-align: center;
+}
+
+body.product-catalog .produs-titlu {
+  margin: 0;
+  padding: 12px 10px 15px 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.35em * 2);
+}
+
+body.product-catalog .produs-pret {
+  margin: 0;
+  padding: 0 12px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+body.product-catalog .btn-load-more {
+  display: block;
+  width: min(420px, 92%);
+  height: 48px;
+  margin: 22px auto 0;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #2b78a5;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 48px;
+  text-align: center;
+
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+body.product-catalog .btn-load-more:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+body.product-catalog .btn-load-more:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+/* responsive catalog */
+@media (max-width: 1185px) {
+  body.product-catalog .btn-load-more {
+    width: 40%;
+    height: 35px;
+    margin-top: 20px;
+    padding: 0 12px;
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body.product-catalog .produs-titlu {
+    margin: 0;
+    padding: 12px 10px 25px 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(1.35em * 2);
+  }
+}
+
+@media (max-width: 980px) {
+  body.product-catalog .magazin-container {
+    grid-template-columns: 1fr;
+  }
+
+  body.product-catalog .produse-grila {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.product-catalog .produse-bara {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  body.product-catalog .btn-load-more {
+    width: 40%;
+    height: 35px;
+    margin-top: 14px;
+    padding: 0 12px;
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body.product-catalog .produs-titlu {
+    margin: 0;
+    padding: 12px 10px 25px 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(1.35em * 2);
+  }
+}
+
+@media (max-width: 520px) {
+  body.product-catalog .produse-grila {
+    grid-template-columns: 1fr;
+    margin-bottom: 24px;
+  }
+
+  body.product-catalog .produse-bara {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  body.product-catalog .filtre {
+    padding: 14px;
+  }
+
+  body.product-catalog .produs-imagine {
+    width: min(220px, 85%);
+  }
+
+  body.product-catalog .btn-load-more {
+    width: 60%;
+    height: 35px;
+    margin-top: 14px;
+    padding: 0 12px;
+    font-size: 12px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body.product-catalog .produs-titlu {
+    margin: 0;
+    padding: 12px 10px 25px 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(1.35em * 2);
+  }
+}
+
+/* ============================================================
+   14) ACCESIBILITATE: Reduce Motion
+   - Respectă setarea OS pentru utilizatori sensibili la animații.
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   15) NAVBAR MOBILE — OVERLAY (fără JS) — FIXAT
+   - Folosește checkbox + :has() pentru overlay full-screen.
+   - Include fallback pt browsere fără :has().
+============================================================ */
+
+/* ascund checkbox */
+.nav-left #navToggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* hamburger ascuns pe desktop */
+.nav-left .nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.25);
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-left .nav-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(233, 242, 255, 0.95);
+  display: block;
+}
+
+/* MOBILE (<=520px): default (închis) */
+@media (max-width: 520px) {
+  .nav-left .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* închis: ascund meniurile + center + right */
+  .nav-left ul.nav-links-left {
+    display: none;
+  }
+
+  .nav-right ul.nav-links-right {
+    display: none;
+  }
+
+  .nav-center,
+  .nav-right {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* fără underline pe mobil */
+  .nav-left ul.nav-links-left a::after,
+  .nav-right ul.nav-links-right a::after {
+    display: none;
+  }
+}
+
+/* OVERLAY “ON” (când e bifat) — cu :has() */
+@media (max-width: 520px) {
+  header:has(#navToggle:checked) {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    border-radius: 0;
+    padding: 12px var(--page-pad);
+
+    background: var(--nav-overlay-bg);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    z-index: 9999;
+    overflow: auto;
+    box-shadow: none;
+    border: none;
+  }
+
+  header:has(#navToggle:checked)::before {
+    display: none;
+  }
+
+  header:has(#navToggle:checked) .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  header:has(#navToggle:checked) .nav-left {
+    background: var(--nav-panel-bg);
+    border: 1px solid rgba(45, 167, 255, 0.35);
+    border-radius: 14px;
+    padding: 10px 12px;
+    box-shadow: var(--shadow-soft), var(--glow-blue);
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* MENIU STÂNGA (Acasă/Servicii/Magazin) */
+  header:has(#navToggle:checked) .nav-left ul.nav-links-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(45, 167, 255, 0.18);
+  }
+
+  header:has(#navToggle:checked) .nav-left ul.nav-links-left a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(19, 58, 77, 0.55);
+    border: 1px solid rgba(45, 167, 255, 0.18);
+    font-weight: 800;
+    white-space: normal;
+  }
+
+  /* arătăm search + right în overlay */
+  header:has(#navToggle:checked) .nav-center,
+  header:has(#navToggle:checked) .nav-right {
+    display: flex;
+    width: 100%;
+  }
+
+  header:has(#navToggle:checked) .nav-center {
+    justify-content: center;
+    background: var(--nav-panel-bg);
+    border: 1px solid rgba(45, 167, 255, 0.28);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  header:has(#navToggle:checked) .nav-center form {
+    width: 100%;
+    gap: 10px;
+    max-width: none;
+  }
+
+  header:has(#navToggle:checked) .nav-center input[type='search'] {
+    width: 100%;
+  }
+
+  header:has(#navToggle:checked) .nav-right {
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    background: var(--nav-panel-bg);
+    border: 1px solid rgba(45, 167, 255, 0.28);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* MENIU DREAPTA (Despre noi/Contact) */
+  header:has(#navToggle:checked) .nav-right ul.nav-links-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header:has(#navToggle:checked) .nav-right ul.nav-links-right a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(45, 167, 255, 0.12);
+    white-space: normal;
+  }
+
+  header:has(#navToggle:checked) .nav-icons {
+    margin-left: auto;
+    gap: 16px;
+    font-size: 20px;
+  }
+}
+
+/* FALLBACK pentru browsere fără :has()
+   - nu putem face overlay perfect
+   - dar facem “push-down”: arătăm meniurile sub nav-left */
+@supports not (selector(:has(*))) {
+  @media (max-width: 520px) {
+    /* pe fallback: nu ascundem nav-center/nav-right ca să nu “dispară” */
+    .nav-center,
+    .nav-right {
+      display: flex;
+      width: 100%;
+    }
+
+    .nav-left #navToggle:checked ~ ul.nav-links-left {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    /* nav-links-right nu se poate toggla fără :has, dar rămâne vizibil */
+    .nav-right ul.nav-links-right {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/* ============================================================
+   16) PRODUCT PAGE — body.product-page (FĂRĂ JS)
+   - Layout: două coloane (imagine + info) pe desktop, 1 coloană pe mobile.
+   - Include: miniaturi, cantitate, buton coș, tabs, similare.
+============================================================ */
+body.product-page main.produs-pagina {
+  padding-bottom: 20px;
+}
+
+/* “card” principal */
+body.product-page .produs,
+body.product-page .similare {
+  margin: 16px var(--page-pad);
+  padding: var(--section-pad);
+  border-radius: var(--radius);
+  background: var(--bg-section);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+/* layout produs: 2 coloane */
+body.product-page .produs-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+/* zona imagini */
+body.product-page .produs-media {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+}
+
+body.product-page .produs-imagine-principala {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: var(--glass-inset);
+  aspect-ratio: auto;
+}
+
+body.product-page .produs-imagine-principala img {
+  margin: 0 auto;
+  width: clamp(260px, 34vw, 420px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.product-page .produs-miniature {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+body.product-page .produs-miniature button {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: var(--glass-inset);
+  cursor: pointer;
+  padding: 10px;
+}
+
+body.product-page .produs-miniature img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* zona info */
+body.product-page .produs-info h1 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+  margin-top: 40px;
+}
+
+body.product-page .produs-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+body.product-page .produs-rating {
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .produs-stoc {
+  color: rgba(233, 242, 255, 0.92);
+  margin: 6px 0 10px;
+}
+
+body.product-page .produs-punctele-cheie {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 10px 0 16px;
+  color: rgba(233, 242, 255, 0.92);
+}
+
+/* acțiuni */
+body.product-page .produs-actiuni {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+body.product-page .qty-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+body.product-page .qty-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.product-page .qty-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+body.product-page .qty-control input[type='number'] {
+  width: 70px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(19, 58, 77, 0.55);
+  color: var(--text-main);
+  text-align: center;
+  outline: none;
+  padding-left: 20px;
+  padding-right: 8px;
+}
+
+/* buton cos */
+body.product-page .btn-cos {
+  height: 45px;
+  min-width: 200px;
+  padding: 0 24px;
+  margin-top: 4px;
+  width: auto;
+  align-self: flex-start;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent-gold);
+  color: #0b0f14;
+  font-weight: 780;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--glow-gold);
+}
+
+body.product-page .btn-cos:hover {
+  background: var(--accent-gold-hover);
+}
+
+/* ============================================================
+   PRODUCT TABS — SOLO HTML + CSS (radio)
+============================================================ */
+
+/* contenitore tabs */
+body.product-page .produs-tabs {
+  margin-top: 16px;
+  border-radius: var(--radius);
+  background: var(--bg-section);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+/* nascondo i radio (restano funzionanti via label) */
+body.product-page .produs-tabs input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* riga dei tab */
+body.product-page .produs-tabs .tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 14px 12px;
+}
+
+/* tab (label) */
+body.product-page .produs-tabs .tab {
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+/* pannelli: stile */
+body.product-page .produs-tabs .tab-panel {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 14px;
+  color: rgba(233, 242, 255, 0.92);
+  margin: 0 14px 14px;
+}
+
+/* pannelli: logica (di default nascosti) */
+body.product-page .produs-tabs .tab-panel {
+  display: none;
+}
+
+/* mostro SOLO quello selezionato */
+body.product-page #tab-desc:checked ~ .panel-desc {
+  display: block;
+}
+body.product-page #tab-spec:checked ~ .panel-spec {
+  display: block;
+}
+body.product-page #tab-rec:checked ~ .panel-rec {
+  display: block;
+}
+
+/* tab attiva (senza JS) */
+body.product-page #tab-desc:checked ~ .tabs label[for='tab-desc'],
+body.product-page #tab-spec:checked ~ .tabs label[for='tab-spec'],
+body.product-page #tab-rec:checked ~ .tabs label[for='tab-rec'] {
+  border-color: rgba(244, 197, 66, 0.75);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.18);
+}
+
+/* ============================================================
+   SPECIFICAȚII — layout più pulito (colonne + righe)
+============================================================ */
+
+/* tabella */
+body.product-page .panel-spec table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* celle */
+body.product-page .panel-spec th,
+body.product-page .panel-spec td {
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+/* header */
+body.product-page .panel-spec th {
+  text-align: left;
+  font-weight: 700;
+  color: rgba(233, 242, 255, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* separatori tra righe */
+body.product-page .panel-spec td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* larghezze colonne */
+body.product-page .panel-spec th:first-child,
+body.product-page .panel-spec td:first-child {
+  width: 58%;
+  text-align: left;
+}
+
+body.product-page .panel-spec th:nth-child(2),
+body.product-page .panel-spec td:nth-child(2) {
+  width: 42%;
+  text-align: center; /* <-- Detalii centrato */
+}
+
+/* righe alternate (zebra) */
+body.product-page .panel-spec tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* rimuovo la linea dell'ultima riga */
+body.product-page .panel-spec tr:last-child td {
+  border-bottom: 0;
+}
+
+/* similare - grid */
+body.product-page .similare h2 {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+body.product-page .similare-grila {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+body.product-page .produs-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(0deg, var(--glass-bg), var(--glass-bg)), #1a77a5;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+}
+
+body.product-page .produs-card-image {
+  padding: 10px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body.product-page .produs-card-image img {
+  width: 55%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.product-page .produs-card h3 {
+  margin: 0;
+  padding: 10px 10px 6px;
+  background: #216080;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  color: #fff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.35em * 2);
+}
+
+body.product-page .produs-card-pret {
+  margin: 0;
+  padding: 0 10px 10px;
+  background: #216080;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-gold);
+}
+
+/* responsive product page */
+@media (max-width: 980px) {
+  body.product-page .produs-container {
+    grid-template-columns: 1fr;
+  }
+
+  body.product-page .similare-grila {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body.product-page .footer-cols.footer-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.product-page .qty-control input[type='number'] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  body.product-page .produs-imagine-principala img {
+    height: 300px;
+  }
+
+  body.product-page .similare-grila {
+    grid-template-columns: 1fr;
+  }
+  body.product-page .footer-cols.footer-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  body.product-page .produs-miniature {
+    justify-content: center;
+  }
+
+  body.product-page .produs-miniature button {
+    width: 96px;
+    height: 96px;
+  }
+
+  body.product-page .qty-control input[type='number'] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

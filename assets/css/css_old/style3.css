@@ -1,0 +1,427 @@
+/* =========================
+   BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body.product-page {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f2f2f2;
+}
+
+/* container general (wireframe look) */
+header,
+main.produs-pagina,
+footer.footer {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* =========================
+   HEADER (fara search)
+   - cerinta: logo + lista simpla cu linkuri
+========================= */
+header {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 999px;
+  background: #e9e9e9;
+  border: 1px solid #d0d0d0;
+  padding: 6px;
+}
+
+.nav-links-left,
+.nav-links-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links-left a,
+.nav-links-right a {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+}
+
+.nav-links-left a:hover,
+.nav-links-right a:hover {
+  text-decoration: underline;
+}
+
+/* ascundem search (nu este cerut in assignment) */
+.nav-center {
+  display: none;
+}
+
+/* pastrez dreapta dar o fac discreta (optional) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-icons a {
+  color: #222;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* =========================
+   MAIN - CARD
+========================= */
+main.produs-pagina {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: none;
+  padding: 18px;
+}
+
+/* =========================
+   PRODUCT TOP: 2 coloane ca in wireframe
+========================= */
+.produs-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* imagine mare cu stil wireframe */
+.produs-media > img {
+  width: 100%;
+  height: 360px;
+  object-fit: contain;
+  background: #dcdcdc;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  display: block;
+}
+
+/* thumbnails sub imagine */
+.produs-miniature {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.produs-miniature img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #dcdcdc;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  display: block;
+}
+
+/* INFO */
+.produs-info h1 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.produs-info p {
+  margin: 8px 0;
+  font-size: 13px;
+  color: #333;
+}
+
+/* “stele” sa fie gri (wireframe) */
+.produs-info p:first-of-type {
+  color: #b5b5b5;
+  letter-spacing: 2px;
+}
+
+.produs-pret strong {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.produs-stoc strong {
+  color: #555;
+}
+
+/* lista puncte cheie */
+.produs-punctele-cheie {
+  margin: 12px 0 18px;
+  padding-left: 18px;
+  color: #333;
+  font-size: 13px;
+}
+.produs-punctele-cheie li {
+  margin: 6px 0;
+}
+
+/* cantitate (stil mic, ca in wireframe) */
+.produs-actiuni {
+  display: grid;
+  grid-template-columns: auto 110px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.produs-actiuni label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+}
+
+.produs-actiuni input[type='number'] {
+  height: 30px;
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  padding: 0 8px;
+  width: 110px;
+}
+
+/* buton ca in wireframe */
+.btn-cos {
+  grid-column: 1 / -1;
+  height: 36px;
+  border: none;
+  border-radius: 999px;
+  background: #7a7a7a;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.btn-cos:hover {
+  filter: brightness(0.95);
+}
+
+/* =========================
+   “TABURI” (vizual) sub produs
+   - fara sa schimbam HTML: folosim cele 3 H2 ca butoane
+========================= */
+.produs-descriere,
+.produs-specificatii,
+.produs-recenzii {
+  margin-top: 18px;
+}
+
+/* bara cu “taburi” */
+.produs-descriere h2,
+.produs-specificatii h2,
+.produs-recenzii h2 {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #eef2f7;
+  color: #111;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* continut sub taburi */
+.produs-descriere p {
+  margin: 10px 0;
+  color: #333;
+  font-size: 13px;
+}
+
+/* tabel specificatii */
+.produs-specificatii table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.produs-specificatii th,
+.produs-specificatii td {
+  border: 1px solid #d9d9d9;
+  padding: 10px;
+  text-align: left;
+}
+
+.produs-specificatii th {
+  background: #f3f3f3;
+}
+
+/* reviews */
+.review {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+/* =========================
+   PRODUSE SIMILARE (grid ca in wireframe)
+========================= */
+.similare {
+  margin-top: 18px;
+  padding-top: 8px;
+}
+
+.similare h2 {
+  margin: 10px 0 12px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.similare-grila {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.produs-card {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.produs-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 12px;
+}
+
+.produs-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: #dcdcdc;
+  border: 1px solid #cfcfcf;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.produs-card h3 {
+  margin: 6px 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #222;
+}
+
+.produs-card-pret {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* =========================
+   FOOTER (bara gri cu 3 coloane, ca in wireframe)
+========================= */
+footer.footer {
+  background: #7a7a7a;
+  color: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: none;
+  border-radius: 0 0 14px 14px;
+}
+
+.footer-inner {
+  padding: 18px;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.footer-col h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-col li {
+  margin: 6px 0;
+  font-size: 12px;
+}
+
+.footer-col a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 980px) {
+  .similare-grila {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .produs-container {
+    grid-template-columns: 1fr;
+  }
+  .produs-media > img {
+    height: 300px;
+  }
+  .produs-miniature {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .similare-grila {
+    grid-template-columns: 1fr;
+  }
+  .nav-right {
+    display: none;
+  } /* pe mobil ramane simplu */
+}

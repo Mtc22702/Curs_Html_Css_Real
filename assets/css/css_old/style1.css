@@ -1,0 +1,797 @@
+/* ============================================================
+   ADARTA — PRODUCT PAGE CSS (SELF-CONTAINED PER ESAME)
+   - Include: variabili + reset minimo + base + header/footer base
+   - Scoped dove serve: body.product-page
+============================================================ */
+
+/* ============================================================
+   1) DESIGN TOKENS / VARIABILI (DAL TUO CSS PRINCIPALE)
+============================================================ */
+:root {
+  --bg-page: #133a4d;
+  --bg-section: #066b9d;
+  --bg-navbar: #333232;
+  --bg-footer: #333232;
+  --bg-contact: #066b9d;
+
+  --text-main: #e9f2ff;
+  --text-muted: #b6c8e6;
+
+  --accent-gold: #f4c542;
+  --accent-gold-hover: #ffd56a;
+  --accent-blue: #2da7ff;
+
+  --border-strong: rgba(45, 167, 255, 0.7);
+
+  --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.55);
+
+  --glow-blue:
+    0 0 16px rgba(45, 167, 255, 0.55), 0 0 44px rgba(45, 167, 255, 0.32),
+    0 0 72px rgba(45, 167, 255, 0.18);
+
+  --glow-blue_2:
+    0 0 14px rgba(45, 167, 255, 0.45), 0 0 10px rgba(45, 167, 255, 0.28);
+
+  --glow-gold:
+    0 0 14px rgba(244, 197, 66, 0.45), 0 0 30px rgba(244, 197, 66, 0.28);
+
+  --overlay-hero: rgba(0, 0, 0, 0.22);
+
+  --input-bg: #133a4d;
+  --input-border: rgba(45, 167, 255, 0.55);
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-blur: 14px;
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+  --page-pad: clamp(12px, 3vw, 24px);
+  --section-pad: clamp(16px, 3vw, 24px);
+  --radius: 10px;
+
+  --nav-overlay-bg: rgba(0, 0, 0, 0.62);
+  --nav-panel-bg: rgba(51, 50, 50, 0.96);
+}
+
+/* ============================================================
+   2) RESET + BASE MINIMO (EVITA HTML “DEFAULT”)
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* ============================================================
+   3) HEADER (BASE SIMPLU — compatibile con il tuo HTML)
+   - Se nel tuo CSS principale esiste già, puoi togliere questa parte.
+============================================================ */
+header {
+  position: relative;
+  background: var(--bg-navbar);
+  margin: 16px var(--page-pad);
+  padding: 10px var(--page-pad);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft), var(--glow-blue);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(45, 167, 255, 0.95);
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header .navbar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(45, 167, 255, 0.25));
+}
+
+.nav-links-left {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.nav-links-left a {
+  position: relative;
+  padding: 6px 2px;
+  transition: color 180ms ease;
+}
+
+.nav-links-left a:hover {
+  color: var(--accent-gold);
+}
+
+.nav-links-left a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+  transition: width 150ms ease;
+  box-shadow:
+    0 0 6px rgba(244, 197, 66, 0.4),
+    0 0 10px rgba(45, 167, 255, 0.35);
+}
+
+.nav-links-left a:hover::after {
+  width: 100%;
+}
+
+.navbar a:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ============================================================
+   4) PRODUCT PAGE — body.product-page
+============================================================ */
+/* ===== Tabs NO-JS (radio) ===== */
+body.product-page .produs-tabs input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* di default: nascondo tutti i pannelli */
+body.product-page .produs-tabs .tab-panel {
+  display: none;
+}
+
+/* mostro solo quello selezionato */
+body.product-page #tab-desc:checked ~ .panel-desc,
+body.product-page #tab-spec:checked ~ .panel-spec,
+body.product-page #tab-rec:checked ~ .panel-rec {
+  display: block;
+}
+
+/* label cliccabili come tab */
+body.product-page .tabs .tab {
+  user-select: none;
+}
+
+/* stile "attivo" sul label giusto */
+body.product-page #tab-desc:checked ~ .tabs label[for='tab-desc'],
+body.product-page #tab-spec:checked ~ .tabs label[for='tab-spec'],
+body.product-page #tab-rec:checked ~ .tabs label[for='tab-rec'] {
+  border-color: rgba(244, 197, 66, 0.75);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page main.produs-pagina {
+  padding-bottom: 20px;
+}
+
+/* Carduri principale */
+body.product-page .produs,
+body.product-page .recomandate {
+  margin: 16px var(--page-pad);
+  padding: var(--section-pad);
+  border-radius: var(--radius);
+  background: var(--bg-section);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+/* Layout produs: 2 coloane */
+body.product-page .produs-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* =========================
+   Media: imagine + miniaturi
+========================= */
+body.product-page .produs-media {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+body.product-page .produs-imagine-principala {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: var(--glass-inset);
+}
+
+body.product-page .produs-imagine-principala img {
+  margin: 0 auto;
+  width: clamp(260px, 34vw, 420px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Miniaturi */
+body.product-page .produs-miniature {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+body.product-page .produs-miniature button {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: var(--glass-inset);
+  cursor: pointer;
+  padding: 10px;
+  transition:
+    transform 140ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-page .produs-miniature button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 197, 66, 0.7);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.25),
+    0 0 14px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .produs-miniature button:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+body.product-page .produs-miniature img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================
+   Info produs
+========================= */
+body.product-page .produs-info {
+  min-width: 0;
+}
+
+body.product-page .produs-info h1 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin: 22px 0 10px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+body.product-page .produs-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+body.product-page .produs-rating {
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .produs-pret strong {
+  font-size: 18px;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .produs-stoc {
+  color: rgba(233, 242, 255, 0.92);
+  margin: 6px 0 10px;
+}
+
+body.product-page .produs-punctele-cheie {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 10px 0 16px;
+  color: rgba(233, 242, 255, 0.92);
+}
+
+/* =========================
+   Acțiuni: cantitate + buton coș
+========================= */
+body.product-page .produs-actiuni {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  margin-top: 22px;
+}
+
+body.product-page .qty-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+body.product-page .qty-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+body.product-page .qty-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-page .qty-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 197, 66, 0.7);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .qty-button:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+body.product-page .qty-control input[type='number'] {
+  width: 70px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  background: rgba(19, 58, 77, 0.55);
+  color: var(--text-main);
+  text-align: center;
+  outline: none;
+  padding-left: 0;
+  padding-right: 0;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-page .qty-control input[type='number']:focus {
+  border-color: rgba(79, 182, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(79, 182, 255, 0.18);
+}
+
+/* Buton coș */
+body.product-page .btn-cos {
+  height: 45px;
+  min-width: 220px;
+  padding: 0 24px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent-gold);
+  color: #0b0f14;
+  font-weight: 780;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--glow-gold);
+  transition:
+    transform 120ms ease,
+    filter 140ms ease,
+    box-shadow 160ms ease;
+}
+
+body.product-page .btn-cos:hover {
+  background: var(--accent-gold-hover);
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.25),
+    var(--glow-gold);
+}
+
+body.product-page .btn-cos:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Tabs + panouri
+========================= */
+body.product-page .produs-tabs {
+  margin-top: 16px;
+  border-radius: var(--radius);
+  background: var(--bg-section);
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+body.product-page .tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 14px 12px;
+  padding: 14px 0 0;
+}
+
+body.product-page .tab {
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-main);
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-page .tab:hover {
+  transform: translateY(-1px);
+  border-color: rgba(45, 167, 255, 0.55);
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.2);
+}
+
+body.product-page .tab:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+body.product-page .tab-active {
+  border-color: rgba(244, 197, 66, 0.75);
+  box-shadow: 0 0 12px rgba(244, 197, 66, 0.18);
+}
+
+body.product-page .tab-panel {
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 14px;
+  color: rgba(233, 242, 255, 0.92);
+  margin: 0 14px 14px 14px;
+}
+
+/* Tabelle (specificatii) */
+body.product-page .tab-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+body.product-page .tab-panel th,
+body.product-page .tab-panel td {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 10px;
+  text-align: left;
+}
+
+body.product-page .tab-panel th {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(233, 242, 255, 0.95);
+}
+
+/* Recenzii */
+body.product-page .review {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  margin-top: 10px;
+  box-shadow: var(--glass-inset);
+}
+
+body.product-page .review .stars {
+  color: var(--accent-gold);
+  letter-spacing: 1px;
+}
+
+/* =========================
+   Recomandate
+========================= */
+body.product-page .recomandate h2 {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+body.product-page .recomandate ul li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.product-page .recomandate ul li:last-child {
+  border-bottom: 0;
+}
+
+body.product-page .recomandate-grila {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Card recomandat */
+body.product-page .produs-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(0deg, var(--glass-bg), var(--glass-bg)), #1a77a5;
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+  transition:
+    transform 160ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.product-page .produs-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244, 197, 66, 0.85);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(45, 167, 255, 0.22),
+    var(--glow-blue_2);
+}
+
+body.product-page .produs-card a:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+body.product-page .produs-card-image {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.product-page .produs-card-image img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.product-page .produs-card h3 {
+  margin: 0;
+  padding: 12px 12px 6px;
+  background: #216080;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  color: #fff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.35em * 2);
+}
+
+body.product-page .produs-card-pret {
+  margin: 0;
+  padding: 0 12px 12px;
+  background: #216080;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  text-shadow: 0 0 10px rgba(244, 197, 66, 0.18);
+}
+
+/* ============================================================
+   5) FOOTER (BASE — compatibile con il tuo HTML)
+   - Se nel tuo CSS principale esiste già, puoi togliere questa parte.
+============================================================ */
+.footer {
+  margin: 0 var(--page-pad) 16px;
+}
+
+.footer-inner {
+  background: var(--bg-footer);
+  border-radius: 8px;
+  padding: 8px var(--page-pad) 6px;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  box-shadow: 0 0 10px rgba(45, 167, 255, 0.25);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.footer-col h3 {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-main);
+}
+
+.footer-col ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 18px;
+  row-gap: 6px;
+  justify-content: center;
+}
+
+.footer-col li {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--text-muted);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.footer-col a {
+  color: inherit;
+  transition: color 160ms ease;
+}
+
+.footer-col a:hover {
+  color: var(--accent-gold);
+}
+
+.copyright {
+  margin-top: 6px;
+  padding-top: 4px;
+  text-align: center;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   6) RESPONSIVE (PRODUCT PAGE)
+============================================================ */
+@media (max-width: 980px) {
+  body.product-page .produs-container {
+    grid-template-columns: 1fr;
+  }
+
+  body.product-page .recomandate-grila {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.product-page .produs-info h1 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .footer-col ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    margin: 12px var(--page-pad);
+    padding: 10px var(--page-pad);
+  }
+
+  body.product-page .produs-imagine-principala img {
+    height: 300px;
+    width: auto;
+  }
+
+  body.product-page .recomandate-grila {
+    grid-template-columns: 1fr;
+  }
+
+  body.product-page .produs-miniature button {
+    width: 96px;
+    height: 96px;
+  }
+
+  body.product-page .btn-cos {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* ============================================================
+   7) ACCESSIBILITATE: Reduce Motion
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

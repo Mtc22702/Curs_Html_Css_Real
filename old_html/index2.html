@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina produs – Șampon Koch Chemie CES</title>
+
+    <link rel="stylesheet" href="../Curs_html_Css_Real/css/style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/img/Logo-Adarta.png" type="image/png" />
+  </head>
+
+  <body class="product-page">
+    <!-- HEADER -->
+    <header>
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a
+            class="logo"
+            href="index.html"
+            aria-label="Mergi la pagina principală"
+          >
+            <img
+              src="./assets/img/Logo-Adarta.png"
+              alt="Logo Adarta Detailing Auto"
+              width="120"
+            />
+          </a>
+
+          <ul class="nav-links-left">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#produs">Produs</a></li>
+            <li><a href="#recomandate">Produse similare</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main id="home" class="produs-pagina">
+      <!-- PRODUS -->
+      <section id="produs" class="produs" aria-label="Detalii produs">
+        <div class="produs-container">
+          <!-- STÂNGA: media -->
+          <div class="produs-media">
+            <figure class="produs-imagine-principala">
+              <img
+                src="https://via.placeholder.com/700x500?text=Imagine+Produs"
+                alt="Șampon auto Koch Chemie Ceramic Effect Shampoo"
+                width="700"
+              />
+            </figure>
+
+            <div class="produs-miniature" aria-label="Imagini produs">
+              <button type="button" aria-label="Miniatura 1">
+                <img
+                  src="https://via.placeholder.com/220x160?text=Miniatura+1"
+                  alt="Miniatura produs 1"
+                  width="220"
+                />
+              </button>
+
+              <button type="button" aria-label="Miniatura 2">
+                <img
+                  src="https://via.placeholder.com/220x160?text=Miniatura+2"
+                  alt="Miniatura produs 2"
+                  width="220"
+                />
+              </button>
+
+              <button type="button" aria-label="Miniatura 3">
+                <img
+                  src="https://via.placeholder.com/220x160?text=Miniatura+3"
+                  alt="Miniatura produs 3"
+                  width="220"
+                />
+              </button>
+            </div>
+          </div>
+
+          <!-- DREAPTA: info -->
+          <div class="produs-info">
+            <h1>Șampon auto Koch Chemie Ceramic Effect Shampoo (CES), 1L</h1>
+
+            <div class="produs-meta">
+              <div class="produs-rating" aria-label="Rating produs">
+                <span aria-hidden="true">★★★★☆</span>
+              </div>
+              <p>(12 recenzii) • 4.5</p>
+            </div>
+
+            <p class="produs-pret"><strong>50,00 RON</strong></p>
+            <p class="produs-stoc"><strong>În stoc</strong></p>
+
+            <p>
+              Șampon auto cu efect ceramic, conceput pentru spălarea manuală:
+              curăță și oferă protecție hidrofobă într-un singur pas.
+            </p>
+
+            <ul class="produs-punctele-cheie">
+              <li>Curăță și protejează rapid într-un singur pas</li>
+              <li>Efect hidrofob și luciu puternic</li>
+              <li>Ajută la prelungirea protecțiilor aplicate anterior</li>
+              <li>Potrivit pentru vopsea, sticlă și plastic</li>
+            </ul>
+
+            <div class="produs-actiuni">
+              <div class="qty">
+                <label class="qty-label" for="qty">Cantitate</label>
+
+                <div class="qty-control">
+                  <button
+                    type="button"
+                    class="qty-button"
+                    aria-label="Scade cantitatea"
+                  >
+                    -
+                  </button>
+
+                  <input id="qty" type="number" value="1" min="1" />
+
+                  <button
+                    type="button"
+                    class="qty-button"
+                    aria-label="Crește cantitatea"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <button type="button" class="btn-cos">Adaugă în coș</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABS  -->
+        <div class="produs-tabs">
+          <input type="radio" name="tabs" id="tab-desc" checked />
+          <input type="radio" name="tabs" id="tab-spec" />
+          <input type="radio" name="tabs" id="tab-rec" />
+
+          <div class="tabs">
+            <label class="tab" for="tab-desc">Descriere detaliată</label>
+            <label class="tab" for="tab-spec">Specificații</label>
+            <label class="tab" for="tab-rec">Recenzii</label>
+          </div>
+
+          <div class="tab-panel panel-desc">
+            <h2>Descriere detaliată</h2>
+            <p>
+              Ceramic Effect Shampoo este un șampon auto cu tehnologie de
+              conservare ce creează o suprafață netedă și hidrofobă, cu luciu
+              accentuat.
+            </p>
+            <p>
+              Este recomandat pentru vehicule protejate anterior și ajută la
+              prelungirea duratei stratului protector. Ideal pentru vopsea,
+              sticlă și plastic.
+            </p>
+            <p>
+              Mod de folosire: adaugă 50 ml la 10 L apă, spală cu mănușă/burete,
+              clătește bine și usucă. Nu folosi pe suprafețe fierbinți sau în
+              soare.
+            </p>
+          </div>
+
+          <div class="tab-panel panel-spec">
+            <h2>Specificații</h2>
+            <table>
+              <tr>
+                <th>Caracteristică</th>
+                <th>Detalii</th>
+              </tr>
+              <tr>
+                <td>Volum</td>
+                <td>1L</td>
+              </tr>
+              <tr>
+                <td>Tip protecție</td>
+                <td>Hibridă</td>
+              </tr>
+              <tr>
+                <td>Utilizare</td>
+                <td>Spălare manuală</td>
+              </tr>
+              <tr>
+                <td>Dozaj</td>
+                <td>50 ml / 10 L apă</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="tab-panel panel-rec">
+            <h2>Recenzii utilizatori</h2>
+
+            <article class="review">
+              <p><strong>Andrei P.</strong> <span class="stars">★★★★★</span></p>
+              <p>
+                „Spumare bună și lasă un efect hidrofob vizibil. Mi-a plăcut și
+                mirosul.”
+              </p>
+            </article>
+
+            <article class="review">
+              <p><strong>Maria D.</strong> <span class="stars">★★★★☆</span></p>
+              <p>
+                „Curăță bine și luciul e fain. Aș vrea doar un preț puțin mai
+                mic.”
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUSE SIMILARE  -->
+      <!-- <section
+        id="recomandate"
+        aria-label="Produse similare"
+        class="recomandate"
+      >
+        <h2>Produse similare</h2>
+        <ul>
+          <li>
+            <img
+              src="https://via.placeholder.com/80?text=P1"
+              alt="Produs similar 1"
+              width="80"
+            />
+            Spray protecție vopsea – Koch Chemie Spray Sealant, 500ml
+          </li>
+          <li>
+            <img
+              src="https://via.placeholder.com/80?text=P2"
+              alt="Produs similar 2"
+              width="80"
+            />
+            Soluție curățare universală – Koch Chemie Green Star, 1L
+          </li>
+          <li>
+            <img
+              src="https://via.placeholder.com/80?text=P3"
+              alt="Produs similar 3"
+              width="80"
+            />
+            Soluție curățare jante – Koch Chemie Magic Wheel Cleaner, 500ml
+          </li>
+        </ul>
+
+        <h2 style="margin-top: 18px">Produse recomandate</h2>
+        <div class="recomandate-grila">
+          <article class="produs-card">
+            <a href="#">
+              <div class="produs-card-image">
+                <img
+                  src="https://via.placeholder.com/350x250?text=Recomandat+1"
+                  alt="Produs recomandat 1"
+                />
+              </div>
+              <h3>Spray protecție vopsea – Koch Chemie Spray Sealant, 500ml</h3>
+              <p class="produs-card-pret">45,00 RON</p>
+            </a>
+          </article> -->
+
+          <article class="produs-card">
+            <a href="#">
+              <div class="produs-card-image">
+                <img
+                  src="https://via.placeholder.com/350x250?text=Recomandat+2"
+                  alt="Produs recomandat 2"
+                />
+              </div>
+              <h3>Soluție curățare universală – Koch Chemie Green Star, 1L</h3>
+              <p class="produs-card-pret">30,00 RON</p>
+            </a>
+          </article>
+
+          <article class="produs-card">
+            <a href="#">
+              <div class="produs-card-image">
+                <img
+                  src="https://via.placeholder.com/350x250?text=Recomandat+3"
+                  alt="Produs recomandat 3"
+                />
+              </div>
+              <h3>
+                Soluție curățare jante – Koch Chemie Magic Wheel Cleaner, 500ml
+              </h3>
+              <p class="produs-card-pret">60,00 RON</p>
+            </a>
+          </article>
+
+          <article class="produs-card">
+            <a href="#">
+              <div class="produs-card-image">
+                <img
+                  src="https://via.placeholder.com/350x250?text=Recomandat+4"
+                  alt="Produs recomandat 4"
+                />
+              </div>
+              <h3>Spumă spălare – Koch Chemie Gentle Snow Foam, 1L</h3>
+              <p class="produs-card-pret">35,00 RON</p>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section" aria-label="Contact">
+        <h2>Contact</h2>
+        <p>Email: contact@exemplu.ro</p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#">Îngrijire exterior</a></li>
+              <li><a href="#">Îngrijire interior</a></li>
+              <li><a href="#">Accesorii</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Information</h3>
+            <ul>
+              <li><a href="#">Termeni și condiții</a></li>
+              <li><a href="#">Politica GDPR</a></li>
+              <li><a href="#">Livrare</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Garanție</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 style="text-align: center; margin-top: 10px">Social</h3>
+        <p style="text-align: center">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./assets/icons/facebook.png" alt="Facebook" width="24" />
+            Facebook
+          </a>
+          &nbsp;|&nbsp;
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="./assets/icons/instagram.png"
+              alt="Instagram"
+              width="24"
+            />
+            Instagram
+          </a>
+        </p>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
