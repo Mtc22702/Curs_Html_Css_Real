@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="post" name="contactform">
+      <fieldset>
+        <legend>Personal information:</legend>
+        <label for="name">Your full name:</label><br />
+        <input type="text" name="fullname" id="fullname" /><br /><br />
+        <label for="email">E-email address:</label><br />
+        <input type="email" name="email" id="email" /><br /><br />
+        <label for="country">You are from:</label>
+        <select name="country" id="country">
+          <option value="romania">Romania</option>
+          <option value="serbia">Serbia</option>
+          <option value="ukraine">Ukraine</option></select
+        ><br /><br />
+      </fieldset>
+      <fieldset>
+        <legend>Reason you are contacting us</legend>
+        <input type="checkbox" name="info" id="info" />
+        <label for="info">I would like detailed information</label><br />
+        <input type="checkbox" name="employ" id="employ" />
+        <label for="employ">I am interested in employment</label><br />
+        <input type="checkbox" name="feedb" id="feedb" />
+        <label for="feedb">I would like ti give you my feedback</label><br />
+        <input type="checkbox" name="other" id="other" />
+        <label for="other">Other (see below)</label><br />
+      </fieldset>
+      <label for="comments">Comments:</label><br />
+      <textarea name="comments" id="comments"> </textarea>
+    </form>
+    <br />
+    <br />
+    <button type="submit">Send</button>
+  </body>
+</html>

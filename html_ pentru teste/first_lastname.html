@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="first_name">First Name :</label><br />
+      <input
+        type="text"
+        name="first_name"
+        id="first_name"
+        placeholder="First Name..."
+      /><br />
+      <br />
+      <label for="last_name">Last Name :</label><br />
+      <input
+        type="text"
+        name="last_name"
+        id="last_name"
+        placeholder="First Name..."
+      />
+      <br /><br />
+      <label for="pass">Password :</label><br />
+      <input type="password" name="pass" id="pass" placeholder="Password..." />
+      <br /><br />
+      <label for="country">Country:</label><br />
+      <input type="text" name="country" id="country" placeholder="Country..." />
+      <br />
+      <br />
+      <label for="year">Age:</label>
+      <br />
+      <input
+        type="number"
+        name="year"
+        id="year"
+        placeholder="Age..."
+        min="14"
+        max="99"
+      />
+      <br />
+      <br />
+      <label for="userType">User Type:</label>
+      <br />
+      <br />
+      <input
+        name="userType"
+        type="radio"
+        id="individual"
+        value="Individual"
+        checked="checked"
+      />
+      <label for="individual">Individual</label>
+      <br />
+      <input name="userType" type="radio" id="company" value="Company" />
+      <label for="company">Company</label>
+      <br />
+      <input
+        name="userType"
+        type="radio"
+        id="organization"
+        value="Organization"
+      />
+      <label for="organization">Organization</label>
+      <br />
+      <br />
+
+      <label for="color">Choose your profile color:</label><br />
+      <input type="color" name="favcolor" />
+      <br />
+      <br />
+      <br />
+      <label for="range">Years of programming experience:</label><br />
+      <input type="range" name="points" min="0" max="10" />
+      <br />
+      <br />
+      <input
+        type="checkbox"
+        name="question"
+        value="Like"
+        id="question"
+        checked="checked"
+      />
+      <label for="question">I am not a robot</label>
+      <br />
+      <br />
+      <br />
+      <input type="submit" value="Submit" />
+      <br />
+      <br />
+      <input type="hidden" name="hiddenField" id="hiddenField" value="x" />
+    </form>
+  </body>
+</html>
