@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+
+    <!-- favicon (metti il tuo file qui) -->
+    <link rel="icon" type="image/png" href="./assets/img/Logo Adarta.png" />
+
+    <!-- CSS standalone (non dipende dal tuo style.css) -->
+    <link rel="stylesheet" href="./assets/css/checkout.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <!-- se vuoi qui ci metti logo/navbar come nel tuo stile -->
+    </header>
+
+    <main class="checkout">
+      <h1>Checkout</h1>
+
+      <form class="checkout-form" action="#" method="post">
+        <!-- =========================
+             SHIPPING
+        ========================== -->
+        <fieldset class="card">
+          <legend>Informatii de livrare</legend>
+
+          <div class="row row-2">
+            <div class="field">
+              <label class="sr-only" for="nume">Nume</label>
+              <input
+                type="text"
+                id="nume"
+                name="nume"
+                placeholder="Nume..."
+                autocomplete="family-name"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="prenume">Prenume</label>
+              <input
+                type="text"
+                id="prenume"
+                name="prenume"
+                placeholder="Prenume..."
+                autocomplete="given-name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="sr-only" for="adresa">Adresa</label>
+              <input
+                type="text"
+                id="adresa"
+                name="adresa"
+                placeholder="Adresa..."
+                autocomplete="street-address"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="sr-only" for="apt">Apartament / Scara</label>
+              <input
+                type="text"
+                id="apt"
+                name="apt"
+                placeholder="Apartament, scara, etc..."
+                autocomplete="address-line2"
+              />
+            </div>
+          </div>
+
+          <div class="row row-3">
+            <div class="field">
+              <label class="sr-only" for="tara">Tara</label>
+              <select
+                id="tara"
+                name="tara"
+                autocomplete="country-name"
+                required
+              >
+                <option value="" selected disabled>Selecteaza tara</option>
+                <option>Romania</option>
+                <option>Italia</option>
+                <option>Spania</option>
+                <option>Franta</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="oras">Oras</label>
+              <select
+                id="oras"
+                name="oras"
+                autocomplete="address-level2"
+                required
+              >
+                <option value="" selected disabled>Selecteaza orasul</option>
+                <option>Timisoara</option>
+                <option>Bucuresti</option>
+                <option>Cluj</option>
+                <option>Iasi</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="sr-only" for="cod_postal">Cod postal</label>
+              <input
+                type="text"
+                id="cod_postal"
+                name="cod_postal"
+                placeholder="Cod postal..."
+                autocomplete="postal-code"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="sr-only" for="text_optional">Text Optional</label>
+              <input
+                type="text"
+                id="text_optional"
+                name="text_optional"
+                placeholder="Text Optional..."
+              />
+            </div>
+          </div>
+
+          <label class="checkline">
+            <input type="checkbox" name="saveContact" />
+            Salveaza informatiile de contact
+          </label>
+        </fieldset>
+
+        <!-- =========================
+             PAYMENT
+        ========================== -->
+        <fieldset class="card">
+          <legend>Metoda de plata</legend>
+
+          <!-- valore inviato al form -->
+          <input
+            type="hidden"
+            id="payment_method"
+            name="payment_method"
+            value="card"
+          />
+
+          <div class="pay-methods" role="group" aria-label="Metoda de plata">
+            <button
+              type="button"
+              class="pay-btn"
+              data-pay="paypal"
+              aria-pressed="false"
+              title="PayPal"
+            >
+              <img src="./assets/img/paypal_logo (1).png" alt="PayPal" />
+            </button>
+
+            <button
+              type="button"
+              class="pay-btn"
+              data-pay="cash"
+              aria-pressed="false"
+              title="Cash"
+            >
+              Cash
+            </button>
+
+            <button
+              type="button"
+              class="pay-btn is-active"
+              data-pay="card"
+              aria-pressed="true"
+              title="Card"
+            >
+              Card
+            </button>
+          </div>
+
+          <fieldset class="pay-card" aria-label="Detalii card">
+            <div class="row">
+              <div class="field">
+                <label class="sr-only" for="tituar_card"
+                  >Nume titular card</label
+                >
+                <input
+                  type="text"
+                  id="tituar_card"
+                  name="tituar_card"
+                  placeholder="Nume titular card..."
+                  autocomplete="cc-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="field">
+                <label class="sr-only" for="numar_card">Numar card</label>
+                <input
+                  type="text"
+                  id="numar_card"
+                  name="numar_card"
+                  placeholder="Numar card..."
+                  inputmode="numeric"
+                  autocomplete="cc-number"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row row-3 card-mini">
+              <div class="field">
+                <label class="sr-only" for="luna">Luna</label>
+                <select
+                  id="luna"
+                  name="luna"
+                  autocomplete="cc-exp-month"
+                  required
+                >
+                  <option value="" selected disabled>Luna</option>
+                  <option>01</option>
+                  <option>02</option>
+                  <option>03</option>
+                  <option>04</option>
+                  <option>05</option>
+                  <option>06</option>
+                  <option>07</option>
+                  <option>08</option>
+                  <option>09</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="sr-only" for="an">An</label>
+                <select id="an" name="an" autocomplete="cc-exp-year" required>
+                  <option value="" selected disabled>An</option>
+                  <option>2026</option>
+                  <option>2027</option>
+                  <option>2028</option>
+                  <option>2029</option>
+                  <option>2030</option>
+                  <option>2031</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="sr-only" for="cvc">CVC</label>
+                <input
+                  type="password"
+                  id="cvc"
+                  name="cvc"
+                  placeholder="CVC..."
+                  inputmode="numeric"
+                  autocomplete="cc-csc"
+                  required
+                />
+              </div>
+            </div>
+
+            <label class="checkline">
+              <input type="checkbox" name="saveCard" />
+              Salveaza datele cardului pentru plati viitoare
+            </label>
+
+            <button class="cta" type="submit">Plateste</button>
+          </fieldset>
+        </fieldset>
+      </form>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <!-- JS minimo: selezione metodo pagamento -->
+    <script>
+      (function () {
+        const buttons = document.querySelectorAll('.pay-btn');
+        const hidden = document.getElementById('payment_method');
+        const cardBox = document.querySelector('.pay-card');
+
+        function setActive(method) {
+          hidden.value = method;
+
+          buttons.forEach((b) => {
+            const isOn = b.dataset.pay === method;
+            b.classList.toggle('is-active', isOn);
+            b.setAttribute('aria-pressed', String(isOn));
+          });
+
+          // Mostra i dettagli carta solo se metodo = card
+          const showCard = method === 'card';
+          cardBox.classList.toggle('is-hidden', !showCard);
+
+          // Se non è card, togli required ai campi carta (così submit funziona)
+          cardBox.querySelectorAll('input, select').forEach((el) => {
+            if (el.id === 'payment_method') return;
+            if (showCard) {
+              if (el.dataset.wasRequired === 'true') el.required = true;
+              else if (el.required) el.dataset.wasRequired = 'true';
+            } else {
+              if (el.required) el.dataset.wasRequired = 'true';
+              el.required = false;
+            }
+          });
+        }
+
+        buttons.forEach((b) => {
+          b.addEventListener('click', () => setActive(b.dataset.pay));
+        });
+
+        // stato iniziale
+        setActive(hidden.value || 'card');
+      })();
+    </script>
+  </body>
+</html>
