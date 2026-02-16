@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #faf8f8;
+      }
+    </style>
+  </head>
+  <header></header>
+  <body>
+    <main>
+      <h1>Checkout</h1>
+
+      <fieldset>
+        <legend>Informatii de livrare</legend>
+
+        <label for="nume"></label>
+        <input
+          type="text"
+          id="nume"
+          name="nume"
+          placeholder="Nume..."
+          required
+        />
+        <label for="prenume"></label>
+        <input
+          type="text"
+          id="prenume"
+          name="prenume"
+          placeholder="Prenume..."
+          required
+        />
+        <br />
+        <br />
+
+        <label for="address"></label>
+        <input
+          type="text"
+          id="adresa"
+          name="adresa"
+          placeholder="Adresa..."
+          required
+        />
+        <br />
+        <br />
+
+        <label for="apt"></label>
+        <input
+          type="text"
+          id="apt"
+          name="apt"
+          placeholder="Apartament, scara, etc..."
+        />
+        <br />
+        <br />
+
+        <label for="tara"></label>
+        <select id="tara" name="tara" required>
+          <option value="" selected disabled>Selecteaza tara</option>
+          <option>Romania</option>
+          <option>Italia</option>
+          <option>Spania</option>
+          <option>Franta</option>
+        </select>
+
+        <label for="oras"></label>
+        <select id="oras" name="oras" required>
+          <option value="" selected disabled>Selecteaza orasul</option>
+          <option>Timisoara</option>
+          <option>Bucuresti</option>
+          <option>Cluj</option>
+          <option>Iasi</option>
+        </select>
+
+        <label for="cod_postal"></label>
+        <input
+          type="text"
+          id="cod_postal"
+          name="cod_postal"
+          placeholder="Cod postal..."
+          required
+        />
+        <br />
+        <br />
+
+        <label for="text_optional"></label>
+        <input
+          type="text"
+          id="text_optional"
+          name="text_optional"
+          placeholder="Text Optional..."
+        />
+        <br />
+        <br />
+
+        <label>
+          <input type="checkbox" name="saveContact" />
+          Salveaza informatiile de contact
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Metoda de plata</legend>
+
+        <fieldset>
+          <button type="button" name="metoada_plata" value="paypal">
+            <img src="./assets/img/paypal_logo (1).png" alt="PayPal" />
+          </button>
+          <button type="button" name="metoada_plata" value="cash">Cash</button>
+        </fieldset>
+
+        <fieldset>
+          <label for="tituar_card"></label>
+          <input
+            type="text"
+            id="tituar_card"
+            name="tituar_card"
+            placeholder="Nume titular card..."
+            required
+          />
+          <br />
+          <br />
+
+          <label for="numar_card"></label>
+          <input
+            type="text"
+            id="numar_card"
+            name="numar_card"
+            placeholder="Numar card..."
+            required
+          />
+          <br />
+          <br />
+
+          <label for="luna"></label>
+          <select id="luna" name="luna" required>
+            <option value="" selected disabled>Luna</option>
+            <option>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+            <option>07</option>
+            <option>08</option>
+            <option>09</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
+
+          <label for="an"></label>
+          <select id="an" name="an" required>
+            <option value="" selected disabled>An</option>
+            <option>2026</option>
+            <option>2027</option>
+            <option>2028</option>
+            <option>2029</option>
+            <option>2030</option>
+            <option>2031</option>
+          </select>
+
+          <label for="cvc"></label>
+          <input
+            type="password"
+            id="cvc"
+            name="cvc"
+            placeholder="CVC..."
+            required
+          />
+          <br />
+          <br />
+
+          <label>
+            <input type="checkbox" name="saveCard" />
+            Salveaza datele cardului pentru plati viitoare
+          </label>
+          <br />
+          <br />
+
+          <button type="submit">Plateste cu cardul</button>
+        </fieldset>
+      </fieldset>
+    </main>
+  </body>
+  <footer></footer>
+</html>
