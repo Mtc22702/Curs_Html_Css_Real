@@ -1,0 +1,18 @@
+h1 {
+  color: blue;
+}
+h2 {
+  color: red;
+}
+dd {
+  color: green;
+}
+dt {
+  color: orange;
+}
+li strong {
+  color: pink;
+}
+ul li {
+  color: yellowgreen;
+}
