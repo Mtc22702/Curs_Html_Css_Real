@@ -1,0 +1,24 @@
+/* 1️⃣ Descendant selector — toate <p> din #electronics devin albastre */
+#electronics p {
+  color: blue;
+}
+
+/* 2️⃣ Child selector — doar <p> care sunt copii direcți ai #electronics devin roșii */
+#electronics > p {
+  color: red;
+}
+
+/* 3️⃣ Adjacent sibling — primul .info imediat după #electronics devine bold */
+#electronics + .info {
+  font-weight: bold;
+}
+
+/* 4️⃣ General sibling — toate celelalte .info după #electronics devin galbene */
+#electronics ~ .info {
+  color: darkgoldenrod;
+}
+
+/* 5️⃣ Selector multiplu criterii — doar <span class="sale"> din .product devine verde */
+.product span.sale {
+  color: green;
+}
