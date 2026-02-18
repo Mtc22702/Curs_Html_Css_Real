@@ -1,0 +1,29 @@
+p {
+  font-size: 18px;
+}
+
+.prima {
+  margin: 20px;
+  padding: 20px;
+  width: 70vh;
+  height: 10vh;
+  border: 5px solid blue;
+}
+.seconda {
+  margin: 20px;
+  padding: 20px;
+  width: 70vh;
+  height: 10vh;
+  border-top: dashed lightgray 5px;
+  border-bottom: dashed lightgray 5px;
+  border-left: dotted lightgray;
+  border-right: dotted lightgray;
+}
+.terza {
+  margin: 20px;
+  padding: 20px;
+  width: 70vh;
+  height: 10vh;
+  border: 5px solid lightseagreen;
+  border-radius: 15px;
+}
