@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Creation</title>
+    <link rel="stylesheet" href="./account_creation.css" />
+    <link
+      rel="shortcut icon"
+      href="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/Black Modern MS Logo (3).png"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="nav-left">
+          <a href="">
+            <img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/Black Modern MS Logo (3).png"
+              alt="Logo"
+          /></a>
+          <nav>
+            <ul class="menu">
+              <li><a href="">Home</a></li>
+              <li><a href="">Shop</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+              <li><a href="">Sale!</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="nav-right">
+          <input class="search" type="search" placeholder="Search..." />
+          <a href=""
+            ><img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/cart_logo (1).png"
+              alt="Cart"
+          /></a>
+          <a href=""
+            ><img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/user_logo (1).png"
+              alt="User"
+          /></a>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main-container">
+        <p class="breadcrumb">Home &gt; Register</p>
+        <h1 class="title">Create an Account</h1>
+        <section class="card">
+          <form class="form" action="">
+            <div class="form-group">
+              <label for="email">Email<span class="req">*</span></label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password"
+                >Create a Password<span class="req">*</span></label
+              >
+              <input type="password" id="password" required />
+              <small class="hint"
+                >8-25 characters only 1 number 1 uppercase 1 lowercase</small
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of birth<span class="req">*</span></label>
+              <input
+                type="date"
+                id="dob"
+                min="1900-01-01"
+                max="2025-12-31"
+                required
+              />
+            </div>
+
+            <label class="check">
+              <input class="check" type="checkbox" /><span
+                >I would like to receive personalized promotions</span
+              ></label
+            >
+            <label class="check">
+              <input class="check" type="checkbox" />
+              <span
+                >I agree and accept the
+                <a href="#">Terms and Conditions</a></span
+              >
+            </label>
+            <button class="btn primary" type="submit">CREATE AN ACCOUNT</button>
+            <button class="btn secondary" type="button">BACK TO LOGIN</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>SHOP</h3>
+          <ul>
+            <li><a href="#">Dresses</a></li>
+            <li><a href="#">Jackets</a></li>
+            <li><a href="#">Skirts</a></li>
+            <li><a href="#">Shoes &amp; Bags</a></li>
+            <li><a href="#">Gift Cards</a></li>
+            <li><a href="#">Sales &amp; Offers</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>INFORMATION</h3>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Delivery and Return</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>CUSTOMER SUPPORT</h3>
+          <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Designed and developed by: ITAcademy</p>
+        <div class="social">
+          <a href="" aria-label="Facebook"
+            ><img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/facebook (2) 2.png"
+              alt="Fb"
+          /></a>
+          <a href="#" aria-label="Instagram"
+            ><img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/instagram (2) 2.png"
+              alt="Instagram"
+          /></a>
+          <a href="#" aria-label="TikTok"
+            ><img
+              src="./Curs_Html_Css_Real/assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+              alt="TikTok"
+          /></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
