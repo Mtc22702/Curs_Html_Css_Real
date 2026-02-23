@@ -1,0 +1,319 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* VARIABLES */
+:root {
+  --bg-soft: #f4eee8;
+  --bg-footer: #efefef;
+  --text-muted: #444;
+  --border: rgba(0, 0, 0, 0.15);
+  --btn: #111;
+  --radius: 10px;
+}
+
+/* LAYOUT */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+/* HEADER */
+.header {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__row {
+  display: flex;
+  align-items: center;
+  padding: 0.9rem 0;
+}
+
+.header__logo {
+  width: 44px;
+  height: auto;
+}
+
+.header__nav {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  font-size: 0.95rem;
+  margin-left: 40px;
+}
+
+.header__nav .sale {
+  color: #e1182c;
+  font-weight: 700;
+}
+
+.header__right {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* search box - aici e ok și position: relative */
+.search {
+  position: relative;
+}
+.search input {
+  width: 260px;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: var(--bg-soft);
+  outline: none;
+  text-align: right;
+}
+
+.header__icons {
+  display: flex;
+  gap: 12px;
+  margin-left: 40px;
+}
+.icon-btn {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-soft);
+}
+.icon-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+/* DISCOVER */
+.discover {
+  background: var(--bg-soft);
+  padding: 1rem 0 1rem 0;
+}
+
+.discover__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+  margin-bottom: 10px;
+}
+.discover__text {
+  margin-top: 30px;
+}
+
+.discover h1 {
+  margin: 0 0 3rem 0;
+  font-size: 2rem;
+}
+
+.discover p {
+  margin: 0;
+  max-width: 560px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.discover__biglogo {
+  display: flex;
+  justify-content: flex-end;
+}
+.discover__biglogo img {
+  width: 320px;
+  opacity: 0.25; /* ca în poză e “watermark” */
+}
+
+/* brand logos row */
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.8rem;
+  padding: 1.3rem 0 0.2rem;
+}
+.brand {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ARRIVALS */
+.arrivals {
+  background: #fff;
+  padding: 1.4rem 0 1.8rem;
+}
+
+.arrivals h2 {
+  margin: 0 0 1.2rem;
+  font-size: 1.8rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem;
+  align-items: start;
+}
+
+.card {
+  position: relative; /* butonul e “sub poză” */
+  display: grid;
+  gap: 0.9rem;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 2 / 4;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #ddd;
+}
+
+.card button {
+  justify-self: center;
+  width: 160px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  background: var(--btn);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* PROMO */
+.promo__images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.promo__images img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+
+.promo__bar {
+  background: #e9ded6;
+  border-top: 1px solid var(--border);
+}
+
+.promo__bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+}
+
+.promo__bar p {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #e1182c;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 34px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg-footer);
+  padding: 1.5rem 0;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-bottom: 1.2rem;
+  margin-top: 10px;
+}
+
+.footer h3 {
+  margin: 0 0 0.8rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.footer li {
+  margin: 0.45rem 0;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.footer__bottom p {
+  margin: 0;
+  color: #333;
+}
+
+.social {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+.social img {
+  width: 20px;
+  height: 20px;
+}
+
+/* RESPONSIVE (bonus) */
+@media (max-width: 900px) {
+  .discover__grid {
+    grid-template-columns: 1fr;
+  }
+  .discover__biglogo {
+    justify-content: flex-start;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .promo__images {
+    grid-template-columns: 1fr;
+  }
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .header__nav {
+    display: none;
+  } /* simplu pt mobil */
+}
