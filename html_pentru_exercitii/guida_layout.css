@@ -1,0 +1,539 @@
+/* =========================================
+   RESET & BASE
+   ========================================= */
+* {
+  box-sizing: border-box; /* Fondamentale: include padding e border nella larghezza totale */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  line-height: 1.6;
+  padding-bottom: 50px;
+}
+
+/* Container centrale per non far allargare troppo il contenuto */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================
+   STILI GENERALI (Header, Footer, Card)
+   ========================================= */
+.site-header {
+  background: #2c3e50;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 20px;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e1e1e1;
+}
+
+.card h2 {
+  color: #2980b9;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.desc {
+  margin-bottom: 20px;
+  background: #e8f4f8;
+  padding: 15px;
+  border-left: 4px solid #2980b9;
+  border-radius: 4px;
+}
+
+code {
+  background: #2d3436;
+  color: #fab1a0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+  display: block;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+/* NUOVO: Stile per i blocchi di codice didattici */
+pre {
+  background: #1e272e; /* Sfondo scuro tipo editor */
+  color: #d2dae2; /* Testo chiaro */
+  padding: 15px;
+  border-radius: 6px;
+  overflow-x: auto; /* Barra scorrimento se il codice è lungo */
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 0.85rem;
+  margin: 10px 0 20px 0;
+  border-left: 4px solid #f39c12; /* Linea colorata a sinistra */
+}
+
+.code-title {
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 15px;
+  display: block;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   1. BOX MODEL DEMO
+   ========================================= */
+.box-model-example {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+}
+
+.margin-area {
+  background-color: #f1c40f; /* Giallo = Margin */
+  padding: 20px; /* Questo simula il margine visivamente */
+  border: 1px dashed #d35400;
+  position: relative;
+}
+
+.border-area {
+  background-color: #34495e; /* Grigio scuro = Border */
+  padding: 5px; /* Spessore bordo simulato */
+}
+
+.padding-area {
+  background-color: #2ecc71; /* Verde = Padding */
+  padding: 30px; /* Questo è il vero padding */
+}
+
+.content-area {
+  background-color: #3498db; /* Blu = Content */
+  padding: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   2. FLEXBOX DEMO
+   ========================================= */
+.demo-block {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.demo-visual {
+  background: #ecf0f1;
+  border: 2px dashed #bdc3c7;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* Caso A: Navbar */
+.flex-navbar {
+  display: flex; /* Attiva Flexbox */
+  justify-content: space-between; /* Spinge gli elementi agli estremi */
+  align-items: center; /* Allinea verticalmente al centro */
+  height: 60px;
+  background: #fff;
+}
+
+.logo-box {
+  background: #e74c3c;
+  color: white;
+  padding: 5px 15px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.menu-box {
+  display: flex; /* Flexbox anche dentro il menu per mettere i LI in riga */
+  gap: 15px; /* Spazio tra i link */
+  list-style: none;
+}
+
+.menu-box li {
+  background: #95a5a6;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Caso B: Centratura */
+.flex-center {
+  display: flex;
+  justify-content: center; /* Orizzontale */
+  align-items: center; /* Verticale */
+  height: 150px;
+  background: #dfe6e9;
+}
+
+.centered-box {
+  background: #8e44ad;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   3. GRID DEMO
+   ========================================= */
+.grid-layout {
+  display: grid;
+  /* Definisco 2 colonne: la prima flessibile (1fr), la seconda 3 volte più grande */
+  grid-template-columns: 1fr 3fr;
+  gap: 10px; /* Spazio tra le celle */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid-layout > div {
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.g-header {
+  grid-column: 1 / -1; /* Occupa dalla linea 1 all'ultima (-1) -> Tutta la larghezza */
+  background: #2c3e50;
+}
+
+.g-sidebar {
+  background: #16a085;
+  min-height: 100px;
+}
+
+.g-main {
+  background: #2980b9;
+  min-height: 100px;
+}
+
+.g-footer {
+  grid-column: 1 / -1; /* Tutta la larghezza */
+  background: #7f8c8d;
+}
+
+/* =========================================
+   4. POSITION DEMO
+   ========================================= */
+.card-product-demo {
+  position: relative; /* IL GENITORE DEVE AVERE QUESTO! */
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-product-demo img {
+  width: 100%;
+  display: block;
+}
+
+.badge-new {
+  position: absolute; /* Si muove liberamente dentro il genitore relative */
+  top: 10px;
+  left: 10px;
+  background: #e74c3c;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.badge-price {
+  position: absolute; /* Si muove liberamente dentro il genitore relative */
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  color: #333;
+  padding: 8px 15px;
+  font-weight: bold;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   NUOVI STILI PER LA GUIDA ESTESA
+   ========================================= */
+
+/* 5. DISPLAY DEMO */
+.display-demo-box {
+  background: #34495e;
+  color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #fff;
+}
+
+.is-block {
+  display: block;
+  background: #e74c3c;
+}
+.is-inline {
+  display: inline;
+  background: #3498db;
+}
+.is-inline-block {
+  display: inline-block;
+  background: #9b59b6;
+  width: 150px;
+}
+
+/* 6. UNITS DEMO */
+.unit-container {
+  border: 2px solid #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+.unit-bar {
+  height: 30px;
+  margin-bottom: 5px;
+  color: white;
+  line-height: 30px;
+  padding-left: 10px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.u-px {
+  width: 200px;
+  background: #e67e22;
+} /* Fisso */
+.u-pct {
+  width: 50%;
+  background: #27ae60;
+} /* Fluido */
+.u-vw {
+  width: 50vw;
+  background: #8e44ad;
+} /* Relativo alla finestra */
+
+/* 7. FLEX WRAP & COLUMN */
+.flex-wrap-demo {
+  display: flex;
+  flex-wrap: wrap; /* Permette di andare a capo */
+  gap: 10px;
+  background: #bdc3c7;
+  padding: 10px;
+}
+.wrap-item {
+  background: #d35400;
+  color: white;
+  padding: 20px;
+  flex: 1 1 100px; /* Cresce, si restringe, base 100px */
+  text-align: center;
+}
+
+/* 8. GRID ADVANCED */
+.grid-gallery {
+  display: grid;
+  /* Magia: crea tante colonne quante ne entrano, minimo 100px */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+.grid-pic {
+  background: #16a085;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 4px;
+}
+
+/* =========================================
+   8. COMMON LAYOUT PATTERNS (Nuovo Capitolo)
+   ========================================= */
+.layout-demo-box {
+  border: 2px solid #bdc3c7;
+  background: #fff;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Pattern 1: Blog */
+.layout-blog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+.lb-header,
+.lb-footer {
+  width: 100%;
+  background: #2c3e50;
+  padding: 10px;
+}
+.lb-main {
+  flex: 3; /* Prende 3 parti */
+  background: #3498db;
+  padding: 30px 10px;
+  min-width: 150px;
+}
+.lb-aside {
+  flex: 1; /* Prende 1 parte */
+  background: #e67e22;
+  padding: 30px 10px;
+  min-width: 80px;
+}
+
+/* Pattern 2: Dashboard */
+.layout-dashboard {
+  display: grid;
+  grid-template-columns: 60px 1fr; /* Sidebar fissa, resto fluido */
+  grid-template-rows: 40px 1fr 30px;
+  height: 180px;
+  gap: 4px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+.ld-sidebar {
+  grid-row: 1 / -1; /* Tutta l'altezza */
+  background: #2c3e50;
+  writing-mode: vertical-rl; /* Testo verticale per demo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ld-header {
+  background: #16a085;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ld-main {
+  background: #ecf0f1;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ld-footer {
+  background: #95a5a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pattern 3: Card Grid */
+.layout-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.lc-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* Pattern 4: Login Centrato */
+.layout-login {
+  background: #34495e;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.ll-box {
+  background: white;
+  padding: 15px;
+  border-radius: 4px;
+  width: 100px;
+  text-align: center;
+  font-size: 0.7rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Pattern 5: Sticky Footer */
+.layout-sticky {
+  display: flex;
+  flex-direction: column;
+  height: 180px; /* Simula viewport */
+  border: 2px solid #333;
+  background: #fff;
+}
+.ls-header {
+  background: #e74c3c;
+  padding: 5px;
+  color: white;
+  font-size: 0.7rem;
+}
+.ls-content {
+  background: #ecf0f1;
+  padding: 10px;
+  flex: 1; /* La chiave è qui */
+  font-size: 0.7rem;
+}
+.ls-footer {
+  background: #2c3e50;
+  padding: 5px;
+  color: white;
+  font-size: 0.7rem;
+}
+
+/* Pattern 6: Masonry */
+.layout-masonry {
+  column-count: 3;
+  column-gap: 10px;
+}
+.lm-item {
+  background: #e67e22;
+  margin-bottom: 10px;
+  break-inside: avoid; /* Non spezzare i blocchi */
+  color: white;
+  padding: 10px;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.h-small {
+  height: 40px;
+}
+.h-med {
+  height: 70px;
+}
+.h-tall {
+  height: 100px;
+}

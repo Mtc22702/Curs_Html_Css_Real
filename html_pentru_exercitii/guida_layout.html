@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manuale Definitivo Layout HTML/CSS</title>
+    <!-- Colleghiamo il file CSS esterno -->
+    <link rel="stylesheet" href="guida_layout.css" />
+  </head>
+  <body>
+    <!--
+        =========================================
+        1. STRUTTURA SEMANTICA (Lo Scheletro)
+        QUANDO USARLA: Sempre. Serve a Google per capire la pagina.
+        NON usare solo <div> per tutto.
+        =========================================
+    -->
+    <header class="site-header">
+      <div class="container">
+        <h1>Manuale Layout CSS</h1>
+        <p>Capire cosa usare e quando usarlo.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <!--
+            =========================================
+            CAPITOLO 1: IL COMPORTAMENTO (Display)
+            Prima di spostare le cose, devi sapere come sono fatte.
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>1. Display: Block vs Inline vs Inline-Block</h2>
+        <p class="desc">
+          Ogni elemento HTML nasce con un comportamento predefinito.
+        </p>
+
+        <div class="demo-block">
+          <h3>A. Display: Block (Il Mattone)</h3>
+          <p>
+            Occupa <strong>tutta la larghezza</strong> disponibile. Va a capo da
+            solo.
+          </p>
+          <div class="demo-visual">
+            <div class="display-demo-box is-block">Sono un DIV (Block)</div>
+            <div class="display-demo-box is-block">
+              Vado a capo anche se c'è spazio
+            </div>
+          </div>
+          <pre>div { display: block; width: 100%; }</pre>
+        </div>
+
+        <div class="demo-block">
+          <h3>B. Display: Inline (Il Testo)</h3>
+          <p>
+            Occupa <strong>solo lo spazio necessario</strong>. Non accetta
+            width/height e margin verticali.
+          </p>
+          <div class="demo-visual">
+            <span class="display-demo-box is-inline"
+              >Sono uno SPAN (Inline)</span
+            >
+            <span class="display-demo-box is-inline"
+              >Sto vicino al mio amico</span
+            >
+          </div>
+          <pre>
+span { display: inline; /* width e height vengono ignorati! */ }</pre
+          >
+        </div>
+
+        <div class="demo-block">
+          <h3>C. Display: Inline-Block (L'Ibrido)</h3>
+          <p>
+            Sta in riga come il testo, ma puoi dargli dimensioni come un blocco.
+          </p>
+          <div class="demo-visual">
+            <div class="display-demo-box is-inline-block">Inline-Block 1</div>
+            <div class="display-demo-box is-inline-block">Inline-Block 2</div>
+          </div>
+          <pre>
+.bottone { display: inline-block; width: 150px; height: 50px; }</pre
+          >
+        </div>
+      </section>
+
+      <!--
+            =========================================
+            CAPITOLO 2: IL BOX MODEL (Le basi)
+            QUANDO USARLO: Per capire perché un elemento è più grande di quanto pensi.
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>2. Il Box Model (Margini vs Padding)</h2>
+        <p class="desc">
+          <strong>Padding:</strong> Spazio INTERNO (tra il testo e il bordo). È
+          come l'imbottitura di un cappotto.<br />
+          <strong>Margin:</strong> Spazio ESTERNO (tra questo elemento e gli
+          altri). È come il tuo spazio personale in fila.
+        </p>
+
+        <span class="code-title">Il Codice CSS dietro le quinte:</span>
+        <pre>
+.scatola {
+  width: 200px;
+  padding: 20px;   /* Spazio interno (verde) */
+  border: 5px solid black; /* Bordo (grigio) */
+  margin: 20px;    /* Spazio esterno (giallo) */
+}
+        </pre>
+
+        <div class="demo-area">
+          <div class="box-model-example">
+            <div class="margin-area">
+              <span class="label">Margin (Esterno)</span>
+              <div class="border-area">
+                <span class="label">Border</span>
+                <div class="padding-area">
+                  <span class="label">Padding (Interno)</span>
+                  <div class="content-area">IL CONTENUTO</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--
+            =========================================
+            CAPITOLO 3: UNITÀ DI MISURA
+            Px, %, Rem, Vh/Vw
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>3. Unità di Misura: Quale usare?</h2>
+        <p class="desc">Non usare sempre i pixel. Il web è fluido.</p>
+
+        <div class="demo-block">
+          <div class="unit-container">
+            <div class="unit-bar u-px">200px (Fisso, non cambia mai)</div>
+            <div class="unit-bar u-pct">50% (Metà del genitore)</div>
+            <div class="unit-bar u-vw">50vw (Metà della finestra browser)</div>
+          </div>
+          <span class="code-title">Quando usarli:</span>
+          <ul>
+            <li>
+              <strong>px:</strong> Per bordi o dettagli molto piccoli e fissi.
+            </li>
+            <li><strong>%:</strong> Per layout fluidi (es. colonne).</li>
+            <li>
+              <strong>rem:</strong> Per i font (rispetta le impostazioni del
+              browser utente).
+            </li>
+            <li>
+              <strong>vh/vw:</strong> Per sezioni a tutto schermo (es. Hero
+              Section).
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--
+            =========================================
+            CAPITOLO 4: FLEXBOX (Il Re dell'Allineamento)
+            QUANDO USARLO:
+            - Navbar (menu orizzontali)
+            - Sidebar verticali
+            - Centrare cose (verticalmente e orizzontalmente)
+            - Liste di card che devono andare a capo
+            - Allineare icone col testo
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>4. Flexbox (display: flex)</h2>
+        <p class="desc">
+          Usa Flexbox quando devi allineare elementi in
+          <strong>UNA direzione</strong> (o riga o colonna).
+        </p>
+
+        <!-- Esempio 1: Navbar -->
+        <div class="demo-block">
+          <h3>Caso d'uso A: La Navbar (Space Between)</h3>
+          <p>Voglio il logo a sinistra e il menu a destra.</p>
+          <div class="flex-navbar demo-visual">
+            <div class="logo-box">Logo</div>
+            <ul class="menu-box">
+              <li>Home</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          <span class="code-title">Struttura HTML:</span>
+          <pre>
+&lt;nav class="navbar"&gt;
+  &lt;div&gt;Logo&lt;/div&gt;
+  &lt;ul&gt;...&lt;/ul&gt;
+&lt;/nav&gt;
+          </pre>
+          <span class="code-title">CSS Fondamentale:</span>
+          <pre>
+.navbar {
+  display: flex;             /* 1. Attiva la magia */
+  justify-content: space-between; /* 2. Spinge gli elementi agli estremi opposti */
+  align-items: center;       /* 3. Allinea verticalmente al centro */
+}
+          </pre>
+        </div>
+
+        <!-- Esempio 2: Centratura perfetta -->
+        <div class="demo-block">
+          <h3>Caso d'uso B: Centrare tutto (Il Santo Graal)</h3>
+          <p>Voglio un elemento perfettamente al centro.</p>
+          <div class="flex-center demo-visual">
+            <div class="centered-box">Sono al centro!</div>
+          </div>
+
+          <span class="code-title">CSS per centrare tutto:</span>
+          <pre>
+.contenitore {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente (asse X) */
+  align-items: center;     /* Centra verticalmente (asse Y) */
+}
+          </pre>
+        </div>
+
+        <!-- Esempio 3: Wrap (A capo automatico) -->
+        <div class="demo-block">
+          <h3>Caso d'uso C: Griglia Flessibile (Wrap)</h3>
+          <p>Se gli elementi sono troppi, falli andare a capo.</p>
+          <div class="flex-wrap-demo demo-visual">
+            <div class="wrap-item">1</div>
+            <div class="wrap-item">2</div>
+            <div class="wrap-item">3</div>
+            <div class="wrap-item">4</div>
+            <div class="wrap-item">5</div>
+          </div>
+          <span class="code-title">CSS per liste di prodotti:</span>
+          <pre>
+.lista-prodotti {
+  display: flex;
+  flex-wrap: wrap; /* Fondamentale: permette di andare a capo */
+  gap: 10px;       /* Spazio tra gli elementi */
+}
+            </pre
+          >
+        </div>
+      </section>
+
+      <!--
+            =========================================
+            CAPITOLO 5: CSS GRID (L'Architetto)
+            QUANDO USARLO:
+            - Layout generale della pagina (Header + Sidebar + Main + Footer)
+            - Gallerie di immagini complesse
+            - Quando vuoi sovrapporre elementi senza usare position absolute
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>5. CSS Grid (display: grid)</h2>
+        <p class="desc">
+          Usa Grid quando devi gestire
+          <strong>SIA righe CHE colonne</strong> contemporaneamente (Layout 2D).
+        </p>
+
+        <div class="demo-block">
+          <h3>Caso d'uso: Layout di Pagina "Bento Box"</h3>
+          <div class="grid-layout demo-visual">
+            <div class="g-header">Header (100%)</div>
+            <div class="g-sidebar">Sidebar (1fr)</div>
+            <div class="g-main">Main Content (3fr)</div>
+            <div class="g-footer">Footer (100%)</div>
+          </div>
+
+          <span class="code-title">CSS Griglia (2 Colonne):</span>
+          <pre>
+.griglia {
+  display: grid;
+  /* Crea 2 colonne: la prima è 1 frazione, la seconda è 3 volte più grande */
+  grid-template-columns: 1fr 3fr;
+  gap: 10px; /* Spazio tra le celle */
+}
+          </pre>
+        </div>
+
+        <div class="demo-block">
+          <h3>Caso d'uso Avanzato: Galleria Responsive Automatica</h3>
+          <p>
+            Questa è la regola più potente di Grid. Crea colonne automatiche
+            senza Media Queries.
+          </p>
+          <div class="grid-gallery demo-visual">
+            <div class="grid-pic">Foto 1</div>
+            <div class="grid-pic">Foto 2</div>
+            <div class="grid-pic">Foto 3</div>
+            <div class="grid-pic">Foto 4</div>
+          </div>
+          <span class="code-title">Il trucco magico:</span>
+          <pre>
+.galleria {
+  display: grid;
+  /* "Riempi lo spazio con colonne larghe almeno 100px, ma se c'è spazio allargale (1fr)" */
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+            </pre
+          >
+        </div>
+      </section>
+
+      <!--
+            =========================================
+            CAPITOLO 6: POSITION (Il Cecchino)
+            QUANDO USARLO:
+            - Absolute: Icone sopra immagini, badge di notifica, menu a tendina.
+            - Sticky: Navbar che rimane in alto mentre scorri.
+            =========================================
+        -->
+      <section class="card tutorial-section">
+        <h2>6. Position (Relative & Absolute)</h2>
+        <p class="desc">
+          <strong>Regola d'oro:</strong> "Il figlio <em>Absolute</em> cerca il
+          primo genitore <em>Relative</em> per capire dove posizionarsi."
+        </p>
+
+        <div class="demo-block">
+          <h3>Caso d'uso: Badge di notifica o Prezzo su foto</h3>
+
+          <!-- Il genitore DEVE avere position: relative -->
+          <div class="card-product-demo">
+            <img
+              src="https://placehold.co/600x200/104187/FFF?text=Prodotto"
+              alt="Prodotto"
+            />
+
+            <!-- Il figlio ha position: absolute -->
+            <div class="badge-new">NUOVO!</div>
+            <div class="badge-price">€99</div>
+          </div>
+
+          <span class="code-title">La Regola d'Oro del CSS:</span>
+          <pre>
+.genitore-prodotto {
+  position: relative; /* "Io sono il punto di riferimento" */
+}
+
+.badge-assoluto {
+  position: absolute; /* "Io volo sopra il genitore" */
+  top: 10px;          /* 10px dall'alto */
+  left: 10px;         /* 10px da sinistra */
+}
+          </pre>
+
+          <p class="nota">
+            Se togliessi <code>position: relative</code> al genitore, i badge
+            volerebbero via verso l'angolo del browser!
+          </p>
+        </div>
+      </section>
+
+      <!--
+          =========================================
+          CAPITOLO 7: MEDIA QUERIES (Responsive)
+          =========================================
+      -->
+      <section class="card tutorial-section">
+        <h2>7. Media Queries (Adattarsi al Mobile)</h2>
+        <p class="desc">
+          Come cambiare il layout quando lo schermo diventa piccolo.
+        </p>
+
+        <div class="demo-block">
+          <span class="code-title"
+            >Esempio classico: Da 3 colonne a 1 colonna</span
+          >
+          <pre>
+/* 1. Stile Base (Desktop First o Mobile First) */
+.colonne {
+  display: flex;
+  flex-direction: row; /* Affiancate su PC */
+}
+
+/* 2. Quando lo schermo è più piccolo di 768px (Tablet/Mobile) */
+@media (max-width: 768px) {
+  .colonne {
+    flex-direction: column; /* Una sotto l'altra su Mobile */
+  }
+}
+              </pre
+          >
+        </div>
+      </section>
+
+      <!--
+          =========================================
+          CAPITOLO 8: PATTERN DI LAYOUT COMUNI
+          Copia e incolla questi per i tuoi progetti
+          =========================================
+      -->
+      <section class="card tutorial-section">
+        <h2>8. Pattern di Layout Comuni (Copia e Incolla)</h2>
+        <p class="desc">
+          Ecco i layout che userai nel 90% dei siti web, con i tag corretti.
+        </p>
+
+        <!-- 1. BLOG CLASSICO -->
+        <div class="demo-block">
+          <h3>A. Il Blog Classico (Header + Main + Sidebar + Footer)</h3>
+          <p>Ideale per articoli, notizie o siti aziendali semplici.</p>
+
+          <div class="layout-demo-box">
+            <div class="layout-blog">
+              <div class="lb-header">&lt;header&gt;</div>
+              <div class="lb-main">&lt;main&gt; (Contenuto)</div>
+              <div class="lb-aside">&lt;aside&gt; (Sidebar)</div>
+              <div class="lb-footer">&lt;footer&gt;</div>
+            </div>
+          </div>
+
+          <span class="code-title">Struttura HTML Semantica:</span>
+          <pre>
+&lt;body&gt;
+  &lt;header&gt;Logo e Menu&lt;/header&gt;
+
+  &lt;div class="container-flex"&gt;
+    &lt;main&gt;
+       &lt;article&gt;
+          &lt;h1&gt;Titolo Articolo&lt;/h1&gt;
+          &lt;p&gt;Testo...&lt;/p&gt;
+       &lt;/article&gt;
+    &lt;/main&gt;
+
+    &lt;aside&gt;Pubblicità, Link, Autore...&lt;/aside&gt;
+  &lt;/div&gt;
+
+  &lt;footer&gt;Copyright&lt;/footer&gt;
+&lt;/body&gt;
+              </pre
+          >
+
+          <span class="code-title">CSS (Flexbox):</span>
+          <pre>
+.container-flex {
+  display: flex;
+  flex-wrap: wrap; /* Importante per il mobile! */
+  gap: 20px;
+}
+
+main {
+  flex: 3; /* Occupa il 75% dello spazio (3 parti su 4) */
+}
+
+aside {
+  flex: 1; /* Occupa il 25% dello spazio (1 parte su 4) */
+}
+
+/* Su mobile, manda la sidebar sotto */
+@media (max-width: 768px) {
+  main, aside { flex: 100%; }
+}
+              </pre
+          >
+        </div>
+
+        <!-- 2. DASHBOARD -->
+        <div class="demo-block">
+          <h3>B. La Dashboard (Sidebar Fissa + Header + Content)</h3>
+          <p>Ideale per pannelli di amministrazione o app web.</p>
+
+          <div class="layout-demo-box">
+            <div class="layout-dashboard">
+              <div class="ld-sidebar">&lt;nav&gt;</div>
+              <div class="ld-header">&lt;header&gt;</div>
+              <div class="ld-main">&lt;main&gt;</div>
+              <div class="ld-footer">&lt;footer&gt;</div>
+            </div>
+          </div>
+
+          <span class="code-title">Struttura HTML Semantica:</span>
+          <pre>
+&lt;div class="admin-grid"&gt;
+  &lt;nav class="sidebar"&gt;Menu Laterale&lt;/nav&gt;
+  &lt;header class="topbar"&gt;Utente e Ricerca&lt;/header&gt;
+  &lt;main class="content"&gt;Grafici e Tabelle&lt;/main&gt;
+  &lt;footer class="bottom"&gt;Info Legali&lt;/footer&gt;
+&lt;/div&gt;
+              </pre
+          >
+
+          <span class="code-title">CSS (Grid):</span>
+          <pre>
+.admin-grid {
+  display: grid;
+  /* Colonna 1: 250px fissa, Colonna 2: tutto il resto */
+  grid-template-columns: 250px 1fr;
+  /* Riga 1: Header, Riga 2: Main (auto), Riga 3: Footer */
+  grid-template-rows: 60px 1fr auto;
+  min-height: 100vh;
+}
+
+.sidebar {
+  grid-row: 1 / -1; /* Occupa dalla riga 1 all'ultima (tutta l'altezza) */
+  background: #333; color: white;
+}
+              </pre
+          >
+        </div>
+
+        <!-- 3. HERO + CARDS -->
+        <div class="demo-block">
+          <h3>C. Landing Page (Hero + Features)</h3>
+          <p>Il layout standard per vendere un prodotto o servizio.</p>
+
+          <div class="layout-demo-box">
+            <div
+              style="
+                background: #34495e;
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-size: 0.8rem;
+              "
+            >
+              &lt;header class="hero"&gt;
+            </div>
+            <div class="layout-cards">
+              <div class="lc-card">&lt;article&gt;</div>
+              <div class="lc-card">&lt;article&gt;</div>
+              <div class="lc-card">&lt;article&gt;</div>
+            </div>
+          </div>
+
+          <span class="code-title">Struttura HTML Semantica:</span>
+          <pre>
+&lt;header class="hero"&gt;
+  &lt;h1&gt;Titolo Grande&lt;/h1&gt;
+  &lt;button&gt;Clicca qui&lt;/button&gt;
+&lt;/header&gt;
+
+&lt;section class="features"&gt;
+  &lt;article class="card"&gt;Icona + Testo&lt;/article&gt;
+  &lt;article class="card"&gt;Icona + Testo&lt;/article&gt;
+  &lt;article class="card"&gt;Icona + Testo&lt;/article&gt;
+&lt;/section&gt;
+              </pre
+          >
+
+          <span class="code-title">CSS (Grid Auto-Fit):</span>
+          <pre>
+.hero {
+  height: 80vh; /* 80% dell'altezza schermo */
+  display: flex; justify-content: center; align-items: center;
+}
+
+.features {
+  display: grid;
+  /* Crea colonne automatiche larghe almeno 250px */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; padding: 40px;
+}
+              </pre
+          >
+        </div>
+
+        <!-- 4. LOGIN CENTRATO -->
+        <div class="demo-block">
+          <h3>D. Form di Login / Modal Centrato</h3>
+          <p>
+            Come piazzare un box esattamente al centro dello schermo (o di un
+            contenitore).
+          </p>
+
+          <div class="layout-demo-box">
+            <div class="layout-login">
+              <div class="ll-box">
+                Login<br />
+                <small>[User]</small><br />
+                <small>[Pass]</small>
+              </div>
+            </div>
+          </div>
+
+          <span class="code-title">Struttura HTML:</span>
+          <pre>
+&lt;div class="overlay-login"&gt;
+  &lt;form class="login-box"&gt;
+    &lt;h2&gt;Accedi&lt;/h2&gt;
+    &lt;input type="text" placeholder="Email"&gt;
+    &lt;input type="password" placeholder="Password"&gt;
+    &lt;button&gt;Entra&lt;/button&gt;
+  &lt;/form&gt;
+&lt;/div&gt;
+            </pre
+          >
+
+          <span class="code-title">CSS (Flexbox):</span>
+          <pre>
+.overlay-login {
+  height: 100vh; /* Tutta l'altezza dello schermo */
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Asse X */
+  align-items: center;     /* Asse Y */
+  background-color: #333;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px; /* Non diventa troppo largo su PC */
+}
+            </pre
+          >
+        </div>
+
+        <!-- 5. STICKY FOOTER -->
+        <div class="demo-block">
+          <h3>E. Sticky Footer (Footer sempre in basso)</h3>
+          <p>
+            Il problema classico: hai poco contenuto e il footer sale a metà
+            pagina. Ecco come fissarlo giù.
+          </p>
+
+          <div class="layout-demo-box">
+            <div class="layout-sticky">
+              <div class="ls-header">Header</div>
+              <div class="ls-content">
+                Poco contenuto...<br />(Ma il footer resta giù!)
+              </div>
+              <div class="ls-footer">Footer</div>
+            </div>
+          </div>
+
+          <span class="code-title">CSS (Flexbox Column):</span>
+          <pre>
+body {
+  min-height: 100vh; /* 1. Il body deve essere alto ALMENO quanto lo schermo */
+  display: flex;
+  flex-direction: column; /* 2. Impila gli elementi verticalmente */
+}
+
+main {
+  flex: 1; /* 3. "Prenditi tutto lo spazio vuoto disponibile" */
+}
+/* Risultato: Il main si allunga e spinge il footer in fondo. */
+            </pre
+          >
+        </div>
+
+        <!-- 6. MASONRY (Pinterest Style) -->
+        <div class="demo-block">
+          <h3>F. Masonry (Stile Pinterest)</h3>
+          <p>
+            Elementi che si incastrano verticalmente senza lasciare buchi
+            enormi.
+          </p>
+
+          <div class="layout-demo-box">
+            <div class="layout-masonry">
+              <div class="lm-item h-small">1</div>
+              <div class="lm-item h-tall">2</div>
+              <div class="lm-item h-med">3</div>
+              <div class="lm-item h-tall">4</div>
+              <div class="lm-item h-small">5</div>
+              <div class="lm-item h-med">6</div>
+            </div>
+          </div>
+
+          <span class="code-title">CSS (Columns):</span>
+          <pre>
+.container-masonry {
+  column-count: 3; /* Numero di colonne */
+  column-gap: 20px;
+}
+
+.item {
+  break-inside: avoid; /* Evita che un box venga tagliato a metà tra due colonne */
+  margin-bottom: 20px;
+}
+            </pre
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Creato per imparare la differenza tra Flex, Grid e Position.</p>
+    </footer>
+  </body>
+</html>
