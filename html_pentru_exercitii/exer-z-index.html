@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box1 {
+        width: 550px;
+        height: 400px;
+        margin: 20px;
+        position: relative;
+      }
+      #box2 {
+        width: 25%;
+        height: 20%;
+        border-radius: 0px;
+        background-color: red;
+        position: relative;
+        top: 20px; /* Distanza dal bordo superiore del genitore */
+        left: 20px; /* Distanza dal bordo sinistro del genitore */
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        visibility: hidden;
+      }
+      #box1:hover #box2 {
+        visibility: visible;
+      }
+      #box2 p {
+        font-size: 3rem;
+        color: white;
+      }
+
+      #box1 img {
+        position: absolute;
+        display: cover;
+        object-fit: cover; /* Corretto: display:cover non esiste */
+        height: 100%;
+        aspect-ratio: 1/1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ora #box2 è DENTRO #box1 -->
+    <div id="box1">
+      <img
+        src="./Adarta_Detailing_WebSite/assets/img/intcardetailing.png"
+        alt=""
+      />
+      <div id="box2">
+        <p>SALE</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grilă Produse cu Float</title>
+    <style>
+      /* Resetăm marginile implicite ale paginii */
+      body {
+        margin: 0;
+        padding: 10px;
+      }
+
+      /* Stilul aplicat fiecărui element (produs) */
+      div {
+        /* 1. Cerințele stricte ale exercițiului */
+        float: left; /* Aliniază elementele unul lângă altul la stânga */
+        width: 22%; /* Lățimea fixă pentru a încăpea 4 pe rând */
+        margin: 1%; /* Spațierea dintre produse */
+
+        /* 2. Reguli esențiale pentru ca procentele să funcționeze corect */
+        box-sizing: border-box; /* Previne ca padding-ul să se adauge la cei 22% și să strice rândul */
+
+        /* 3. Estetica vizuală (pentru a semăna cu imaginea ta) */
+        background-color: #7ec8e3;
+        border-radius: 6px;
+        padding: 15px;
+        color: white;
+        font-family: serif;
+        font-weight: bold;
+        aspect-ratio: 1.3 / 1; /* Le menține o formă aproape pătrată */
+      }
+    </style>
+  </head>
+  <body>
+    <div>Product 1</div>
+    <div>Product 2</div>
+    <div>Product 3</div>
+    <div>Product 4</div>
+    <div>Product 5</div>
+    <div>Product 6</div>
+    <div>Product 7</div>
+    <div>Product 8</div>
+    <div>Product 9</div>
+    <div>Product 10</div>
+    <div>Product 11</div>
+    <div>Product 12</div>
+    <div>Product 13</div>
+    <div>Product 14</div>
+    <div>Product 15</div>
+    <div>Product 16</div>
+    <div>Product 17</div>
+    <div>Product 18</div>
+    <div>Product 19</div>
+    <div>Product 20</div>
+  </body>
+</html>

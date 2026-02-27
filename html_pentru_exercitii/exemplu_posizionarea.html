@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fixed Sidebar Example</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Bară laterală fixată */
+      #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 80px; /* înălțimea completă a ferestrei */
+        background-color: #333;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Centra verticalmente gli elementi nell'header */
+      }
+
+      /* Conținut principal cu marginea astfel încât să nu fie sub bara laterală*/
+      #main-content {
+        margin-left: 0;
+        margin-top: 12vh; /* Spazio sopra per non finire sotto l'header fisso */
+        padding: 20px;
+      }
+
+      h2 {
+        margin: 0;
+        text-align: center;
+      }
+
+      p {
+        line-height: 1.5;
+      }
+      /* Usa #sidebar (ID) invece di .sidebar (Classe) */
+      #sidebar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex; /* Mette i link in orizzontale */
+        gap: 20px; /* Spazio tra i link */
+      }
+      #sidebar li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+      }
+      #sidebar li a:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sidebar">
+      <h2>Sidebar</h2>
+      <p>Links and info here</p>
+      <ul>
+        <li>
+          <a href="#" style="color: white; text-decoration: none">Home</a>
+        </li>
+        <li>
+          <a href="#" style="color: white; text-decoration: none">About</a>
+        </li>
+        <li>
+          <a href="#" style="color: white; text-decoration: none">Contact</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="main-content">
+      <h1>Main Content</h1>
+      <p>
+        This is the main content area. Scroll the page and the sidebar will stay
+        fixed on the left.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar
+        lorem at sapien cursus, eu laoreet purus cursus. Vestibulum tincidunt,
+        nunc et semper pulvinar, lorem libero dictum elit, nec lacinia purus
+        justo at lorem. Curabitur pretium purus sit amet massa consectetur, a
+        pulvinar ex ornare.
+      </p>
+      <p>
+        (Add more content here to enable scrolling and see the fixed sidebar
+        effect)
+      </p>
+    </div>
+  </body>
+</html>
