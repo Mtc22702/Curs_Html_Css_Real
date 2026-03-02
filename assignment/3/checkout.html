@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finalizare comandă</title>
+
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a class="logo" href="catalog.html" aria-label="Acasă">
+            <img src="./assets/img/Logo_Adarta.png" alt="Logo" />
+          </a>
+
+          <ul class="nav-links-left">
+            <li><a href="catalog.html">Acasă</a></li>
+            <li><a href="catalog.html#shop">Magazin</a></li>
+            <li><a href="catalog.html#about">Despre</a></li>
+            <li><a href="catalog.html#contact">Contact</a></li>
+            <li><a href="#" class="sale-link">Reduceri!</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-center">
+          <form
+            class="nav-search"
+            action="#"
+            method="get"
+            role="search"
+            aria-label="Căutare"
+          >
+            <input type="search" id="q" name="q" placeholder="Caută ..." />
+          </form>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li>
+              <a class="cart" href="checkout.html" aria-label="Coș">
+                <img
+                  src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li>
+              <a class="user" href="login.html" aria-label="Cont">
+                <img
+                  src="./assets/img/Ikonice.assignment03/user_logo (1).png"
+                  alt=""
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN: Continut -->
+    <main class="checkout-main">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="catalog.html">Acasă</a></li>
+          <li><a href="#">Coș</a></li>
+          <li aria-current="page">Finalizare</li>
+        </ol>
+      </nav>
+
+      <!-- Titlu pagina -->
+      <h1>Finalizare comandă</h1>
+
+      <!-- SECTIUNE: Checkout (Formular + Rezumat cos) -->
+      <section class="checkout" aria-label="Finalizare comandă">
+        <div class="checkout-layout">
+          <form class="checkout-form" action="#" method="post">
+            <h2 class="checkout-section-title">Informații de livrare</h2>
+            <fieldset class="shipping">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prenume">Prenume</label>
+                  <input type="text" id="prenume" name="prenume" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="nume">Nume</label>
+                  <input type="text" id="nume" name="nume" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adresa">Adresă</label>
+                <input type="text" id="adresa" name="adresa" required />
+              </div>
+
+              <div class="form-group">
+                <label for="adresa2">Apartament, scară etc.</label>
+                <input type="text" id="adresa2" name="adresa2" />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tara">Țară</label>
+                  <select id="tara" name="tara" required>
+                    <option value="" selected disabled>Selectează</option>
+                    <option value="ro">România</option>
+                    <option value="it">Italia</option>
+                    <option value="de">Germania</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="oras">Oraș</label>
+                  <select id="oras" name="oras" required>
+                    <option value="" selected disabled>Selectează</option>
+                    <option value="timisoara">Timișoara</option>
+                    <option value="cluj">Cluj</option>
+                    <option value="bucuresti">București</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="codPostal">Cod poștal</label>
+                  <select id="codPostal" name="codPostal" required>
+                    <option value="" selected disabled>Selectează</option>
+                    <option value="300000">300000</option>
+                    <option value="400000">400000</option>
+                    <option value="010000">010000</option>
+                  </select>
+                </div>
+              </div>
+
+              <label class="checkbox">
+                <input type="checkbox" name="salveazaContact" />
+                Salvează informațiile de contact
+              </label>
+            </fieldset>
+            <h2 class="checkout-section-title">Informații de plată</h2>
+            <fieldset class="payment">
+              <div
+                class="payment-methods"
+                role="radiogroup"
+                aria-label="Metode de plată"
+              >
+                <label class="payment-option paypal">
+                  <input type="radio" name="metodaPlata" value="paypal" /><img
+                    src="./assets/img/Ikonice.assignment03/PayPal 3.png"
+                    alt="Paypal"
+                  />
+                </label>
+
+                <label class="payment-option">
+                  <input type="radio" name="metodaPlata" value="cash" checked />
+                  Numerar
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label for="numeCard">Nume de pe card</label>
+                <input
+                  type="text"
+                  id="numeCard"
+                  name="numeCard"
+                  autocomplete="cc-name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="numarCard">Număr card</label>
+                <input
+                  type="text"
+                  id="numarCard"
+                  name="numarCard"
+                  inputmode="numeric"
+                  autocomplete="cc-number"
+                />
+              </div>
+
+              <div class="form-row triple">
+                <div class="form-group">
+                  <label for="luna">Lună</label>
+                  <select id="luna" name="luna">
+                    <option value="" selected disabled>LL</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="an">An</label>
+                  <select id="an" name="an">
+                    <option value="" selected disabled>AAAA</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="cvc">CVC</label>
+                  <input type="text" id="cvc" name="cvc" inputmode="numeric" />
+                </div>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Plătește</button>
+            </fieldset>
+          </form>
+          <div class="cart-col">
+            <h2>Verifică coșul</h2>
+            <aside class="cart-review" aria-label="Verifică coșul">
+              <div class="cart-review-body">
+                <ul class="cart-items">
+                  <li class="cart-item">
+                    <img
+                      src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344.jpg"
+                      alt="Produs"
+                    />
+                    <div class="cart-item-info">
+                      <p class="cart-item-title">
+                        Sampon auto cu efect ceramic Koch Chemie Ceramic Effect
+                        Shampoo, Ces
+                      </p>
+                      <p class="cart-item-meta">1L</p>
+
+                      <div class="qty" aria-label="Control cantitate">
+                        <button type="button" aria-label="Scade cantitatea">
+                          -
+                        </button>
+                        <span aria-label="Cantitate">1</span>
+                        <button type="button" aria-label="Crește cantitatea">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <p class="cart-item-price">119 Ron</p>
+                  </li>
+
+                  <li class="cart-item">
+                    <img
+                      src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567.jpg"
+                      alt="Produs"
+                    />
+                    <div class="cart-item-info">
+                      <p class="cart-item-title">
+                        Sampon auto reactivare ceramica Koch Chemie Reactivation
+                        Shampoo, Rs
+                      </p>
+                      <p class="cart-item-meta">1L</p>
+
+                      <div class="qty" aria-label="Control cantitate">
+                        <button type="button" aria-label="Scade cantitatea">
+                          -
+                        </button>
+                        <span aria-label="Cantitate">1</span>
+                        <button type="button" aria-label="Crește cantitatea">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <p class="cart-item-price">80 Ron</p>
+                  </li>
+
+                  <li class="cart-item">
+                    <img
+                      src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000.jpg"
+                      alt="Produs"
+                    />
+                    <div class="cart-item-info">
+                      <p class="cart-item-title">
+                        Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and
+                        Finish, P6.02
+                      </p>
+                      <p class="cart-item-meta">1L</p>
+
+                      <div class="qty" aria-label="Control cantitate">
+                        <button type="button" aria-label="Scade cantitatea">
+                          -
+                        </button>
+                        <span aria-label="Cantitate">1</span>
+                        <button type="button" aria-label="Crește cantitatea">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <p class="cart-item-price">280 Ron</p>
+                  </li>
+
+                  <li class="cart-item">
+                    <img
+                      src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138.webp"
+                      alt="Produs"
+                    />
+                    <div class="cart-item-info">
+                      <p class="cart-item-title">
+                        Solutie curatare auto alcalina Koch Chemie VorreinigerB,
+                        Vb
+                      </p>
+                      <p class="cart-item-meta">1L</p>
+
+                      <div class="qty" aria-label="Control cantitate">
+                        <button type="button" aria-label="Scade cantitatea">
+                          -
+                        </button>
+                        <span aria-label="Cantitate">1</span>
+                        <button type="button" aria-label="Crește cantitatea">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <p class="cart-item-price">50 Ron</p>
+                  </li>
+                </ul>
+
+                <div class="cart-total" aria-label="Total">
+                  <p>Total</p>
+                  <p class="total-price">529 Ron</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols footer-cols-3">
+          <div class="footer-col">
+            <h3>MAGAZIN</h3>
+            <ul>
+              <li><a href="#">Șampoane auto</a></li>
+              <li><a href="#">Ceară & sealant</a></li>
+              <li><a href="#">Soluții interior</a></li>
+              <li><a href="#">Accesorii detailing</a></li>
+              <li><a href="#">Kituri complete</a></li>
+              <li><a href="#">Promoții</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>INFORMAȚII</h3>
+            <ul>
+              <li><a href="#about">Despre noi</a></li>
+              <li><a href="#">Termeni și condiții</a></li>
+              <li><a href="#">Politica de confidențialitate</a></li>
+              <li><a href="#">Livrare & retur</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>SUPORT CLIENȚI</h3>
+            <ul>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Întrebări frecvente</a></li>
+              <li><a href="#">Garanție produse</a></li>
+              <li><a href="#">Instrucțiuni utilizare</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-credit">
+            Designed and developed by: <strong>Matteo</strong>
+          </p>
+
+          <div class="footer-social">
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
+                alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+                alt="TikTok"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
