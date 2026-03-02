@@ -5,16 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finalizare comandă</title>
 
+    <!-- Favicon -->
     <link
       rel="icon"
-      href="./assets/img/Logo Adarta.png"
+      href="./assets/img/Logo_Adarta.png"
       type="image/png"
       sizes="32x32"
     />
+
+    <!-- Stiluri -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
+
   <body>
-    <!-- HEADER -->
+    <!-- =========================================================
+         SECȚIUNE: Header / Navigație
+    ========================================================== -->
     <header class="site-header">
       <nav class="navbar" aria-label="Navigația principală">
         <div class="nav-left">
@@ -39,7 +45,7 @@
             role="search"
             aria-label="Căutare"
           >
-            <input type="search" id="q" name="q" placeholder="Caută ..." />
+            <input type="search" id="q" name="q" placeholder="Caută..." />
           </form>
         </div>
 
@@ -66,8 +72,11 @@
       </nav>
     </header>
 
-    <!-- MAIN: Continut -->
+    <!-- =========================================================
+         SECȚIUNE: Conținut principal (Checkout)
+    ========================================================== -->
     <main class="checkout-main">
+      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
           <li><a href="catalog.html">Acasă</a></li>
@@ -76,14 +85,15 @@
         </ol>
       </nav>
 
-      <!-- Titlu pagina -->
       <h1>Finalizare comandă</h1>
 
-      <!-- SECTIUNE: Checkout (Formular + Rezumat cos) -->
       <section class="checkout" aria-label="Finalizare comandă">
         <div class="checkout-layout">
+          <!-- ===================== Formular checkout ===================== -->
           <form class="checkout-form" action="#" method="post">
             <h2 class="checkout-section-title">Informații de livrare</h2>
+
+            <!-- Livrare -->
             <fieldset class="shipping">
               <div class="form-row">
                 <div class="form-group">
@@ -107,7 +117,7 @@
                 <input type="text" id="adresa2" name="adresa2" />
               </div>
 
-              <div class="form-row">
+              <div class="form-row triple">
                 <div class="form-group">
                   <label for="tara">Țară</label>
                   <select id="tara" name="tara" required>
@@ -144,7 +154,10 @@
                 Salvează informațiile de contact
               </label>
             </fieldset>
+
             <h2 class="checkout-section-title">Informații de plată</h2>
+
+            <!-- Plată -->
             <fieldset class="payment">
               <div
                 class="payment-methods"
@@ -152,9 +165,10 @@
                 aria-label="Metode de plată"
               >
                 <label class="payment-option paypal">
-                  <input type="radio" name="metodaPlata" value="paypal" /><img
+                  <input type="radio" name="metodaPlata" value="paypal" />
+                  <img
                     src="./assets/img/Ikonice.assignment03/PayPal 3.png"
-                    alt="Paypal"
+                    alt="PayPal"
                   />
                 </label>
 
@@ -225,8 +239,11 @@
               <button class="btn btn-primary" type="submit">Plătește</button>
             </fieldset>
           </form>
+
+          <!-- ===================== Rezumat coș ===================== -->
           <div class="cart-col">
             <h2>Verifică coșul</h2>
+
             <aside class="cart-review" aria-label="Verifică coșul">
               <div class="cart-review-body">
                 <ul class="cart-items">
@@ -342,7 +359,9 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- =========================================================
+         SECȚIUNE: Footer
+    ========================================================== -->
     <footer class="footer" aria-label="Footer">
       <div class="footer-inner">
         <div class="footer-cols footer-cols-3">
@@ -350,7 +369,7 @@
             <h3>MAGAZIN</h3>
             <ul>
               <li><a href="#">Șampoane auto</a></li>
-              <li><a href="#">Ceară & sealant</a></li>
+              <li><a href="#">Ceară &amp; sealant</a></li>
               <li><a href="#">Soluții interior</a></li>
               <li><a href="#">Accesorii detailing</a></li>
               <li><a href="#">Kituri complete</a></li>
@@ -364,7 +383,7 @@
               <li><a href="#about">Despre noi</a></li>
               <li><a href="#">Termeni și condiții</a></li>
               <li><a href="#">Politica de confidențialitate</a></li>
-              <li><a href="#">Livrare & retur</a></li>
+              <li><a href="#">Livrare &amp; retur</a></li>
             </ul>
           </div>
 

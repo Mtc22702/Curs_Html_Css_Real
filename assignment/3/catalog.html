@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catalog Produse</title>
 
+    <!-- Favicon -->
     <link
       rel="icon"
       href="./assets/img/Logo_Adarta.png"
       type="image/png"
       sizes="32x32"
     />
+
+    <!-- Stiluri -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body class="produs-pagina">
-    <!-- HEADER -->
+    <!-- =========================================================
+         SECȚIUNE: Header / Navigație
+    ========================================================== -->
     <header class="site-header">
       <nav class="navbar" aria-label="Navigația principală">
         <div class="nav-left">
+          <!-- Logo -->
           <a class="logo" href="catalog.html" aria-label="Acasă">
             <img src="./assets/img/Logo_Adarta.png" alt="Logo" />
           </a>
 
+          <!-- Link-uri navigație -->
           <ul class="nav-links-left">
             <li><a href="catalog.html">Acasă</a></li>
             <li><a href="catalog.html#shop">Magazin</a></li>
@@ -32,6 +39,7 @@
           </ul>
         </div>
 
+        <!-- Căutare -->
         <div class="nav-center">
           <form
             class="nav-search"
@@ -40,10 +48,11 @@
             role="search"
             aria-label="Căutare"
           >
-            <input type="search" id="q" name="q" placeholder="Caută ..." />
+            <input type="search" id="q" name="q" placeholder="Caută..." />
           </form>
         </div>
 
+        <!-- Acțiuni (coș / cont) -->
         <div class="nav-right">
           <ul class="nav-links-right">
             <li>
@@ -67,8 +76,11 @@
       </nav>
     </header>
 
-    <!-- MAIN -->
+    <!-- =========================================================
+         SECȚIUNE: Conținut principal
+    ========================================================== -->
     <main class="produs-pagina-main">
+      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
           <li><a href="catalog.html">Acasă</a></li>
@@ -77,7 +89,7 @@
         </ol>
       </nav>
 
-      <!-- Titlu pagina + meta (rezultate + sortare) -->
+      <!-- Header pagină: titlu + meta -->
       <header class="page-header">
         <h1>Vezi toate produsele</h1>
 
@@ -96,18 +108,21 @@
         </div>
       </header>
 
-      <!-- SECTIUNE: Catalog (Filtre + Grid produse) -->
+      <!-- =========================================================
+           SECȚIUNE: Catalog (Filtre + Grid produse)
+      ========================================================== -->
       <section class="catalog" aria-label="Lista produse">
         <div class="catalog-layout">
-          <aside class="filters" aria-label="Filters">
+          <!-- ===================== Sidebar: Filtre ===================== -->
+          <aside class="filters" aria-label="Filtre">
             <h2>Filtre</h2>
-            <br />
 
             <div class="filters-scroll">
               <ul class="filters-list">
+                <!-- Prețuri -->
                 <li class="filter-section">
                   <div class="filter-head">
-                    <span>Preturi</span>
+                    <span>Prețuri</span>
                     <span class="filter-arrow">›</span>
                   </div>
 
@@ -133,6 +148,7 @@
                   </ul>
                 </li>
 
+                <!-- Brand -->
                 <li class="filter-section">
                   <div class="filter-head">
                     <span>Brand</span>
@@ -141,30 +157,33 @@
 
                   <ul class="filter-options">
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" />
-                        <span>Koch Chemie</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Koch Chemie</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" /> <span>Sonax</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Sonax</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" /> <span>Meguiar’s</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Meguiar’s</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" />
-                        <span>Turtle Wax</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Turtle Wax</span>
+                      </label>
                     </li>
                   </ul>
                 </li>
 
+                <!-- Categorii -->
                 <li class="filter-section">
                   <div class="filter-head">
                     <span>Categorii</span>
@@ -173,33 +192,38 @@
 
                   <ul class="filter-options">
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" /> <span>Exterior</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Exterior</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" /> <span>Interior</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Interior</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" /> <span>Accesorii</span></label
-                      >
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Accesorii</span>
+                      </label>
                     </li>
                     <li>
-                      <label class="check"
-                        ><input type="checkbox" checked />
-                        <span>All items</span></label
-                      >
-                    </li>
-                    <li class="filter-section">
-                      <div class="filter-head">
-                        <span>Altele</span>
-                        <span class="filter-arrow">›</span>
-                      </div>
+                      <label class="check">
+                        <input type="checkbox" checked />
+                        <span>All items</span>
+                      </label>
                     </li>
                   </ul>
+                </li>
+
+                <!-- Altele -->
+                <li class="filter-section">
+                  <div class="filter-head">
+                    <span>Altele</span>
+                    <span class="filter-arrow">›</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -207,19 +231,24 @@
             <button class="apply-btn" type="button">Apply Filters</button>
           </aside>
 
-          <!-- Lista produse + paginare -->
+          <!-- ===================== Zonă produse + paginare ===================== -->
           <div class="products-area">
+            <!-- Grid produse -->
             <div class="products-grid" aria-label="Grid produse">
               <article class="product-card">
-                <a class="product-link" href="#" aria-label="Blazer">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Șampon auto cu efect ceramic"
+                >
                   <img
                     src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
                   Sampon auto cu efect ceramic Koch Chemie Ceramic Effect
-                  Shampoo, Ces ,1Lt
+                  Shampoo, Ces, 1Lt
                 </h3>
                 <p class="product-price">119 Ron</p>
                 <button class="btn btn-outline" type="button">
@@ -231,11 +260,11 @@
                 <a
                   class="product-link"
                   href="#"
-                  aria-label="Elegant A-line trousers"
+                  aria-label="Șampon auto reactivare ceramică"
                 >
                   <img
                     src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -249,10 +278,14 @@
               </article>
 
               <article class="product-card">
-                <a class="product-link" href="#" aria-label="Midi Coat">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Polish 3 în 1 cu ceară Carnauba"
+                >
                   <img
                     src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -266,10 +299,14 @@
               </article>
 
               <article class="product-card product-card-sale">
-                <a class="product-link" href="#" aria-label="Wool Blazer">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Spray protecție vopsea"
+                >
                   <img
                     src="./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -286,10 +323,14 @@
               </article>
 
               <article class="product-card product-card-sale">
-                <a class="product-link" href="#" aria-label="Retro Jeans">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Set pensule interior"
+                >
                   <img
                     src="./assets/img/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -306,10 +347,14 @@
               </article>
 
               <article class="product-card">
-                <a class="product-link" href="#" aria-label="Belted Coat">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare auto alcalină"
+                >
                   <img
                     src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138.webp"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -326,11 +371,11 @@
                 <a
                   class="product-link"
                   href="#"
-                  aria-label="Chunky Knit Sweater"
+                  aria-label="Soluție curățare generală"
                 >
                   <img
                     src="./assets/img/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -344,10 +389,14 @@
               </article>
 
               <article class="product-card">
-                <a class="product-link" href="#" aria-label="Denim Shirt">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare jante reactivă"
+                >
                   <img
                     src="./assets/img/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -361,10 +410,14 @@
               </article>
 
               <article class="product-card">
-                <a class="product-link" href="#" aria-label="Elegant Trousers">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare universală"
+                >
                   <img
                     src="./assets/img/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -380,11 +433,11 @@
                 <a
                   class="product-link"
                   href="#"
-                  aria-label="High-Waist Trousers"
+                  aria-label="Soluție spălare fără apă"
                 >
                   <img
                     src="./assets/img/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -400,11 +453,11 @@
                 <a
                   class="product-link"
                   href="#"
-                  aria-label="Mesh Sleeve Blouse"
+                  aria-label="Soluție spălare fără clătire"
                 >
                   <img
                     src="./assets/img/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -418,10 +471,14 @@
               </article>
 
               <article class="product-card product-card-sale">
-                <a class="product-link" href="#" aria-label="Knit Sweater Vest">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Spumă spălare cu pH neutru"
+                >
                   <img
                     src="./assets/img/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375.jpg"
-                    alt="Product image"
+                    alt="Imagine produs"
                   />
                 </a>
                 <h3 class="product-title">
@@ -439,6 +496,7 @@
               </article>
             </div>
 
+            <!-- Paginare -->
             <nav class="pagination" aria-label="Paginare">
               <a href="#" class="btn btn-outline">Înapoi</a>
               <a href="#" class="page is-active" aria-current="page">1</a>
@@ -452,10 +510,13 @@
         </div>
       </section>
 
-      <!-- SECTIUNE: Newsletter -->
+      <!-- =========================================================
+           SECȚIUNE: Newsletter
+      ========================================================== -->
       <section class="newsletter" aria-label="Newsletter">
         <div class="newsletter-inner">
           <h2>RĂMÂI LA CURENT CU<br />CELE MAI BUNE OFERTE!</h2>
+
           <form class="newsletter-form" action="#" method="post">
             <input
               type="email"
@@ -472,7 +533,9 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- =========================================================
+         SECȚIUNE: Footer
+    ========================================================== -->
     <footer class="footer" aria-label="Footer">
       <div class="footer-inner">
         <div class="footer-cols footer-cols-3">
@@ -480,7 +543,7 @@
             <h3>MAGAZIN</h3>
             <ul>
               <li><a href="#">Șampoane auto</a></li>
-              <li><a href="#">Ceară & sealant</a></li>
+              <li><a href="#">Ceară &amp; sealant</a></li>
               <li><a href="#">Soluții interior</a></li>
               <li><a href="#">Accesorii detailing</a></li>
               <li><a href="#">Kituri complete</a></li>
@@ -494,7 +557,7 @@
               <li><a href="#about">Despre noi</a></li>
               <li><a href="#">Termeni și condiții</a></li>
               <li><a href="#">Politica de confidențialitate</a></li>
-              <li><a href="#">Livrare & retur</a></li>
+              <li><a href="#">Livrare &amp; retur</a></li>
             </ul>
           </div>
 
