@@ -988,3 +988,21 @@ select {
 .create-account a {
   text-decoration: underline;
 }
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
