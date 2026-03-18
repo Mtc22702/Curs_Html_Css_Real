@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog Produse</title>
+    <link
+      rel="icon"
+      href="./assets/img/Logo_Adarta.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="./assets/css/style_base.css" />
+    <link rel="stylesheet" href="./assets/css/catalog.css" />
+  </head>
+
+  <body class="produs-pagina">
+    <!-- SECTIUNE: Header / Navigatie -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a class="logo" href="catalog.html" aria-label="Acasă">
+            <img src="./assets/img/Logo_Adarta.png" alt="Logo" />
+          </a>
+
+          <ul class="nav-links-left">
+            <li><a href="catalog.html">Acasă</a></li>
+            <li><a href="catalog.html#shop">Magazin</a></li>
+            <li><a href="catalog.html#about">Despre</a></li>
+            <li><a href="catalog.html#contact">Contact</a></li>
+            <li><a href="#" class="sale-link">Reduceri!</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-center">
+          <form
+            class="nav-search"
+            action="#"
+            method="get"
+            role="search"
+            aria-label="Căutare"
+          >
+            <input type="search" id="q" name="q" placeholder="Caută..." />
+          </form>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li>
+              <a class="cart" href="checkout.html" aria-label="Coș">
+                <img
+                  src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
+                  alt=""
+                />
+              </a>
+            </li>
+            <li>
+              <a class="user" href="login.html" aria-label="Cont">
+                <img
+                  src="./assets/img/Ikonice.assignment03/user_logo (1).png"
+                  alt=""
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- SECTIUNE MAIN: Continut principal -->
+    <main class="produs-pagina-main">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="catalog.html">Acasă</a></li>
+          <li><a href="catalog.html#shop">Magazin</a></li>
+          <li aria-current="page">Vezi toate</li>
+        </ol>
+      </nav>
+
+      <!-- Header pagina: titlu + meta -->
+      <header class="page-header">
+        <h1>Vezi toate produsele</h1>
+
+        <div class="page-meta">
+          <p class="results-count">Afișare 13–24 din 112 produse</p>
+
+          <div class="sort">
+            <label for="sortBy">Sortează după:</label>
+            <select id="sortBy" name="sortBy">
+              <option value="popular" selected>Cele mai populare</option>
+              <option value="new">Cele mai noi</option>
+              <option value="priceLow">Preț: crescător</option>
+              <option value="priceHigh">Preț: descrescător</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <!-- SECTIUNE: Catalog (Filtre + Grid produse) -->
+      <section class="catalog" aria-label="Lista produse">
+        <div class="catalog-layout">
+          <aside class="filters" aria-label="Filtre">
+            <h2>Filtre</h2>
+
+            <div class="filters-scroll">
+              <ul class="filters-list">
+                <li class="filter-section">
+                  <div class="filter-head">
+                    <span>Prețuri</span>
+                    <span class="filter-arrow">⌄</span>
+                  </div>
+
+                  <ul class="filter-options">
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>0 – 50 RON</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>50 – 150 RON</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>150+ RON</span>
+                      </label>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="filter-section">
+                  <div class="filter-head">
+                    <span>Brand</span>
+                    <span class="filter-arrow">⌄</span>
+                  </div>
+
+                  <ul class="filter-options">
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Koch Chemie</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Sonax</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Meguiar’s</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Turtle Wax</span>
+                      </label>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="filter-section">
+                  <div class="filter-head">
+                    <span>Categorii</span>
+                    <span class="filter-arrow">⌄</span>
+                  </div>
+
+                  <ul class="filter-options">
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Exterior</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Interior</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" />
+                        <span>Accesorii</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="check">
+                        <input type="checkbox" checked />
+                        <span>Toate articolele</span>
+                      </label>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="filter-section">
+                  <div class="filter-head">
+                    <span>Altele</span>
+                    <span class="filter-arrow">›</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <button class="apply-btn" type="button">Aplicați filtre</button>
+          </aside>
+
+          <!-- Zona produse + paginare -->
+          <div class="products-area">
+            <div class="products-grid" aria-label="Grid produse">
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Șampon auto cu efect ceramic"
+                >
+                  <img
+                    src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Sampon auto cu efect ceramic Koch Chemie Ceramic Effect
+                  Shampoo, Ces, 1Lt
+                </h3>
+                <p class="product-price">119 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Șampon auto reactivare ceramică"
+                >
+                  <img
+                    src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Sampon auto reactivare ceramica Koch Chemie Reactivation
+                  Shampoo, Rs, 1L
+                </h3>
+                <p class="product-price">80 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Polish 3 în 1 cu ceară Carnauba"
+                >
+                  <img
+                    src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and
+                  Finish, P6.02, 1L
+                </h3>
+                <p class="product-price">280 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card product-card-sale">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Spray protecție vopsea"
+                >
+                  <img
+                    src="./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Spray protectie vopsea Koch Chemie Spray Sealant, S0.02, 500ml
+                </h3>
+                <p class="product-price">
+                  <span class="price-now">108 Ron</span>
+                  <span class="price-old">120 Ron</span>
+                  <span class="badge">-10%</span>
+                </p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card product-card-sale">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Set pensule interior"
+                >
+                  <img
+                    src="./assets/img/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Set pensule interior Koch Chemie Interior Brush Set
+                </h3>
+                <p class="product-price">
+                  <span class="price-now">70 Ron</span>
+                  <span class="price-old">77 Ron</span>
+                  <span class="badge">-10%</span>
+                </p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare auto alcalină"
+                >
+                  <img
+                    src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138.webp"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb,
+                  1L
+                </h3>
+                <p class="product-price">50 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare generală"
+                >
+                  <img
+                    src="./assets/img/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr,
+                  1L
+                </h3>
+                <p class="product-price">50 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare jante reactivă"
+                >
+                  <img
+                    src="./assets/img/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie curatare jante reactiva Koch Chemie Magic Wheel
+                  Cleaner, Mwc, 500ml
+                </h3>
+                <p class="product-price">80 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție curățare universală"
+                >
+                  <img
+                    src="./assets/img/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie curatare universala Koch Chemie Green Star, Gs, 1L
+                </h3>
+                <p class="product-price">42 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție spălare fără apă"
+                >
+                  <img
+                    src="./assets/img/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie spalare fara apa Koch Chemie Wash and Finish, Wf, 1L
+                </h3>
+                <p class="product-price">65 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Soluție spălare fără clătire"
+                >
+                  <img
+                    src="./assets/img/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash,
+                  Rrw, 1L
+                </h3>
+                <p class="product-price">62 Ron</p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+
+              <article class="product-card product-card-sale">
+                <a
+                  class="product-link"
+                  href="#"
+                  aria-label="Spumă spălare cu pH neutru"
+                >
+                  <img
+                    src="./assets/img/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375.jpg"
+                    alt="Imagine produs"
+                  />
+                </a>
+                <h3 class="product-title">
+                  Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf,
+                  1L
+                </h3>
+                <p class="product-price">
+                  <span class="price-now">81 Ron</span>
+                  <span class="price-old">90 Ron</span>
+                  <span class="badge">-10%</span>
+                </p>
+                <button class="btn btn-outline" type="button">
+                  Adaugă în coș
+                </button>
+              </article>
+            </div>
+
+            <nav class="pagination" aria-label="Paginare">
+              <a href="#" class="btn btn-outline">Înapoi</a>
+              <a href="#" class="page is-active" aria-current="page">1</a>
+              <a href="#" class="page">2</a>
+              <span class="dots">…</span>
+              <a href="#" class="page">9</a>
+              <a href="#" class="page">10</a>
+              <a href="#" class="btn btn-outline">Înainte</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTIUNE: Newsletter  -->
+      <section class="newsletter" aria-label="Newsletter">
+        <div class="newsletter-inner">
+          <h2>RĂMÂI LA CURENT CU<br />CELE MAI BUNE OFERTE!</h2>
+
+          <form class="newsletter-form" action="#" method="post">
+            <input
+              type="email"
+              id="newsletterEmail"
+              name="email"
+              placeholder="Introdu adresa de email..."
+              required
+            />
+            <button class="btn btn-primary" type="submit">
+              Abonează-te la newsletter
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- SECTIUNE: Footer -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols footer-cols-3">
+          <div class="footer-col">
+            <h3>MAGAZIN</h3>
+            <ul>
+              <li><a href="#">Șampoane auto</a></li>
+              <li><a href="#">Ceară &amp; sealant</a></li>
+              <li><a href="#">Soluții interior</a></li>
+              <li><a href="#">Accesorii detailing</a></li>
+              <li><a href="#">Kituri complete</a></li>
+              <li><a href="#">Promoții</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>INFORMAȚII</h3>
+            <ul>
+              <li><a href="#about">Despre noi</a></li>
+              <li><a href="#">Termeni și condiții</a></li>
+              <li><a href="#">Politica de confidențialitate</a></li>
+              <li><a href="#">Livrare &amp; retur</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>SUPORT CLIENȚI</h3>
+            <ul>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Întrebări frecvente</a></li>
+              <li><a href="#">Garanție produse</a></li>
+              <li><a href="#">Instrucțiuni utilizare</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-credit">
+            Designed and developed by: <strong>Matteo</strong>
+          </p>
+
+          <div class="footer-social">
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
+                alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
+                alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img
+                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+                alt="TikTok"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
