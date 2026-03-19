@@ -243,7 +243,7 @@ p {
   border: 1px solid var(--border);
   border-radius: 0.625rem;
   font: inherit;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.1;
   cursor: pointer;
@@ -384,7 +384,7 @@ textarea:focus {
   }
 
   h2 {
-    font-size: 1.7rem;
+    font-size: 1.65rem;
   }
 
   h3 {
@@ -406,7 +406,7 @@ textarea:focus {
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   h2 {
@@ -418,9 +418,9 @@ textarea:focus {
   }
 
   .btn {
-    font-size: 0.9rem;
-    min-height: 2.35rem;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    min-height: 2.2rem;
+    padding: 0.2rem 1rem;
     width: 100%;
   }
 
