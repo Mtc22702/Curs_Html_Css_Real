@@ -75,16 +75,25 @@
           </p>
         </div>
         <div class="hero-media">
-          <img
-            alt="Atelier Adarta Detailing Auto"
-            sizes="100vw"
-            src="./assets/img/header_adarta_2-1280.jpg"
-            srcset="
-              ./assets/img/header_adarta_2-768.jpg   768w,
-              ./assets/img/header_adarta_2-1280.jpg 1280w,
-              ./assets/img/header_adarta_2-1920.jpg 1920w
-            "
-          />
+          <picture>
+            <!-- MOBILE -->
+            <source
+              media="(max-width: 767px)"
+              srcset="./assets/img/header_adarta_2-768.jpg"
+            />
+
+            <!-- TABLET -->
+            <source
+              media="(max-width: 1279px)"
+              srcset="./assets/img/header_adarta_2-1280.jpg"
+            />
+
+            <!-- DESKTOP -->
+            <img
+              src="./assets/img/header_adarta_2-1920.jpg"
+              alt="Atelier Adarta Detailing Auto"
+            />
+          </picture>
           <div class="hero-inner">
             <div class="hero-actions">
               <a class="btn btn-primary" href="catalog.html">
