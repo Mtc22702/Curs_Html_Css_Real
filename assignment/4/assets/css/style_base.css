@@ -5,6 +5,7 @@
   --text-menu: #1f2937;
   --text: #374151;
   --muted: #6b7280;
+  --muted-2: #475569;
   --border: #d1d5db;
   --border-strong: #9ca3af;
   --card: #ffffff;
@@ -235,7 +236,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 85%;
+  width: 90%;
   margin-inline: auto;
   min-height: 2.75rem;
   padding: 0.75rem 1rem;
@@ -269,7 +270,7 @@ p {
 
 .btn-outline {
   background: var(--cart-btn-bg);
-  color: var(--text);
+  color: var(--muted-2);
   border-color: var(--cart-btn-border);
 }
 
@@ -405,7 +406,7 @@ textarea:focus {
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   h2 {
@@ -418,8 +419,9 @@ textarea:focus {
 
   .btn {
     font-size: 0.9rem;
-    min-height: 2.4rem;
+    min-height: 2.35rem;
     padding: 0.5rem 1rem;
+    width: 100%;
   }
 
   .footer-cols {

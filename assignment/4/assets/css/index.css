@@ -53,8 +53,8 @@
 }
 
 .btn-primary:hover {
-  background: #2e6df5;
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+  background: #1f5d95;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
 }
 
 .btn-primary:active {
