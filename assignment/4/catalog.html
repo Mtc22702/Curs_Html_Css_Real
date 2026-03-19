@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="./assets/css/catalog.css" />
   </head>
 
-  <body class="produs-pagina">
+  <body class="product-page">
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <nav class="navbar" aria-label="Navigația principală">
         <div class="nav-left">
-          <a class="logo" href="catalog.html" aria-label="Acasă">
+          <a class="logo" href="index.html" aria-label="Acasă">
             <img src="./assets/img/Logo_Adarta.png" alt="Logo" />
           </a>
 
           <ul class="nav-links-left">
-            <li><a href="catalog.html">Acasă</a></li>
-            <li><a href="catalog.html#shop">Magazin</a></li>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="catalog.html">Magazin</a></li>
             <li><a href="catalog.html#about">Despre</a></li>
             <li><a href="catalog.html#contact">Contact</a></li>
             <li><a href="#" class="sale-link">Reduceri!</a></li>
@@ -68,11 +68,11 @@
     </header>
 
     <!-- SECTIUNE MAIN: Continut principal -->
-    <main class="produs-pagina-main">
+    <main class="main-content">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
-          <li><a href="catalog.html">Acasă</a></li>
-          <li><a href="catalog.html#shop">Magazin</a></li>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="catalog.html">Magazin</a></li>
           <li aria-current="page">Vezi toate</li>
         </ol>
       </nav>
@@ -98,33 +98,33 @@
 
       <!-- SECTIUNE: Catalog (Filtre + Grid produse) -->
       <section class="catalog" aria-label="Lista produse">
-        <div class="catalog-layout">
-          <aside class="filters" aria-label="Filtre">
+        <div class="catalog-box">
+          <aside class="filter-box" aria-label="Filtre">
             <h2>Filtre</h2>
 
             <div class="filters-scroll">
               <ul class="filters-list">
-                <li class="filter-section">
-                  <div class="filter-head">
+                <li class="filter-item">
+                  <div class="filter-title">
                     <span>Prețuri</span>
                     <span class="filter-arrow">⌄</span>
                   </div>
 
-                  <ul class="filter-options">
+                  <ul class="filter-list">
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>0 – 50 RON</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>50 – 150 RON</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>150+ RON</span>
                       </label>
@@ -132,33 +132,33 @@
                   </ul>
                 </li>
 
-                <li class="filter-section">
-                  <div class="filter-head">
+                <li class="filter-item">
+                  <div class="filter-title">
                     <span>Brand</span>
                     <span class="filter-arrow">⌄</span>
                   </div>
 
-                  <ul class="filter-options">
+                  <ul class="filter-list">
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Koch Chemie</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Sonax</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Meguiar’s</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Turtle Wax</span>
                       </label>
@@ -166,33 +166,33 @@
                   </ul>
                 </li>
 
-                <li class="filter-section">
-                  <div class="filter-head">
+                <li class="filter-item">
+                  <div class="filter-title">
                     <span>Categorii</span>
                     <span class="filter-arrow">⌄</span>
                   </div>
 
-                  <ul class="filter-options">
+                  <ul class="filter-list">
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Exterior</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Interior</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" />
                         <span>Accesorii</span>
                       </label>
                     </li>
                     <li>
-                      <label class="check">
+                      <label class="checkbox">
                         <input type="checkbox" checked />
                         <span>Toate articolele</span>
                       </label>
@@ -200,8 +200,8 @@
                   </ul>
                 </li>
 
-                <li class="filter-section">
-                  <div class="filter-head">
+                <li class="filter-item">
+                  <div class="filter-title">
                     <span>Altele</span>
                     <span class="filter-arrow">›</span>
                   </div>
@@ -209,11 +209,11 @@
               </ul>
             </div>
 
-            <button class="apply-btn" type="button">Aplicați filtre</button>
+            <button class="filter-button" type="button">Aplicați filtre</button>
           </aside>
 
           <!-- Zona produse + paginare -->
-          <div class="products-area">
+          <div class="products-section">
             <div class="products-grid" aria-label="Grid produse">
               <article class="product-card">
                 <a
@@ -477,13 +477,13 @@
             </div>
 
             <nav class="pagination" aria-label="Paginare">
-              <a href="#" class="btn btn-outline">Înapoi</a>
+              <a href="#" class="btn btn-nav">Înapoi</a>
               <a href="#" class="page is-active" aria-current="page">1</a>
               <a href="#" class="page">2</a>
               <span class="dots">…</span>
               <a href="#" class="page">9</a>
               <a href="#" class="page">10</a>
-              <a href="#" class="btn btn-outline">Înainte</a>
+              <a href="#" class="btn btn-nav">Înainte</a>
             </nav>
           </div>
         </div>

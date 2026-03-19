@@ -1,7 +1,7 @@
 /* ----- LOGIN ----- */
 
-.login-main {
-  padding: 0.75rem 0 4rem;
+.login-page {
+  padding: 0 0 4rem;
 }
 
 .page-header {
@@ -9,20 +9,18 @@
 }
 
 .login-header h1 {
-  margin: 1rem 0 1.5rem;
-  font-size: 1.8rem;
-  line-height: 1.2;
+  margin: 1.5rem 0 1.5rem;
 }
 
-.login {
+.login-section {
   display: flex;
   justify-content: center;
 }
 
-.login-form {
+.login-box {
   width: min(35rem, 100%);
   padding: 1.5rem 1rem;
-  border: 1px solid #cfcfcf;
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
   background: transparent;
 }
@@ -33,25 +31,25 @@
   margin-top: 1rem;
 }
 
-.login-form label {
-  font-size: 1rem;
+.login-box label {
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-.login-form input {
+.login-box input {
   width: 100%;
   min-height: 2.75rem;
   padding: 0.75rem;
-  border: 1px solid #bdbdbd;
+  border: 1px solid var(--border);
   border-radius: 0.5rem;
   background: #fff;
   font: inherit;
 }
 
-.login-row {
+.login-options {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 0.875rem;
   margin: 1rem 0 1.25rem;
@@ -70,16 +68,13 @@
   accent-color: var(--primary);
 }
 
-.forgot {
-  font-size: 0.95rem;
-  color: #9aa0a6;
+.forgot-link {
+  font-size: 0.85rem;
+  color: var(--muted);
   text-decoration: underline;
 }
-
-.btn {
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: 0.04rem;
+.btn-primary {
+  min-height: 2.75rem;
 }
 
 .create-account {
@@ -93,21 +88,13 @@
 }
 
 @media (min-width: 768px) {
-  .login-header h1 {
-    font-size: 2rem;
-  }
-
-  .login-form {
+  .login-box {
     padding: 2rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .login-header h1 {
-    font-size: 2.2rem;
-  }
-
-  .login-form {
+  .login-box {
     padding: 2.375rem 2.875rem;
   }
 }
