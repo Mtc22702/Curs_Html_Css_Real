@@ -99,12 +99,12 @@
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem;
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   background: #fff;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   overflow: hidden;
 }
