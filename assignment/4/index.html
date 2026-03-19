@@ -1,64 +1,61 @@
 <!doctype html>
+
 <html lang="ro">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Catalog Produse</title>
     <link
-      rel="icon"
       href="./assets/img/Logo_Adarta.png"
-      type="image/png"
+      rel="icon"
       sizes="32x32"
+      type="image/png"
     />
-    <link rel="stylesheet" href="./assets/css/style_base.css" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
+    <link href="./assets/css/style_base.css" rel="stylesheet" />
+    <link href="./assets/css/index.css" rel="stylesheet" />
   </head>
-
   <body class="home-page">
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
-      <nav class="navbar" aria-label="Navigația principală">
+      <nav aria-label="Navigația principală" class="navbar">
         <div class="nav-left">
-          <a class="logo" href="index.html" aria-label="Acasă">
-            <img src="./assets/img/Logo_Adarta.png" alt="Logo" />
+          <a aria-label="Acasă" class="logo" href="index.html">
+            <img alt="Logo" src="./assets/img/Logo_Adarta.png" />
           </a>
-
           <ul class="nav-links-left">
             <li><a href="index.html">Acasă</a></li>
             <li><a href="catalog.html">Magazin</a></li>
             <li><a href="#about">Despre</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#" class="sale-link">Reduceri!</a></li>
+            <li><a class="sale-link" href="#">Reduceri!</a></li>
           </ul>
         </div>
-
         <div class="nav-center">
           <form
-            class="nav-search"
             action="#"
+            aria-label="Căutare"
+            class="nav-search"
             method="get"
             role="search"
-            aria-label="Căutare"
           >
-            <input type="search" id="q" name="q" placeholder="Caută..." />
+            <input id="q" name="q" placeholder="Caută..." type="search" />
           </form>
         </div>
-
         <div class="nav-right">
           <ul class="nav-links-right">
             <li>
-              <a class="cart" href="checkout.html" aria-label="Coș">
+              <a aria-label="Coș" class="cart" href="checkout.html">
                 <img
-                  src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
                   alt=""
+                  src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
                 />
               </a>
             </li>
             <li>
-              <a class="user" href="login.html" aria-label="Cont">
+              <a aria-label="Cont" class="user" href="login.html">
                 <img
-                  src="./assets/img/Ikonice.assignment03/user_logo (1).png"
                   alt=""
+                  src="./assets/img/Ikonice.assignment03/user_logo (1).png"
                 />
               </a>
             </li>
@@ -66,11 +63,10 @@
         </div>
       </nav>
     </header>
-
     <main class="main-content">
       <!-- SECTIUNE MAIN: Continut principal -->
       <!--HERO-->
-      <section class="hero" aria-labelledby="hero-title">
+      <section aria-labelledby="hero-title" class="hero">
         <div class="hero-content">
           <h1 id="hero-title">Adarta Detailing Auto</h1>
           <p>
@@ -78,13 +74,17 @@
             La noi sau la tine.
           </p>
         </div>
-
         <div class="hero-media">
           <img
-            src="./assets/img/header_adarta_2.JPEG"
-            alt="Mașină prezentată într-un context de detailing auto"
+            alt="Atelier Adarta Detailing Auto"
+            sizes="100vw"
+            src="./assets/img/header_adarta_2-1280.jpg"
+            srcset="
+              ./assets/img/header_adarta_2-768.jpg   768w,
+              ./assets/img/header_adarta_2-1280.jpg 1280w,
+              ./assets/img/header_adarta_2-1920.jpg 1920w
+            "
           />
-
           <div class="hero-inner">
             <div class="hero-actions">
               <a class="btn btn-primary" href="catalog.html">
@@ -94,25 +94,28 @@
           </div>
         </div>
       </section>
-
       <!-- MAGAZIN / PRODUSE -->
-      <section id="shop" class="home-shop" aria-labelledby="shop-title">
+      <section aria-labelledby="shop-title" class="home-shop" id="shop">
         <header class="page-header home-header">
           <h2 id="shop-title">Produse populare</h2>
           <p class="home-text">Câteva dintre produsele preferate de clienți.</p>
         </header>
-
         <div class="products-section">
-          <div class="products-grid" aria-label="Grid produse">
+          <div aria-label="Grid produse" class="products-grid">
             <article class="product-card">
               <a
+                aria-label="Șampon auto cu efect ceramic"
                 class="product-link"
                 href="#"
-                aria-label="Șampon auto cu efect ceramic"
               >
                 <img
-                  src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344.jpg"
-                  alt="Imagine produs"
+                  alt="Șampon auto cu efect ceramic"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                  src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
+                  srcset="
+                    ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
+                    ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
+                  "
                 />
               </a>
               <h3 class="product-title">
@@ -124,16 +127,20 @@
                 Adaugă în coș
               </button>
             </article>
-
             <article class="product-card">
               <a
+                aria-label="Șampon auto reactivare ceramică"
                 class="product-link"
                 href="#"
-                aria-label="Șampon auto reactivare ceramică"
               >
                 <img
-                  src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567.jpg"
-                  alt="Imagine produs"
+                  alt="Șampon auto reactivare ceramică"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                  src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
+                  srcset="
+                    ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
+                    ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
+                  "
                 />
               </a>
               <h3 class="product-title">
@@ -145,16 +152,20 @@
                 Adaugă în coș
               </button>
             </article>
-
             <article class="product-card">
               <a
+                aria-label="Polish 3 în 1 cu ceară Carnauba"
                 class="product-link"
                 href="#"
-                aria-label="Polish 3 în 1 cu ceară Carnauba"
               >
                 <img
-                  src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000.jpg"
-                  alt="Imagine produs"
+                  alt="Polish 3 în 1 cu ceară Carnauba"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                  src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
+                  srcset="
+                    ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
+                    ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
+                  "
                 />
               </a>
               <h3 class="product-title">
@@ -166,16 +177,20 @@
                 Adaugă în coș
               </button>
             </article>
-
             <article class="product-card product-card-sale">
               <a
+                aria-label="Spray protecție vopsea"
                 class="product-link"
                 href="#"
-                aria-label="Spray protecție vopsea"
               >
                 <img
-                  src="./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060.jpg"
-                  alt="Imagine produs"
+                  alt="Spray protecție vopsea"
+                  sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
+                  src="./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg"
+                  srcset="
+                    ./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg 480w,
+                    ./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg 768w
+                  "
                 />
               </a>
               <h3 class="product-title">
@@ -193,9 +208,8 @@
           </div>
         </div>
       </section>
-
       <!-- DESPRE -->
-      <section id="about" class="about-section" aria-labelledby="about-title">
+      <section aria-labelledby="about-title" class="about-section" id="about">
         <div class="about-box">
           <h2 id="about-title">Despre noi</h2>
           <p class="about-text">
@@ -204,32 +218,28 @@
           </p>
         </div>
       </section>
-
       <!-- CONTACT + HARTĂ -->
       <section
-        id="contact"
-        class="contact-section"
         aria-labelledby="contact-title"
+        class="contact-section"
+        id="contact"
       >
         <div class="contact-box">
           <div class="contact-info">
-            <h2 id="contact-title" class="contact-title">
+            <h2 class="contact-title" id="contact-title">
               „Peste 200 de mașini lucrate în atelierul nostru.”
             </h2>
-
             <p class="contact-text">
               Experiență, atenție la detalii și produse profesionale pentru
               rezultate impecabile.
             </p>
-
             <p>
               <a
-                href="./despre_noi.html#imagini_de_prezentare"
                 class="contact-gallery"
+                href="./despre_noi.html#imagini_de_prezentare"
                 >[Vezi Galeria Foto]</a
               >
             </p>
-
             <ul class="contact-list">
               <li>07xxxxxxxx</li>
               <li>contact@a.com</li>
@@ -237,8 +247,7 @@
               <li>Timișoara, România</li>
             </ul>
           </div>
-
-          <div class="map-box" aria-label="Hartă Google">
+          <div aria-label="Hartă Google" class="map-box">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2782.4728122538572!2d21.37054127671599!3d45.78175461219422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4745617b54b09e2b%3A0x277c97b95fb91c6f!2sAdarta%20Detailing%20Auto!5e0!3m2!1sit!2sro!4v1770234755506!5m2!1sit!2sro"
               width="600"
@@ -253,9 +262,8 @@
         </div>
       </section>
     </main>
-
     <!-- SECTIUNE: Footer -->
-    <footer class="footer" aria-label="Footer">
+    <footer aria-label="Footer" class="footer">
       <div class="footer-inner">
         <div class="footer-cols footer-cols-3">
           <div class="footer-col">
@@ -269,7 +277,6 @@
               <li><a href="#">Promoții</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h3>INFORMAȚII</h3>
             <ul>
@@ -279,7 +286,6 @@
               <li><a href="#">Livrare &amp; retur</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h3>SUPORT CLIENȚI</h3>
             <ul>
@@ -290,27 +296,25 @@
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom">
           <p class="footer-credit">
             Designed and developed by: <strong>Matteo</strong>
           </p>
-
           <div class="footer-social">
             <a href="#"
               ><img
-                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
                 alt="Facebook"
+                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
             /></a>
             <a href="#"
               ><img
-                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
                 alt="Instagram"
+                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
             /></a>
             <a href="#"
               ><img
-                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
                 alt="TikTok"
+                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
             /></a>
           </div>
         </div>
