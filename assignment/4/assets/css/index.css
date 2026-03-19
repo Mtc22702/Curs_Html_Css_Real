@@ -192,7 +192,7 @@
 .contact-box {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2.5rem;
   align-items: start;
 }
 
@@ -225,16 +225,27 @@
 
 .map-box {
   overflow: hidden;
-  min-height: 20rem;
+  min-height: 18rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  background: #f3f4f6;
+  aspect-ratio: 16 / 9;
 }
 
-.map-box iframe {
+.map-box a {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 20rem;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border: 0;
 }
 
 @media (min-width: 768px) {
@@ -263,9 +274,11 @@
   .hero-media,
   .hero-media img,
   .map-box,
-  .map-box iframe {
-    min-height: 24rem;
+  .map-box iframe,
+  .map-image {
+    min-height: 18rem;
   }
+
   .hero-media {
     max-height: 35rem;
   }
