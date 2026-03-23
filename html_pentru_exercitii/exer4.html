@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exemplu align-content</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 32px;
+        font-family: Arial, sans-serif;
+        background: #efefef;
+        color: #555;
+      }
+
+      .wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 32px;
+      }
+
+      .demo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .box {
+        width: 100%;
+        max-width: 500px;
+        height: 240px;
+        border: 2px solid #8a8a8a;
+        background: #f3f3f3;
+
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 6px;
+      }
+
+      .item {
+        width: 92px;
+        height: 72px;
+      }
+
+      .yellow {
+        background: #efc514;
+      }
+
+      .green {
+        background: #55b86e;
+      }
+
+      .red {
+        background: #e86f5d;
+      }
+
+      .start {
+        align-content: flex-start;
+      }
+
+      .end {
+        align-content: flex-end;
+      }
+
+      .stretch {
+        align-content: stretch;
+      }
+
+      .stretch .item {
+        height: auto;
+      }
+
+      .center {
+        align-content: center;
+      }
+
+      .between {
+        align-content: space-between;
+      }
+
+      .around {
+        align-content: space-around;
+      }
+
+      @media (max-width: 900px) {
+        .wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .title {
+          font-size: 18px;
+          text-align: center;
+        }
+
+        .box {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="demo">
+        <div class="title">align-content: flex-start;</div>
+        <div class="box start">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="title">align-content: flex-end;</div>
+        <div class="box end">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="title">align-content: stretch;</div>
+        <div class="box stretch">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="title">align-content: center;</div>
+        <div class="box center">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="title">align-content: space-between;</div>
+        <div class="box between">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="title">align-content: space-around;</div>
+        <div class="box around">
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+          <div class="item green"></div>
+          <div class="item red"></div>
+          <div class="item yellow"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flexbox Layout</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        color: white;
+      }
+
+      #wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        text-align: center;
+      }
+
+      #header {
+        padding: 10px;
+        font-size: 24px;
+      }
+
+      #footer {
+        padding: 20px;
+        font-size: 24px;
+      }
+
+      #header {
+        background: #5d7586;
+      }
+
+      #footer {
+        background: #444142;
+      }
+
+      #main {
+        display: flex;
+        flex: 1;
+      }
+
+      #filter {
+        flex: 1;
+        background: #535c63;
+        padding: 20px;
+      }
+
+      #products {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #category {
+        background: #c0a2ad;
+        padding: 20px;
+      }
+
+      #newsletter {
+        background: #914e67;
+        padding: 30px;
+      }
+
+      #grid {
+        flex: 1;
+        background: #6f8796;
+        padding: 20px;
+      }
+
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 150px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        margin-top: auto;
+        border-radius: 5px;
+        padding: 8px 16px;
+        height: auto;
+        border: none;
+        background-color: #94a4af;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s ease;
+      }
+      button:hover {
+        background-color: #4a5e6b;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <header id="header">Header</header>
+      <div id="category">Category</div>
+      <div id="main">
+        <aside id="filter">Filter</aside>
+
+        <section id="products">
+          <div id="grid">
+            <div class="products">
+              <div class="product">
+                <img src="shirt1.jpg" alt="Black shirt" />
+                <p>Black shirt- 1200 RSD</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt2.jpg" alt="White shirt" />
+                <p>White shirt- 14 RON</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt3.jpg" alt="Printed shirt" />
+                <p>Printed shirt - 15 RON</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt1.jpg" alt="Black shirt" />
+                <p>Black shirt- 1200 RSD</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt2.jpg" alt="White shirt" />
+                <p>White shirt- 14 RON</p>
+                <button class="delayed-link" data-href="a.html">
+                  Add to cart
+                </button>
+              </div>
+              <div class="product">
+                <img src="shirt3.jpg" alt="Printed shirt" />
+                <p>Printed shirt - 15 RON</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt1.jpg" alt="Black shirt" />
+                <p>Black shirt- 1200 RSD</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt2.jpg" alt="White shirt" />
+                <p>White shirt- 14 RON</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+              <div class="product">
+                <img src="shirt3.jpg" alt="Printed shirt" />
+                <p>Printed shirt - 15 RON</p>
+                <button class="delayed-link" data-href="#">Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div id="newsletter">Offers</div>
+      <footer id="footer">Footer</footer>
+    </div>
+
+    <script>
+      // Selectăm toate butoanele cu clasa delayed-link
+      const delayedLinks = document.querySelectorAll('.delayed-link');
+
+      delayedLinks.forEach((link) => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault(); // oprim navigarea instantanee
+          const targetUrl = this.getAttribute('data-href'); // preluăm linkul
+
+          if (targetUrl) {
+            setTimeout(() => {
+              window.location.href = targetUrl;
+            }, 200); // 200ms corespunde cu "transition: all 0.2s ease" din CSS
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
