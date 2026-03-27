@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #grid1 {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 180px;
+        grid-auto-rows: 200px;
+      }
+      #grid1 div {
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <div id="grid1">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+      <div>Six</div>
+    </div>
+  </body>
+</html>
