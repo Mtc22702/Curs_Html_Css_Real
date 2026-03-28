@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aliniere grilă Demo</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      .controls {
+        margin-bottom: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 160px 160px 160px;
+        grid-auto-rows: minmax(100px, 140px);
+        gap: 16px;
+        height: 60vh;
+        border: 2px dashed #333;
+        transition: all 0.3s ease;
+      }
+      .item {
+        background: lightblue;
+        border: 1px solid #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Aliniere bară grilă</h1>
+    <div class="controls">
+      <label>
+        align-content:
+        <select id="alignSelect">
+          <option>start</option>
+          <option>center</option>
+          <option>end</option>
+          <option>space-between</option>
+          <option>space-around</option>
+          <option>stretch</option>
+        </select>
+      </label>
+
+      <label>
+        justify-content:
+        <select id="justifySelect">
+          <option>start</option>
+          <option>center</option>
+          <option>end</option>
+          <option>space-between</option>
+          <option>space-around</option>
+          <option>stretch</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="grid" id="grid">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+
+    <script>
+      const grid = document.getElementById('grid');
+      const alignSelect = document.getElementById('alignSelect');
+      const justifySelect = document.getElementById('justifySelect');
+
+      function updateGrid() {
+        grid.style.alignContent = alignSelect.value;
+        grid.style.justifyContent = justifySelect.value;
+      }
+
+      alignSelect.addEventListener('change', updateGrid);
+      justifySelect.addEventListener('change', updateGrid);
+
+      // setare inițială
+      updateGrid();
+    </script>
+  </body>
+</html>
