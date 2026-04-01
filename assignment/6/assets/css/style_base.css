@@ -144,6 +144,7 @@ h4 {
 .navbar-toggler {
   border: 0;
   padding: 0.25rem 0.5rem;
+  justify-self: flex-start;
 }
 
 .navbar-toggler:focus {
@@ -453,7 +454,7 @@ textarea:focus {
 @media (max-width: 991.98px) {
   .bootstrap-navbar {
     display: grid !important;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
   }
 
