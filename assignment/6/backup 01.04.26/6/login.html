@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autentificare</title>
+
+    <link
+      rel="icon"
+      href="./assets/img/Logo_Adarta.png"
+      type="image/png"
+      sizes="32x32"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style_base.css" />
+    <link rel="stylesheet" href="./assets/css/login.css" />
+  </head>
+
+  <body>
+    <!-- SECTIUNE: Header / Navigatie -->
+    <header class="site-header">
+      <div class="navbar navbar-expand-lg bootstrap-navbar">
+        <button
+          aria-controls="primaryNav"
+          aria-expanded="false"
+          aria-label="Deschide meniul"
+          class="navbar-toggler"
+          data-bs-target="#primaryNav"
+          data-bs-toggle="collapse"
+          type="button"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="brand navbar-brand m-0 p-0">
+          <a aria-label="Acasă" class="brand-link" href="homepage.html">
+            <img
+              alt="Logo Adarta"
+              class="brand-logo"
+              src="./assets/img/Logo_Adarta.png"
+            />
+          </a>
+        </div>
+        <div class="actions order-lg-3 ms-auto">
+          <div aria-label="Search" class="search d-none d-sm-inline-flex">
+            <span aria-hidden="true" class="search-icon"></span>
+            <span class="search-label">Search</span>
+          </div>
+          <a
+            aria-label="Cart"
+            class="action-link icon-action"
+            href="checkout.html"
+          >
+            <img
+              alt=""
+              src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
+            />
+            <span>Cart</span>
+          </a>
+          <a
+            aria-label="Login"
+            class="action-link icon-action"
+            href="login.html"
+          >
+            <img
+              alt=""
+              src="./assets/img/Ikonice.assignment03/user_logo (1).png"
+            />
+            <span>Login</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
+          <nav aria-label="Navigația principală" class="primary-nav ms-lg-4">
+            <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
+              <li class="nav-item"><a class="nav-link" href="homepage.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="catalog.html">Shop</a></li>
+              <li class="nav-item"><a class="nav-link" href="homepage.html#about">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="homepage.html#contact">Contact</a></li>
+              <li class="nav-item"><a class="nav-link sale-link" href="#">Reduceri!</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTIUNE MAIN: Continut principal -->
+    <main class="login-page">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="homepage.html">Acasă</a></li>
+          <li aria-current="page">Autentificare</li>
+        </ol>
+      </nav>
+
+      <header class="page-header login-header">
+        <h1>Autentificare</h1>
+      </header>
+
+      <section class="login-section" aria-label="Formular de autentificare">
+        <form class="login-box" action="#" method="post">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Parolă</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="login-options">
+            <label class="checkbox">
+              <input type="checkbox" name="remember" />
+              Ține-mă minte
+            </label>
+
+            <a class="forgot-link" href="#">Ai uitat parola?</a>
+          </div>
+
+          <button class="btn btn-primary" type="submit">INTRĂ ÎN CONT</button>
+
+          <p class="create-account">Sau <a href="#">creează un cont</a></p>
+        </form>
+      </section>
+    </main>
+    <!-- SECTIUNE: Footer -->
+    <footer aria-label="Footer" class="footer">
+      <div class="footer-wrap">
+        <div class="footer1 row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <section class="footer-card col">
+            <h4>MAGAZIN</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#">Șampoane auto</a></li>
+              <li><a href="#">Ceară &amp; sealant</a></li>
+              <li><a href="#">Soluții interior</a></li>
+              <li><a href="#">Accesorii detailing</a></li>
+              <li><a href="#">Kituri complete</a></li>
+              <li><a href="#">Promoții</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col">
+            <h4>INFORMAȚII</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="homepage.html#about">Despre noi</a></li>
+              <li><a href="#">Termeni și condiții</a></li>
+              <li><a href="#">Politica de confidențialitate</a></li>
+              <li><a href="#">Livrare &amp; retur</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col">
+            <h4>SUPORT CLIENȚI</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="homepage.html#contact">Contact</a></li>
+              <li><a href="#">Întrebări frecvente</a></li>
+              <li><a href="#">Garanție produse</a></li>
+              <li><a href="#">Instrucțiuni utilizare</a></li>
+            </ul>
+          </section>
+        </div>
+        <div class="footer2">
+          <p class="footer-signature mb-0">
+            Designed and developed by: <strong>Matteo</strong>
+          </p>
+          <div class="footer-social">
+            <a aria-label="Facebook" href="#"
+              ><img
+                alt="Facebook"
+                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
+            /></a>
+            <a aria-label="Instagram" href="#"
+              ><img
+                alt="Instagram"
+                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
+            /></a>
+            <a aria-label="TikTok" href="#"
+              ><img
+                alt="TikTok"
+                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

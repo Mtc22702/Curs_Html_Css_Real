@@ -19,7 +19,7 @@
   --cart-btn-hover: rgba(22, 163, 74);
   --cart-btn-text: #2f5d3a;
   --radius: 0.875rem;
-  --container: 70rem;
+  --container: 78rem;
   --btn-cos: #f3f4f6;
   --green-soft: #dff3e4;
   --green-soft-hover: #cfead7;
@@ -424,7 +424,6 @@ textarea:focus {
 .footer-social {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
 }
 
 .footer-social a {
