@@ -180,6 +180,21 @@ h4 {
   top: 0.75rem;
 }
 
+.mobile-controls {
+  gap: 0.45rem;
+  justify-self: start;
+}
+
+.mobile-search {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.mobile-search .search-label {
+  display: none;
+}
+
 .primary-nav {
   color: var(--text-menu);
 }

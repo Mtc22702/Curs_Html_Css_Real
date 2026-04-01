@@ -26,17 +26,23 @@
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <div class="navbar navbar-expand-lg bootstrap-navbar">
-        <button
-          aria-controls="primaryNav"
-          aria-expanded="false"
-          aria-label="Deschide meniul"
-          class="navbar-toggler"
-          data-bs-target="#primaryNav"
-          data-bs-toggle="collapse"
-          type="button"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="mobile-controls d-flex align-items-center d-lg-none">
+          <button
+            aria-controls="primaryNav"
+            aria-expanded="false"
+            aria-label="Deschide meniul"
+            class="navbar-toggler"
+            data-bs-target="#primaryNav"
+            data-bs-toggle="collapse"
+            type="button"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <a aria-label="Search" class="search mobile-search" href="#">
+            <span aria-hidden="true" class="search-icon"></span>
+          </a>
+        </div>
         <div class="brand navbar-brand m-0 p-0">
           <a aria-label="Acasă" class="brand-link" href="homepage.html">
             <img
@@ -47,7 +53,7 @@
           </a>
         </div>
         <div class="actions order-lg-3 ms-auto">
-          <div aria-label="Search" class="search d-none d-sm-inline-flex">
+          <div aria-label="Search" class="search d-none d-lg-inline-flex">
             <span aria-hidden="true" class="search-icon"></span>
             <span class="search-label">Search</span>
           </div>
@@ -97,7 +103,6 @@
         </div>
       </div>
     </header>
-
     <!-- SECTIUNE MAIN: Continut principal -->
     <main class="login-page">
       <nav class="breadcrumb" aria-label="Breadcrumb">
