@@ -257,16 +257,6 @@
 }
 
 @media (min-width: 992px) {
-  .checkout-box > .row > .col-lg-6:first-child {
-    flex: 0 0 auto;
-    width: 38%;
-  }
-
-  .checkout-box > .row > .col-lg-6:last-child {
-    flex: 0 0 auto;
-    width: 62%;
-  }
-
   .checkout-header {
     margin-bottom: 2rem !important;
   }
