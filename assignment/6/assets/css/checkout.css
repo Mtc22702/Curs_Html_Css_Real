@@ -1,13 +1,5 @@
 /* ----- CHECKOUT ----- */
 
-.checkout-header h1 {
-  text-align: center;
-}
-
-.checkout {
-  margin-bottom: 3rem;
-}
-
 .checkout-section-title,
 .cart-title {
   font-size: 1.15rem;
@@ -176,14 +168,6 @@
   min-width: 0.8rem;
   text-align: center;
   font-size: 0.88rem;
-}
-
-.cart-total {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-weight: 800;
-  font-size: 1.1rem;
 }
 
 .total-price {
