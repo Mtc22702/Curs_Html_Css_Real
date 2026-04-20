@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <!-- META ȘI TITLU PAGINĂ -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login | Adarta</title>
+    <meta
+      name="description"
+      content="Pagina de autentificare Adarta realizată cu HTML, CSS și Bootstrap 5."
+    />
+
+    <!-- FONTURI GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- BOOTSTRAP 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- FIȘIERE CSS PERSONALIZATE -->
+    <link rel="stylesheet" href="./assets/css/globals.css" />
+    <link rel="stylesheet" href="./assets/css/styleguide.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body class="login-page">
+    <!-- HEADER -->
+    <header class="site-header border-bottom">
+      <div class="container-xl">
+        <nav
+          class="navbar navbar-expand-lg py-2"
+          aria-label="Navigare principală"
+        >
+          <a
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="#"
+            aria-label="Pagina principală Adarta"
+          >
+            <img
+              src="./assets/img/Logo_Adarta.png"
+              alt="Logo Adarta"
+              class="brand-logo"
+            />
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Deschide meniul"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNavbar">
+            <!-- MENIU PRINCIPAL -->
+            <ul
+              class="navbar-nav me-auto ms-lg-3 mb-3 mb-lg-0 align-items-lg-center gap-lg-2"
+            >
+              <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item">
+                <a class="nav-link nav-sale" href="#">Reduceri!</a>
+              </li>
+            </ul>
+
+            <!-- ACȚIUNI HEADER -->
+            <div
+              class="header-tools d-flex flex-column flex-lg-row align-items-lg-center gap-3 gap-lg-4"
+            >
+              <!-- CĂUTARE -->
+              <form class="search-inline" role="search">
+                <img
+                  src="./assets/img/search.png"
+                  alt=""
+                  aria-hidden="true"
+                  class="header-icon"
+                />
+                <input
+                  class="search-input"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Caută produse"
+                />
+              </form>
+
+              <!-- COȘ -->
+              <a href="#" class="header-action">
+                <img
+                  src="./assets/img/shopping-cart.png"
+                  alt=""
+                  aria-hidden="true"
+                  class="header-icon"
+                />
+                <span>Cart</span>
+              </a>
+
+              <!-- LOGIN -->
+              <a href="#" class="header-action">
+                <img
+                  src="./assets/img/circle-user.png"
+                  alt=""
+                  aria-hidden="true"
+                  class="header-icon"
+                />
+                <span>Login</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONȚINUT PRINCIPAL -->
+    <main>
+      <section class="py-4 py-lg-5">
+        <div class="container-xl">
+          <!-- BREADCRUMB -->
+          <nav aria-label="breadcrumb" class="mb-4 mb-lg-5">
+            <ol class="breadcrumb mb-0 small-breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Acasă</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Autentificare
+              </li>
+            </ol>
+          </nav>
+
+          <!-- TITLU PAGINĂ -->
+          <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4 mb-lg-5">
+              <h1 class="page-title mb-0">Autentificare</h1>
+            </div>
+          </div>
+
+          <!-- SECȚIUNEA FORMULARULUI DE LOGIN -->
+          <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card login-card border-0 shadow-sm">
+                <div class="card-body p-4 p-md-5">
+                  <!-- FORMULAR LOGIN -->
+                  <form action="#" method="post">
+                    <!-- CÂMP EMAIL -->
+                    <div class="mb-4 text-start">
+                      <label for="email" class="form-label">Email</label>
+                      <input
+                        type="email"
+                        class="form-control custom-input"
+                        id="email"
+                        name="email"
+                        placeholder="Introdu emailul"
+                        autocomplete="email"
+                        required
+                      />
+                    </div>
+
+                    <!-- CÂMP PAROLĂ -->
+                    <div class="mb-3 text-start">
+                      <label for="password" class="form-label">Parolă</label>
+                      <input
+                        type="password"
+                        class="form-control custom-input"
+                        id="password"
+                        name="password"
+                        placeholder="Introdu parola"
+                        autocomplete="current-password"
+                        required
+                      />
+                    </div>
+
+                    <!-- CHECKBOX + LINK PAROLĂ UITATĂ -->
+                    <div
+                      class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-4"
+                    >
+                      <div class="form-check text-start m-0">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="remember"
+                          id="remember"
+                        />
+                        <label
+                          class="form-check-label small-text"
+                          for="remember"
+                        >
+                          Ține-mă minte
+                        </label>
+                      </div>
+
+                      <a href="#" class="forgot-link small-text">
+                        Ai uitat parola?
+                      </a>
+                    </div>
+
+                    <!-- BUTON LOGIN -->
+                    <button
+                      type="submit"
+                      class="btn btn-primary login-btn w-100"
+                    >
+                      INTRĂ ÎN CONT
+                    </button>
+
+                    <!-- LINK CREARE CONT -->
+                    <p class="register-text text-center mt-4 mb-0">
+                      Sau <a href="#">creează un cont</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER / SUBSOL -->
+    <footer class="site-footer mt-auto pt-4 pt-lg-4">
+      <div class="container-xl">
+        <!-- PARTEA DE SUS DIN FOOTER -->
+        <div class="footer-top border-top pt-3 pt-lg-3">
+          <div
+            class="row text-center text-lg-start gy-4 justify-content-between"
+          >
+            <!-- COLOANA MAGAZIN -->
+            <div class="col-12 col-md-4 col-lg-3">
+              <h2 class="footer-title">MAGAZIN</h2>
+              <ul class="footer-list list-unstyled mb-0">
+                <li><a href="#">Șampoane auto</a></li>
+                <li><a href="#">Ceară &amp; sealant</a></li>
+                <li><a href="#">Soluții interior</a></li>
+                <li><a href="#">Accesorii detailing</a></li>
+                <li><a href="#">Kituri complete</a></li>
+                <li><a href="#">Promoții</a></li>
+              </ul>
+            </div>
+
+            <!-- COLOANA INFORMAȚII -->
+            <div class="col-12 col-md-4 col-lg-3">
+              <h2 class="footer-title">INFORMAȚII</h2>
+              <ul class="footer-list list-unstyled mb-0">
+                <li><a href="#">Despre noi</a></li>
+                <li><a href="#">Termeni și condiții</a></li>
+                <li><a href="#">Politica de confidențialitate</a></li>
+                <li><a href="#">Livrare &amp; retur</a></li>
+              </ul>
+            </div>
+
+            <!-- COLOANA SUPORT CLIENȚI -->
+            <div class="col-12 col-md-4 col-lg-3">
+              <h2 class="footer-title">SUPORT CLIENȚI</h2>
+              <ul class="footer-list list-unstyled mb-0">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Întrebări frecvente</a></li>
+                <li><a href="#">Garanție produse</a></li>
+                <li><a href="#">Instrucțiuni utilizare</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PARTEA DE JOS DIN FOOTER -->
+        <div
+          class="footer-bottom border-top mt-4 mt-lg-4 py-3 py-lg-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="credits mb-0">
+            Designed and developed by: <span>Matteo</span>
+          </p>
+
+          <!-- LINKURI SOCIAL MEDIA -->
+          <div class="social-links d-flex align-items-center gap-3">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <img
+                src="./assets/img/facebook.png"
+                alt="Facebook"
+                class="social-icon"
+              />
+            </a>
+
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <img
+                src="./assets/img/instagram.png"
+                alt="Instagram"
+                class="social-icon"
+              />
+            </a>
+
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <img
+                src="./assets/img/tik-tok.png"
+                alt="TikTok"
+                class="social-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SCRIPT BOOTSTRAP -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

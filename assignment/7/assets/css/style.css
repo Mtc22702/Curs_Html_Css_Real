@@ -1,0 +1,240 @@
+/* PAGINA GENERALĂ */
+
+body.login-page {
+  font-family: var(--font-main);
+  color: var(--text-primary);
+  background-color: var(--background-white);
+}
+
+/* HEADER */
+
+.site-header {
+  background-color: var(--header-grey);
+  border-color: var(--border-light) !important;
+}
+
+.brand-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* NAVBAR */
+
+.navbar {
+  --bs-navbar-color: #111111;
+  --bs-navbar-hover-color: #111111;
+  --bs-navbar-active-color: #111111;
+  --bs-navbar-brand-padding-y: 0;
+}
+
+.navbar .nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.navbar .nav-link.nav-sale {
+  color: #ff2b2b;
+}
+
+/* ZONA DIN DREAPTA HEADER-ULUI */
+
+.header-tools {
+  font-size: 0.875rem;
+}
+
+.search-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  width: 88px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.search-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.header-action:hover,
+.footer-list a:hover,
+.small-breadcrumb a:hover,
+.register-text a:hover,
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.header-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* BREADCRUMB ȘI TEXTE MICI */
+
+.small-breadcrumb,
+.small-breadcrumb a,
+.small-breadcrumb .breadcrumb-item,
+.small-text,
+.forgot-link,
+.register-text {
+  font-size: 0.875rem;
+}
+
+.small-breadcrumb a,
+.forgot-link,
+.register-text a {
+  color: var(--text-secondary);
+}
+
+/* TITLU PAGINĂ */
+
+.page-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 500;
+}
+
+/* CARD LOGIN */
+
+.login-card {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* FORMULAR */
+
+.form-label {
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.custom-input {
+  min-height: 56px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 0.875rem 1rem;
+}
+
+.custom-input::placeholder {
+  color: #9d9d9d;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+}
+
+.form-check-input {
+  border-color: #111111;
+}
+
+.form-check-input:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+/* BUTON LOGIN */
+
+.login-btn {
+  min-height: 56px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-blue-hover);
+  border-color: var(--primary-blue-hover);
+}
+
+/* FOOTER */
+
+.footer-title {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: inherit;
+}
+
+.footer-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.footer-list a {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.credits {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.credits span {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* TABLETĂ ȘI ECRANE MEDII */
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding-top: 1rem;
+  }
+
+  .header-tools {
+    align-items: flex-start !important;
+  }
+
+  .search-input {
+    width: 100%;
+    min-width: 140px;
+  }
+}
+
+/* MOBIL */
+
+@media (max-width: 575.98px) {
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .login-card .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .footer-title,
+  .footer-list,
+  .credits {
+    text-align: center;
+  }
+}
