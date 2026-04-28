@@ -186,19 +186,6 @@
 }
 
 /* ===== PAGINA REDUCERI ===== */
-.sale-page .page-header::before {
-  content: 'Oferte speciale';
-  display: inline-flex;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border: 1px solid #ef4444;
-  border-radius: 999px;
-  color: #ef4444;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04rem;
-}
 
 .sale-page .product-card:not(.product-card-sale) {
   display: none;
@@ -260,7 +247,7 @@
   }
 
   .newsletter-inner {
-    grid-template-columns: 1fr 26rem;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 
