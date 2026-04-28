@@ -1,11 +1,4 @@
-/* =========================================================
-   ADARTA - stylesheet principal
-   Organizare pentru assignment: baza, header, footer, pagini,
-   componente, formulare si responsive.
-   ========================================================= */
-
-/* ----- STYLE-BASE ----- */
-
+/* ===== 1. VARIABILE GLOBALE ===== */
 :root {
   --bg: #ffffff;
   --text-menu: #1f2937;
@@ -35,6 +28,7 @@
   --green-main-hover: rgba(22, 163, 74, 1);
 }
 
+/* ===== 2. RESET & BAZA ===== */
 *,
 *::before,
 *::after {
@@ -72,6 +66,7 @@ ol {
   list-style: none;
 }
 
+/* ===== 3. TIPOGRAFIE ===== */
 h1,
 h2,
 h3,
@@ -100,6 +95,7 @@ h4 {
   line-height: 1.35;
 }
 
+/* ===== 4. CONTAINERE & LAYOUT GLOBAL ===== */
 .navbar,
 .main-content,
 .login-page,
@@ -109,6 +105,7 @@ h4 {
   margin-inline: auto;
 }
 
+/* ===== 5. HEADER & NAVIGATIE ===== */
 .site-header {
   border-bottom: 1px solid var(--border);
   background: #c1e2f8;
@@ -284,6 +281,7 @@ h4 {
   object-fit: contain;
 }
 
+/* ===== 6. BREADCRUMB & HEADER PAGINA ===== */
 .breadcrumb {
   margin: 1.5rem 0 0.75rem;
   font-size: 0.875rem;
@@ -316,6 +314,7 @@ h4 {
   margin: 1.5rem 0 1.5rem;
 }
 
+/* ===== 7. BUTOANE & FORMULARE ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -413,6 +412,7 @@ textarea:focus {
   box-shadow: 0 0 0 4px var(--focus-ring);
 }
 
+/* ===== 8. FOOTER ===== */
 .footer {
   padding: 2.25rem 0 1.5rem;
   background: #fff;
@@ -470,6 +470,7 @@ textarea:focus {
   height: 1.125rem;
 }
 
+/* ===== 9. RESPONSIVE GLOBAL ===== */
 @media (min-width: 576px) {
   .search-label,
   .icon-action span {
@@ -567,8 +568,7 @@ textarea:focus {
   }
 }
 
-/* ----- PAGINI SECUNDARE ----- */
-
+/* ===== 10. PAGINI SECUNDARE ===== */
 .site-page {
   padding-bottom: 3.5rem;
 }
@@ -657,6 +657,7 @@ textarea:focus {
 .cart-remove {
   color: var(--muted);
   text-decoration: underline;
+  text-underline-offset: 0.2rem;
   font-size: 0.9rem;
 }
 
@@ -690,7 +691,7 @@ textarea:focus {
   }
 }
 
-/* ----- Ajustări product/about ----- */
+/* ===== 11. PRODUCT & ABOUT ===== */
 .product-stars {
   color: #f59e0b;
   letter-spacing: 0.08rem;
@@ -766,7 +767,7 @@ textarea:focus {
   border-radius: var(--radius);
 }
 
-/* ----- SISTEM STANDARD CONTAINERE + SPACING ----- */
+/* ===== 12. SPACING & CONSISTENTA GENERALA ===== */
 .container {
   max-width: var(--container);
 }
@@ -848,7 +849,7 @@ section + section {
   }
 }
 
-/* ----- MICI CORECTII DE CONSISTENTA ----- */
+/* ===== 13. EFECTE SI HOVER ===== */
 .product-card {
   transition:
     box-shadow 0.2s ease,
@@ -864,13 +865,11 @@ section + section {
 .primary-nav .nav-link:hover,
 .footer a:hover,
 .breadcrumb a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   text-underline-offset: 0.2rem;
 }
 
-/* ===== Homepage ===== */
-/* ----- INDEX / HOME ----- */
-
+/* ===== 14. HOME PAGE ===== */
 .hero {
   display: grid;
   gap: 1.75rem;
@@ -1087,6 +1086,7 @@ section + section {
   margin-top: 1rem;
   margin-inline: auto;
   text-decoration: underline;
+  text-underline-offset: 0.2rem;
 }
 
 .contact-list {
@@ -1192,9 +1192,7 @@ section + section {
   }
 }
 
-/* ===== Catalog / Reduceri ===== */
-/* ----- CATALOG ----- */
-
+/* ===== 15. CATALOG & REDUCERI ===== */
 .page-meta {
   display: grid;
   grid-template-columns: 1fr;
@@ -1537,7 +1535,6 @@ section + section {
   }
 }
 
-/* ----- PAGINA REDUCERI ----- */
 .sale-page .page-header::before {
   content: 'Oferte speciale';
   display: inline-flex;
@@ -1584,9 +1581,7 @@ section + section {
   }
 }
 
-/* ===== Checkout / Cart / Product ===== */
-/* ----- CHECKOUT ----- */
-
+/* ===== 16. CHECKOUT, CART & PRODUCT ===== */
 .checkout-section-title,
 .cart-title {
   font-size: 1.15rem;
@@ -1833,9 +1828,7 @@ section + section {
   }
 }
 
-/* ===== Login / Register ===== */
-/* ----- LOGIN / REGISTER ----- */
-
+/* ===== 17. LOGIN & REGISTER ===== */
 .login-page {
   padding: 0 0 3.5rem;
 }
@@ -1911,7 +1904,8 @@ section + section {
 .create-account a {
   color: var(--text);
   text-decoration: underline;
-  text-underline-offset: 0.18rem;
+  text-underline-offset: 0.2rem;
+  text-underline-offset: 0.2rem;
 }
 
 .forgot-link:hover,
@@ -1944,7 +1938,7 @@ section + section {
   }
 }
 
-/* ----- UNIFICARE CARDURI CU STILUL CHECKOUT ----- */
+/* ===== 18. STIL UNIFICAT CARDURI ===== */
 :root {
   --card-border-soft: rgba(17, 24, 39, 0.08);
   --card-shadow-soft: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.07);
@@ -2007,7 +2001,7 @@ section + section {
   border-color: var(--card-border-soft);
 }
 
-/* ----- ABOUT: CARDURI BRANDURI RECOMANDATE ----- */
+/* ===== 19. ABOUT - BRANDURI RECOMANDATE ===== */
 .brand-logo-card {
   display: flex;
   flex-direction: column;
@@ -2037,30 +2031,23 @@ section + section {
   margin-inline: auto;
 }
 
-/* =========================================================
-   Ajustări finale assignment 8: active menu + butoane coerente
-   ========================================================= */
+/* ===== 20. ACTIVE MENU & BUTOANE FINALE ===== */
 .primary-nav .nav-link {
   position: relative;
-  border-radius: 999px;
+  border-radius: 12px;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
-.primary-nav .nav-link:hover,
-.primary-nav .nav-link.active {
-  color: var(--primary);
-  background: rgba(255, 255, 255, 0.65);
-}
-
 .primary-nav .nav-link.active::after {
   content: '';
   position: absolute;
+  max-width: 4rem;
   left: 0.8rem;
   right: 0.8rem;
   bottom: 0.15rem;
-  height: 0.14rem;
+  height: 0.15rem;
   border-radius: 999px;
   background: var(--green-main);
 }
@@ -2068,13 +2055,6 @@ section + section {
 .primary-nav .sale-link.active,
 .primary-nav .sale-link:hover {
   color: #dc2626;
-  background: #fff1f2;
-}
-
-.action-link.active {
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: inset 0 0 0 1px rgba(17, 24, 39, 0.08);
 }
 
 .btn-primary {
