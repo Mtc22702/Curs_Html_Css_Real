@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Finalizare comandă</title>
     <link
-      href="./assets/img/Logo_Adarta.png"
+      href="images/Logo_Adarta.png"
       rel="icon"
       sizes="32x32"
       type="image/png"
@@ -16,8 +16,7 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <link href="./assets/css/style_base.css" rel="stylesheet" />
-    <link href="./assets/css/checkout.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
     <!-- SECTIUNE: Header / Navigatie -->
@@ -36,16 +35,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a aria-label="Search" class="search mobile-search" href="#">
+          <a
+            aria-label="Search"
+            class="search mobile-search"
+            href="catalog.html"
+          >
             <span aria-hidden="true" class="search-icon"></span>
           </a>
         </div>
         <div class="brand navbar-brand m-0 p-0">
-          <a aria-label="Acasă" class="brand-link" href="homepage.html">
+          <a aria-label="Acasă" class="brand-link" href="index.html">
             <img
               alt="Logo Adarta"
               class="brand-logo"
-              src="./assets/img/Logo_Adarta.png"
+              src="images/Logo_Adarta.png"
             />
           </a>
         </div>
@@ -54,15 +57,8 @@
             <span aria-hidden="true" class="search-icon"></span>
             <span class="search-label">Search</span>
           </div>
-          <a
-            aria-label="Cart"
-            class="action-link icon-action"
-            href="cart.html"
-          >
-            <img
-              alt=""
-              src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
-            />
+          <a aria-label="Cart" class="action-link icon-action" href="cart.html">
+            <img alt="" src="images/Ikonice.assignment03/cart_logo (1).png" />
             <span>Cart</span>
           </a>
           <a
@@ -70,10 +66,7 @@
             class="action-link icon-action"
             href="login.html"
           >
-            <img
-              alt=""
-              src="./assets/img/Ikonice.assignment03/user_logo (1).png"
-            />
+            <img alt="" src="images/Ikonice.assignment03/user_logo (1).png" />
             <span>Login</span>
           </a>
         </div>
@@ -81,7 +74,7 @@
           <nav aria-label="Navigația principală" class="primary-nav ms-lg-4">
             <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
               <li class="nav-item">
-                <a class="nav-link" href="homepage.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="catalog.html">Shop</a>
@@ -90,7 +83,7 @@
                 <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="homepage.html#contact">Contact</a>
+                <a class="nav-link" href="index.html#contact">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link sale-link" href="reduceri.html">Reduceri!</a>
@@ -101,11 +94,11 @@
       </div>
     </header>
     <!-- SECTIUNE MAIN: Continut principal -->
-    <main class="checkout-page container py-4 py-lg-1">
+    <main class="checkout-page container py-4 py-lg-5">
       <!-- SECTIUNE: Breadcrumb -->
       <nav aria-label="Breadcrumb" class="breadcrumb mb-2">
         <ol>
-          <li><a href="homepage.html">Acasă</a></li>
+          <li><a href="index.html">Acasă</a></li>
           <li><a href="cart.html">Coș</a></li>
           <li aria-current="page">Finalizare</li>
         </ol>
@@ -298,7 +291,7 @@
                           />
                           <img
                             alt="PayPal"
-                            src="./assets/img/Ikonice.assignment03/PayPal 3.png"
+                            src="images/Ikonice.assignment03/PayPal 3.png"
                           />
                           <span class="visually-hidden">Plată prin PayPal</span>
                         </label>
@@ -465,10 +458,10 @@
                           alt="Șampon auto cu efect ceramic"
                           class="img-fluid rounded-3"
                           sizes="80px"
-                          src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
+                          src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
                           srcset="
-                            ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
-                            ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
+                            images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
+                            images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
                           "
                         />
                       </div>
@@ -503,10 +496,10 @@
                           alt="Șampon auto reactivare ceramică"
                           class="img-fluid rounded-3"
                           sizes="80px"
-                          src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
+                          src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
                           srcset="
-                            ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
-                            ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
+                            images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
+                            images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
                           "
                         />
                       </div>
@@ -541,10 +534,10 @@
                           alt="Polish 3 în 1 cu ceară Carnauba"
                           class="img-fluid rounded-3"
                           sizes="80px"
-                          src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
+                          src="images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
                           srcset="
-                            ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
-                            ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
+                            images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
+                            images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
                           "
                         />
                       </div>
@@ -579,10 +572,10 @@
                           alt="Soluție curățare auto alcalină"
                           class="img-fluid rounded-3"
                           sizes="80px"
-                          src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp"
+                          src="images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp"
                           srcset="
-                            ./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp 480w,
-                            ./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp 768w
+                            images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp 480w,
+                            images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp 768w
                           "
                         />
                       </div>
@@ -634,11 +627,11 @@
           <section class="footer-card col-12 col-md-6 col-lg-4">
             <h4>MAGAZIN</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="#">Șampoane auto</a></li>
-              <li><a href="#">Ceară &amp; sealant</a></li>
-              <li><a href="#">Soluții interior</a></li>
-              <li><a href="#">Accesorii detailing</a></li>
-              <li><a href="#">Kituri complete</a></li>
+              <li><a href="catalog.html">Șampoane auto</a></li>
+              <li><a href="catalog.html">Ceară &amp; sealant</a></li>
+              <li><a href="catalog.html">Soluții interior</a></li>
+              <li><a href="catalog.html">Accesorii detailing</a></li>
+              <li><a href="catalog.html">Kituri complete</a></li>
               <li><a href="reduceri.html">Promoții</a></li>
             </ul>
           </section>
@@ -647,9 +640,9 @@
             <h4>INFORMAȚII</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
-              <li><a href="#">Termeni și condiții</a></li>
-              <li><a href="#">Politica de confidențialitate</a></li>
-              <li><a href="#">Livrare &amp; retur</a></li>
+              <li><a href="catalog.html">Termeni și condiții</a></li>
+              <li><a href="catalog.html">Politica de confidențialitate</a></li>
+              <li><a href="catalog.html">Livrare &amp; retur</a></li>
             </ul>
           </section>
 
@@ -658,10 +651,10 @@
           >
             <h4>SUPORT CLIENȚI</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="homepage.html#contact">Contact</a></li>
-              <li><a href="#">Întrebări frecvente</a></li>
-              <li><a href="#">Garanție produse</a></li>
-              <li><a href="#">Instrucțiuni utilizare</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="catalog.html">Întrebări frecvente</a></li>
+              <li><a href="catalog.html">Garanție produse</a></li>
+              <li><a href="catalog.html">Instrucțiuni utilizare</a></li>
             </ul>
           </section>
         </div>
@@ -673,22 +666,22 @@
             Designed and developed by: <strong>Matteo</strong>
           </p>
           <div class="footer-social justify-content-center">
-            <a aria-label="Facebook" href="#">
+            <a href="index.html#contact">
               <img
                 alt="Facebook"
-                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
+                src="images/Ikonice.assignment03/facebook (2) 2.png"
               />
             </a>
-            <a aria-label="Instagram" href="#">
+            <a href="index.html#contact">
               <img
                 alt="Instagram"
-                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
+                src="images/Ikonice.assignment03/instagram (2) 2.png"
               />
             </a>
-            <a aria-label="TikTok" href="#">
+            <a href="index.html#contact">
               <img
                 alt="TikTok"
-                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+                src="images/Ikonice.assignment03/tik-tok (2) 2.png"
               />
             </a>
           </div>
@@ -700,5 +693,6 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

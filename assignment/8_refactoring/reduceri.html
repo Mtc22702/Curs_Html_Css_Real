@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Reduceri | Adarta Detailing Auto</title>
     <link
-      href="./assets/img/Logo_Adarta.png"
+      href="images/Logo_Adarta.png"
       rel="icon"
       sizes="32x32"
       type="image/png"
@@ -17,10 +17,9 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
-    <link href="./assets/css/style_base.css" rel="stylesheet" />
-    <link href="./assets/css/catalog.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
   </head>
-  <body class="product-page sale-page">
+  <body class="catalog-page sale-page">
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <div class="navbar navbar-expand-lg bootstrap-navbar">
@@ -37,16 +36,20 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <a aria-label="Search" class="search mobile-search" href="#">
+          <a
+            aria-label="Search"
+            class="search mobile-search"
+            href="catalog.html"
+          >
             <span aria-hidden="true" class="search-icon"></span>
           </a>
         </div>
         <div class="brand navbar-brand m-0 p-0">
-          <a aria-label="Acasă" class="brand-link" href="homepage.html">
+          <a aria-label="Acasă" class="brand-link" href="index.html">
             <img
               alt="Logo Adarta"
               class="brand-logo"
-              src="./assets/img/Logo_Adarta.png"
+              src="images/Logo_Adarta.png"
             />
           </a>
         </div>
@@ -55,15 +58,8 @@
             <span aria-hidden="true" class="search-icon"></span>
             <span class="search-label">Search</span>
           </div>
-          <a
-            aria-label="Cart"
-            class="action-link icon-action"
-            href="cart.html"
-          >
-            <img
-              alt=""
-              src="./assets/img/Ikonice.assignment03/cart_logo (1).png"
-            />
+          <a aria-label="Cart" class="action-link icon-action" href="cart.html">
+            <img alt="" src="images/Ikonice.assignment03/cart_logo (1).png" />
             <span>Cart</span>
           </a>
           <a
@@ -71,10 +67,7 @@
             class="action-link icon-action"
             href="login.html"
           >
-            <img
-              alt=""
-              src="./assets/img/Ikonice.assignment03/user_logo (1).png"
-            />
+            <img alt="" src="images/Ikonice.assignment03/user_logo (1).png" />
             <span>Login</span>
           </a>
         </div>
@@ -82,7 +75,7 @@
           <nav aria-label="Navigația principală" class="primary-nav ms-lg-4">
             <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
               <li class="nav-item">
-                <a class="nav-link" href="homepage.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="catalog.html">Shop</a>
@@ -91,10 +84,12 @@
                 <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="homepage.html#contact">Contact</a>
+                <a class="nav-link" href="index.html#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link sale-link active" href="reduceri.html">Reduceri!</a>
+                <a class="nav-link sale-link active" href="reduceri.html"
+                  >Reduceri!</a
+                >
               </li>
             </ul>
           </nav>
@@ -102,10 +97,10 @@
       </div>
     </header>
     <!-- SECTIUNE MAIN: Continut principal -->
-    <main class="checkout-page container py-4 py-lg-1">
+    <main class="catalog-page sale-page container py-4 py-lg-5">
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
-          <li><a href="homepage.html">Acasă</a></li>
+          <li><a href="index.html">Acasă</a></li>
           <li><a href="catalog.html">Magazin</a></li>
           <li aria-current="page">Reduceri</li>
         </ol>
@@ -242,15 +237,15 @@
                 <a
                   aria-label="Șampon auto cu efect ceramic"
                   class="product-link"
-                href="product.html"
+                  href="product.html"
                 >
                   <img
                     alt="Șampon auto cu efect ceramic"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
+                    src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
                     srcset="
-                      ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
-                      ./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
+                      images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
+                      images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
                     "
                   />
                 </a>
@@ -267,15 +262,15 @@
                 <a
                   aria-label="Șampon auto reactivare ceramică"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Șampon auto reactivare ceramică"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
+                    src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
                     srcset="
-                      ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
-                      ./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
+                      images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
+                      images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
                     "
                   />
                 </a>
@@ -292,15 +287,15 @@
                 <a
                   aria-label="Polish 3 în 1 cu ceară Carnauba"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Polish 3 în 1 cu ceară Carnauba"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
+                    src="images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
                     srcset="
-                      ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
-                      ./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
+                      images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
+                      images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
                     "
                   />
                 </a>
@@ -317,15 +312,15 @@
                 <a
                   aria-label="Spray protecție vopsea"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Spray protecție vopsea"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg"
+                    src="images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg"
                     srcset="
-                      ./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg 480w,
-                      ./assets/img/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg 768w
+                      images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg 480w,
+                      images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg 768w
                     "
                   />
                 </a>
@@ -345,15 +340,15 @@
                 <a
                   aria-label="Set pensule interior"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Set pensule interior"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg"
+                    src="images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg"
                     srcset="
-                      ./assets/img/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg 480w,
-                      ./assets/img/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg 768w
+                      images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg 480w,
+                      images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg 768w
                     "
                   />
                 </a>
@@ -373,15 +368,15 @@
                 <a
                   aria-label="Soluție curățare auto alcalină"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție curățare auto alcalină"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp"
+                    src="images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp"
                     srcset="
-                      ./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp 480w,
-                      ./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp 768w
+                      images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp 480w,
+                      images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp 768w
                     "
                   />
                 </a>
@@ -398,15 +393,15 @@
                 <a
                   aria-label="Soluție curățare generală"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție curățare generală"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg"
+                    src="images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg"
                     srcset="
-                      ./assets/img/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg 480w,
-                      ./assets/img/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg 768w
+                      images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg 480w,
+                      images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg 768w
                     "
                   />
                 </a>
@@ -423,15 +418,15 @@
                 <a
                   aria-label="Soluție curățare jante reactivă"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție curățare jante reactivă"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg"
+                    src="images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg"
                     srcset="
-                      ./assets/img/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg 480w,
-                      ./assets/img/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg 768w
+                      images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg 480w,
+                      images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg 768w
                     "
                   />
                 </a>
@@ -448,15 +443,15 @@
                 <a
                   aria-label="Soluție curățare universală"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție curățare universală"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg"
+                    src="images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg"
                     srcset="
-                      ./assets/img/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg 480w,
-                      ./assets/img/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg 768w
+                      images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg 480w,
+                      images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg 768w
                     "
                   />
                 </a>
@@ -472,15 +467,15 @@
                 <a
                   aria-label="Soluție spălare fără apă"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție spălare fără apă"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg"
+                    src="images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg"
                     srcset="
-                      ./assets/img/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg 480w,
-                      ./assets/img/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg 768w
+                      images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg 480w,
+                      images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg 768w
                     "
                   />
                 </a>
@@ -496,15 +491,15 @@
                 <a
                   aria-label="Soluție spălare fără clătire"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Soluție spălare fără clătire"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg"
+                    src="images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg"
                     srcset="
-                      ./assets/img/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg 480w,
-                      ./assets/img/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg 768w
+                      images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg 480w,
+                      images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg 768w
                     "
                   />
                 </a>
@@ -521,15 +516,15 @@
                 <a
                   aria-label="Spumă spălare cu pH neutru"
                   class="product-link"
-                  href="#"
+                  href="catalog.html"
                 >
                   <img
                     alt="Spumă spălare cu pH neutru"
                     sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 25vw"
-                    src="./assets/img/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg"
+                    src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg"
                     srcset="
-                      ./assets/img/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg 480w,
-                      ./assets/img/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg 768w
+                      images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg 480w,
+                      images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg 768w
                     "
                   />
                 </a>
@@ -548,13 +543,15 @@
               </article>
             </div>
             <nav aria-label="Paginare" class="pagination">
-              <a class="btn btn-nav" href="#">Înapoi</a>
-              <a aria-current="page" class="page is-active" href="#">1</a>
-              <a class="page" href="#">2</a>
+              <a class="btn btn-nav" href="catalog.html">Înapoi</a>
+              <a aria-current="page" class="page is-active" href="catalog.html"
+                >1</a
+              >
+              <a class="page" href="catalog.html">2</a>
               <span class="dots">…</span>
-              <a class="page" href="#">9</a>
-              <a class="page" href="#">10</a>
-              <a class="btn btn-nav" href="#">Înainte</a>
+              <a class="page" href="catalog.html">9</a>
+              <a class="page" href="catalog.html">10</a>
+              <a class="btn btn-nav" href="catalog.html">Înainte</a>
             </nav>
           </div>
         </div>
@@ -587,11 +584,11 @@
           <section class="footer-card col-12 col-md-6 col-lg-4">
             <h4>MAGAZIN</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="#">Șampoane auto</a></li>
-              <li><a href="#">Ceară &amp; sealant</a></li>
-              <li><a href="#">Soluții interior</a></li>
-              <li><a href="#">Accesorii detailing</a></li>
-              <li><a href="#">Kituri complete</a></li>
+              <li><a href="catalog.html">Șampoane auto</a></li>
+              <li><a href="catalog.html">Ceară &amp; sealant</a></li>
+              <li><a href="catalog.html">Soluții interior</a></li>
+              <li><a href="catalog.html">Accesorii detailing</a></li>
+              <li><a href="catalog.html">Kituri complete</a></li>
               <li><a href="reduceri.html">Promoții</a></li>
             </ul>
           </section>
@@ -600,9 +597,9 @@
             <h4>INFORMAȚII</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
-              <li><a href="#">Termeni și condiții</a></li>
-              <li><a href="#">Politica de confidențialitate</a></li>
-              <li><a href="#">Livrare &amp; retur</a></li>
+              <li><a href="catalog.html">Termeni și condiții</a></li>
+              <li><a href="catalog.html">Politica de confidențialitate</a></li>
+              <li><a href="catalog.html">Livrare &amp; retur</a></li>
             </ul>
           </section>
 
@@ -611,10 +608,10 @@
           >
             <h4>SUPORT CLIENȚI</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="homepage.html#contact">Contact</a></li>
-              <li><a href="#">Întrebări frecvente</a></li>
-              <li><a href="#">Garanție produse</a></li>
-              <li><a href="#">Instrucțiuni utilizare</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="catalog.html">Întrebări frecvente</a></li>
+              <li><a href="catalog.html">Garanție produse</a></li>
+              <li><a href="catalog.html">Instrucțiuni utilizare</a></li>
             </ul>
           </section>
         </div>
@@ -626,22 +623,22 @@
             Designed and developed by: <strong>Matteo</strong>
           </p>
           <div class="footer-social justify-content-center">
-            <a aria-label="Facebook" href="#">
+            <a href="index.html#contact">
               <img
                 alt="Facebook"
-                src="./assets/img/Ikonice.assignment03/facebook (2) 2.png"
+                src="images/Ikonice.assignment03/facebook (2) 2.png"
               />
             </a>
-            <a aria-label="Instagram" href="#">
+            <a href="index.html#contact">
               <img
                 alt="Instagram"
-                src="./assets/img/Ikonice.assignment03/instagram (2) 2.png"
+                src="images/Ikonice.assignment03/instagram (2) 2.png"
               />
             </a>
-            <a aria-label="TikTok" href="#">
+            <a href="index.html#contact">
               <img
                 alt="TikTok"
-                src="./assets/img/Ikonice.assignment03/tik-tok (2) 2.png"
+                src="images/Ikonice.assignment03/tik-tok (2) 2.png"
               />
             </a>
           </div>
@@ -653,5 +650,6 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
