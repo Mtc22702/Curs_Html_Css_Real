@@ -748,3 +748,26 @@ textarea:focus {
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
+
+/* ----- MICI CORECTII DE CONSISTENTA ----- */
+.site-card,
+.product-card,
+.filter-box,
+.login-card,
+.cart-check,
+.shipping-box,
+.payment-box {
+  transition: box-shadow 0.2s ease, transform 0.12s ease;
+}
+
+.product-card:hover,
+.site-card:hover {
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.08);
+}
+
+.primary-nav .nav-link:hover,
+.footer a:hover,
+.breadcrumb a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
