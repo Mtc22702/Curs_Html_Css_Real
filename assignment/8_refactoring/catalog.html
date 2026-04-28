@@ -24,7 +24,7 @@
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <div class="navbar navbar-expand-lg bootstrap-navbar">
-        <div class="mobile-controls d-flex align-items-center d-lg-none">
+        <div class="mobile-controls d-flex align-items-center d-lg-none gap-2">
           <button
             aria-controls="primaryNav"
             aria-expanded="false"
@@ -45,16 +45,22 @@
             <span aria-hidden="true" class="search-icon"></span>
           </a>
         </div>
-        <div class="brand navbar-brand m-0 p-0">
-          <a aria-label="Acasă" class="brand-link" href="index.html">
+        <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
+          <a
+            aria-label="Acasă"
+            class="brand-link d-flex align-items-center justify-content-center"
+            href="index.html"
+          >
             <img
               alt="Logo Adarta"
-              class="brand-logo"
+              class="brand-logo d-flex align-items-center"
               src="images/Logo_Adarta.png"
             />
           </a>
         </div>
-        <div class="actions order-lg-3 ms-auto">
+        <div
+          class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
+        >
           <div aria-label="Search" class="search d-none d-lg-inline-flex">
             <span aria-hidden="true" class="search-icon"></span>
             <span class="search-label">Search</span>
@@ -79,7 +85,12 @@
                 <a class="nav-link" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="catalog.html">Shop</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="catalog.html"
+                  >Shop</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
@@ -105,11 +116,13 @@
         </ol>
       </nav>
       <!-- Header pagina: titlu + meta -->
-      <header class="page-header">
+      <header class="page-header text-center">
         <h1>Vezi toate produsele</h1>
-        <div class="page-meta">
+        <div
+          class="page-meta d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3"
+        >
           <p class="results-count">Afișare 13–24 din 112 produse</p>
-          <div class="sort">
+          <div class="sort d-flex align-items-center gap-2">
             <label for="sortBy">Sortează după:</label>
             <select id="sortBy" name="sortBy">
               <option selected="" value="popular">Cele mai populare</option>
@@ -225,7 +238,9 @@
                 </li>
               </ul>
             </div>
-            <a class="btn btn-secondary btn-block" href="catalog.html">Aplicați filtre</a>
+            <a class="btn btn-secondary btn-block" href="catalog.html"
+              >Aplicați filtre</a
+            >
           </aside>
           <!-- Zona produse + paginare -->
           <div class="products-section">
@@ -321,7 +336,7 @@
                 <p class="product-price">
                   <span class="price-now">108 Ron</span>
                   <span class="price-old">120 Ron</span>
-                  <span class="badge">-10%</span>
+                  <span class="badge price-badge">-10%</span>
                 </p>
                 <a class="btn btn-outline" href="cart.html">Adaugă în coș</a>
               </article>
@@ -347,7 +362,7 @@
                 <p class="product-price">
                   <span class="price-now">70 Ron</span>
                   <span class="price-old">77 Ron</span>
-                  <span class="badge">-10%</span>
+                  <span class="badge price-badge">-10%</span>
                 </p>
                 <a class="btn btn-outline" href="cart.html">Adaugă în coș</a>
               </article>
@@ -510,12 +525,15 @@
                 <p class="product-price">
                   <span class="price-now">81 Ron</span>
                   <span class="price-old">90 Ron</span>
-                  <span class="badge">-10%</span>
+                  <span class="badge price-badge">-10%</span>
                 </p>
                 <a class="btn btn-outline" href="cart.html">Adaugă în coș</a>
               </article>
             </div>
-            <nav aria-label="Paginare" class="pagination">
+            <nav
+              aria-label="Paginare"
+              class="pagination d-flex flex-wrap justify-content-center align-items-center gap-2"
+            >
               <a class="btn btn-nav" href="catalog.html">Înapoi</a>
               <a aria-current="page" class="page is-active" href="catalog.html"
                 >1</a
@@ -533,7 +551,11 @@
       <section aria-label="Newsletter" class="newsletter">
         <div class="newsletter-inner">
           <h2>RĂMÂI LA CURENT CU<br />CELE MAI BUNE OFERTE!</h2>
-          <form action="#" class="newsletter-form" method="post">
+          <form
+            action="#"
+            class="newsletter-form d-flex flex-column flex-sm-row gap-2"
+            method="post"
+          >
             <input
               id="newsletterEmail"
               name="email"
@@ -590,12 +612,14 @@
         </div>
 
         <div
-          class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start"
+          class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start d-flex flex-wrap align-items-center gap-3 mt-4 pt-3 border-top"
         >
           <p class="footer-signature mb-0">
             Designed and developed by: <strong>Matteo</strong>
           </p>
-          <div class="footer-social justify-content-center">
+          <div
+            class="footer-social justify-content-center d-flex align-items-center"
+          >
             <a href="index.html#contact">
               <img
                 alt="Facebook"

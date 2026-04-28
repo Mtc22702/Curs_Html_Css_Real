@@ -24,7 +24,7 @@
     <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <div class="navbar navbar-expand-lg bootstrap-navbar">
-        <div class="mobile-controls d-flex align-items-center d-lg-none">
+        <div class="mobile-controls d-flex align-items-center d-lg-none gap-2">
           <button
             aria-controls="primaryNav"
             aria-expanded="false"
@@ -45,16 +45,22 @@
             <span aria-hidden="true" class="search-icon"></span>
           </a>
         </div>
-        <div class="brand navbar-brand m-0 p-0">
-          <a aria-label="Acasă" class="brand-link" href="index.html">
+        <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
+          <a
+            aria-label="Acasă"
+            class="brand-link d-flex align-items-center justify-content-center"
+            href="index.html"
+          >
             <img
               alt="Logo Adarta"
-              class="brand-logo"
+              class="brand-logo d-flex align-items-center"
               src="images/Logo_Adarta.png"
             />
           </a>
         </div>
-        <div class="actions order-lg-3 ms-auto">
+        <div
+          class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
+        >
           <div aria-label="Search" class="search d-none d-lg-inline-flex">
             <span aria-hidden="true" class="search-icon"></span>
             <span class="search-label">Search</span>
@@ -129,7 +135,9 @@
             />
           </picture>
           <div class="hero-inner">
-            <div class="hero-actions">
+            <div
+              class="hero-actions d-flex align-items-center justify-content-end"
+            >
               <a class="btn btn-primary" href="catalog.html">
                 Cumpără Produse
               </a>
@@ -139,7 +147,7 @@
       </section>
       <!-- MAGAZIN / PRODUSE -->
       <section aria-labelledby="shop-title" class="home-shop" id="shop">
-        <header class="page-header home-header">
+        <header class="page-header home-header text-center">
           <h2 id="shop-title">Produse populare</h2>
           <p class="home-text">Câteva dintre produsele preferate de clienți.</p>
         </header>
@@ -236,7 +244,7 @@
               <p class="product-price">
                 <span class="price-now">108 Ron</span>
                 <span class="price-old">120 Ron</span>
-                <span class="badge">-10%</span>
+                <span class="badge price-badge">-10%</span>
               </p>
               <a class="btn btn-outline" href="cart.html">Adaugă în coș</a>
             </article>
@@ -269,7 +277,9 @@
               rezultate impecabile.
             </p>
             <p>
-              <a class="contact-gallery" href="about.html#gallery-title"
+              <a
+                class="contact-gallery d-block mx-auto mt-3"
+                href="about.html#gallery-title"
                 >[Vezi Galeria Foto]</a
               >
             </p>
@@ -339,12 +349,14 @@
         </div>
 
         <div
-          class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start"
+          class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start d-flex flex-wrap align-items-center gap-3 mt-4 pt-3 border-top"
         >
           <p class="footer-signature mb-0">
             Designed and developed by: <strong>Matteo</strong>
           </p>
-          <div class="footer-social justify-content-center">
+          <div
+            class="footer-social justify-content-center d-flex align-items-center"
+          >
             <a href="index.html#contact">
               <img
                 alt="Facebook"

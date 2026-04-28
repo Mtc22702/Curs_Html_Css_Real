@@ -112,77 +112,6 @@
   height: 100%;
 }
 
-.product-link {
-  display: block;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 0.75rem;
-  background: #f3f4f6;
-  position: relative;
-}
-
-.product-link img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.product-card-sale .product-link::before {
-  content: 'SALE';
-  position: absolute;
-  top: 0.625rem;
-  right: -2.2rem;
-  background: #ef4444;
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.05rem;
-  padding: 0.25rem 2.2rem;
-  transform: rotate(45deg);
-}
-
-.product-title {
-  margin-top: 0.75rem;
-  margin-bottom: 1.1rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.45;
-  text-align: center;
-}
-
-.product-price {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: baseline;
-  gap: 0.35rem;
-  margin-top: auto;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.25;
-}
-
-.price-old {
-  margin-left: 0.4rem;
-  font-size: 0.8rem;
-  color: var(--muted);
-  text-decoration: line-through;
-  font-weight: 400;
-}
-
-.badge {
-  margin-left: 0.4rem;
-  padding: 0.15rem 0.5rem;
-  border: 1px solid #ef4444;
-  border-radius: 999px;
-  color: #ef4444;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1;
-  align-self: center;
-}
-
 /* ===== PAGINARE ===== */
 .pagination {
   display: flex;
@@ -256,7 +185,7 @@
   font: inherit;
 }
 
-/* ===== PAGINA REDUCERI (specificuri) ===== */
+/* ===== PAGINA REDUCERI ===== */
 .sale-page .page-header::before {
   content: 'Oferte speciale';
   display: inline-flex;
