@@ -1,3 +1,4 @@
+/* TABEL COMENZI */
 .orders-box {
   padding: 1.25rem;
 }
@@ -6,6 +7,7 @@
   margin-bottom: 0;
 }
 
+/* RESPONSIVE */
 @media (min-width: 768px) {
   .orders-box {
     padding: 1.75rem;

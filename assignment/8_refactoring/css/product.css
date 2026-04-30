@@ -1,4 +1,4 @@
-/* ===== IMAGINE PRINCIPALA & GALERIE ===== */
+/* IMAGINE PRINCIPALA & GALERIE */
 .product-main-img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -16,7 +16,7 @@
   border: 1px solid var(--border);
 }
 
-/* ===== INFO CARD ===== */
+/* CARD INFORMATII PRODUS */
 .product-info-card {
   padding: 1.25rem;
 }
@@ -26,13 +26,13 @@
   color: var(--muted);
 }
 
-/* ===== RATING ===== */
+/* RATING */
 .product-stars {
   color: #f59e0b;
   letter-spacing: 0.08rem;
 }
 
-/* ===== OPTIUNI VOLUM ===== */
+/* OPTIUNI VOLUM */
 .volume-options {
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +61,7 @@
   color: #fff;
 }
 
-/* ===== QUANTITY BOX ===== */
+/* SELECTOR CANTITATE */
 .quantity-box {
   display: inline-flex;
   align-items: center;
@@ -98,7 +98,7 @@
   font-size: 0.88rem;
 }
 
-/* ===== TABS ===== */
+/* TABS PRODUS */
 .product-tabs-bootstrap .nav-link {
   color: var(--muted);
   font-weight: 600;
@@ -108,7 +108,7 @@
   color: var(--green-main);
 }
 
-/* ===== REVIEW ===== */
+/* RECENZII */
 .review-box {
   padding: 1rem;
   border: 1px solid var(--border);
@@ -116,7 +116,7 @@
   background: #fff;
 }
 
-/* ===== PRODUSE SIMILARE ===== */
+/* PRODUSE SIMILARE */
 .site-card.h-100 {
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@
   margin-bottom: 0;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (min-width: 768px) {
   .product-info-card {
     padding: 1.75rem;
