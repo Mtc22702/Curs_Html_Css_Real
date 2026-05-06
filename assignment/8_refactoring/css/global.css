@@ -444,6 +444,7 @@ textarea:focus {
 .form-select {
   min-height: 44px;
   border-radius: 0.5rem;
+  border-color: var(--border);
 }
 
 /* 8. FOOTER */

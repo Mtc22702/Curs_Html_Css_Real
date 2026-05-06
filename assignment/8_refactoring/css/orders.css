@@ -3,10 +3,6 @@
   padding: 1.25rem;
 }
 
-.orders-box .table {
-  margin-bottom: 0;
-}
-
 /* RESPONSIVE */
 @media (min-width: 768px) {
   .orders-box {

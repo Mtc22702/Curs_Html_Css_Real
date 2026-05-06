@@ -16,18 +16,6 @@
   width: min(35rem, 100%);
 }
 
-.login-card .card-body,
-.register-card .card-body {
-  padding: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .login-card .card-body,
-  .register-card .card-body {
-    padding: 3rem;
-  }
-}
-
 /* ETICHETE SI CAMPURI FORMULAR */
 .login-card .form-label {
   margin-bottom: 0.45rem;
