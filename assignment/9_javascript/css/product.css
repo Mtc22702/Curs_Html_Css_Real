@@ -1,0 +1,140 @@
+/* IMAGINE PRINCIPALA & GALERIE */
+.product-main-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f3f4f6;
+  border-radius: 1rem;
+}
+
+.product-gallery-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f3f4f6;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+}
+
+/* CARD INFORMATII PRODUS */
+.product-info-card {
+  padding: 1.25rem;
+}
+
+.product-notes {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* RATING */
+.product-stars {
+  color: #f59e0b;
+  letter-spacing: 0.08rem;
+}
+
+/* OPTIUNI VOLUM */
+.volume-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.volume-option {
+  min-width: 4.8rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.volume-option:hover,
+.volume-option.is-selected {
+  background: var(--green-main);
+  border-color: var(--green-main);
+  color: #fff;
+}
+
+/* SELECTOR CANTITATE */
+.quantity-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  width: fit-content;
+}
+
+.quantity-box button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-box button:hover {
+  background: var(--primary-soft);
+}
+
+.quantity-box span {
+  min-width: 0.8rem;
+  text-align: center;
+  font-size: 0.88rem;
+}
+
+/* TABS PRODUS */
+.product-tabs-bootstrap .nav-link {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.product-tabs-bootstrap .nav-link.active {
+  color: var(--green-main);
+}
+
+/* RECENZII */
+.review-box {
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: #fff;
+}
+
+/* PRODUSE SIMILARE */
+.site-card.h-100 {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-card.h-100 h3 {
+  flex: 1;
+  margin-bottom: 0.75rem;
+}
+
+.site-card.h-100 p {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .product-info-card {
+    padding: 1.75rem;
+  }
+}
