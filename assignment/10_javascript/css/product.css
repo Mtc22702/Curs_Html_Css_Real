@@ -21,6 +21,10 @@
   padding: 1.25rem;
 }
 
+.product-info-card h1 {
+  font-size: 2rem;
+}
+
 .product-notes {
   font-size: 0.9rem;
   color: var(--muted);

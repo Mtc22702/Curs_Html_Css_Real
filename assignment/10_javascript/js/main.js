@@ -95,6 +95,16 @@ function adaugaLaSuma(pret) {
   console.log("Suma totala este: " + suma + " RON");
 }
 
+// Demonstrarea functiei cu trei apeluri diferite
+adaugaLaSuma(119);
+console.log(suma);
+
+adaugaLaSuma(65);
+console.log(suma);
+
+adaugaLaSuma(19);
+console.log(suma);
+
 // Afisarea sumei totale prin cos
 function deschideCos() {
   alert("Suma totala curenta este: " + suma + " RON");
@@ -143,16 +153,6 @@ const toateProdusele = [
     cantitate: 9
   },
   {
-    nume: "Solutie curatare universala Koch Chemie Green Star, Gs, 1L",
-    pret: 42,
-    cantitate: 2
-  },
-  {
-    nume: "Solutie spalare fara apa Koch Chemie Wash and Finish, Wf, 1L",
-    pret: 65,
-    cantitate: 18
-  },
-  {
     nume: "Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
     pret: 62,
     cantitate: 6
@@ -177,7 +177,7 @@ function calculeazaValoareaStocului() {
   return valoareTotala;
 }
 
-// Produsele cu stoc mic, cantitatea mai mica decat 10
+// Produsele cu stoc mic, (cantitatea mai mica decat 10 buc.)
 let stocMic = [];
 
 for (let i = 0; i < toateProdusele.length; i++) {
@@ -204,17 +204,7 @@ function cautaProdusDupaNume(lista, numeCautat) {
   return null;
 }
 
-// Demonstrarea functiei cu trei apeluri diferite
-adaugaLaSuma(119);
-console.log(suma);
-
-adaugaLaSuma(65);
-console.log(suma);
-
-adaugaLaSuma(19);
-console.log(suma);
-
-// Testam functiile in consola
+// Test functiile in consola
 console.log(esteCuponValid("SAVE10"));
 console.log(esteCuponValid("TEST"));
 calculeazaValoareaStocului();
@@ -230,4 +220,4 @@ console.log(
     "polish 3 in 1 cu ceara carnauba koch chemie one cut and finish, p6.02, 1l"
   )
 );
-console.log(cautaProdusDupaNume(toateProdusele, "Produs inexistent"));
+console.log(cautaProdusDupaNume(toateProdusele, "Produs 1"));
