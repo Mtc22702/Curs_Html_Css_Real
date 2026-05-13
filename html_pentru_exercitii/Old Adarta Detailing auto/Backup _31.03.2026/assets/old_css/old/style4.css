@@ -1,0 +1,322 @@
+:root {
+  /* =========================
+     1) PALETĂ DE BAZĂ (culori)
+     Modifici aici și se schimbă tot
+  ========================== */
+
+  /* Pagină / suprafețe */
+  --bg-page: #1656aa;
+  --bg-section: #104187;
+  --bg-navbar: #11264e;
+  --bg-contact: #104187;
+  --bg-footer: #11264e;
+
+  /* Card / box */
+  --bg-card: #0a1a34;
+  --bg-card-soft: #0c2040;
+
+  /* Texte */
+  --text-main: #e9f2ff;
+  --text-muted: #b6c8e6;
+  --text-invert: #0b0f14;
+
+  /* Accente */
+  --accent-gold: #f4c542;
+  --accent-gold-hover: #ffd56a;
+
+  --accent-blue: #2da7ff;
+  --accent-blue-soft: rgba(45, 167, 255, 0.35);
+
+  /* Borduri / separatori */
+  --border-light: rgba(233, 242, 255, 0.24);
+  --border-strong: rgba(45, 167, 255, 0.75);
+
+  /* Umbre / glow */
+  --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.55);
+  --glow-blue: 0 0 18px rgba(45, 167, 255, 0.25);
+  --glow-gold: 0 0 18px rgba(244, 197, 66, 0.22);
+
+  /* Overlay hero */
+  --overlay-hero-top: rgba(0, 0, 0, 0.45);
+  --overlay-hero-bot: rgba(0, 0, 0, 0.65);
+
+  /* Input */
+  --input-bg: #104187;
+  --input-border: rgba(45, 167, 255, 0.35);
+
+  /* =========================
+     2) „HARTA FUNDALURILOR” (simplu)
+     Aici modifici fundalurile reale
+  ========================== */
+
+  /* Pagină: poți folosi doar culoare sau gradiente */
+  --page-bg:
+    radial-gradient(
+      1200px 500px at 50% -10%,
+      rgba(45, 167, 255, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 450px at 50% 110%,
+      rgba(244, 197, 66, 0.08),
+      transparent 60%
+    ),
+    var(--bg-page);
+
+  /* Navbar/Header */
+  --navbar-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-navbar) 96%, black),
+    color-mix(in srgb, var(--bg-navbar) 88%, black)
+  );
+
+  /* Secțiuni standard */
+  --section-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-section) 92%, black),
+    color-mix(in srgb, var(--bg-section) 80%, black)
+  );
+
+  /* Contact */
+  --contact-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-contact) 96%, black),
+    color-mix(in srgb, var(--bg-contact) 86%, black)
+  );
+
+  /* Footer */
+  --footer-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-footer) 96%, black),
+    color-mix(in srgb, var(--bg-footer) 88%, black)
+  );
+
+  /* Card */
+  --card-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-card) 96%, black),
+    color-mix(in srgb, var(--bg-card) 88%, black)
+  );
+
+  /* Box tip hartă */
+  --box-soft-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg-card-soft) 94%, black),
+    color-mix(in srgb, var(--bg-card-soft) 86%, black)
+  );
+}
+
+/* Reset de bază */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Structură generală */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: var(--page-bg);
+  color: var(--text-main);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  background: var(--navbar-bg);
+  border-radius: 10px;
+  margin: 16px 24px;
+  padding: 10px 24px;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-soft), var(--glow-blue);
+}
+
+/* Navbar */
+.navbar {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+}
+
+.navbar a {
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease,
+    color 180ms ease;
+}
+
+.nav-left ul a,
+.nav-right ul a {
+  position: relative;
+  padding: 6px 2px;
+  color: var(--text-main);
+}
+
+.nav-left ul a:hover,
+.nav-right ul a:hover {
+  color: var(--accent-gold);
+}
+
+.nav-left ul a::after,
+.nav-right ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+  transition: width 300ms ease;
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.25);
+}
+
+.nav-left ul a:hover::after,
+.nav-right ul a:hover::after {
+  width: 100%;
+}
+
+/* Stânga */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+/* Logo */
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(45, 167, 255, 0.18));
+}
+
+/* Meniu */
+.nav-left ul,
+.nav-right ul {
+  display: flex;
+  gap: 20px;
+}
+
+/* Centru */
+.nav-center {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-center form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-center input[type="search"] {
+  width: 320px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  outline: none;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--input-bg) 94%, white),
+    color-mix(in srgb, var(--input-bg) 88%, black)
+  );
+  color: var(--text-main);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.nav-center input[type="search"]::placeholder {
+  color: rgba(233, 242, 255, 0.6);
+}
+
+.nav-center input[type="search"]:focus {
+  border-color: rgba(45, 167, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(45, 167, 255, 0.18);
+}
+
+.nav-center button {
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(45, 167, 255, 0.45);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: var(--glow-blue);
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-center button:hover {
+  border-color: rgba(244, 197, 66, 0.7);
+  box-shadow: var(--glow-blue), var(--glow-gold);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .nav-center input[type="search"] {
+    width: 220px;
+  }
+}
+
+/* Dreapta */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+/* Pictograme */
+.nav-icons {
+  display: flex;
+  gap: 22px;
+  font-size: 18px;
+}
+
+/*--Hero--*/
+.hero {
+  width: 100%;
+  padding: 16px 24px;
+}
+/* ===== GOOGLE MAPS BOX ===== */
+
+#contact .map-box {
+  border: 2px solid rgba(45, 167, 255, 0.28);
+  background: var(--box-soft-bg);
+  height: 240px; 
+  border-radius: 10px;
+  overflow: hidden; 
+  box-shadow: var(--glow-blue);
+  display: block;
+}
+
+#contact .map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}

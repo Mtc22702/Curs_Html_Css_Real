@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog de Servicii</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body class="serviciu-catalog">
+    <!-- ==================== HEADER  ==================== -->
+    <header>
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a
+            class="logo"
+            href="index.html"
+            aria-label="Mergi la pagina principală"
+          >
+            <img
+              src="./assets/img/Logo Adarta.png"
+              alt="Logo Adarta Detailing Auto"
+            />
+          </a>
+
+          <input type="checkbox" id="navToggle" />
+
+          <label
+            class="nav-toggle"
+            for="navToggle"
+            aria-label="Deschide meniul"
+            aria-controls="mainMenu"
+          >
+            <span></span><span></span><span></span>
+          </label>
+          <ul id="mainMenu" class="nav-links-left">
+            <li><a href="index.html">Acasă</a></li>
+            <li>
+              <a href="catalog_de_servicii.html" class="is-active">Servicii</a>
+            </li>
+            <li><a href="catalog_de_produse.html">Magazin</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-center">
+          <div class="theme-switch-wrapper">
+            <label
+              class="theme-switch"
+              for="checkbox"
+              title="Schimbă tema (light / dark)"
+            >
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <form
+            class="search-form"
+            action="#"
+            method="get"
+            aria-label="Căutare în site"
+          >
+            <label for="cauta" class="sr-only">Căutare</label>
+            <input
+              id="cauta"
+              type="search"
+              name="q"
+              placeholder="Caută în site..."
+            />
+            <button type="submit">Caută</button>
+          </form>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li><a href="despre_noi.html">Despre noi</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-icons" aria-label="Navigație rapidă">
+            <a href="#cos" aria-label="Coș">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <a href="login.html" aria-label="Cont">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==================== MAIN – PAGINA MAGAZIN ==================== -->
+    <main id="main" class="magazin">
+      <div class="magazin-container">
+        <!-- ==================== COLOANA STÂNGĂ: FILTRE ==================== -->
+        <aside class="filtre" aria-label="Filtre servicii">
+          <!-- ==================== Header filtre: titlu + buton reset ==================== -->
+          <div class="filtre-header">
+            <h2 class="filtre-titlu">Filtre</h2>
+
+            <button class="filtre-reset" type="button">Șterge filtrele</button>
+          </div>
+
+          <!-- ==================== FILTRU: TIP SERVICIU ==================== -->
+          <section class="filtru" aria-label="Filtru branduri">
+            <h3 class="filtru-titlu">Tip Serviciu</h3>
+
+            <label class="filtru-optiune">
+              <input type="checkbox" name="brand" value="koch-chemie" />
+              <span>Pachet Complet</span>
+            </label>
+
+            <label class="filtru-optiune">
+              <input type="checkbox" name="brand" value="menzerna" />
+              <span>Detailing Interior</span>
+            </label>
+
+            <label class="filtru-optiune">
+              <input type="checkbox" name="brand" value="rupes" />
+              <span>Detailing Exterior</span>
+            </label>
+
+            <label class="filtru-optiune">
+              <input type="checkbox" name="brand" value="chemicalworkz" />
+              <span>Serviciu Individual</span>
+            </label>
+          </section>
+
+          <!-- ==================== FILTRU: INTERVAL PREȚ ==================== -->
+          <section class="filtru" aria-label="Filtru interval preț">
+            <div class="filtru-titlu-rand">
+              <h3 class="filtru-titlu">Interval preț</h3>
+
+              <div class="filtru-valori">
+                <span>0</span>
+                <span>–</span>
+                <span id="pretCurent">50</span>
+                <span>RON</span>
+              </div>
+            </div>
+
+            <input
+              id="pretRange"
+              class="filtru-range"
+              type="range"
+              min="0"
+              max="1000"
+              value="100"
+            />
+          </section>
+
+          <!-- ==================== FILTRU: RATING ==================== -->
+          <section class="filtru" aria-label="Filtru rating">
+            <h3 class="filtru-titlu">Rating</h3>
+
+            <div class="filtru-rating" role="group" aria-label="Alege ratingul">
+              <button type="button" aria-label="1 stea">☆</button>
+              <button type="button" aria-label="2 stele">☆</button>
+              <button type="button" aria-label="3 stele">☆</button>
+              <button type="button" aria-label="4 stele">☆</button>
+              <button type="button" aria-label="5 stele">☆</button>
+            </div>
+          </section>
+        </aside>
+
+        <!-- ==================== COLOANA DREAPTĂ: SERVICII ==================== -->
+        <section class="servicii" aria-label="Lista servicii">
+          <div class="servicii-bara">
+            <div class="servicii-numar">
+              Se afișează <strong>153</strong> Servicii
+            </div>
+
+            <label class="sortare">
+              <span class="sortare-text">Sortează după</span>
+              <select class="sortare-select" name="sortare">
+                <option value="populare" selected>Populare</option>
+                <option value="pret-crescator">Preț crescător</option>
+                <option value="pret-descrescator">Preț descrescător</option>
+                <option value="noi">Cele mai noi</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- ==================== Grilă Servicii ==================== -->
+          <section class="pachete-servicii">
+            <div class="pachete-grid">
+              <article class="card-pachet quick">
+                <div class="card-pachet-top">
+                  <h3>Pachet Quick</h3>
+                  <span class="card-pachet-badge">Esential</span>
+                </div>
+
+                <p class="card-pachet-subtitlu">
+                  Pachet rapid pentru improspatare si curatare de baza.
+                </p>
+
+                <ul class="card-pachet-lista">
+                  <li>Curatare interior detaliata</li>
+                  <li>Curatare plansa de bord</li>
+                  <li>Curatare portbagaj</li>
+                  <li>Spalare cu shampon spuma activa</li>
+                  <li>Curatare jante + Decontaminare + Dressing cauciucuri</li>
+                  <li>Curatare geamuri</li>
+                  <li>Detailing compartiment motor</li>
+                  <li>Protectie sealant caroserie</li>
+                  <li>Curatare tapiterie injectie-extractie</li>
+                </ul>
+                <div class="servicii-pret">
+                  <label
+                    ><span class="titlu-tip-masina">Tip Masina:</span>
+                    <select class="tip-masina" name="tip-masina">
+                      <option value="mica" selected>Mica</option>
+                      <option value="medie">Medie</option>
+                      <option value="mare">Mare</option>
+                      <option value="suv">Suv</option>
+                    </select>
+                  </label>
+                  <span class="pret">800,00 RON</span>
+
+                  <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                    >Alege Serviciu</a
+                  >
+                </div>
+              </article>
+
+              <article class="card-pachet clasic recomandat">
+                <div class="card-pachet-top">
+                  <h3>Pachet Clasic</h3>
+
+                  <div class="card-badges">
+                    <span class="badge-recomandat">Cel mai ales</span>
+                    <span class="card-pachet-badge">Complet</span>
+                  </div>
+                </div>
+
+                <p class="card-pachet-subtitlu">
+                  Include tot din Pachet Quick, plus servicii suplimentare
+                  pentru un rezultat mai complet.
+                </p>
+
+                <ul class="card-pachet-lista">
+                  <li>Include tot din Pachet Quick</li>
+                  <li>Curatare balamale usi prin aburi</li>
+                  <li>Curatare centuri de siguranta</li>
+                  <li>Eliminare mirosuri neplacute prin ionizare</li>
+                  <li>Curatare, hidratare si dressing tapiterie piele</li>
+                  <li>
+                    Curatare si dressing elemente din plastic si cauciuc
+                    interior
+                  </li>
+                  <li>
+                    Curatare si dressing elemente din plastic si cauciuc
+                    exterior
+                  </li>
+                  <li>Decontaminare chimica + mecanica caroserie</li>
+                  <li>Decontaminare chimica + mecanica geamuri</li>
+                  <li>Polish 1, 2, 3 pasi + sealant in functie de caroserie</li>
+                  <li>
+                    Aplicare tratament protectie si renoire plansa de bord
+                  </li>
+                </ul>
+                <div class="servicii-pret">
+                  <label
+                    ><span class="titlu-tip-masina">Tip Masina:</span>
+                    <select class="tip-masina" name="tip-masina">
+                      <option value="mica" selected>Mica</option>
+                      <option value="medie">Medie</option>
+                      <option value="mare">Mare</option>
+                      <option value="suv">Suv</option>
+                    </select>
+                  </label>
+                  <span class="pret">1500,00 RON</span>
+                  <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                    >Alege Serviciu</a
+                  >
+                </div>
+              </article>
+
+              <article class="card-pachet premium">
+                <div class="card-pachet-top">
+                  <h3>Pachet Premium</h3>
+                  <span class="card-pachet-badge">Maxim</span>
+                </div>
+
+                <p class="card-pachet-subtitlu">
+                  Include tot din Pachet Clasic, plus servicii premium pentru
+                  protectie si finisaj avansat.
+                </p>
+
+                <ul class="card-pachet-lista">
+                  <li>Include tot din Pachet Clasic</li>
+                  <li>
+                    Tratament tapiterie piele antifrictiune si antiimpregnare
+                  </li>
+                  <li>Polishare elemente interne plastic, lemn, carbon</li>
+                  <li>
+                    Aplicare protectie ceramica pe elemente din plastic, lemn,
+                    carbon
+                  </li>
+                  <li>Curatare si hidratare chedere</li>
+                  <li>Protectie ceramica tapiserie piele</li>
+                  <li>Curatare plafon si stalpi</li>
+                  <li>Igienizare instalatie de climatizare</li>
+                  <li>Restaurare ecrane de bord</li>
+                  <li>Spalare manuala metoda 2 galeti</li>
+                  <li>Polishare + protectie elemente cromate</li>
+                  <li>Polish si restaurare faruri si stopuri</li>
+                  <li>Protectie ceramica caroserie</li>
+                  <li>Protectie hidrofoba geamuri</li>
+                  <li>Protectie ceramica geamuri</li>
+                  <li>Protectie ceramica jante</li>
+                </ul>
+                <div class="servicii-pret">
+                  <label
+                    ><span class="titlu-tip-masina">Tip Masina:</span>
+                    <select class="tip-masina" name="tip-masina">
+                      <option value="mica" selected>Mica</option>
+                      <option value="medie">Medie</option>
+                      <option value="mare">Mare</option>
+                      <option value="suv">Suv</option>
+                    </select>
+                  </label>
+                  <span class="pret">3000,00 RON</span>
+                  <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                    >Alege Serviciu</a
+                  >
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <div class="servicii-grila">
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/cur-int.jpg"
+                alt="Curatare Interior Detaliata + Tapiserie Injectie Extractie"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Curatare Interior Detaliata + Tapiserie Injectie Extractie
+                  <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <label
+                  ><span class="titlu-tip-masina">Tip Masina:</span>
+                  <select class="tip-masina" name="tip-masina">
+                    <option value="mica" selected>Mica</option>
+                    <option value="medie">Medie</option>
+                    <option value="mare">Mare</option>
+                    <option value="suv">Suv</option>
+                  </select>
+                </label>
+                <span class="pret">600,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/faruri.webp"
+                alt="Restaurare Faruri"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Restaurare Faruri <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <span class="pret">200,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/det-comp-motor.jpg"
+                alt="Detailing Compartiment Motor"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Detailing Compartiment Motor
+                  <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <span class="pret">400,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/dec-polish.jpg"
+                alt="Decontaminare + Polish 1 step + sealant"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Decontaminare + Polish 1 step + sealant
+                  <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <span class="pret">1000,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/dec-polish.jpg"
+                alt="Decontaminare + Polish 1 step + sealant"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Decontaminare + Polish 2 step + sealant
+                  <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <span class="pret">1500,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+
+            <article class="serviciu-card-individual">
+              <img
+                class="servicii-imagine"
+                src="./assets/img/dec-polish.jpg"
+                alt="Decontaminare + Polish 1 step + sealant"
+                loading="lazy"
+              />
+              <h4 class="servicii-titlu">
+                <span class="servicii-titlu-text"
+                  >Decontaminare + Polish 3 step + sealant
+                  <span class="servicii-volum"></span
+                ></span>
+              </h4>
+              <div class="servicii-pret">
+                <span class="pret">2000,00 RON</span>
+                <a href="pagina_serviciu.html" class="btn-cos-cat-servicii"
+                  >Alege Serviciu</a
+                >
+              </div>
+            </article>
+          </div>
+
+          <div class="catalog-actions">
+            <button class="btn-load-more" type="button">
+              Încarcă mai multe Servicii
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Linkuri</h3>
+            <ul>
+              <li><a href="index.html">Acasă</a></li>
+              <li><a href="catalog_de_servicii.html">Servicii</a></li>
+              <li><a href="catalog_de_produse.html">Magazin</a></li>
+              <li><a href="index.html#contact">Contacte</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Termeni</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">ANPC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Serviciu Clienti</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Plata</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Social</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565662782831"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  TikTok <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Youtube
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script>
+      const sliderPret = document.getElementById('pretRange');
+      const pretCurent = document.getElementById('pretCurent');
+
+      // setare inițială
+      pretCurent.textContent = sliderPret.value;
+
+      // actualizare live
+      sliderPret.addEventListener('input', () => {
+        pretCurent.textContent = sliderPret.value;
+      });
+    </script>
+    <script src="./assets/js/style.js"></script>
+  </body>
+</html>

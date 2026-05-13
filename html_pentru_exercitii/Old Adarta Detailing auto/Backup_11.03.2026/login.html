@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autentificare</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image"
+      sizes="32x32"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body class="register">
+    <header>
+      <nav class="navbar" aria-label="Navigația principală">
+        <!-- ==================== STÂNGA: logo + meniu ==================== -->
+        <div class="nav-left">
+          <a
+            class="logo"
+            href="index.html"
+            aria-label="Mergi la pagina principală"
+          >
+            <img
+              src="./assets/img/Logo Adarta.png"
+              alt="Logo Adarta Detailing Auto"
+            />
+          </a>
+
+          <input type="checkbox" id="navToggle" />
+
+          <label
+            class="nav-toggle"
+            for="navToggle"
+            aria-label="Deschide meniul"
+            aria-controls="mainMenu"
+          >
+            <span></span><span></span><span></span>
+          </label>
+          <ul id="mainMenu" class="nav-links-left">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="catalog_de_servicii.html">Servicii</a></li>
+            <li><a href="catalog_de_produse.html">Magazin</a></li>
+          </ul>
+        </div>
+
+        <!-- ==================== CENTRU: căutare ==================== -->
+        <div class="nav-center">
+          <div class="theme-switch-wrapper">
+            <label
+              class="theme-switch"
+              for="checkbox"
+              title="Schimbă tema (light / dark)"
+            >
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <form
+            class="search-form"
+            action="#"
+            method="get"
+            aria-label="Căutare în site"
+          >
+            <label for="cauta" class="sr-only">Căutare</label>
+            <input
+              id="cauta"
+              type="search"
+              name="q"
+              placeholder="Caută în site..."
+            />
+            <button type="submit">Caută</button>
+          </form>
+        </div>
+
+        <!-- ==================== DREAPTA: linkuri + iconițe ==================== -->
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li><a href="despre_noi.html">Despre noi</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-icons" aria-label="Navigație rapidă">
+            <a href="#cos" aria-label="Coș">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <a href="login.html" aria-label="Cont">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="register-main">
+      <section class="hero-register" aria-labelledby="hero-title-login">
+        <div class="hero-media-register">
+          <img
+            src="./assets/img/IMG_1070.JPEG"
+            alt="Poza de fundal pentru autentificare"
+            class="register-bg"
+          />
+        </div>
+
+        <div class="register-section" aria-labelledby="form-title">
+          <div class="register-container">
+            <h2 id="form-title">Bun venit !</h2>
+
+            <form class="register-form" action="#" method="post">
+              <div class="input-group">
+                <label for="email" class="sr-only">Adresa Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Adresa Email..."
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="parola" class="sr-only">Parola</label>
+                <input
+                  type="password"
+                  id="parola"
+                  name="parola"
+                  placeholder="Parola..."
+                  required
+                />
+              </div>
+
+              <p class="checkbox-container">
+                <label class="terms-label">
+                  <input type="checkbox" />
+                  <span
+                    >Ține-mă minte
+
+                    <a href="#" class="link-forgot">Parola uitată?</a></span
+                  >
+                </label>
+              </p>
+
+              <button type="submit" class="btn-submit">Autentificare</button>
+            </form>
+
+            <p class="login-redirect">
+              <span>Sau creează un</span>
+              <a href="inregistrare.html">Cont Nou</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Linkuri</h3>
+            <ul>
+              <li><a href="index.html">Acasă</a></li>
+              <li><a href="catalog_de_servicii.html">Servicii</a></li>
+              <li><a href="catalog_de_produse.html">Magazin</a></li>
+              <li><a href="index.html#contact">Contacte</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Termeni</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">ANPC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Serviciu Clienti</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Plata</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Social</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565662782831"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  TikTok <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Youtube
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="./js/style.js"></script>
+  </body>
+</html>

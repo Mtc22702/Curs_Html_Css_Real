@@ -1,0 +1,581 @@
+/* ==================== PAGINA SERVICIU ==================== */
+body.service-page main.service-page-layout {
+  padding-bottom: 20px;
+}
+
+body.service-page .service-detail,
+body.service-page .similar-section {
+  margin: 16px var(--page-pad);
+  padding: var(--section-pad);
+  border-radius: var(--radius);
+  background: var(--bg-section);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+body.service-page .service-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+body.service-page .service-media {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+}
+
+body.service-page .service-media h1 {
+  font-size: 35px;
+  line-height: 1;
+  margin: 0px 0px 5px 0px;
+  text-align: center;
+}
+
+body.service-page .service-main-image {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  padding: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--glass-inset);
+  margin-top: 10px;
+}
+
+body.service-page .service-main-image img {
+  margin: 0 auto;
+  width: clamp(360px, 44vw, 580px);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.service-page .service-thumbnail {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+body.service-page .service-thumbnail button {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--glass-inset);
+  cursor: pointer;
+  padding: 10px;
+  transition:
+    transform 140ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+body.service-page .service-thumbnail button:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-soft), var(--glow-blue-soft);
+}
+
+body.service-page .service-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.service-page .service-info {
+  min-width: 0;
+  margin-top: 60px;
+}
+
+body.service-page .service-info p {
+  color: var(--text-main);
+  margin: 10px 0;
+}
+body.service-page #selected-date-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-gold-text);
+  font-style: italic;
+}
+
+body.service-page .service-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+body.service-page .service-rating {
+  letter-spacing: 1px;
+  color: var(--accent-gold-text);
+}
+
+body.service-page .service-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-gold-text-2);
+}
+
+body.service-page .service-stock {
+  color: var(--text-main);
+}
+
+body.service-page .service-key-points {
+  list-style: disc;
+  padding-left: 18px;
+  margin: 10px 0 16px;
+  color: var(--text-main);
+}
+
+body.service-page .service-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  margin-top: 34px;
+}
+
+/* ==================== CALENDAR PROGRAMARI ==================== */
+body.service-page .booking-card {
+  width: min(100%, 420px);
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft), var(--glass-inset);
+  margin-top: 55px;
+}
+
+body.service-page .booking-header {
+  display: grid;
+  grid-template-columns: 36px 1fr 36px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+body.service-page .booking-header h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+body.service-page .calendar-nav {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--accent-blue-alt);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+body.service-page .calendar-nav:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+body.service-page .calendar-weekdays,
+body.service-page .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+body.service-page .calendar-weekdays {
+  margin-bottom: 10px;
+}
+
+body.service-page .calendar-weekdays span {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+body.service-page .calendar-day {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+body.service-page .calendar-day:hover {
+  background: rgba(115, 188, 233, 0.28);
+}
+
+body.service-page .calendar-day.is-muted {
+  color: rgba(17, 45, 61, 0.35);
+}
+
+body.service-page .calendar-day.is-selected {
+  background: rgba(115, 188, 233, 0.95);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+body.service-page .calendar-day.is-disabled {
+  color: rgba(17, 45, 61, 0.15);
+  cursor: not-allowed;
+}
+
+body.service-page .calendar-day.is-today {
+  border: 1px solid #4aa3df;
+  border-radius: 10%;
+  font-weight: 500;
+  color: #1f3b53;
+  box-shadow: 0 0 0 2px rgba(74, 163, 223, 0.1);
+  font-size: 15px;
+}
+
+body.service-page .calendar-day.is-today.is-selected {
+  border: 1px solid #4aa3df;
+  font-weight: 600;
+}
+
+body.service-page .calendar-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+body.service-page .calendar-btn {
+  min-width: 92px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 10px;
+}
+
+body.service-page .calendar-btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+}
+
+body.service-page .calendar-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+body.service-page .calendar-btn-primary {
+  background: rgba(160, 160, 160, 0.7);
+  color: #ffffff;
+}
+
+body.service-page .calendar-btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+body.service-page .booking-note {
+  max-width: 320px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-main);
+  opacity: 0.85;
+}
+
+/* ==================== TABURI SERVICIU ==================== */
+body.service-page .service-tabs {
+  margin-top: 18px;
+}
+
+body.service-page .service-tabs input[type='radio'] {
+  display: none;
+}
+
+body.service-page .tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+body.service-page .tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  box-shadow: var(--glass-inset);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-weight: 600;
+  transition:
+    transform 140ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+body.service-page .tab:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-gold);
+}
+
+body.service-page .tab-panel {
+  display: none;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft), var(--glass-inset);
+}
+
+body.service-page #tab-desc:checked ~ .tabs label[for='tab-desc'],
+body.service-page #tab-spec:checked ~ .tabs label[for='tab-spec'],
+body.service-page #tab-rec:checked ~ .tabs label[for='tab-rec'] {
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-soft), var(--glow-blue-soft);
+}
+
+body.service-page #tab-desc:checked ~ .tab-panel-desc,
+body.service-page #tab-spec:checked ~ .tab-panel-spec,
+body.service-page #tab-rec:checked ~ .tab-panel-rec {
+  display: block;
+}
+
+body.service-page .tab-panel-desc p,
+body.service-page .tab-panel-rec p {
+  margin-bottom: 12px;
+}
+
+body.service-page .tab-panel-spec table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+body.service-page .tab-panel-spec th,
+body.service-page .tab-panel-spec td {
+  padding: 8px 12px;
+  vertical-align: middle;
+}
+
+body.service-page .tab-panel-spec th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--text-main);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+body.service-page .tab-panel-spec td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.service-page .tab-panel-spec th:first-child,
+body.service-page .tab-panel-spec td:first-child {
+  width: 58%;
+  text-align: left;
+}
+
+body.service-page .tab-panel-spec th:nth-child(2),
+body.service-page .tab-panel-spec td:nth-child(2) {
+  width: 42%;
+  text-align: center;
+}
+
+body.service-page .tab-panel-spec tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+body.service-page .tab-panel-spec tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ==================== SERVICII SIMILARE ==================== */
+body.service-page .similar-section h2 {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+body.service-page .similar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+body.service-page .service-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft), var(--glass-inset);
+}
+
+body.service-page .service-card figure {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body.service-page .service-card figcaption,
+body.service-page .service-card h3 {
+  margin: 0;
+  padding: 12px 12px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--text-main);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(1.35em * 2);
+}
+
+body.service-page .service-card-content {
+  margin-top: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 10px 12px;
+  gap: 10px;
+}
+
+body.service-page .service-card-image {
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.service-page .service-card-image img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.service-page .service-card-price {
+  grid-column: 2;
+  justify-self: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-gold-text);
+}
+
+body.service-page .service-card-content .btn-cart-home {
+  grid-column: 3;
+  justify-self: end;
+}
+body.service-page .btn-cart {
+  height: 45px;
+  min-width: 200px;
+  padding: 0 24px;
+  margin: 4px 0 10px 0;
+  width: auto;
+  font-weight: 700;
+  font-size: 14px;
+  align-self: flex-start;
+  color: #fff;
+  background: var(--accent-green);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+body.service-page .btn-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.3);
+}
+
+body.service-page .btn-cart:active {
+  transform: scale(0.96);
+}
+
+/* ==================== RESPONSIVE PAGINA SERVICIU ==================== */
+@media (max-width: 1100px) {
+  body.service-page .service-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.service-page .service-media,
+  body.service-page .service-info {
+    justify-items: center;
+  }
+
+  body.service-page .service-info {
+    text-align: center;
+  }
+
+  body.service-page .similar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  body.service-page .booking-card,
+  body.service-page .booking-note {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body.service-page .btn-cart {
+    width: 70%;
+    min-width: 0;
+  }
+
+  body.service-page .tabs {
+    flex-direction: column;
+  }
+
+  body.service-page .tab {
+    width: 100%;
+  }
+
+  body.service-page .similar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.service-page .service-thumbnail {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Adarta Detailing Auto</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/components.css" />
+    <link rel="stylesheet" href="./assets/css/checkout.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+
+  <body class="checkout-page">
+    <a class="skip-link" href="#main-content">Sari la conținut</a>
+
+    <!-- HEADER -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a
+            href="index.html"
+            class="logo"
+            aria-label="Mergi la pagina principală"
+          >
+            <img src="./assets/img/Logo Adarta.png" alt="Logo Adarta" />
+          </a>
+
+          <input type="checkbox" id="navToggle" />
+
+          <label
+            class="nav-toggle"
+            for="navToggle"
+            aria-label="Deschide meniul"
+            aria-controls="mainMenu"
+          >
+            <span></span><span></span><span></span>
+          </label>
+
+          <ul id="mainMenu" class="nav-links-left">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="catalog_de_servicii.html">Servicii</a></li>
+            <li><a href="catalog_de_produse.html">Magazin</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-center">
+          <div class="theme-switch-wrapper">
+            <label
+              class="theme-switch"
+              for="checkbox"
+              title="Schimbă tema (light / dark)"
+            >
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+          <form class="search-form" action="#" method="get">
+            <label class="sr-only" for="cauta">Caută în site</label>
+            <input
+              type="search"
+              name="q"
+              id="cauta"
+              placeholder="Caută în site..."
+            />
+            <button type="submit">Caută</button>
+          </form>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li><a href="despre_noi.html">Despre noi</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-icons" aria-label="Acțiuni rapide">
+            <a href="checkout.html" aria-label="Coș">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <a href="login.html" aria-label="Cont">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main id="main-content" class="checkout-main">
+      <section class="section checkout-section">
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+          <ol>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="catalog_de_produse.html">Magazin</a></li>
+            <li aria-current="page">Checkout</li>
+          </ol>
+        </nav>
+
+        <div class="page-header">
+          <h1>Finalizare comandă</h1>
+          <p class="checkout-intro">
+            Completează datele de livrare și verifică produsele înainte de
+            finalizare.
+          </p>
+        </div>
+
+        <div class="checkout-grid">
+          <!-- FORMULAR -->
+          <div class="card checkout-form-card">
+            <form class="checkout-form" action="#" method="post">
+              <div class="checkout-block">
+                <h2>Date de livrare</h2>
+                <p class="checkout-block-intro">
+                  Introdu datele necesare pentru procesarea și livrarea
+                  comenzii.
+                </p>
+
+                <div class="checkout-row">
+                  <div class="checkout-field">
+                    <label for="prenume">Prenume</label>
+                    <input type="text" id="prenume" name="prenume" required />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="nume">Nume</label>
+                    <input type="text" id="nume" name="nume" required />
+                  </div>
+                </div>
+
+                <div class="checkout-row">
+                  <div class="checkout-field">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="telefon">Telefon</label>
+                    <input type="tel" id="telefon" name="telefon" required />
+                  </div>
+                </div>
+
+                <div class="checkout-field">
+                  <label for="adresa">Adresă</label>
+                  <input type="text" id="adresa" name="adresa" required />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="adresa2">Apartament, scară, interfon etc.</label>
+                  <input type="text" id="adresa2" name="adresa2" />
+                </div>
+
+                <div class="checkout-row checkout-row-3">
+                  <div class="checkout-field">
+                    <label for="oras">Oraș</label>
+                    <input type="text" id="oras" name="oras" required />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="judet">Județ</label>
+                    <input type="text" id="judet" name="judet" required />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="cod-postal">Cod poștal</label>
+                    <input
+                      type="text"
+                      id="cod-postal"
+                      name="cod_postal"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <label class="checkout-check">
+                  <input type="checkbox" name="salveaza_date" />
+                  <span>Salvează datele pentru comenzile viitoare</span>
+                </label>
+              </div>
+
+              <div class="checkout-block">
+                <h2>Metoda de plată</h2>
+                <p class="checkout-block-intro">
+                  Alege metoda preferată pentru finalizarea comenzii.
+                </p>
+                <div
+                  class="checkout-payment-options"
+                  role="radiogroup"
+                  aria-label="Metode de plată"
+                >
+                  <label class="checkout-payment-option">
+                    <input
+                      type="radio"
+                      name="metoda_plata"
+                      value="card"
+                      checked
+                    />
+                    <span>Card bancar</span>
+                  </label>
+
+                  <label class="checkout-payment-option">
+                    <input type="radio" name="metoda_plata" value="cash" />
+                    <span>Plata la livrare</span>
+                  </label>
+
+                  <label class="checkout-payment-option">
+                    <input type="radio" name="metoda_plata" value="paypal" />
+                    <span>PayPal</span>
+                  </label>
+                </div>
+
+                <div class="checkout-field">
+                  <label for="nume-card">Nume de pe card</label>
+                  <input type="text" id="nume-card" name="nume_card" />
+                </div>
+
+                <div class="checkout-field">
+                  <label for="numar-card">Număr card</label>
+                  <input
+                    type="text"
+                    id="numar-card"
+                    name="numar_card"
+                    inputmode="numeric"
+                    autocomplete="cc-number"
+                  />
+                </div>
+
+                <div class="checkout-row checkout-row-3">
+                  <div class="checkout-field">
+                    <label for="exp-luna">Lună</label>
+                    <input
+                      type="text"
+                      id="exp-luna"
+                      name="exp_luna"
+                      placeholder="LL"
+                    />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="exp-an">An</label>
+                    <input
+                      type="text"
+                      id="exp-an"
+                      name="exp_an"
+                      placeholder="AAAA"
+                    />
+                  </div>
+
+                  <div class="checkout-field">
+                    <label for="cvc">CVC</label>
+                    <input
+                      type="text"
+                      id="cvc"
+                      name="cvc"
+                      inputmode="numeric"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="checkout-actions">
+                <a
+                  href="catalog_de_produse.html"
+                  class="btn btn-secondary checkout-back-btn"
+                >
+                  Înapoi la magazin
+                </a>
+                <button
+                  type="submit"
+                  class="btn btn-primary checkout-submit-btn"
+                >
+                  Finalizează comanda
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- SUMAR COMANDĂ -->
+          <aside class="card checkout-summary-card" aria-label="Sumar comandă">
+            <h2>Coșul tău</h2>
+            <p class="checkout-summary-intro">
+              Verifică rapid produsele și totalul comenzii.
+            </p>
+
+            <div class="checkout-summary-list">
+              <article class="checkout-product">
+                <img
+                  src="./assets/img/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
+                  alt="Șampon auto cu efect ceramic"
+                />
+                <div class="checkout-product-info">
+                  <h3>Șampon auto cu efect ceramic</h3>
+                  <p>1L · Cantitate: 1</p>
+                </div>
+                <p class="checkout-price">119 RON</p>
+              </article>
+
+              <article class="checkout-product">
+                <img
+                  src="./assets/img/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg"
+                  alt="Șampon auto reactivare ceramică"
+                />
+                <div class="checkout-product-info">
+                  <h3>Șampon reactivare ceramică</h3>
+                  <p>1L · Cantitate: 1</p>
+                </div>
+                <p class="checkout-price">80 RON</p>
+              </article>
+
+              <article class="checkout-product">
+                <img
+                  src="./assets/img/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg"
+                  alt="Polish 3 în 1"
+                />
+                <div class="checkout-product-info">
+                  <h3>Polish 3 în 1 Koch Chemie</h3>
+                  <p>250 ml · Cantitate: 1</p>
+                </div>
+                <p class="checkout-price">280 RON</p>
+              </article>
+
+              <article class="checkout-product">
+                <img
+                  src="./assets/img/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp"
+                  alt="Soluție curățare auto alcalină"
+                />
+                <div class="checkout-product-info">
+                  <h3>Soluție curățare auto alcalină</h3>
+                  <p>1L · Cantitate: 1</p>
+                </div>
+                <p class="checkout-price">50 RON</p>
+              </article>
+            </div>
+
+            <div class="checkout-totals">
+              <div class="checkout-total-line">
+                <span>Subtotal</span>
+                <span>529 RON</span>
+              </div>
+              <div class="checkout-total-line">
+                <span>Livrare</span>
+                <span>Gratuit</span>
+              </div>
+              <div class="checkout-total-line checkout-total-final">
+                <span>Total</span>
+                <span>529 RON</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Linkuri</h3>
+            <ul>
+              <li><a href="index.html">Acasă</a></li>
+              <li><a href="catalog_de_servicii.html">Servicii</a></li>
+              <li><a href="catalog_de_produse.html">Magazin</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Termeni</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">ANPC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Serviciu clienți</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Plată</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Social</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565662782831"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                  <span>Instagram</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                  <span>TikTok</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                  <span>YouTube</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="./assets/js/style.js"></script>
+  </body>
+</html>

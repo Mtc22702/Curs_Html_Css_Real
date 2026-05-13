@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catalog de Produse</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image"
+      sizes="32x32"
+    />
+
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/base.css" />
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/components.css" />
+    <link rel="stylesheet" href="./assets/css/products.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
+  </head>
+
+  <body class="product-catalog">
+    <!-- ==================== HEADER  ==================== -->
+    <header>
+      <nav class="navbar" aria-label="Navigația principală">
+        <div class="nav-left">
+          <a
+            class="logo"
+            href="index.html"
+            aria-label="Mergi la pagina principală"
+          >
+            <img
+              src="./assets/img/Logo Adarta.png"
+              alt="Logo Adarta Detailing Auto"
+            />
+          </a>
+
+          <input type="checkbox" id="navToggle" />
+
+          <label
+            class="nav-toggle"
+            for="navToggle"
+            aria-label="Deschide meniul"
+            aria-controls="mainMenu"
+          >
+            <span></span><span></span><span></span>
+          </label>
+          <ul id="mainMenu" class="nav-links-left">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="catalog_de_servicii.html">Servicii</a></li>
+            <li>
+              <a class="is-active" href="catalog_de_produse.html">Magazin</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav-center">
+          <div class="theme-switch-wrapper">
+            <label
+              class="theme-switch"
+              for="checkbox"
+              title="Schimbă tema (light / dark)"
+            >
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <form
+            class="search-form"
+            action="#"
+            method="get"
+            aria-label="Căutare în site"
+          >
+            <label for="cauta" class="sr-only">Căutare</label>
+            <input
+              id="cauta"
+              type="search"
+              name="q"
+              placeholder="Caută în site..."
+            />
+            <button type="submit">Caută</button>
+          </form>
+        </div>
+
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li><a href="despre_noi.html">Despre noi</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-icons" aria-label="Navigație rapidă">
+            <a href="./checkout.html" aria-label="Coș">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <a href="login.html" aria-label="Cont">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ==================== MAIN – PAGINA MAGAZIN ==================== -->
+    <main id="main" class="shop-page">
+      <div class="shop-layout">
+        <!-- ==================== COLOANA STÂNGĂ: FILTRE ==================== -->
+        <aside class="filters-panel" aria-label="Filtre products-section">
+          <!-- ==================== Header filters-panel: titlu + buton reset ==================== -->
+          <div class="filters-header">
+            <h2 class="filters-title">Filtre</h2>
+
+            <button class="filters-reset" type="button">Șterge filtrele</button>
+          </div>
+
+          <!-- ==================== FILTRU: CATEGORII ==================== -->
+          <section class="filter-group" aria-label="Filtru categorii">
+            <h3 class="filter-title">Categorii</h3>
+
+            <label class="filter-option">
+              <input type="checkbox" name="categorie" value="exterior" />
+              <span>Exterior</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="categorie" value="interior" />
+              <span>Interior</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="categorie" value="accesorii" />
+              <span>Accesorii</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="categorie" value="unelte" />
+              <span>Unelte și scule</span>
+            </label>
+          </section>
+
+          <!-- ==================== FILTRU: INTERVAL PREȚ ==================== -->
+          <section class="filter-group" aria-label="Filtru interval preț">
+            <div class="filter-title-row">
+              <h3 class="filter-title">Interval preț</h3>
+
+              <div class="filter-values">
+                <span>0</span>
+                <span>–</span>
+                <span id="pretCurent">50</span>
+                <span>RON</span>
+              </div>
+            </div>
+
+            <input
+              id="pretRange"
+              class="filter-range"
+              type="range"
+              min="0"
+              max="1000"
+              value="100"
+            />
+          </section>
+
+          <!-- ==================== FILTRU: BRANDURI ==================== -->
+          <section class="filter-group" aria-label="Filtru branduri">
+            <h3 class="filter-title">Branduri</h3>
+
+            <label class="filter-option">
+              <input type="checkbox" name="brand" value="koch-chemie" />
+              <span>Koch Chemie</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="brand" value="menzerna" />
+              <span>Menzerna</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="brand" value="rupes" />
+              <span>Rupes</span>
+            </label>
+
+            <label class="filter-option">
+              <input type="checkbox" name="brand" value="chemicalworkz" />
+              <span>ChemicalWorkz</span>
+            </label>
+          </section>
+
+          <!-- ==================== FILTRU: RATING ==================== -->
+          <section class="filter-group" aria-label="Filtru rating">
+            <h3 class="filter-title">Rating</h3>
+
+            <div class="filter-rating" role="group" aria-label="Alege ratingul">
+              <button type="button" aria-label="1 stea">☆</button>
+              <button type="button" aria-label="2 stele">☆</button>
+              <button type="button" aria-label="3 stele">☆</button>
+              <button type="button" aria-label="4 stele">☆</button>
+              <button type="button" aria-label="5 stele">☆</button>
+            </div>
+          </section>
+        </aside>
+
+        <!-- ==================== COLOANA DREAPTĂ: PRODUSE ==================== -->
+        <section class="products-section" aria-label="Lista products-section">
+          <div class="products-toolbar">
+            <div class="products-count">
+              Se afișează <strong>153</strong> produse
+            </div>
+
+            <label class="sort-box">
+              <span class="sort-text">Sortează după</span>
+              <select class="sort-select" name="sort-box">
+                <option value="populare" selected>Populare</option>
+                <option value="pret-crescator">Preț crescător</option>
+                <option value="pret-descrescator">Preț descrescător</option>
+                <option value="noi">Cele mai noi</option>
+              </select>
+            </label>
+          </div>
+
+          <!-- ==================== Grilă produse ==================== -->
+          <div class="products-grid">
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344.jpg"
+                alt="Șampon auto cu efect ceramic Koch Chemie Ceramic Effect"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Sampon auto cu efect ceramic Koch Chemie Ceramic Effect
+                  Shampoo <span class="product-volume">1L</span>
+                </span>
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">50,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/Sealant-Lichid-Protectie-Auto-Koch-Chemie-S0-02-Spray-Sealant-500ml-1000x1000.jpg"
+                alt="Spray protecție vopsea Koch Chemie Spray Sealant"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Spray protectie vopsea Koch Chemie Spray Sealant, S0.02,
+                  <span class="product-volume">500ml</span></span
+                >
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">45,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/Solutie-Curatare-Universala-Koch-Chemie-Green-Star-Gs-1L-1000x1000.jpg"
+                alt="Soluție curățare universală Koch Chemie Green Star"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Solutie curatare universala Koch Chemie Green Star, Gs
+                  <span class="product-volume">1L</span></span
+                >
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">30,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022.jpg"
+                alt="Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Solutie curatare jante reactiva Koch Chemie Magic Wheel
+                  Cleaner, Mwc, <span class="product-volume">500ml</span></span
+                >
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">60,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375.jpg"
+                alt="Spumă activă pH neutru Koch Chemie Gentle Snow Foam"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf,
+                  <span class="product-volume">1L</span></span
+                >
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">35,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+
+            <a href="./pagina_produs.html" class="product-detail">
+              <img
+                class="product-thumb-image"
+                src="./assets/img/solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138.webp"
+                alt="Soluție curățare auto alcalină Koch Chemie Vorreiniger B"
+                loading="lazy"
+              />
+              <h4 class="product-title">
+                <span class="product-title-text"
+                  >Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb,
+                  <span class="product-volume">1L</span></span
+                >
+              </h4>
+              <div class="product-price">
+                <span class="price-tag">30,00 RON</span>
+                <button class="btn-cart-products">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </a>
+          </div>
+
+          <div class="catalog-actions">
+            <button class="btn-load-more" type="button">
+              Încarcă mai multe Produse
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Linkuri</h3>
+            <ul>
+              <li><a href="index.html">Acasă</a></li>
+              <li><a href="catalog_de_servicii.html">Servicii</a></li>
+              <li><a href="catalog_de_produse.html">Magazin</a></li>
+              <li><a href="index.html#contact">Contacte</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Termeni</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">ANPC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Serviciu Clienti</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Plata</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Social</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565662782831"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  TikTok <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Youtube
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="./assets/js/style.js"></script>
+  </body>
+</html>

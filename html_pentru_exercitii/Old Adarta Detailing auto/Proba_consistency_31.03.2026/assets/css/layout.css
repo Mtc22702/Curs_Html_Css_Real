@@ -1,0 +1,420 @@
+/* ==================== LAYOUT SI STRUCTURA COMUNA ==================== */
+
+/* ==================== LAYOUT GENERAL ==================== */
+.section {
+  background: var(--bg-section);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  padding: var(--section-pad);
+  margin: 16px var(--page-pad);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: var(--fs-h2);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.cards-3,
+.cards-4 {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/*.cards-3 .card {
+  box-shadow: none;
+}
+
+.cards-3 .card:hover {
+  box-shadow: none;
+}*/
+
+.cards-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.section-cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== HEADER SI NAVIGATIE ==================== */
+header {
+  position: relative;
+  background: var(--bg-navbar);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  margin: 16px var(--page-pad);
+  margin-bottom: 0;
+  padding: 10px var(--page-pad);
+  border-radius: var(--radius);
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  box-shadow: var(--shadow-soft), var(--glow-blue);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header .navbar {
+  position: relative;
+  z-index: 1;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar a {
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease,
+    background-color 180ms ease;
+}
+
+.navbar a.is-active {
+  color: var(--accent-gold-text);
+  text-decoration: underline;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.navbar a:focus-visible {
+  outline: 2px solid var(--border-strong);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.nav-left {
+  gap: 22px;
+}
+
+.nav-right {
+  justify-self: end;
+  gap: 22px;
+}
+
+.nav-left ul.nav-links-left,
+.nav-right ul.nav-links-right {
+  display: flex;
+  gap: 15px;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 119, 182, 0.15));
+}
+
+.nav-icons {
+  display: flex;
+  gap: 22px;
+  font-size: 18px;
+}
+
+.nav-left ul.nav-links-left a,
+.nav-right ul.nav-links-right a {
+  position: relative;
+  padding: 6px 8px;
+}
+
+.nav-left ul.nav-links-left a::after,
+.nav-right ul.nav-links-right a::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-gold),
+    var(--accent-blue-alt)
+  );
+  transition: width 150ms ease;
+}
+
+.nav-left ul.nav-links-left a:hover::after,
+.nav-right ul.nav-links-right a:hover::after {
+  width: calc(100% - 16px);
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  gap: 16px;
+}
+
+.nav-center form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.nav-center input[type='search'] {
+  width: 230px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  outline: 1px solid #0077b6;
+  background: var(--input-bg);
+  color: var(--text-main);
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.nav-center input[type='search']::placeholder {
+  color: rgba(17, 45, 61, 0.6);
+}
+
+.nav-center input[type='search']:focus {
+  border-color: var(--accent-blue);
+  box-shadow:
+    inset 0 1px 1px rgba(0, 0, 0, 0.05),
+    0 0 0 3px rgba(0, 119, 182, 0.15),
+    0 0 14px rgba(0, 119, 182, 0.1);
+}
+
+.nav-center button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-main);
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-center button:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-gold);
+}
+
+.nav-center button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+
+  /* light mode */
+  background-color: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+
+  background-image: url('../img/luna.png');
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 14px;
+}
+
+.slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  transition: all 0.35s ease;
+}
+
+/* ==================== TEMA DARK MODE ==================== */
+input:checked + .slider {
+  background-color: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.06),
+    0 1px 4px rgba(0, 0, 0, 0.22);
+
+  background-image: url('../img/soare.png');
+  background-repeat: no-repeat;
+  background-position: left 4px center;
+  background-size: 14px;
+}
+
+input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 999px;
+}
+
+/* ==================== NAVIGATIE MOBIL - OVERLAY ==================== */
+.nav-left #navToggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav-left .nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-left .nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text-main);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  margin: 0 var(--page-pad) 16px;
+}
+
+.footer-inner {
+  background: var(--bg-footer);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: 10px;
+  padding: 8px var(--page-pad) 6px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.footer-col h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text-main);
+}
+
+.footer-col ul {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 18px;
+  row-gap: 8px;
+  justify-content: center;
+}
+
+.footer-col li {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.footer-col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-col i {
+  font-size: 14px;
+}
+
+.footer-col a:hover {
+  color: var(--accent-blue);
+  border-radius: 6px;
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 10px;
+  padding-top: 8px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.9;
+}

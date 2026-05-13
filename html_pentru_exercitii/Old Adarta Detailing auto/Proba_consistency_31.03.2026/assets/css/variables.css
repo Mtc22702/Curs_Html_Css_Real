@@ -1,0 +1,96 @@
+/* ==================== VARIABILE SI TEMA ==================== */
+
+/* ==================== VARIABILE GLOBALE SI TEMA ==================== */
+:root {
+  --bg-page: #a3d6f5;
+  --bg-section: rgba(255, 255, 255, 0.3);
+  --bg-navbar: rgba(64, 158, 208, 0.35);
+  --bg-footer: rgba(64, 158, 208, 0.25);
+  --bg-contact: rgba(255, 255, 255, 0.4);
+  --text-main: #112d3d;
+  --text-main-alt: #112d3d;
+  --text-muted: #67737a;
+  --accent-gold: #f4c542;
+  --accent-gold-btn: rgba(239, 223, 86, 1);
+  --accent-gold-hover: #ffd900;
+  --accent-gold-text: #ff8c42;
+  --accent-gold-text-2: #ff8c42;
+  --accent-gold-text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 2px rgba(17, 45, 61, 0.15);
+  --accent-blue: #73bce9;
+  --accent-blue-btn: rgba(86, 178, 239, 1);
+  --accent-blue-alt: rgb(0, 119, 182);
+  --border-strong: rgba(0, 119, 182, 0.3);
+  --shadow-soft: 0 10px 26px rgba(0, 50, 80, 0.08);
+  --shadow-strong: 0 14px 36px rgba(0, 50, 80, 0.15);
+  --glow-blue:
+    0 0 16px rgba(0, 119, 182, 0.2), 0 0 44px rgba(0, 119, 182, 0.1),
+    0 0 72px rgba(0, 119, 182, 0.05);
+  --glow-blue-soft:
+    0 0 14px rgba(0, 119, 182, 0.15), 0 0 10px rgba(0, 119, 182, 0.1);
+  --glow-gold:
+    0 0 16px rgba(249, 216, 0, 0.35), 0 0 34px rgba(249, 216, 0, 0.18);
+  --overlay-hero: rgba(227, 240, 248, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-border: rgba(0, 119, 182, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-blur: 14px;
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  --page-pad: clamp(12px, 3vw, 24px);
+  --section-pad: clamp(16px, 3vw, 24px);
+  --radius: 10px;
+  --nav-overlay-bg: rgba(227, 240, 248, 0.9);
+  --nav-panel-bg: rgba(255, 255, 255, 0.95);
+  --accent-green: #22c55e;
+  --icons: rgb(0, 119, 182);
+  --bg-menu: rgba(128, 194, 232, 0.7);
+  --fs-h1: clamp(28px, 4vw, 40px);
+  --fs-h2: clamp(22px, 3vw, 30px);
+  --fs-h3: clamp(18px, 2.2vw, 22px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+}
+
+[data-theme='dark'] {
+  --bg-page: #133a4d;
+  --bg-section: #066b9d;
+  --bg-navbar: rgba(64, 158, 208, 0.35);
+  --bg-footer: rgba(64, 158, 208, 0.25);
+  --bg-contact: #066b9d;
+  --text-main: #e9f2ff;
+  --text-main-alt: #112d3d;
+  --text-muted: #d2d9e7;
+  --accent-gold: #f4c542;
+  --accent-gold-hover: #ffd56a;
+  --accent-gold-text: #ffb14a;
+  --accent-gold-text-2: #ffb14a;
+  --accent-gold-text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 2px rgba(17, 45, 61, 0.15);
+  --accent-blue: #73bce9;
+  --accent-blue-alt: rgb(0, 118, 182);
+  --border-strong: rgba(45, 167, 255, 0.7);
+  --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.55);
+  --glow-blue:
+    0 0 16px rgba(45, 167, 255, 0.55), 0 0 44px rgba(45, 167, 255, 0.32),
+    0 0 72px rgba(45, 167, 255, 0.18);
+  --glow-blue-soft:
+    0 0 14px rgba(45, 167, 255, 0.45), 0 0 10px rgba(45, 167, 255, 0.28);
+  --glow-gold:
+    0 0 14px rgba(244, 197, 66, 0.45), 0 0 30px rgba(244, 197, 66, 0.28);
+  --overlay-hero: rgba(0, 0, 0, 0.22);
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-border: rgba(45, 167, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-blur: 14px;
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --page-pad: clamp(12px, 3vw, 24px);
+  --section-pad: clamp(16px, 3vw, 24px);
+  --radius: 10px;
+  --nav-overlay-bg: rgba(0, 0, 0, 0.62);
+  --nav-panel-bg: rgba(51, 50, 50, 0.96);
+  --icons: rgb(163, 214, 245);
+  --bg-menu: rgba(34, 93, 123, 0.7);
+}

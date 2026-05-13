@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Despre noi — Adarta Detailing Auto</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="icon"
+      href="./assets/img/Logo Adarta.png"
+      type="image"
+      sizes="32x32"
+    />
+    <!-- ==================== CSS-ul (home + about) ==================== -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body class="about-page">
+    <!-- ==================== HEADER / NAVBAR - 3 zone: stânga (logo+meniul), centru (căutare), dreapta (linkuri+iconițe) ==================== -->
+    <header>
+      <nav class="navbar" aria-label="Navigația principală">
+        <!-- ==================== STÂNGA: logo + meniu ==================== -->
+        <div class="nav-left">
+          <a
+            class="logo"
+            href="index.html"
+            aria-label="Mergi la pagina principală"
+          >
+            <img
+              src="./assets/img/Logo Adarta.png"
+              alt="Logo Adarta Detailing Auto"
+            />
+          </a>
+
+          <input type="checkbox" id="navToggle" />
+
+          <label
+            class="nav-toggle"
+            for="navToggle"
+            aria-label="Deschide meniul"
+            aria-controls="mainMenu"
+          >
+            <span></span><span></span><span></span>
+          </label>
+
+          <ul id="mainMenu" class="nav-links-left">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="index.html#servicii">Servicii</a></li>
+            <li><a href="catalog_de_produse.html">Magazin</a></li>
+          </ul>
+        </div>
+
+        <!-- ==================== CENTRU: căutare ==================== -->
+        <div class="nav-center">
+          <div class="theme-switch-wrapper">
+            <label
+              class="theme-switch"
+              for="checkbox"
+              title="Schimbă tema (light / dark)"
+            >
+              <input type="checkbox" id="checkbox" />
+              <div class="slider round"></div>
+            </label>
+          </div>
+          <form
+            class="search-form"
+            action="#"
+            method="get"
+            aria-label="Căutare în site"
+          >
+            <label for="cauta" class="sr-only">Căutare</label>
+
+            <input
+              id="cauta"
+              type="search"
+              name="q"
+              placeholder="Caută în site..."
+            />
+
+            <button type="submit">Caută</button>
+          </form>
+        </div>
+
+        <!-- ==================== DREAPTA: linkuri + iconițe ==================== -->
+        <div class="nav-right">
+          <ul class="nav-links-right">
+            <li><a class="is-active" href="despre_noi.html">Despre noi</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+
+          <div class="nav-icons" aria-label="Navigație rapidă">
+            <a href="#cos" aria-label="Coș">
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            </a>
+            <a href="./login.html" aria-label="Cont">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- ==================== HERO ABOUT - 2 imagini + un text (caption) dedesubt ==================== -->
+      <section
+        class="about-hero"
+        aria-label="Imagine de prezentare"
+        id="imagini_de_prezentare"
+      >
+        <!-- ==================== Bloc imagini: două coloane egale. Stilurile sunt în CSS la .about-hero-media / .about-hero-img ==================== -->
+        <div class="about-hero-media">
+          <div class="about-hero-img">
+            <img
+              src="./assets/img/IMG_1168.JPEG"
+              alt="Detailing auto - interior și exterior"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-hero-img">
+            <img
+              src="./assets/img/IMG_1566.JPEG"
+              alt="Detailing auto - interior și exterior"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="about-thumbs" aria-label="Galerie foto">
+          <a class="about-thumb" href="#img1">
+            <img src="./assets/img/1.jpg" alt="Galerie foto 1" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img2">
+            <img src="./assets/img/2.jpg" alt="Galerie foto 2" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img3">
+            <img src="./assets/img/3.jpg" alt="Galerie foto 3" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img4">
+            <img src="./assets/img/4.jpg" alt="Galerie foto 4" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img5">
+            <img src="./assets/img/5.jpg" alt="Galerie foto 5" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img6">
+            <img src="./assets/img/6.jpg" alt="Galerie foto 6" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img7">
+            <img src="./assets/img/7.jpg" alt="Galerie foto 7" loading="lazy" />
+          </a>
+          <a class="about-thumb" href="#img8">
+            <img src="./assets/img/8.jpg" alt="Galerie foto 8" loading="lazy" />
+          </a>
+        </div>
+
+        <div class="lightbox" id="img1" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/1.jpg" alt="Imagine mărită 1" />
+        </div>
+
+        <div class="lightbox" id="img2" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/2.jpg" alt="Imagine mărită 2" />
+        </div>
+
+        <div class="lightbox" id="img3" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/3.jpg" alt="Imagine mărită 3" />
+        </div>
+
+        <div class="lightbox" id="img4" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/4.jpg" alt="Imagine mărită 4" />
+        </div>
+
+        <div class="lightbox" id="img5" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/5.jpg" alt="Imagine mărită 5" />
+        </div>
+
+        <div class="lightbox" id="img6" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/6.jpg" alt="Imagine mărită 6" />
+        </div>
+
+        <div class="lightbox" id="img7" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/7.jpg" alt="Imagine mărită 7" />
+        </div>
+
+        <div class="lightbox" id="img8" aria-label="Imagine mărită">
+          <a class="lightbox-close" href="#" aria-label="Închide">×</a>
+          <a class="lightbox-backdrop" href="#" aria-hidden="true"></a>
+          <img src="./assets/img/8.jpg" alt="Imagine mărită 8" />
+        </div>
+
+        <p class="about-hero-caption">
+          Mai mult decât un magazin. Suntem detaileri.
+        </p>
+      </section>
+
+      <!-- ==================== POVESTEA NOASTRĂ - grid: text în stânga + imagine în dreapta ==================== -->
+      <section class="section about-story" aria-labelledby="poveste-title">
+        <div class="about-story-grid">
+          <div class="about-story-text">
+            <h2 id="poveste-title">POVESTEA NOASTRĂ</h2>
+            <h3>Cum a început totul</h3>
+
+            <p>
+              Totul a început în 2023 din dorința de a ridica standardul în
+              îngrijirea auto. Ne-am săturat de produse mediocre, așa că am
+              decis să le aducem pe cele profesionale mai aproape de tine.
+            </p>
+
+            <p>
+              Filosofia noastră e simplă: Testăm, Validăm, Vindem. Nu punem
+              nimic pe raft care nu a fost folosit și aprobat de echipa noastră
+              pe zeci de mașini. Cumperi experiența noastră, completă.
+            </p>
+          </div>
+
+          <div class="about-story-image" aria-label="Echipa la lucru">
+            <img
+              class="about-story-photo"
+              src="./assets/img/IMG_5676.JPEG"
+              alt="Echipa la lucru - detailing auto"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BRANDURI - titlu + 3 box-uri (placeholder) ==================== -->
+      <section class="section about-brands" aria-labelledby="brands-title">
+        <div class="about-brands-inner">
+          <h2 id="brands-title">
+            Branduri pe care le folosim și le recomandăm:
+          </h2>
+
+          <div class="about-brands-grid">
+            <div class="about-brand">
+              <div class="about-brand-box" aria-label="Brand 1">
+                <a href="https://www.koch-chemie.com/en/" target="_blank"
+                  ><img
+                    src="./assets/img/koch-chemie-logo-png_seeklogo-496980.png"
+                    alt="Logo Koch Chemie"
+                /></a>
+              </div>
+            </div>
+            <div class="about-brand">
+              <div class="about-brand-box" aria-label="Brand 2">
+                <a href="https://www.liquidelements.de/en" target="_blank"
+                  ><img
+                    src="./assets/img/liquid_elements_logo.jpg"
+                    alt="Liquid Elements Logo"
+                /></a>
+              </div>
+            </div>
+            <div class="about-brand">
+              <div class="about-brand-box" aria-label="Brand 3">
+                <a href="https://work-stuff.com/" target="_blank"
+                  ><img
+                    src="./assets/img/workstufflogo.png"
+                    alt="Workstuff Logo"
+                /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer-inner">
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h3>Linkuri</h3>
+            <ul>
+              <li><a href="index.html">Acasă</a></li>
+              <li><a href="index.html#servicii">Servicii</a></li>
+              <li><a href="catalog_de_produse.html">Magazin</a></li>
+              <li><a href="index.html#contact">Contacte</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="#">Termeni</a></li>
+              <li><a href="#">GDPR</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">ANPC</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Serviciu Clienti</h3>
+            <ul>
+              <li><a href="#">Livrare</a></li>
+              <li><a href="#">Plata</a></li>
+              <li><a href="#">Retur</a></li>
+              <li><a href="#">Suport</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3>Social</h3>
+            <ul>
+              <li>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61565662782831"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Facebook
+                  <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  TikTok <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  Youtube
+                  <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="copyright">
+          © 2026 Adarta Detailing Auto. Toate drepturile rezervate.
+        </p>
+      </div>
+    </footer>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <script src="./js/style.js"></script>
+  </body>
+</html>

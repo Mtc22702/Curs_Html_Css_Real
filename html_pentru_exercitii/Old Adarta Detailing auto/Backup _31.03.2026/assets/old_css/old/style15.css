@@ -1,0 +1,1255 @@
+/* ============================================================
+   ADARTA DETAILING AUTO — CSS (ordonat + ușor de înțeles)
+   Comentarii: ROMÂNĂ
+
+   Ghid rapid:
+   1) Variabile (culori, umbre, glass)
+   2) Reset + bază (body, img, link)
+   3) Layout generic (secțiuni, grid-uri)
+   4) Carduri (SERVICII + PRODUSE) — efect glass
+   5) Butoane
+   6) Header + Navbar
+   7) Hero
+   8) Contact + Hartă
+   9) Footer
+   10) About page (override-uri)
+   11) Responsive (tablet + mobil)
+   12) Preferințe accesibilitate (reduce motion)
+============================================================ */
+
+/* ============================================================
+   1) VARIABILE (THEME)
+   - schimbi culorile dintr-un singur loc
+============================================================ */
+:root {
+  /* Fundaluri principale */
+  --bg-page: #133a4d; /* fundal pagină */
+  --bg-section: #066b9d; /* fundal secțiuni (blocuri) */
+  --bg-navbar: #333232; /* header/navbar */
+  --bg-footer: #333232; /* footer */
+  --bg-contact: #066b9d; /* contact */
+
+  /* Culori text */
+  --text-main: #e9f2ff; /* text principal */
+  --text-muted: #b6c8e6; /* text secundar */
+
+  /* Accente */
+  --accent-gold: #f4c542; /* galben (CTA) */
+  --accent-gold-hover: #ffd56a; /* galben hover */
+  --accent-blue: #2da7ff; /* albastru accent */
+
+  /* Borduri */
+  --border-light: rgba(233, 242, 255, 0.14);
+  --border-strong: rgba(45, 167, 255, 0.7);
+
+  /* Umbre */
+  --shadow-soft: 0 10px 26px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 14px 36px rgba(0, 0, 0, 0.55);
+
+  /* Glow (neon) */
+  --glow-blue:
+    0 0 16px rgba(45, 167, 255, 0.55), 0 0 44px rgba(45, 167, 255, 0.32),
+    0 0 72px rgba(45, 167, 255, 0.18);
+  --glow-blue_2:
+    0 0 14px rgba(45, 167, 255, 0.45), 0 0 10px rgba(45, 167, 255, 0.28);
+
+  --glow-gold:
+    0 0 14px rgba(244, 197, 66, 0.45), 0 0 30px rgba(244, 197, 66, 0.28);
+
+  /* Overlay pentru imaginea din Hero (întunecă imaginea) */
+  --overlay-hero: rgba(0, 0, 0, 0.22);
+
+  /* Input search */
+  --input-bg: #133a4d;
+  --input-border: rgba(45, 167, 255, 0.55);
+
+  /* =========================
+     GLASS (efect sticlă)
+     - dacă vrei mai „puternic”, crești opacitatea sau blur-ul
+  ========================= */
+  --glass-bg: rgba(255, 255, 255, 0.08); /* fundal card */
+  --glass-bg-strong: rgba(255, 255, 255, 0.12); /* fundal mai intens */
+  --glass-border: rgba(255, 255, 255, 0.22); /* bordură card */
+  --glass-blur: 14px; /* blur card */
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.18); /* reflexie */
+}
+
+/* ============================================================
+   2) RESET + BAZĂ
+   - eliminăm margin/padding implicite
+   - box-sizing: border-box => calcule ușoare
+============================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* Imagini responsive */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Liste fără buline */
+ul {
+  list-style: none;
+}
+
+/* Linkuri fără underline */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Text ascuns pentru accesibilitate (screen readers) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   3) LAYOUT GENERIC (secțiuni + grid)
+============================================================ */
+.section {
+  background: var(--bg-section);
+  padding: 24px;
+  margin: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(45, 167, 255, 0.28);
+  box-shadow: var(--shadow-soft);
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Grid pentru carduri (3 sau 4 pe rând) */
+.cards-3,
+.cards-4 {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cards-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cards-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* CTA centrat (buton sub carduri) */
+.section-cta {
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================================
+   4) CARDURI (SERVICII + PRODUSE) — cu efect GLASS
+   - .card = container
+   - img = zona imaginii
+   - figcaption = textul de jos
+============================================================ */
+.card {
+  /* Efect glass */
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+
+  /* Umbre + reflexie fină */
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    var(--glass-inset);
+}
+
+/* Imagine: default pentru SERVICII (cover) */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+
+  /* Ca să arate „încastrată” */
+  background: rgba(255, 255, 255, 0.15);
+  padding: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Textul de jos al cardului */
+.card figcaption {
+  padding: 14px;
+  text-align: center;
+  color: var(--text-main);
+
+  /* Glass soft */
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* PRODUSE: imagine „contain” (nu tăiem produsul) */
+/* Cardul (article.card) devine container flexibil */
+#magazin .card {
+  display: flex;
+}
+
+/* Figure trebuie să ocupe 100% din înălțimea cardului */
+#magazin .card figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* umple toată card-ul */
+  height: 100%; /* sigur că se întinde */
+}
+
+/* Imaginea rămâne cum e (nu o schimbăm), doar o fixăm ca „bloc” */
+#magazin .card img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+
+  max-width: 150px; /* 
+  margin: 0 auto; /* centrează imaginea */
+
+  background: transparent; /* păstrăm curat */
+}
+
+/* Figcaption umple spațiul rămas, deci nu mai rămâne gol dedesubt */
+#magazin .card figcaption {
+  flex: 1; /* CHEIA: umple spațiul rămas */
+  width: 100%;
+  margin: 0;
+
+  /* opțional: centrează textul pe verticală ca să arate uniform */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* păstrezi padding-ul tău */
+  padding: 10px 14px;
+
+  /* ca să se lipească perfect de colțurile de jos ale cardului */
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+/* ============================================================
+   5) BUTOANE
+============================================================ */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  border-radius: 10px;
+
+  color: var(--text-main);
+  background: transparent;
+
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.12s ease;
+}
+
+/* Dimensiuni */
+.btn-lg {
+  min-width: 220px;
+  padding: 12px 0;
+}
+
+.btn-sm {
+  min-width: 160px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+/* Variante */
+.btn-primary {
+  background: var(--accent-gold);
+  color: #0b0f14;
+  border-color: #ffd56a;
+  box-shadow: var(--glow-gold);
+}
+
+.btn-secondary {
+  background: #448db1;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /*border-color: #ffd56a;*/
+  border-color: #39718d;
+  box-shadow: var(--glow-blue_2);
+}
+
+/* Hover */
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold-hover);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.35),
+    var(--glow-gold);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(244, 197, 66, 0.8);
+  box-shadow:
+    0 10px 18px rgba(0, 0, 0, 0.35),
+    0 0 18px rgba(45, 167, 255, 0.3),
+    0 0 18px rgba(244, 197, 66, 0.22);
+}
+
+/* Focus (tastatură) */
+.btn:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   6) HEADER + NAVBAR
+============================================================ */
+header {
+  position: relative;
+  background: var(--bg-navbar);
+  margin: 16px 24px;
+  padding: 10px 24px;
+
+  border-radius: 10px;
+  border: 1px solid var(--border-strong);
+
+  box-shadow: var(--shadow-soft), var(--glow-blue);
+}
+
+/* Strat decorativ glow (bordură subțire) */
+header::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+
+  border: 1px solid rgba(45, 167, 255, 0.95);
+  opacity: 0.38;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Punem navbarul peste strat */
+header .navbar {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop: 3 coloane (stânga / centru / dreapta) */
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Linkurile să nu se rupă */
+.navbar a {
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+/* Focus pe link */
+.navbar a:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Link activ (home/about) */
+.home-page .is-active,
+.about-page .is-active {
+  color: var(--accent-gold);
+}
+
+/* Zone */
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  min-width: 0;
+}
+
+.nav-left ul,
+.nav-right ul {
+  display: flex;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Logo */
+.logo img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(45, 167, 255, 0.25));
+}
+
+/* Iconițe (ex: coș, user) */
+.nav-icons {
+  display: flex;
+  gap: 22px;
+  font-size: 18px;
+}
+
+/* Underline animat */
+.nav-left ul a,
+.nav-right ul a {
+  position: relative;
+  padding: 6px 2px;
+}
+
+.nav-left ul a:hover,
+.nav-right ul a:hover {
+  color: var(--accent-gold);
+}
+
+.nav-left ul a::after,
+.nav-right ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 0%;
+  height: 2px;
+
+  background: var(--accent-gold);
+  transition: width 300ms ease;
+
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.25);
+}
+
+.nav-left ul a:hover::after,
+.nav-right ul a:hover::after {
+  width: 100%;
+}
+
+/* Căutare în centru */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.nav-center form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.nav-center input[type="search"] {
+  width: 230px;
+  height: 36px;
+  padding: 0 12px;
+
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  outline: none;
+
+  background: var(--input-bg);
+  color: var(--text-main);
+
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.nav-center input[type="search"]::placeholder {
+  color: rgba(233, 242, 255, 0.75);
+}
+
+.nav-center input[type="search"]:focus {
+  border-color: #448db1;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    0 0 0 3px rgba(45, 167, 255, 0.18),
+    0 0 14px rgba(45, 167, 255, 0.35);
+}
+
+.nav-center button {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1px solid #448db1;
+
+  /* mic glass */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: var(--text-main);
+  cursor: pointer;
+
+  box-shadow: 0 0 12px rgba(45, 167, 255, 0.35);
+
+  transition:
+    transform 120ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nav-center button:hover {
+  transform: translateY(-1px);
+  border-color: #f4c542;
+  box-shadow:
+    0 0 16px rgba(45, 167, 255, 0.35),
+    0 0 18px rgba(244, 197, 66, 0.28);
+}
+
+.nav-center button:focus-visible {
+  outline: 2px solid rgba(45, 167, 255, 0.85);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   7) HERO (imagine + text + butoane)
+============================================================ */
+.hero {
+  width: 100%;
+  padding: 16px 24px;
+}
+
+.hero-media {
+  position: relative;
+  min-height: 360px;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 167, 255, 0.4);
+  box-shadow:
+    var(--shadow-strong),
+    0 0 22px rgba(45, 167, 255, 0.3);
+}
+
+/* Imaginea de fundal */
+.hero-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay întunecat peste imagine */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-hero);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Conținutul deasupra imaginii */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  height: 400px;
+  padding: 0 24px;
+}
+
+/* Box text din hero (deja glass) */
+.hero-content {
+  position: absolute;
+  left: 10%;
+  bottom: 120px;
+  max-width: 520px;
+
+  padding: 16px 20px;
+  border-radius: 15px;
+
+  border: 1px solid rgba(45, 167, 255, 0.25);
+  background: rgba(8, 20, 40, 0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+/* Butoane hero */
+.hero-actions {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 40px;
+}
+
+/* ============================================================
+   8) CONTACT + HARTĂ
+============================================================ */
+#contact {
+  background: var(--bg-contact);
+}
+
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+#contact .contact-title {
+  text-align: center;
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+
+#contact .contact-quote {
+  text-align: center;
+  margin: 0 0 18px;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+#contact .contact-gallery {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--accent-gold);
+}
+
+#contact .contact-gallery:hover {
+  color: var(--accent-gold-hover);
+}
+
+#contact .contact-list {
+  max-width: 300px;
+}
+
+#contact .contact-list li {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+/* Cutie hartă */
+#contact .map-box {
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 167, 255, 0.3);
+
+  /* fundal pentru iframe */
+  background: rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 0 18px rgba(45, 167, 255, 0.45),
+    0 0 48px rgba(45, 167, 255, 0.25);
+}
+
+#contact .map-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* ============================================================
+   9) FOOTER
+============================================================ */
+.footer {
+  margin: 0 24px 24px;
+}
+
+.footer-inner {
+  background: var(--bg-footer);
+  border-radius: 10px;
+  padding: 5px 24px;
+
+  border: 1px solid rgba(45, 167, 255, 0.35);
+  box-shadow:
+    var(--shadow-soft),
+    0 0 22px rgba(45, 167, 255, 0.3);
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.footer-col h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.footer-col li {
+  margin: 3px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.footer-col a {
+  transition: color 180ms ease;
+}
+
+.footer-col a:hover {
+  color: var(--accent-gold);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 12px;
+  margin: 10px;
+  color: var(--text-muted);
+  opacity: 0.9;
+}
+
+/* ============================================================
+   10) ABOUT PAGE (override-uri)
+============================================================ */
+.about-page main {
+  padding-bottom: 24px;
+}
+
+/* Hero pe about */
+.about-page .about-hero {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Containerul cu 2 imagini (desktop) */
+.about-page .about-hero-media {
+  width: 100%;
+  height: clamp(360px, 60vh, 520px);
+
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 167, 255, 0.4);
+
+  /* glass pe about */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    var(--shadow-strong),
+    0 0 22px rgba(45, 167, 255, 0.3);
+}
+
+/* Cutia fiecărei imagini */
+.about-page .about-hero-img {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.about-page .about-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Text sub imagini */
+.about-page .about-hero-caption {
+  margin-top: 20px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Story: text + imagine */
+.about-page .about-story-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-page .about-story h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.about-page .about-story h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.about-page .about-story-text p {
+  margin: 0 0 12px;
+}
+
+/* Cutie imagine story */
+.about-page .about-story-image {
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+
+  border: 1px solid rgba(45, 167, 255, 0.28);
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    var(--shadow-soft),
+    0 0 18px rgba(45, 167, 255, 0.22);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-page .about-story-photo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Branduri */
+.about-page .about-brands h2 {
+  margin-bottom: 18px;
+}
+
+.about-page .about-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 140px);
+  justify-content: center;
+  gap: 32px;
+}
+
+.about-page .about-brand-box {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ============================================================
+   11) RESPONSIVE (tablet + mobil)
+============================================================ */
+
+/* TABLET */
+@media (max-width: 980px) {
+  /* Grid carduri */
+  .cards-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Navbar: din grid în flex-wrap */
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav-left {
+    flex: 1 1 auto;
+    gap: 18px;
+  }
+
+  .nav-right {
+    flex: 0 0 auto;
+    margin-left: auto;
+    gap: 16px;
+  }
+
+  .nav-left ul,
+  .nav-right ul {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .nav-center {
+    flex: 1 1 100%;
+    order: 3;
+    justify-content: center;
+  }
+
+  .nav-center form {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-center input[type="search"] {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* Sub 900px */
+@media (max-width: 900px) {
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .map-box {
+    height: 260px;
+  }
+
+  .about-page .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page .about-brands-grid {
+    grid-template-columns: repeat(3, 110px);
+    gap: 18px;
+  }
+
+  .about-page .about-brand-box {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* Footer pe mobil */
+@media (max-width: 700px) {
+  .footer-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 520px) {
+  /* Header mai compact */
+  header {
+    margin: 12px 12px;
+    padding: 10px 12px;
+  }
+
+  /* Secțiuni mai strânse */
+  .section {
+    margin: 12px 12px;
+    padding: 18px;
+  }
+
+  /* About: imagini una sub alta */
+  .about-page .about-hero-media {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .about-page .about-hero-img {
+    height: 220px;
+  }
+
+  /* Hero: text mai compact */
+  #hero-title {
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .hero-content {
+    bottom: 170px;
+  }
+
+  /* Butoane hero una sub alta */
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    bottom: 24px;
+  }
+
+  /* Nu facem .btn full width global, doar în hero + CTA */
+  .hero-actions .btn,
+  .section-cta .btn {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  /* Navbar */
+  .nav-center button {
+    padding: 0 12px;
+  }
+
+  .logo img {
+    width: 58px;
+    height: 58px;
+  }
+
+  /* Card: imagine un pic mai mică pe mobil */
+  .card img {
+    height: 180px;
+    padding: 14px;
+  }
+}
+
+/* ============================================================
+   12) Preferință utilizator: Reduce Motion
+   - dacă utilizatorul are setat în OS „reduce motion”
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* ============================================================
+   13) SECȚIUNEA ÎNREGISTRARE 
+   ============================================================ */
+
+.register-main {
+  /* Ne asigurăm că ocupă tot spațiul dintre header și footer */
+  min-height: calc(100vh - 180px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 40px;
+}
+
+/* Cardul formularului */
+.register-container {
+  position: relative;
+  z-index: 1;
+  background-color: #969ca8;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  width: 500px;
+  max-width: 90%;
+  padding: 40px;
+  border-radius: 14px;
+  overflow: hidden;
+
+  /* Umbre + reflexie fină */
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.65),
+    var(--glass-inset);
+}
+
+/* Titlul "Creează Cont" */
+.register-container h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Link-urile din interiorul cardului (ex: Termeni, Login) */
+/* Trebuie să le facem vizibile, altfel moștenesc albul din body */
+.register-container a {
+  color: #333232;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+  color: #2da7ff;
+}
+
+/* Input-urile (Câmpurile de text) */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left; /* Etichetele să fie la stânga, nu centrate */
+}
+
+/* Stilizăm specific input-urile din formularul de register */
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc; /* Bordură gri simplă */
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #fff; /* Fundal alb în input */
+  color: #333; /* Text negru când scrii */
+  box-sizing: border-box;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Când dai click în input */
+.register-form input:focus {
+  border-color: #888;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Zona de Checkbox */
+.checkbox-container {
+  display: flex;
+  justify-content: left;
+  margin: 8px 0 20px 0;
+}
+
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #e0e0e0;
+  cursor: pointer;
+}
+
+.checkbox-container a {
+  color: #00bcd4;
+  text-decoration: none;
+}
+
+.checkbox-container a:hover {
+  text-decoration: underline;
+}
+
+/* Checkbox-ul în sine */
+.checkbox-container input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Butonul de trimitere  */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #3a6f8f;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
+  margin-top: 10px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.btn-submit:hover {
+  background-color: #315e78;
+  transform: translateY(-2px);
+}
+
+/* Textul de jos "Ai deja cont?" */
+.login-redirect {
+  text-align: left;
+  margin-top: 25px;
+  font-size: 14px;
+  color: white;
+}
+.login-redirect a {
+  color: #315e78;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-redirect a:hover {
+  color: #3a6f8f;
+  text-decoration: underline;
+}
+.login-redirect span {
+  margin-right: 8px;
+}
+.terms-label a {
+  margin-left: 8px;
+  color: inherit;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* ============================================================
+   RESPONSIVITATE (Mobil)
+   ============================================================ */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 25px 20px;
+    max-width: 100%;
+    box-shadow: none; /* Scoatem umbra pe mobil pentru un look mai plat */
+  }
+
+  .register-main {
+    padding: 20px 15px;
+    background-color: #fff; /* Pe mobil facem tot fundalul alb */
+  }
+}
+@media (max-width: 480px) {
+  .register-container::before {
+    display: none;
+  }
+}
