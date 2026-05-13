@@ -177,7 +177,7 @@ function calculeazaValoareaStocului() {
   return valoareTotala;
 }
 
-// Produsele cu stoc mic, unde cantitatea este mai mica decat 10
+// Produsele cu stoc mic, cantitatea mai mica decat 10
 let stocMic = [];
 
 for (let i = 0; i < toateProdusele.length; i++) {
