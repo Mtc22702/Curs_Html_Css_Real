@@ -105,6 +105,8 @@ console.log(suma);
 adaugaLaSuma(19);
 console.log(suma);
 
+suma = 0;
+
 // Afisarea sumei totale prin cos
 function openCart() {
   alert("Suma totala curenta este: " + suma + " RON");
@@ -114,52 +116,52 @@ function openCart() {
 const allProducts = [
   {
     name: "Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
-    pret: 119,
+    price: 119,
     qty: 15
   },
   {
     name: "Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs, 1L",
-    pret: 80,
+    price: 80,
     qty: 8
   },
   {
     name: "Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
-    pret: 280,
+    price: 280,
     qty: 5
   },
   {
     name: "Spray protectie vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
-    pret: 108,
+    price: 108,
     qty: 20
   },
   {
     name: "Set pensule interior Koch Chemie Interior Brush Set",
-    pret: 70,
+    price: 70,
     qty: 3
   },
   {
     name: "Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb, 1L",
-    pret: 50,
+    price: 50,
     qty: 12
   },
   {
     name: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr, 1L",
-    pret: 50,
+    price: 50,
     qty: 7
   },
   {
     name: "Solutie curatare jante reactiva Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
-    pret: 80,
+    price: 80,
     qty: 9
   },
   {
     name: "Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
-    pret: 62,
+    price: 62,
     qty: 6
   },
   {
     name: "Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
-    pret: 81,
+    price: 81,
     qty: 4
   }
 ];
@@ -169,7 +171,7 @@ function calculateStockValue() {
   let totalValue = 0;
 
   for (let i = 0; i < allProducts.length; i++) {
-    totalValue = totalValue + allProducts[i].pret * allProducts[i].qty;
+    totalValue = totalValue + allProducts[i].price * allProducts[i].qty;
   }
 
   console.log("Valoarea totala a stocului: " + totalValue + " RON");
