@@ -1,48 +1,48 @@
 /* ===== main.js ===== */
 
 // Constante si variabile
-const PRODUS1_NUME = "Sampon auto cu efect ceramic";
-let PRODUS1_PRET = 119;
-let PRODUS1_CANTITATE = 1;
+const PRODUCT1_NAME = "Sampon auto cu efect ceramic";
+let PRODUCT1_PRICE = 119;
+let PRODUCT1_QUANTITY = 1;
 
-const PRODUS2_NUME = "Spray protectie vopsea";
-let PRODUS2_PRET = 65;
-let PRODUS2_CANTITATE = 1;
+const PRODUCT2_NAME = "Spray protectie vopsea";
+let PRODUCT2_PRICE = 65;
+let PRODUCT2_QUANTITY = 1;
 
-const TVA = 0.21;
-const MONEDA = "RON";
-const RON_PENTRU_EURO = 5.2;
+const VAT = 0.21;
+const CURRENCY = "RON";
+const RON_TO_EURO = 5.2;
 
 // Sirul cu cupoanele valide
-const CUPOANE_VALIDE = ["SAVE10", "SAVE15", "FREESHIP"];
+const VALID_COUPONS = ["SAVE10", "SAVE15", "FREESHIP"];
 
-console.log(typeof PRODUS1_NUME);
-console.log(typeof PRODUS1_PRET);
-console.log(typeof PRODUS1_CANTITATE);
+console.log(typeof PRODUCT1_NAME);
+console.log(typeof PRODUCT1_PRICE);
+console.log(typeof PRODUCT1_QUANTITY);
 
-console.log(typeof PRODUS2_NUME);
-console.log(typeof PRODUS2_PRET);
-console.log(typeof PRODUS2_CANTITATE);
+console.log(typeof PRODUCT2_NAME);
+console.log(typeof PRODUCT2_PRICE);
+console.log(typeof PRODUCT2_QUANTITY);
 
-console.log(typeof TVA);
-console.log(typeof MONEDA);
-console.log(typeof RON_PENTRU_EURO);
-console.log(CUPOANE_VALIDE);
+console.log(typeof VAT);
+console.log(typeof CURRENCY);
+console.log(typeof RON_TO_EURO);
+console.log(VALID_COUPONS);
 
 // Variabila globala pentru suma totala a cumparaturilor
-let suma = 0;
+let total = 0;
 
 // Functie pentru normalizarea codului de reducere
-function normalizeazaCupon(cod) {
-  let codFaraSpatii = cod.trim();
-  let codCuMajuscule = codFaraSpatii.toUpperCase();
-  return codCuMajuscule;
+function normalizeCoupon(code) {
+  let trimmedCode = code.trim();
+  let upperCode = trimmedCode.toUpperCase();
+  return upperCode;
 }
 
 // Functie care verifica daca un cupon se gaseste in sir
-function esteCuponValid(cod) {
-  for (let i = 0; i < CUPOANE_VALIDE.length; i++) {
-    if (CUPOANE_VALIDE[i] === cod) {
+function isValidCoupon(code) {
+  for (let i = 0; i < VALID_COUPONS.length; i++) {
+    if (VALID_COUPONS[i] === code) {
       return true;
     }
   }
@@ -51,16 +51,16 @@ function esteCuponValid(cod) {
 }
 
 // Validarea cuponului si afisarea mesajului
-function valideazaSiNotifica() {
-  let codIntrodus = document.getElementById("promo-input").value;
-  let cupon = normalizeazaCupon(codIntrodus);
+function validateAndNotify() {
+  let inputCode = document.getElementById("promo-input").value;
+  let coupon = normalizeCoupon(inputCode);
 
-  if (esteCuponValid(cupon)) {
-    if (cupon === "SAVE10") {
+  if (isValidCoupon(coupon)) {
+    if (coupon === "SAVE10") {
       alert("Cuponul dvs. ofera 10% reducere.");
-    } else if (cupon === "SAVE15") {
+    } else if (coupon === "SAVE15") {
       alert("Cuponul dvs. ofera 15% reducere.");
-    } else if (cupon === "FREESHIP") {
+    } else if (coupon === "FREESHIP") {
       alert("Cuponul dvs. ofera livrare gratuita.");
     }
   } else {
@@ -81,123 +81,123 @@ function login() {
 }
 
 // Testarea functiei login
-function testeazaLogin() {
+function testLogin() {
   if (login()) {
-    alert("Login reusit.");
+    alert("Login successful.");
   } else {
-    alert("Email sau parola gresita.");
+    alert("Wrong email or password.");
   }
 }
 
 // Functie care adauga pretul produsului la suma globala
-function adaugaLaSuma(pret) {
-  suma = suma + pret;
-  console.log("Suma totala este: " + suma + " RON");
+function addToTotal(price) {
+  total = total + price;
+  console.log("Total: " + total + " RON");
 }
 
 // Demonstrarea functiei cu trei apeluri diferite
-adaugaLaSuma(119);
-console.log(suma);
+addToTotal(119);
+console.log(total);
 
-adaugaLaSuma(65);
-console.log(suma);
+addToTotal(65);
+console.log(total);
 
-adaugaLaSuma(19);
-console.log(suma);
+addToTotal(19);
+console.log(total);
 
 // Afisarea sumei totale prin cos
-function deschideCos() {
-  alert("Suma totala curenta este: " + suma + " RON");
+function openCart() {
+  alert("Current total: " + total + " RON");
 }
 
 // Lista tuturor produselor din magazin
-const toateProdusele = [
+const allProducts = [
   {
-    nume: "Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
-    pret: 119,
-    cantitate: 15
+    name: "Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
+    price: 119,
+    qty: 15
   },
   {
-    nume: "Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs, 1L",
-    pret: 80,
-    cantitate: 8
+    name: "Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs, 1L",
+    price: 80,
+    qty: 8
   },
   {
-    nume: "Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
-    pret: 280,
-    cantitate: 5
+    name: "Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
+    price: 280,
+    qty: 5
   },
   {
-    nume: "Spray protectie vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
-    pret: 108,
-    cantitate: 20
+    name: "Spray protectie vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
+    price: 108,
+    qty: 20
   },
   {
-    nume: "Set pensule interior Koch Chemie Interior Brush Set",
-    pret: 70,
-    cantitate: 3
+    name: "Set pensule interior Koch Chemie Interior Brush Set",
+    price: 70,
+    qty: 3
   },
   {
-    nume: "Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb, 1L",
-    pret: 50,
-    cantitate: 12
+    name: "Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb, 1L",
+    price: 50,
+    qty: 12
   },
   {
-    nume: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr, 1L",
-    pret: 50,
-    cantitate: 7
+    name: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr, 1L",
+    price: 50,
+    qty: 7
   },
   {
-    nume: "Solutie curatare jante reactiva Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
-    pret: 80,
-    cantitate: 9
+    name: "Solutie curatare jante reactiva Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
+    price: 80,
+    qty: 9
   },
   {
-    nume: "Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
-    pret: 62,
-    cantitate: 6
+    name: "Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
+    price: 62,
+    qty: 6
   },
   {
-    nume: "Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
-    pret: 81,
-    cantitate: 4
+    name: "Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
+    price: 81,
+    qty: 4
   }
 ];
 
 // Functie care calculeaza valoarea totala a stocului
-function calculeazaValoareaStocului() {
-  let valoareTotala = 0;
+function calculateStockValue() {
+  let totalValue = 0;
 
-  for (let i = 0; i < toateProdusele.length; i++) {
-    valoareTotala =
-      valoareTotala + toateProdusele[i].pret * toateProdusele[i].cantitate;
+  for (let i = 0; i < allProducts.length; i++) {
+    totalValue =
+      totalValue + allProducts[i].price * allProducts[i].qty;
   }
 
-  console.log("Valoarea totala a stocului: " + valoareTotala + " RON");
-  return valoareTotala;
+  console.log("Valoarea totala a stocului: " + totalValue + " RON");
+  return totalValue;
 }
 
 // Produsele cu stoc mic, (cantitatea mai mica decat 10 buc.)
-let stocMic = [];
+let lowStock = [];
 
-for (let i = 0; i < toateProdusele.length; i++) {
-  if (toateProdusele[i].cantitate < 10) {
-    stocMic.push(toateProdusele[i]);
+for (let i = 0; i < allProducts.length; i++) {
+  if (allProducts[i].qty < 10) {
+    lowStock.push(allProducts[i]);
   }
 }
 
 console.log("Produse cu stoc mic:");
-console.log(stocMic);
+console.log(lowStock);
 
 // Cautare produs dupa nume, fara sa conteze majusculele
-function cautaProdusDupaNume(lista, numeCautat) {
-  let numeCautatNormalizat = numeCautat.toLowerCase().trim();
+function findProductByName(list, searchName) {
+  let normalizedSearch = searchName.toLowerCase().trim();
 
-  for (let i = 0; i < lista.length; i++) {
-    let numeProdusNormalizat = lista[i].nume.toLowerCase().trim();
+  for (let i = 0; i < list.length; i++) {
+    let normalizedName = list[i].name.toLowerCase().trim();
 
-    if (numeProdusNormalizat === numeCautatNormalizat) {
-      return lista[i];
+    if (normalizedName === normalizedSearch) {
+      return list[i];
     }
   }
 
@@ -205,19 +205,19 @@ function cautaProdusDupaNume(lista, numeCautat) {
 }
 
 // Test functiile in consola
-console.log(esteCuponValid("SAVE10"));
-console.log(esteCuponValid("TEST"));
-calculeazaValoareaStocului();
+console.log(isValidCoupon("SAVE10"));
+console.log(isValidCoupon("TEST"));
+calculateStockValue();
 console.log(
-  cautaProdusDupaNume(
-    toateProdusele,
+  findProductByName(
+    allProducts,
     "Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and Finish, P6.02, 1L"
   )
 );
 console.log(
-  cautaProdusDupaNume(
-    toateProdusele,
+  findProductByName(
+    allProducts,
     "polish 3 in 1 cu ceara carnauba koch chemie one cut and finish, p6.02, 1l"
   )
 );
-console.log(cautaProdusDupaNume(toateProdusele, "Produs 1"));
+console.log(findProductByName(allProducts, "Produs 1"));
