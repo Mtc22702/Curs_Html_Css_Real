@@ -3,11 +3,11 @@
 // Constante si variabile
 const PRODUCT1_NAME = "Sampon auto cu efect ceramic";
 let PRODUCT1_PRICE = 119;
-let PRODUCT1_QUANTITY = 1;
+let PRODUCT1_QTY = 1;
 
 const PRODUCT2_NAME = "Spray protectie vopsea";
 let PRODUCT2_PRICE = 65;
-let PRODUCT2_QUANTITY = 1;
+let PRODUCT2_QTY = 1;
 
 const VAT = 0.21;
 const CURRENCY = "RON";
@@ -18,11 +18,11 @@ const VALID_COUPONS = ["SAVE10", "SAVE15", "FREESHIP"];
 
 console.log(typeof PRODUCT1_NAME);
 console.log(typeof PRODUCT1_PRICE);
-console.log(typeof PRODUCT1_QUANTITY);
+console.log(typeof PRODUCT1_QTY);
 
 console.log(typeof PRODUCT2_NAME);
 console.log(typeof PRODUCT2_PRICE);
-console.log(typeof PRODUCT2_QUANTITY);
+console.log(typeof PRODUCT2_QTY);
 
 console.log(typeof VAT);
 console.log(typeof CURRENCY);
@@ -30,7 +30,7 @@ console.log(typeof RON_TO_EURO);
 console.log(VALID_COUPONS);
 
 // Variabila globala pentru suma totala a cumparaturilor
-let total = 0;
+let suma = 0;
 
 // Functie pentru normalizarea codului de reducere
 function normalizeCoupon(code) {
@@ -53,14 +53,14 @@ function isValidCoupon(code) {
 // Validarea cuponului si afisarea mesajului
 function validateAndNotify() {
   let inputCode = document.getElementById("promo-input").value;
-  let coupon = normalizeCoupon(inputCode);
+  let code = normalizeCoupon(inputCode);
 
-  if (isValidCoupon(coupon)) {
-    if (coupon === "SAVE10") {
+  if (isValidCoupon(code)) {
+    if (code === "SAVE10") {
       alert("Cuponul dvs. ofera 10% reducere.");
-    } else if (coupon === "SAVE15") {
+    } else if (code === "SAVE15") {
       alert("Cuponul dvs. ofera 15% reducere.");
-    } else if (coupon === "FREESHIP") {
+    } else if (code === "FREESHIP") {
       alert("Cuponul dvs. ofera livrare gratuita.");
     }
   } else {
@@ -83,83 +83,83 @@ function login() {
 // Testarea functiei login
 function testLogin() {
   if (login()) {
-    alert("Login successful.");
+    alert("Login reusit.");
   } else {
-    alert("Wrong email or password.");
+    alert("Email sau parola gresita.");
   }
 }
 
 // Functie care adauga pretul produsului la suma globala
-function addToTotal(price) {
-  total = total + price;
-  console.log("Total: " + total + " RON");
+function adaugaLaSuma(pret) {
+  suma = suma + pret;
+  console.log("Total: " + suma + " RON");
 }
 
 // Demonstrarea functiei cu trei apeluri diferite
-addToTotal(119);
-console.log(total);
+adaugaLaSuma(119);
+console.log(suma);
 
-addToTotal(65);
-console.log(total);
+adaugaLaSuma(65);
+console.log(suma);
 
-addToTotal(19);
-console.log(total);
+adaugaLaSuma(19);
+console.log(suma);
 
 // Afisarea sumei totale prin cos
 function openCart() {
-  alert("Current total: " + total + " RON");
+  alert("Suma totala curenta este: " + suma + " RON");
 }
 
 // Lista tuturor produselor din magazin
 const allProducts = [
   {
     name: "Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
-    price: 119,
+    pret: 119,
     qty: 15
   },
   {
     name: "Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs, 1L",
-    price: 80,
+    pret: 80,
     qty: 8
   },
   {
     name: "Polish 3 in 1 cu ceara Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
-    price: 280,
+    pret: 280,
     qty: 5
   },
   {
     name: "Spray protectie vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
-    price: 108,
+    pret: 108,
     qty: 20
   },
   {
     name: "Set pensule interior Koch Chemie Interior Brush Set",
-    price: 70,
+    pret: 70,
     qty: 3
   },
   {
     name: "Solutie curatare auto alcalina Koch Chemie VorreinigerB, Vb, 1L",
-    price: 50,
+    pret: 50,
     qty: 12
   },
   {
     name: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr, 1L",
-    price: 50,
+    pret: 50,
     qty: 7
   },
   {
     name: "Solutie curatare jante reactiva Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
-    price: 80,
+    pret: 80,
     qty: 9
   },
   {
     name: "Solutie spalare fara clatire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
-    price: 62,
+    pret: 62,
     qty: 6
   },
   {
     name: "Spuma spalare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
-    price: 81,
+    pret: 81,
     qty: 4
   }
 ];
@@ -169,8 +169,7 @@ function calculateStockValue() {
   let totalValue = 0;
 
   for (let i = 0; i < allProducts.length; i++) {
-    totalValue =
-      totalValue + allProducts[i].price * allProducts[i].qty;
+    totalValue = totalValue + allProducts[i].pret * allProducts[i].qty;
   }
 
   console.log("Valoarea totala a stocului: " + totalValue + " RON");
