@@ -1,3 +1,4 @@
+// Lista principala de produse disponibile in magazin.
 let products = [
   { id: 1, name: "Denim Shirt", price: 34, quantity: 10, category: "clothing" },
   {
@@ -17,17 +18,20 @@ let products = [
   }
 ];
 
+// Date generale despre utilizatorul curent.
 let user = {
   username: "matteo92",
   email: "matteo92@example.com",
   isLoggedIn: true
 };
 
+// Obiectul care retine produsele adaugate in cos.
 let cart = {
   items: [],
   totalPrice: 0
 };
 
+// Calculeaza pretul total al produselor din cos.
 function calculateTotal(cart) {
   let total = 0;
   for (let i = 0; i < cart.items.length; i++) {
@@ -37,10 +41,12 @@ function calculateTotal(cart) {
   return cart.totalPrice;
 }
 
+// Verifica daca exista suficient stoc pentru produsul cerut.
 function isInStock(product, requestedQty) {
   return product.quantity >= requestedQty;
 }
 
+// Adauga un produs in cos si actualizeaza stocul.
 function addToCart(cart, product, qty) {
   if (!isInStock(product, qty)) {
     console.log("Nu sunt suficiente bucati in stoc pentru " + product.name);
@@ -51,6 +57,7 @@ function addToCart(cart, product, qty) {
   for (let i = 0; i < cart.items.length; i++) {
     if (cart.items[i].id === product.id) {
       existingItem = cart.items[i];
+      break;
     }
   }
 
@@ -69,11 +76,13 @@ function addToCart(cart, product, qty) {
   calculateTotal(cart);
 }
 
+// Sterge un produs din cos si pune cantitatea inapoi in stoc.
 function removeFromCart(cart, productId) {
   let index = -1;
   for (let i = 0; i < cart.items.length; i++) {
     if (cart.items[i].id === productId) {
       index = i;
+      break;
     }
   }
 
@@ -87,6 +96,7 @@ function removeFromCart(cart, productId) {
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === removedItem.id) {
       products[i].quantity += removedItem.quantity;
+      break;
     }
   }
 
@@ -94,15 +104,18 @@ function removeFromCart(cart, productId) {
   calculateTotal(cart);
 }
 
+// Returneaza produsele care au pretul mai mic decat limita primita.
 const getCheapProducts = (products, limit) =>
   products.filter((product) => product.price < limit);
 
+// Cauta produsele care apartin unei anumite categorii.
 let getProductsByCategory = function (products, category) {
   return products.filter(function (product) {
     return product.category === category;
   });
 };
 
+// Creeaza o functie care numara de cate ori a fost folosit un discount.
 function createDiscountTracker() {
   let usedDiscounts = 0;
   return function () {
@@ -111,6 +124,7 @@ function createDiscountTracker() {
   };
 }
 
+// Sectiune de testare pentru functiile definite mai sus.
 console.log("--- Test isInStock ---");
 console.log(isInStock(products[0], 5));
 console.log(isInStock(products[2], 1));
