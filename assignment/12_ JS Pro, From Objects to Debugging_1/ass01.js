@@ -1,37 +1,47 @@
-// Lista principala de produse disponibile in magazin.
 let products = [
-  { id: 1, name: "Denim Shirt", price: 34, quantity: 10, category: "clothing" },
+  {
+    id: 1,
+    name: "Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
+    price: 119,
+    quantity: 10,
+    category: "Exterior"
+  },
   {
     id: 2,
-    name: "Running Shoes",
-    price: 65,
+    name: "Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs, 1L",
+    price: 80,
     quantity: 5,
-    category: "footwear"
+    category: "Exterior"
   },
-  { id: 3, name: "Wool Hat", price: 18, quantity: 0, category: "accessories" },
+  {
+    id: 3,
+    name: "Set pensule interior Koch Chemie Interior Brush Set",
+    price: 70,
+    quantity: 0,
+    category: "Interior"
+  },
   {
     id: 4,
-    name: "Leather Belt",
-    price: 45,
+    name: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr, 1L",
+    price: 50,
     quantity: 8,
-    category: "accessories"
+    category: "Interior"
   }
 ];
 
-// Date generale despre utilizatorul curent.
 let user = {
   username: "matteo92",
   email: "matteo92@example.com",
   isLoggedIn: true
 };
 
-// Obiectul care retine produsele adaugate in cos.
+// cosul porneste gol
 let cart = {
   items: [],
   totalPrice: 0
 };
 
-// Calculeaza pretul total al produselor din cos.
+// calculeaza totalul din cos
 function calculateTotal(cart) {
   let total = 0;
   for (let i = 0; i < cart.items.length; i++) {
@@ -41,18 +51,17 @@ function calculateTotal(cart) {
   return cart.totalPrice;
 }
 
-// Verifica daca exista suficient stoc pentru produsul cerut.
 function isInStock(product, requestedQty) {
   return product.quantity >= requestedQty;
 }
 
-// Adauga un produs in cos si actualizeaza stocul.
 function addToCart(cart, product, qty) {
   if (!isInStock(product, qty)) {
-    console.log("Nu sunt suficiente bucati in stoc pentru " + product.name);
+    console.log("Nu sunt suficiente bucati in stoc pentru: " + product.name);
     return;
   }
 
+  // verific daca produsul e deja in cos
   let existingItem = null;
   for (let i = 0; i < cart.items.length; i++) {
     if (cart.items[i].id === product.id) {
@@ -76,7 +85,6 @@ function addToCart(cart, product, qty) {
   calculateTotal(cart);
 }
 
-// Sterge un produs din cos si pune cantitatea inapoi in stoc.
 function removeFromCart(cart, productId) {
   let index = -1;
   for (let i = 0; i < cart.items.length; i++) {
@@ -93,6 +101,7 @@ function removeFromCart(cart, productId) {
 
   let removedItem = cart.items[index];
 
+  // bag inapoi in stoc cantitatea scoasa din cos
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === removedItem.id) {
       products[i].quantity += removedItem.quantity;
@@ -104,18 +113,18 @@ function removeFromCart(cart, productId) {
   calculateTotal(cart);
 }
 
-// Returneaza produsele care au pretul mai mic decat limita primita.
+// arrow function cum a cerut
 const getCheapProducts = (products, limit) =>
   products.filter((product) => product.price < limit);
 
-// Cauta produsele care apartin unei anumite categorii.
+// functie anonima cum a cerut
 let getProductsByCategory = function (products, category) {
   return products.filter(function (product) {
     return product.category === category;
   });
 };
 
-// Creeaza o functie care numara de cate ori a fost folosit un discount.
+// closure - contorul ramane privat
 function createDiscountTracker() {
   let usedDiscounts = 0;
   return function () {
@@ -124,38 +133,51 @@ function createDiscountTracker() {
   };
 }
 
-// Sectiune de testare pentru functiile definite mai sus.
-console.log("--- Test isInStock ---");
+// ---- teste ----
+
+console.log("-- isInStock --");
+// are 10 bucati, cer 5 (true)
 console.log(isInStock(products[0], 5));
+// set pensule are 0 in stoc (false)
 console.log(isInStock(products[2], 1));
 
-console.log("--- Test addToCart ---");
+console.log("-- addToCart --");
 addToCart(cart, products[0], 2);
 addToCart(cart, products[1], 1);
 console.log(cart);
 
+// adaug din nou acelasi produs ca sa vad ca nu se dubleaza
 addToCart(cart, products[0], 3);
 console.log(cart);
 
+// cazuri cu erori
 addToCart(cart, products[2], 1);
-
 addToCart(cart, products[1], 100);
 
-console.log("--- Test removeFromCart ---");
+console.log("-- removeFromCart --");
 removeFromCart(cart, 2);
 console.log(cart);
 
+// id care nu exista
 removeFromCart(cart, 99);
 
-console.log("--- Test getCheapProducts ---");
-console.log(getCheapProducts(products, 50));
+console.log("-- calculateTotal --");
+console.log(calculateTotal(cart));
+// cos gol
+let cosGol = { items: [], totalPrice: 0 };
+console.log(calculateTotal(cosGol));
+
+console.log("-- getCheapProducts --");
+console.log(getCheapProducts(products, 100));
+// niciun produs sub 10
 console.log(getCheapProducts(products, 10));
 
-console.log("--- Test getProductsByCategory ---");
-console.log(getProductsByCategory(products, "accessories"));
+console.log("-- getProductsByCategory --");
+console.log(getProductsByCategory(products, "Interior"));
+// categorie inexistenta
 console.log(getProductsByCategory(products, "electronics"));
 
-console.log("--- Test createDiscountTracker ---");
+console.log("-- createDiscountTracker --");
 let trackDiscount = createDiscountTracker();
 console.log(trackDiscount());
 console.log(trackDiscount());
