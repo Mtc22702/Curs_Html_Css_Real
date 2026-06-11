@@ -1,3 +1,4 @@
+// lista de produse din magazin
 let products = [
   {
     id: 1,
@@ -28,7 +29,7 @@ let products = [
     category: "Interior"
   }
 ];
-
+// date despre utilizator
 let user = {
   username: "matteo92",
   email: "matteo92@example.com",
@@ -51,10 +52,12 @@ function calculateTotal(cart) {
   return cart.totalPrice;
 }
 
+// verifica daca produsul este in stoc
 function isInStock(product, requestedQty) {
   return product.quantity >= requestedQty;
 }
 
+// adauga un produs in cos
 function addToCart(cart, product, qty) {
   if (!isInStock(product, qty)) {
     console.log("Nu sunt suficiente bucati in stoc pentru: " + product.name);
@@ -84,7 +87,7 @@ function addToCart(cart, product, qty) {
   product.quantity -= qty;
   calculateTotal(cart);
 }
-
+// sterge un produs din cos
 function removeFromCart(cart, productId) {
   let index = -1;
   for (let i = 0; i < cart.items.length; i++) {
@@ -101,7 +104,7 @@ function removeFromCart(cart, productId) {
 
   let removedItem = cart.items[index];
 
-  // bag inapoi in stoc cantitatea scoasa din cos
+  // pune inapoi in stoc cantitatea scoasa din cos
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === removedItem.id) {
       products[i].quantity += removedItem.quantity;
@@ -113,18 +116,18 @@ function removeFromCart(cart, productId) {
   calculateTotal(cart);
 }
 
-// arrow function cum a cerut
+// functie arrow care returneaza produsele mai ieftine decat limita
 const getCheapProducts = (products, limit) =>
   products.filter((product) => product.price < limit);
 
-// functie anonima cum a cerut
+// functie anonima care cauta produsele dupa categorie
 let getProductsByCategory = function (products, category) {
   return products.filter(function (product) {
     return product.category === category;
   });
 };
 
-// closure - contorul ramane privat
+// closure: contorul ramane privat in functie
 function createDiscountTracker() {
   let usedDiscounts = 0;
   return function () {
