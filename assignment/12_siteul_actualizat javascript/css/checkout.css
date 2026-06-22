@@ -1,0 +1,270 @@
+/* TITLURI SECTIUNI */
+.checkout-section-title,
+.cart-title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.checkout-header {
+  margin-bottom: 1.5rem;
+}
+
+/* FORMULAR COMANDA */
+.form-group .form-label {
+  margin-bottom: 0.35rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.checkout-form .form-control,
+.checkout-form .form-select,
+.checkout-form .input-group-text {
+  min-height: 2.75rem;
+  border-color: var(--border);
+  font-size: 0.98rem;
+}
+
+.checkout-form .input-group-text {
+  background: #f8fafc;
+  color: var(--muted-2);
+}
+
+.checkout-form .form-check-label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.checkout-form .form-check-input:checked {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* OPTIUNI PLATA */
+.payment-option {
+  position: relative;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.payment-option img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.55rem 0.8rem;
+  pointer-events: none;
+}
+
+.payment-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.payment-option:has(input:checked) {
+  background: var(--primary);
+  color: var(--primary-text);
+  border-color: var(--primary);
+}
+
+.payment-option.paypal:has(input:checked) {
+  background: #fff;
+  border-color: var(--primary);
+}
+
+/* PRODUSE IN COS */
+.cart-items {
+  gap: 0;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  background: transparent;
+  border-color: #e5e7eb;
+}
+
+.cart-item-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.cart-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cart-item-info {
+  min-width: 0;
+}
+
+.cart-item-title {
+  font-size: 1rem;
+  line-height: 1.35;
+  flex: 1;
+}
+
+.cart-item-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.cart-item-price {
+  grid-column: 2;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+/* SELECTOR CANTITATE */
+.quantity-box {
+  gap: 0.45rem;
+  padding: 0.15rem 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  width: fit-content;
+}
+
+.quantity-box button {
+  width: 1.65rem;
+  height: 1.65rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.quantity-box button:focus-visible {
+  outline: 2px solid #999;
+  outline-offset: 2px;
+}
+
+.quantity-box span {
+  min-width: 0.8rem;
+  text-align: center;
+  font-size: 0.88rem;
+}
+
+.total-price {
+  font-size: 1.2rem;
+}
+
+/* PAGINA COS */
+.cart-page-item {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-page-item:last-child {
+  border-bottom: 0;
+}
+
+.cart-remove {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.cart-summary,
+.orders-box {
+  padding: 1.25rem;
+}
+
+/* BUTON FINALIZARE COMANDA */
+.checkout-form .btn-primary {
+  min-height: 2.9rem;
+  background: var(--green-main);
+  color: #ffffff;
+  border: 1px solid var(--green-main);
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.checkout-form .btn-primary:hover {
+  background: var(--green-main-hover);
+  border-color: var(--green-main-hover);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.25);
+}
+
+.checkout-form .btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
+}
+
+/* RESPONSIVE COMANDA SI COS */
+@media (max-width: 767px) {
+  .cart-item {
+    grid-template-columns: 4.75rem minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .cart-item-title {
+    font-size: 0.95rem;
+  }
+
+  .cart-item-price {
+    font-size: 0.95rem;
+  }
+
+  .cart-item-meta {
+    margin-bottom: 0.75rem;
+  }
+
+  .quantity-box {
+    transform: scale(0.97);
+    transform-origin: left center;
+  }
+}
+
+@media (min-width: 768px) {
+  .cart-item {
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cart-item-title {
+    font-size: 1.05rem;
+  }
+
+  .cart-item-price {
+    font-size: 1.05rem;
+  }
+
+  .cart-page-item {
+    grid-template-columns: 6.5rem minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .cart-summary,
+  .orders-box {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .checkout-header {
+    margin-bottom: 2rem;
+  }
+}
