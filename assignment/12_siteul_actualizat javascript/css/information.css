@@ -1,0 +1,15 @@
+/* CUPRINS RAPID */
+.information-toc {
+  font-size: 0.9rem;
+}
+
+/* INTREBARI FRECVENTE */
+.faq-item {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.faq-item:first-of-type {
+  padding-top: 0;
+  border-top: 0;
+}

@@ -76,7 +76,9 @@
             />
           </form>
           <a aria-label="Coș" class="action-link icon-action" href="cart.html"
-            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png" /><span
+            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png"
+      loading="lazy"
+    /><span
               id="header-cart-count"
               >Coș</span
             ></a
@@ -86,7 +88,9 @@
             class="action-link icon-action"
             href="login.html"
           >
-            <img alt="" src="images/Ikonice.assignment03/user_logo.png" />
+            <img alt="" src="images/Ikonice.assignment03/user_logo.png"
+      loading="lazy"
+    />
             <span id="header-login-text">Autentificare</span>
           </a>
         </div>
@@ -156,11 +160,17 @@
             <div class="filters-scroll">
               <ul class="filters-list">
                 <li class="filter-item">
-                  <div class="filter-title">
+                  <button
+                    class="filter-title"
+                    id="filter-toggle-prices"
+                    type="button"
+                  >
                     <span>Prețuri</span>
-                    <span class="filter-arrow">⌄</span>
-                  </div>
-                  <ul class="filter-list">
+                    <span class="filter-arrow" id="filter-arrow-prices"
+                      >⌄</span
+                    >
+                  </button>
+                  <ul class="filter-list" id="filter-list-prices">
                     <li>
                       <label class="checkbox">
                         <input
@@ -194,11 +204,17 @@
                   </ul>
                 </li>
                 <li class="filter-item">
-                  <div class="filter-title">
+                  <button
+                    class="filter-title"
+                    id="filter-toggle-brand"
+                    type="button"
+                  >
                     <span>Brand</span>
-                    <span class="filter-arrow">⌄</span>
-                  </div>
-                  <ul class="filter-list">
+                    <span class="filter-arrow" id="filter-arrow-brand"
+                      >⌄</span
+                    >
+                  </button>
+                  <ul class="filter-list" id="filter-list-brand">
                     <li>
                       <label class="checkbox">
                         <input
@@ -242,11 +258,17 @@
                   </ul>
                 </li>
                 <li class="filter-item">
-                  <div class="filter-title">
+                  <button
+                    class="filter-title"
+                    id="filter-toggle-categories"
+                    type="button"
+                  >
                     <span>Categorii</span>
-                    <span class="filter-arrow">⌄</span>
-                  </div>
-                  <ul class="filter-list">
+                    <span class="filter-arrow" id="filter-arrow-categories"
+                      >⌄</span
+                    >
+                  </button>
+                  <ul class="filter-list" id="filter-list-categories">
                     <li>
                       <label class="checkbox">
                         <input
@@ -300,12 +322,6 @@
                     </li>
                   </ul>
                 </li>
-                <li class="filter-item">
-                  <div class="filter-title">
-                    <span>Altele</span>
-                    <span class="filter-arrow">›</span>
-                  </div>
-                </li>
               </ul>
             </div>
             <button
@@ -355,7 +371,8 @@
                       images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg 480w,
                       images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -365,7 +382,19 @@
                   Șampon auto cu efect ceramic Koch Chemie Ceramic Effect
                   Shampoo, Ces, 1Lt
                 </h3>
-                <p class="product-price" id="product-1-price">119 Ron</p>
+                <p class="product-price" id="product-1-price">
+                  <span class="price-now" id="product-1-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-1-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-1-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-1-stock"
@@ -389,7 +418,8 @@
                       images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg 480w,
                       images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -399,7 +429,19 @@
                   Șampon auto reactivare ceramică Koch Chemie Reactivation
                   Shampoo, Rs, 1L
                 </h3>
-                <p class="product-price" id="product-2-price">80 Ron</p>
+                <p class="product-price" id="product-2-price">
+                  <span class="price-now" id="product-2-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-2-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-2-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-2-stock"
@@ -423,7 +465,8 @@
                       images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg 480w,
                       images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -433,7 +476,19 @@
                   Polish 3 in 1 cu ceară Carnauba Koch Chemie One Cut and
                   Finish, P6.02, 1L
                 </h3>
-                <p class="product-price" id="product-3-price">280 Ron</p>
+                <p class="product-price" id="product-3-price">
+                  <span class="price-now" id="product-3-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-3-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-3-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-3-stock"
@@ -460,7 +515,8 @@
                       images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg 480w,
                       images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -470,9 +526,17 @@
                   Spray protecție vopsea Koch Chemie Spray Sealant, S0.02, 500ml
                 </h3>
                 <p class="product-price" id="product-4-price">
-                  <span class="price-now">108 Ron</span>
-                  <span class="price-old">120 Ron</span>
-                  <span class="badge price-badge">-10%</span>
+                  <span class="price-now" id="product-4-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-4-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-4-price-badge"
+                    style="display: none"
+                  ></span>
                 </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
@@ -500,7 +564,8 @@
                       images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg 480w,
                       images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -510,9 +575,17 @@
                   Set pensule interior Koch Chemie Interior Brush Set
                 </h3>
                 <p class="product-price" id="product-5-price">
-                  <span class="price-now">70 Ron</span>
-                  <span class="price-old">77 Ron</span>
-                  <span class="badge price-badge">-10%</span>
+                  <span class="price-now" id="product-5-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-5-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-5-price-badge"
+                    style="display: none"
+                  ></span>
                 </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
@@ -537,7 +610,8 @@
                       images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp 480w,
                       images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -547,7 +621,19 @@
                   Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb,
                   1L
                 </h3>
-                <p class="product-price" id="product-6-price">50 Ron</p>
+                <p class="product-price" id="product-6-price">
+                  <span class="price-now" id="product-6-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-6-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-6-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-6-stock"
@@ -571,7 +657,8 @@
                       images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg 480w,
                       images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -581,7 +668,19 @@
                   Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr,
                   1L
                 </h3>
-                <p class="product-price" id="product-7-price">50 Ron</p>
+                <p class="product-price" id="product-7-price">
+                  <span class="price-now" id="product-7-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-7-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-7-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-7-stock"
@@ -605,7 +704,8 @@
                       images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg 480w,
                       images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -615,7 +715,19 @@
                   Soluție curățare jante reactivă Koch Chemie Magic Wheel
                   Cleaner, Mwc, 500ml
                 </h3>
-                <p class="product-price" id="product-8-price">80 Ron</p>
+                <p class="product-price" id="product-8-price">
+                  <span class="price-now" id="product-8-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-8-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-8-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-8-stock"
@@ -639,7 +751,8 @@
                       images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg 480w,
                       images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -648,7 +761,19 @@
                 <h3 class="product-title" id="product-9-title">
                   Soluție curățare universală Koch Chemie Green Star, Gs, 1L
                 </h3>
-                <p class="product-price" id="product-9-price">42 Ron</p>
+                <p class="product-price" id="product-9-price">
+                  <span class="price-now" id="product-9-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-9-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-9-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-9-stock"
@@ -672,7 +797,8 @@
                       images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg 480w,
                       images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -681,7 +807,19 @@
                 <h3 class="product-title" id="product-10-title">
                   Soluție spălare fără apă Koch Chemie Wash and Finish, Wf, 1L
                 </h3>
-                <p class="product-price" id="product-10-price">65 Ron</p>
+                <p class="product-price" id="product-10-price">
+                  <span class="price-now" id="product-10-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-10-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-10-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-10-stock"
@@ -705,7 +843,8 @@
                       images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg 480w,
                       images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -715,7 +854,19 @@
                   Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash,
                   Rrw, 1L
                 </h3>
-                <p class="product-price" id="product-11-price">62 Ron</p>
+                <p class="product-price" id="product-11-price">
+                  <span class="price-now" id="product-11-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-11-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-11-price-badge"
+                    style="display: none"
+                  ></span>
+                </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
                   id="product-11-stock"
@@ -742,7 +893,8 @@
                       images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg 480w,
                       images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg 768w
                     "
-                  />
+      loading="lazy"
+    />
                 </a>
                 <p
                   class="oop-category product-badge mb-2"
@@ -753,9 +905,17 @@
                   1L
                 </h3>
                 <p class="product-price" id="product-12-price">
-                  <span class="price-now">81 Ron</span>
-                  <span class="price-old">90 Ron</span>
-                  <span class="badge price-badge">-10%</span>
+                  <span class="price-now" id="product-12-price-now"></span>
+                  <span
+                    class="price-old"
+                    id="product-12-price-old"
+                    style="display: none"
+                  ></span>
+                  <span
+                    class="badge price-badge"
+                    id="product-12-price-badge"
+                    style="display: none"
+                  ></span>
                 </p>
                 <p
                   class="site-muted small mb-2 oop-stock"
@@ -865,9 +1025,9 @@
             <h4>INFORMAȚII</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
-              <li><a href="catalog.html">Termeni și condiții</a></li>
-              <li><a href="catalog.html">Politica de confidențialitate</a></li>
-              <li><a href="catalog.html">Livrare &amp; retur</a></li>
+              <li><a href="information.html#termeni">Termeni și condiții</a></li>
+              <li><a href="information.html#confidentialitate">Politica de confidențialitate</a></li>
+              <li><a href="information.html#livrare">Livrare &amp; retur</a></li>
             </ul>
           </section>
           <section
@@ -876,9 +1036,9 @@
             <h4>SUPORT CLIENȚI</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="index.html#contact">Contact</a></li>
-              <li><a href="catalog.html">Întrebări frecvente</a></li>
-              <li><a href="catalog.html">Garanție produse</a></li>
-              <li><a href="catalog.html">Instrucțiuni utilizare</a></li>
+              <li><a href="information.html#faq">Întrebări frecvente</a></li>
+              <li><a href="information.html#garantie">Garanție produse</a></li>
+              <li><a href="information.html#instructiuni">Instrucțiuni utilizare</a></li>
             </ul>
           </section>
         </div>
@@ -896,21 +1056,42 @@
           <div
             class="footer-social justify-content-center d-flex align-items-center"
           >
-            <a href="index.html#contact">
+            <span
+              aria-label="Pagina noastra de Facebook este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Facebook este in pregatire"
+            >
               <img
-                alt="Facebook"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/facebook.png"
               />
-            </a>
-            <a href="index.html#contact">
+            </span>
+            <span
+              aria-label="Pagina noastra de Instagram este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Instagram este in pregatire"
+            >
               <img
-                alt="Instagram"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/instagram.png"
               />
-            </a>
-            <a href="index.html#contact">
-              <img alt="TikTok" src="images/Ikonice.assignment03/tik-tok.png" />
-            </a>
+            </span>
+            <span
+              aria-label="Pagina noastra de TikTok este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de TikTok este in pregatire"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                src="images/Ikonice.assignment03/tik-tok.png"
+              />
+            </span>
           </div>
         </div>
       </div>

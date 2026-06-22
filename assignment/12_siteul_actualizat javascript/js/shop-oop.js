@@ -7,12 +7,13 @@
 class Product {
   #quantity;
 
-  constructor(id, name, price, quantity, image, variants) {
+  constructor(id, name, price, quantity, image, variants, discountPercent) {
     this.id = id;
     this.name = name;
     this.price = price;
     this.image = image;
     this.variants = variants || [{ label: "Standard", price: price }];
+    this.discountPercent = discountPercent || 0;
     this.#quantity = quantity;
   }
 
@@ -40,6 +41,14 @@ class Product {
 
   getVariantPrice(label) {
     return this.getVariant(label).price;
+  }
+
+  getDiscountedPrice(price) {
+    if (this.discountPercent > 0) {
+      return Math.round(price - (price * this.discountPercent) / 100);
+    }
+
+    return price;
   }
 
   decreaseStock(qty) {
@@ -138,7 +147,9 @@ class Cart {
       return false;
     }
 
-    let variant = product.getVariant(variantLabel || product.getDefaultVariant().label);
+    let variant = product.getVariant(
+      variantLabel || product.getDefaultVariant().label
+    );
     let itemKey = this.getItemKey(product.id, variant.label);
     let foundItem = null;
 
@@ -163,7 +174,7 @@ class Cart {
         id: product.id,
         name: product.name,
         package: variant.label,
-        price: variant.price,
+        price: product.getDiscountedPrice(variant.price),
         image: product.image,
         qty: qty
       });
@@ -174,7 +185,10 @@ class Cart {
 
   removeOne(product, itemKey) {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].key === itemKey || (!itemKey && this.items[i].id === product.id)) {
+      if (
+        this.items[i].key === itemKey ||
+        (!itemKey && this.items[i].id === product.id)
+      ) {
         if (this.items[i].qty > 1) {
           this.items[i].qty = this.items[i].qty - 1;
         } else {
@@ -198,7 +212,10 @@ class Cart {
 
   removeProduct(itemKey) {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].key === itemKey || String(this.items[i].id) === String(itemKey)) {
+      if (
+        this.items[i].key === itemKey ||
+        String(this.items[i].id) === String(itemKey)
+      ) {
         let newItems = [];
 
         for (let j = 0; j < this.items.length; j++) {
@@ -238,18 +255,124 @@ class Cart {
 
 // Lista de produse disponibile in magazin, construita din clasa Product.
 const shopProducts = [
-  new Product(1, "Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt", 135, 15, "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg", [{ label: "1 L", price: 135 }, { label: "5 L", price: 450 }]),
-  new Product(2, "Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs, 1L", 89, 8, "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg", [{ label: "1 L", price: 89 }]),
-  new Product(3, "Polish 3 in 1 cu ceară Carnauba Koch Chemie One Cut and Finish, P6.02, 1L", 306, 5, "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg", [{ label: "250 ml", price: 95 }, { label: "1 L", price: 306 }]),
-  new Product(4, "Spray protecție vopsea Koch Chemie Spray Sealant, S0.02, 500ml", 138, 20, "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg", [{ label: "500 ml", price: 138 }]),
-  new Product(5, "Set pensule interior Koch Chemie Interior Brush Set", 70, 3, "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg", [{ label: "3 buc", price: 70 }]),
-  new Product(6, "Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb, 1L", 69, 12, "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp", [{ label: "1 L", price: 69 }, { label: "5 L", price: 179 }]),
-  new Product(7, "Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr, 1L", 69, 7, "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg", [{ label: "1 L", price: 69 }, { label: "10 L", price: 307 }]),
-  new Product(8, "Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner, Mwc, 500ml", 94, 9, "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg", [{ label: "500 ml", price: 94 }]),
-  new Product(9, "Soluție curățare universală Koch Chemie Green Star, Gs, 1L", 46, 10, "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg", [{ label: "1 L", price: 46 }, { label: "5 L", price: 190 }, { label: "11 kg", price: 336 }]),
-  new Product(10, "Soluție spălare fără apă Koch Chemie Wash and Finish, Wf, 1L", 65, 6, "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg", [{ label: "1 L", price: 65 }]),
-  new Product(11, "Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash, Rrw, 1L", 62, 6, "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg", [{ label: "1 L", price: 62 }]),
-  new Product(12, "Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L", 108, 4, "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg", [{ label: "1 L", price: 108 }, { label: "5 L", price: 370 }])
+  new Product(
+    1,
+    "Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
+    135,
+    15,
+    "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg",
+    [
+      { label: "1 L", price: 135 },
+      { label: "5 L", price: 450 }
+    ]
+  ),
+  new Product(
+    2,
+    "Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs, 1L",
+    89,
+    8,
+    "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg",
+    [{ label: "1 L", price: 89 }]
+  ),
+  new Product(
+    3,
+    "Polish 3 in 1 cu ceară Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
+    306,
+    5,
+    "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg",
+    [
+      { label: "250 ml", price: 95 },
+      { label: "1 L", price: 306 }
+    ]
+  ),
+  new Product(
+    4,
+    "Spray protecție vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
+    138,
+    20,
+    "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg",
+    [{ label: "500 ml", price: 138 }],
+    10
+  ),
+  new Product(
+    5,
+    "Set pensule interior Koch Chemie Interior Brush Set",
+    70,
+    3,
+    "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg",
+    [{ label: "3 buc", price: 70 }],
+    15
+  ),
+  new Product(
+    6,
+    "Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb, 1L",
+    69,
+    12,
+    "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp",
+    [
+      { label: "1 L", price: 69 },
+      { label: "5 L", price: 179 }
+    ]
+  ),
+  new Product(
+    7,
+    "Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr, 1L",
+    69,
+    7,
+    "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg",
+    [
+      { label: "1 L", price: 69 },
+      { label: "10 L", price: 307 }
+    ]
+  ),
+  new Product(
+    8,
+    "Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
+    94,
+    9,
+    "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg",
+    [{ label: "500 ml", price: 94 }]
+  ),
+  new Product(
+    9,
+    "Soluție curățare universală Koch Chemie Green Star, Gs, 1L",
+    46,
+    10,
+    "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg",
+    [
+      { label: "1 L", price: 46 },
+      { label: "5 L", price: 190 },
+      { label: "11 kg", price: 336 }
+    ]
+  ),
+  new Product(
+    10,
+    "Soluție spălare fără apă Koch Chemie Wash and Finish, Wf, 1L",
+    65,
+    6,
+    "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg",
+    [{ label: "1 L", price: 65 }]
+  ),
+  new Product(
+    11,
+    "Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
+    62,
+    6,
+    "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg",
+    [{ label: "1 L", price: 62 }]
+  ),
+  new Product(
+    12,
+    "Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
+    108,
+    4,
+    "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg",
+    [
+      { label: "1 L", price: 108 },
+      { label: "5 L", price: 370 }
+    ],
+    10
+  )
 ];
 
 function findShopProductById(id) {
@@ -275,7 +398,8 @@ function createCartFromStorage() {
   for (let i = 0; i < savedItems.length; i++) {
     let product = findShopProductById(Number(savedItems[i].id));
     let savedQty = Number(savedItems[i].qty);
-    let savedPackage = savedItems[i].package || product && product.getDefaultVariant().label;
+    let savedPackage =
+      savedItems[i].package || (product && product.getDefaultVariant().label);
 
     if (product !== null && savedQty > 0) {
       if (cart.getItemQty(product.id) + savedQty > product.quantity) {
@@ -289,7 +413,7 @@ function createCartFromStorage() {
           id: product.id,
           name: product.name,
           package: variant.label,
-          price: variant.price,
+          price: product.getDiscountedPrice(variant.price),
           image: product.image,
           qty: savedQty
         });

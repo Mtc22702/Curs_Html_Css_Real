@@ -16,6 +16,15 @@
   color: var(--muted);
 }
 
+.required-mark {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+.form-required-note {
+  color: var(--muted);
+}
+
 .checkout-form .form-control,
 .checkout-form .form-select,
 .checkout-form .input-group-text {

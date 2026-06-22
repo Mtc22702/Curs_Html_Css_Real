@@ -73,7 +73,9 @@
             />
           </form>
           <a aria-label="Coș" class="action-link icon-action" href="cart.html"
-            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png" /><span
+            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png"
+      loading="lazy"
+    /><span
               id="header-cart-count"
               >Coș</span
             ></a
@@ -82,7 +84,9 @@
             aria-label="Autentificare"
             class="action-link icon-action"
             href="login.html"
-            ><img alt="" src="images/Ikonice.assignment03/user_logo.png" /><span
+            ><img alt="" src="images/Ikonice.assignment03/user_logo.png"
+      loading="lazy"
+    /><span
               id="header-login-text"
               >Autentificare</span
             ></a
@@ -134,7 +138,8 @@
             class="product-main-img img-fluid"
             id="product-main-img"
             src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
-          />
+      loading="lazy"
+    />
           <div class="row g-3 mt-2 d-none d-md-flex">
             <div class="col-4">
               <img
@@ -142,7 +147,8 @@
                 class="product-gallery-img img-fluid rounded"
                 id="gallery-thumb-1"
                 src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg"
-              />
+      loading="lazy"
+    />
             </div>
             <div class="col-4">
               <img
@@ -150,7 +156,8 @@
                 class="product-gallery-img img-fluid rounded"
                 id="gallery-thumb-2"
                 src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
-              />
+      loading="lazy"
+    />
             </div>
             <div class="col-4">
               <img
@@ -158,7 +165,8 @@
                 class="product-gallery-img img-fluid rounded"
                 id="gallery-thumb-3"
                 src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
-              />
+      loading="lazy"
+    />
             </div>
           </div>
         </div>
@@ -172,12 +180,30 @@
               (CES), 1L
             </h1>
             <div class="d-flex align-items-center gap-2 mb-3">
-              <span class="product-stars" id="product-rating-stars">★★★★★</span
+              <span
+                aria-hidden="true"
+                class="product-stars"
+                id="product-rating-stars"
+                >★★★★★</span
+              ><span class="visually-hidden" id="product-rating-text"
+                >5 din 5 stele</span
               ><span class="site-muted small" id="product-rating-count"
                 >(12 recenzii)</span
               >
             </div>
-            <p class="h3 mb-2" id="product-price">119 Ron</p>
+            <p class="d-flex align-items-center gap-2 flex-wrap mb-2">
+              <span class="h3 mb-0" id="product-price">119 Ron</span>
+              <span
+                class="price-old"
+                id="product-price-old"
+                style="display: none"
+              ></span>
+              <span
+                class="badge price-badge"
+                id="product-price-badge"
+                style="display: none"
+              ></span>
+            </p>
             <p class="text-success fw-bold mb-3" id="product-stock-label">
               În stoc
             </p>
@@ -186,7 +212,7 @@
               Curăță și protejează rapid într-un singur pas și prelungește
               durata protecțiilor aplicăte anterior.
             </p>
-            <div class="my-4">
+            <div class="my-4" id="package-section">
               <p class="fw-bold mb-2" id="package-title">Volum sticlă</p>
               <div class="volume-options">
                 <button class="volume-option" id="package-btn-1" type="button">
@@ -369,7 +395,11 @@
               <h3 class="visually-hidden" id="review-1-heading">Recenzie</h3>
               <p class="mb-1">
                 <strong id="review-1-name">Andrei P.</strong>
-                <span class="product-stars" id="review-1-stars">★★★★★</span>
+                <span aria-hidden="true" class="product-stars" id="review-1-stars"
+                  >★★★★★</span
+                ><span class="visually-hidden" id="review-1-rating-text"
+                  >5 din 5 stele</span
+                >
               </p>
               <p class="mb-0 site-muted" id="review-1-text">
                 „Spumăre bună și lasă un efect hidrofob vizibil. Mi-a plăcut și
@@ -380,7 +410,11 @@
               <h3 class="visually-hidden" id="review-2-heading">Recenzie</h3>
               <p class="mb-1">
                 <strong id="review-2-name">Maria D.</strong>
-                <span class="product-stars" id="review-2-stars">★★★★☆</span>
+                <span aria-hidden="true" class="product-stars" id="review-2-stars"
+                  >★★★★☆</span
+                ><span class="visually-hidden" id="review-2-rating-text"
+                  >4 din 5 stele</span
+                >
               </p>
               <p class="mb-0 site-muted" id="review-2-text">
                 „Curăță bine și luciul e fain. Aș vrea doar un preț puțin mai
@@ -391,7 +425,10 @@
               <h3 class="visually-hidden" id="review-3-heading">Recenzie</h3>
               <p class="mb-1">
                 <strong id="review-3-name"></strong>
-                <span class="product-stars" id="review-3-stars"></span>
+                <span aria-hidden="true" class="product-stars" id="review-3-stars"
+                ></span
+                ><span class="visually-hidden" id="review-3-rating-text"
+                ></span>
               </p>
               <p class="mb-0 site-muted" id="review-3-text"></p>
             </article>
@@ -414,7 +451,8 @@
                   class="similar-product-img mb-3"
                   id="similar-1-img"
                   src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
-                />
+      loading="lazy"
+    />
                 <h3 class="h6 text-center" id="similar-1-title">
                   Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, 1L
                 </h3>
@@ -443,7 +481,8 @@
                   class="similar-product-img mb-3"
                   id="similar-2-img"
                   src="images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg"
-                />
+      loading="lazy"
+    />
                 <h3 class="h6 text-center" id="similar-2-title">
                   Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash,
                   1L
@@ -473,7 +512,8 @@
                   class="similar-product-img mb-3"
                   id="similar-3-img"
                   src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
-                />
+      loading="lazy"
+    />
                 <h3 class="h6 text-center" id="similar-3-title">
                   Șampon auto reactivare ceramică Koch Chemie Reactivation
                   Shampoo, 1L
@@ -503,7 +543,8 @@
                   class="similar-product-img mb-3"
                   id="similar-4-img"
                   src="images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg"
-                />
+      loading="lazy"
+    />
                 <h3 class="h6 text-center" id="similar-4-title">
                   Soluție spălare fără apă Koch Chemie Wash and Finish, 1L
                 </h3>
@@ -580,9 +621,9 @@
             <h4>INFORMAȚII</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
-              <li><a href="catalog.html">Termeni și condiții</a></li>
-              <li><a href="catalog.html">Politica de confidențialitate</a></li>
-              <li><a href="catalog.html">Livrare &amp; retur</a></li>
+              <li><a href="information.html#termeni">Termeni și condiții</a></li>
+              <li><a href="information.html#confidentialitate">Politica de confidențialitate</a></li>
+              <li><a href="information.html#livrare">Livrare &amp; retur</a></li>
             </ul>
           </section>
           <section
@@ -591,9 +632,9 @@
             <h4>SUPORT CLIENȚI</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="index.html#contact">Contact</a></li>
-              <li><a href="catalog.html">Întrebări frecvente</a></li>
-              <li><a href="catalog.html">Garanție produse</a></li>
-              <li><a href="catalog.html">Instrucțiuni utilizare</a></li>
+              <li><a href="information.html#faq">Întrebări frecvente</a></li>
+              <li><a href="information.html#garantie">Garanție produse</a></li>
+              <li><a href="information.html#instructiuni">Instrucțiuni utilizare</a></li>
             </ul>
           </section>
         </div>
@@ -611,19 +652,36 @@
           <div
             class="footer-social justify-content-center d-flex align-items-center"
           >
-            <a href="index.html#contact"
+            <span
+              aria-label="Pagina noastra de Facebook este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Facebook este in pregatire"
               ><img
-                alt="Facebook"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/facebook.png"
-            /></a>
-            <a href="index.html#contact"
+            /></span>
+            <span
+              aria-label="Pagina noastra de Instagram este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Instagram este in pregatire"
               ><img
-                alt="Instagram"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/instagram.png"
-            /></a>
-            <a href="index.html#contact"
-              ><img alt="TikTok" src="images/Ikonice.assignment03/tik-tok.png"
-            /></a>
+            /></span>
+            <span
+              aria-label="Pagina noastra de TikTok este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de TikTok este in pregatire"
+              ><img
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                src="images/Ikonice.assignment03/tik-tok.png"
+            /></span>
           </div>
         </div>
       </div>

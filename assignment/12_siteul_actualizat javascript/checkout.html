@@ -76,7 +76,9 @@
             />
           </form>
           <a aria-label="Coș" class="action-link icon-action" href="cart.html"
-            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png" /><span
+            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png"
+      loading="lazy"
+    /><span
               id="header-cart-count"
               >Coș</span
             ></a
@@ -86,7 +88,9 @@
             class="action-link icon-action"
             href="login.html"
           >
-            <img alt="" src="images/Ikonice.assignment03/user_logo.png" />
+            <img alt="" src="images/Ikonice.assignment03/user_logo.png"
+      loading="lazy"
+    />
             <span id="header-login-text">Autentificare</span>
           </a>
         </div>
@@ -142,12 +146,20 @@
                 <div class="shipping-box card mb-4">
                   <div class="card-body p-3 p-sm-4">
                     <h2 class="checkout-section-title mb-3 fw-bold">
-                      Informații de livrare
+                      1. Informații de livrare
                     </h2>
+                    <p class="form-required-note small-text mb-3">
+                      Câmpurile marcate cu
+                      <span aria-hidden="true" class="required-mark">*</span>
+                      sunt obligatorii.
+                    </p>
                     <div class="row g-3">
                       <div class="col-12 col-md-6 form-group">
                         <label class="form-label fw-medium" for="prenume"
-                          >Prenume</label
+                          >Prenume
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="prenumeFeedback"
@@ -167,7 +179,10 @@
                       </div>
                       <div class="col-12 col-md-6 form-group">
                         <label class="form-label fw-medium" for="nume"
-                          >Nume</label
+                          >Nume
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="numeFeedback"
@@ -187,7 +202,10 @@
                       </div>
                       <div class="col-12 form-group">
                         <label class="form-label fw-medium" for="adresa"
-                          >Adresă</label
+                          >Adresă
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="adresaFeedback"
@@ -218,7 +236,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="tara"
-                          >Țară</label
+                          >Țară
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <select
                           class="form-select"
@@ -239,7 +260,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="oras"
-                          >Oraș</label
+                          >Oraș
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <select
                           class="form-select"
@@ -260,7 +284,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="codPostal"
-                          >Cod poștal</label
+                          >Cod poștal
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="codPostalFeedback"
@@ -299,7 +326,7 @@
                 <div class="payment-box card">
                   <div class="card-body p-3 p-sm-4">
                     <h2 class="checkout-section-title mb-3 fw-bold">
-                      Modalitate de plată
+                      2. Modalitate de plată
                     </h2>
                     <div
                       aria-label="Metode de plată"
@@ -320,7 +347,8 @@
                           <img
                             alt="PayPal"
                             src="images/Ikonice.assignment03/paypal.png"
-                          />
+      loading="lazy"
+    />
                           <span class="visually-hidden">Plată prin PayPal</span>
                         </label>
                       </div>
@@ -343,7 +371,10 @@
                     <div class="row g-3">
                       <div class="col-12 form-group">
                         <label class="form-label fw-medium" for="numeCard"
-                          >Nume de pe card</label
+                          >Nume de pe card
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="numeCardFeedback"
@@ -363,7 +394,10 @@
                       </div>
                       <div class="col-12 form-group">
                         <label class="form-label fw-medium" for="numarCard"
-                          >Număr card</label
+                          >Număr card
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <div class="input-group">
                           <input
@@ -388,7 +422,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="lunaExp"
-                          >Lună</label
+                          >Lună
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <select
                           class="form-select"
@@ -416,7 +453,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="anExp"
-                          >An</label
+                          >An
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <select
                           class="form-select"
@@ -437,7 +477,10 @@
                       </div>
                       <div class="col-12 col-md-4 form-group">
                         <label class="form-label fw-medium" for="cvc"
-                          >CVC</label
+                          >CVC
+                          <span aria-hidden="true" class="required-mark"
+                            >*</span
+                          ></label
                         >
                         <input
                           aria-describedby="cvcFeedback"
@@ -500,7 +543,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-1-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -531,7 +575,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-2-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -562,7 +607,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-3-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -593,7 +639,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-4-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -624,7 +671,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-5-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -655,7 +703,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-6-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -686,7 +735,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-7-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -717,7 +767,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-8-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -748,7 +799,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-9-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -779,7 +831,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-10-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -813,7 +866,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-11-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -847,7 +901,8 @@
                           class="img-fluid rounded-3"
                           id="checkout-item-12-img"
                           src=""
-                        />
+      loading="lazy"
+    />
                       </div>
                       <div
                         class="cart-item-info d-flex flex-column justify-content-start gap-2"
@@ -945,9 +1000,9 @@
             <h4>INFORMAȚII</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
-              <li><a href="catalog.html">Termeni și condiții</a></li>
-              <li><a href="catalog.html">Politica de confidențialitate</a></li>
-              <li><a href="catalog.html">Livrare &amp; retur</a></li>
+              <li><a href="information.html#termeni">Termeni și condiții</a></li>
+              <li><a href="information.html#confidentialitate">Politica de confidențialitate</a></li>
+              <li><a href="information.html#livrare">Livrare &amp; retur</a></li>
             </ul>
           </section>
           <section
@@ -956,9 +1011,9 @@
             <h4>SUPORT CLIENȚI</h4>
             <ul class="list-unstyled mb-0">
               <li><a href="index.html#contact">Contact</a></li>
-              <li><a href="catalog.html">Întrebări frecvente</a></li>
-              <li><a href="catalog.html">Garanție produse</a></li>
-              <li><a href="catalog.html">Instrucțiuni utilizare</a></li>
+              <li><a href="information.html#faq">Întrebări frecvente</a></li>
+              <li><a href="information.html#garantie">Garanție produse</a></li>
+              <li><a href="information.html#instructiuni">Instrucțiuni utilizare</a></li>
             </ul>
           </section>
         </div>
@@ -976,21 +1031,42 @@
           <div
             class="footer-social justify-content-center d-flex align-items-center"
           >
-            <a href="index.html#contact">
+            <span
+              aria-label="Pagina noastra de Facebook este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Facebook este in pregatire"
+            >
               <img
-                alt="Facebook"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/facebook.png"
               />
-            </a>
-            <a href="index.html#contact">
+            </span>
+            <span
+              aria-label="Pagina noastra de Instagram este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de Instagram este in pregatire"
+            >
               <img
-                alt="Instagram"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
                 src="images/Ikonice.assignment03/instagram.png"
               />
-            </a>
-            <a href="index.html#contact">
-              <img alt="TikTok" src="images/Ikonice.assignment03/tik-tok.png" />
-            </a>
+            </span>
+            <span
+              aria-label="Pagina noastra de TikTok este in pregatire"
+              class="footer-social-icon"
+              title="Pagina de TikTok este in pregatire"
+            >
+              <img
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                src="images/Ikonice.assignment03/tik-tok.png"
+              />
+            </span>
           </div>
         </div>
       </div>

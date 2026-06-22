@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Despre noi</title>
+    <title>Informatii utile</title>
     <link
       href="images/Logo_Adarta.png"
       rel="icon"
@@ -18,7 +18,7 @@
       rel="stylesheet"
     />
     <link href="css/global.css" rel="stylesheet" />
-    <link href="css/about.css" rel="stylesheet" />
+    <link href="css/information.css" rel="stylesheet" />
   </head>
   <body>
     <!-- SECTIUNE: Header / Navigatie -->
@@ -40,19 +40,22 @@
             aria-label="Căutare"
             class="search mobile-search"
             href="catalog.html"
-            ><span aria-hidden="true" class="search-icon"></span
-          ></a>
+          >
+            <span aria-hidden="true" class="search-icon"></span>
+          </a>
         </div>
         <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
           <a
             aria-label="Acasă"
             class="brand-link d-flex align-items-center justify-content-center"
             href="index.html"
-            ><img
+          >
+            <img
               alt="Logo Adarta"
               class="brand-logo d-flex align-items-center"
               src="images/Logo_Adarta.png"
-          /></a>
+            />
+          </a>
         </div>
         <div
           class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
@@ -73,24 +76,24 @@
             />
           </form>
           <a aria-label="Coș" class="action-link icon-action" href="cart.html"
-            ><img alt="" src="images/Ikonice.assignment03/cart_logo.png"
-      loading="lazy"
-    /><span
-              id="header-cart-count"
-              >Coș</span
-            ></a
+            ><img
+              alt=""
+              loading="lazy"
+              src="images/Ikonice.assignment03/cart_logo.png"
+            /><span id="header-cart-count">Coș</span></a
           >
           <a
             aria-label="Autentificare"
             class="action-link icon-action"
             href="login.html"
-            ><img alt="" src="images/Ikonice.assignment03/user_logo.png"
-      loading="lazy"
-    /><span
-              id="header-login-text"
-              >Autentificare</span
-            ></a
           >
+            <img
+              alt=""
+              loading="lazy"
+              src="images/Ikonice.assignment03/user_logo.png"
+            />
+            <span id="header-login-text">Autentificare</span>
+          </a>
         </div>
         <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
           <nav aria-label="Navigația principală" class="primary-nav ms-lg-4">
@@ -102,9 +105,7 @@
                 <a class="nav-link" href="catalog.html">Magazin</a>
               </li>
               <li class="nav-item">
-                <a aria-current="page" class="nav-link active" href="about.html"
-                  >Despre noi</a
-                >
+                <a class="nav-link" href="about.html">Despre noi</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="index.html#contact">Contact</a>
@@ -118,177 +119,130 @@
       </div>
     </header>
     <!-- SECTIUNE: Continut principal -->
-    <main class="about-page container py-4 py-lg-5">
+    <main class="information-page container py-4 py-lg-5">
       <!-- SECTIUNE: Breadcrumb -->
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
           <li><a href="index.html">Acasă</a></li>
-          <li aria-current="page">Despre noi</li>
+          <li aria-current="page">Informatii utile</li>
         </ol>
       </nav>
       <!-- SECTIUNE: Titlu pagina -->
       <header class="page-header text-center mb-4">
-        <h1>Adarta Detailing Auto</h1>
+        <h1>Informații utile</h1>
         <p class="lead site-muted mb-0">
-          Mai mult decât un magazin. Suntem detaileri.
+          Termeni, livrare, garanție și răspunsuri la întrebările frecvente.
         </p>
       </header>
-      <!-- SECTIUNE: Hero - imagini de prezentare -->
-      <section
-        aria-label="Imagine de prezentare"
-        class="about-hero site-card about-highlight mb-4"
-      >
-        <div class="row g-4 align-items-center">
-          <div class="col-12 col-lg-6">
-            <img
-              alt="Detailing auto - interior și exterior"
-              class="img-fluid rounded about-photo"
-              src="images/header_adarta-768.jpg"
-            />
-          </div>
-          <div class="col-12 col-lg-6">
-            <img
-              alt="Detailing auto - prezentare Adarta"
-              class="img-fluid rounded about-photo"
-              src="images/header_adarta_2-768.jpg"
-            />
-          </div>
-        </div>
+      <!-- SECTIUNE: Cuprins rapid -->
+      <nav aria-label="Cuprins" class="information-toc mb-4">
+        <ul class="list-unstyled d-flex flex-wrap gap-2 justify-content-center mb-0">
+          <li><a class="btn btn-nav btn-sm" href="#termeni">Termeni și condiții</a></li>
+          <li><a class="btn btn-nav btn-sm" href="#confidentialitate">Confidențialitate</a></li>
+          <li><a class="btn btn-nav btn-sm" href="#livrare">Livrare &amp; retur</a></li>
+          <li><a class="btn btn-nav btn-sm" href="#faq">Întrebări frecvente</a></li>
+          <li><a class="btn btn-nav btn-sm" href="#garantie">Garanție</a></li>
+          <li><a class="btn btn-nav btn-sm" href="#instructiuni">Instrucțiuni utilizare</a></li>
+        </ul>
+      </nav>
+      <!-- SECTIUNE: Termeni si conditii -->
+      <section aria-labelledby="termeni-title" class="site-card p-4 mb-4" id="termeni">
+        <h2 class="h4 mb-3" id="termeni-title">Termeni și condiții</h2>
+        <p>
+          Adarta Detailing Auto este un magazin online dedicat produselor de
+          curățare și protecție auto. Prin plasarea unei comenzi pe acest
+          site, clientul confirmă că informațiile introduse sunt corecte și
+          că a citit prezentele condiții de utilizare.
+        </p>
+        <p class="mb-0">
+          Prețurile afișate sunt în lei (RON) și includ TVA. Ne rezervăm
+          dreptul de a modifica prețurile și disponibilitatea produselor fără
+          notificare prealabilă, modificările nu afectează comenzile deja
+          confirmate.
+        </p>
       </section>
-      <!-- SECTIUNE: Povestea noastra -->
-      <section aria-labelledby="poveste-title" class="site-card p-4 mb-4">
-        <div class="row g-4 align-items-center">
-          <div class="col-12 col-lg-7">
-            <h2 class="h3 mb-2" id="poveste-title">POVESTEA NOASTRĂ</h2>
-            <h3 class="h5 mb-3">Cum a început totul</h3>
-            <p>
-              Totul a început în 2023 din dorința de a ridica standardul în
-              îngrijirea auto. Ne-am săturat de produse mediocre, așa că am
-              decis să le aducem pe cele profesionale mai aproape de tine.
-            </p>
-            <p class="mb-0">
-              Filosofia noastră e simplă:
-              <strong>Testăm, Validăm, Vindem.</strong> Nu punem nimic pe raft
-              care nu a fost folosit și aprobat de echipa noastră pe zeci de
-              mașini. Cumperi experiența noastră, completă.
-            </p>
-          </div>
-          <div class="col-12 col-lg-5">
-            <div class="site-card p-4 h-100 about-mini-card">
-              <h3 class="h5 mb-3">Ce înseamnă pentru noi calitatea</h3>
-              <ul class="mb-0 about-list">
-                <li>Produse testate în practică, nu alese la întâmplare.</li>
-                <li>Recomandări clare pentru îngrijirea corectă a mașinii.</li>
-                <li>
-                  Experiență reală de detailing, nu doar listare de produse.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <!-- SECTIUNE: Politica de confidentialitate -->
+      <section aria-labelledby="confidentialitate-title" class="site-card p-4 mb-4" id="confidentialitate">
+        <h2 class="h4 mb-3" id="confidentialitate-title">
+          Politica de confidențialitate
+        </h2>
+        <p>
+          Datele furnizate la crearea unui cont sau la plasarea unei comenzi
+          (nume, email, adresă de livrare) sunt folosite exclusiv pentru
+          procesarea comenzilor și pentru comunicări legate de cont, precum
+          confirmări de comandă sau newsletter, dacă te-ai abonat la acesta.
+        </p>
+        <p class="mb-0">
+          Nu vindem și nu transmitem datele tale unor terți în scopuri de
+          marketing. Te poți dezabona de la newsletter în orice moment din
+          contul tău sau printr-un mesaj la adresa noastră de contact.
+        </p>
       </section>
-      <!-- SECTIUNE: Galerie foto -->
-      <section aria-labelledby="gallery-title" class="mb-4">
-        <h2 class="h3 mb-3" id="gallery-title">Galerie foto</h2>
-        <div class="row g-3">
-          <div class="col-6 col-md-3">
-            <img
-              alt="Galerie foto Adarta 1"
-              class="img-fluid rounded about-thumb-img"
-              src="images/header_adarta-768.jpg"
-      loading="lazy"
-    />
-          </div>
-          <div class="col-6 col-md-3">
-            <img
-              alt="Galerie foto Adarta 2"
-              class="img-fluid rounded about-thumb-img"
-              src="images/header_adarta_2-768.jpg"
-      loading="lazy"
-    />
-          </div>
-          <div class="col-6 col-md-3">
-            <img
-              alt="Galerie foto Adarta 3"
-              class="img-fluid rounded about-thumb-img"
-              src="images/header_adarta-1280.jpg"
-      loading="lazy"
-    />
-          </div>
-          <div class="col-6 col-md-3">
-            <img
-              alt="Galerie foto Adarta 4"
-              class="img-fluid rounded about-thumb-img"
-              src="images/header_adarta_2-1280.jpg"
-      loading="lazy"
-    />
-          </div>
-        </div>
+      <!-- SECTIUNE: Livrare si retur -->
+      <section aria-labelledby="livrare-title" class="site-card p-4 mb-4" id="livrare">
+        <h2 class="h4 mb-3" id="livrare-title">Livrare &amp; retur</h2>
+        <p>
+          Comenzile se livrează prin curier rapid, în 1-3 zile lucrătoare de
+          la confirmare. Costul de livrare este afișat clar la finalizarea
+          comenzii, înainte de plasarea acesteia.
+        </p>
+        <p class="mb-0">
+          Produsele nedeschise și neutilizate pot fi returnate în 14 zile
+          calendaristice de la primire, în ambalajul original, pentru
+          rambursare integrală.
+        </p>
       </section>
-      <!-- SECTIUNE: Branduri recomandate -->
-      <section aria-labelledby="brands-title" class="site-card p-4 p-lg-5">
-        <div class="text-center mb-4">
-          <h2 class="h3 mb-3" id="brands-title">
-            Branduri pe care le folosim și le recomandăm
-          </h2>
-          <p class="site-muted mb-5">
-            Selectăm branduri profesionale, potrivite pentru detailing auto de
-            calitate.
+      <!-- SECTIUNE: Intrebari frecvente -->
+      <section aria-labelledby="faq-title" class="site-card p-4 mb-4" id="faq">
+        <h2 class="h4 mb-3" id="faq-title">Întrebări frecvente</h2>
+        <div class="faq-item mb-3">
+          <h3 class="h6 mb-1">Cum verific statusul unei comenzi?</h3>
+          <p class="mb-0">
+            Poți vedea istoricul și statusul comenzilor tale în pagina
+            <a href="orders.html">Comenzile mele</a>, după autentificare.
           </p>
         </div>
-        <div class="row g-4 text-center">
-          <article class="col-12 col-md-4">
-            <h3 class="visually-hidden">Koch Chemie</h3>
-            <div
-              class="brand-box brand-logo-card h-100 d-flex align-items-center"
-            >
-              <img
-                alt="Koch Chemie"
-                class="brand-card-logo d-flex align-items-center"
-                src="images/koch-chemie-logo.png"
-      loading="lazy"
-    />
-              <p class="site-muted small mb-0">
-                Produse profesionale pentru curățare, protecție și întreținere
-                auto.
-              </p>
-            </div>
-          </article>
-          <article class="col-12 col-md-4">
-            <h3 class="visually-hidden">Liquid Elements</h3>
-            <div
-              class="brand-box brand-logo-card h-100 d-flex align-items-center"
-            >
-              <img
-                alt="Liquid Elements"
-                class="brand-card-logo d-flex align-items-center"
-                src="images/liquid-elements-logo.png"
-      loading="lazy"
-    />
-              <p class="site-muted small mb-0">
-                Echipamente și accesorii moderne pentru detailing eficient și
-                precis.
-              </p>
-            </div>
-          </article>
-          <article class="col-12 col-md-4">
-            <h3 class="visually-hidden">Work Stuff</h3>
-            <div
-              class="brand-box brand-logo-card h-100 d-flex align-items-center"
-            >
-              <img
-                alt="Work Stuff"
-                class="brand-card-logo d-flex align-items-center"
-                src="images/work-stuff-logo.png"
-      loading="lazy"
-    />
-              <p class="site-muted small mb-0">
-                Pensule, lavete și accesorii premium pentru lucru atent la
-                detalii.
-              </p>
-            </div>
-          </article>
+        <div class="faq-item mb-3">
+          <h3 class="h6 mb-1">Pot modifica o comandă deja plasată?</h3>
+          <p class="mb-0">
+            Te rugăm să ne contactezi cât mai rapid prin pagina de
+            <a href="index.html#contact">Contact</a>, înainte ca produsele
+            să fie predate curierului.
+          </p>
         </div>
+        <div class="faq-item mb-0">
+          <h3 class="h6 mb-1">Ce metode de plată sunt disponibile?</h3>
+          <p class="mb-0">
+            Plata se face online cu cardul sau ramburs la livrare, opțiunile
+            disponibile sunt afișate la pasul de finalizare a comenzii.
+          </p>
+        </div>
+      </section>
+      <!-- SECTIUNE: Garantie produse -->
+      <section aria-labelledby="garantie-title" class="site-card p-4 mb-4" id="garantie">
+        <h2 class="h4 mb-3" id="garantie-title">Garanție produse</h2>
+        <p class="mb-0">
+          Toate produsele comercializate sunt originale și provin direct de
+          la producători sau distribuitori autorizați. În cazul unui produs
+          cu defect de fabricație, acesta poate fi înlocuit sau rambursat,
+          conform legislației privind protecția consumatorului.
+        </p>
+      </section>
+      <!-- SECTIUNE: Instructiuni utilizare -->
+      <section aria-labelledby="instructiuni-title" class="site-card p-4" id="instructiuni">
+        <h2 class="h4 mb-3" id="instructiuni-title">
+          Instrucțiuni utilizare
+        </h2>
+        <p>
+          Fiecare produs are propriul mod de utilizare, afișat în secțiunea
+          de descriere a paginii produsului. Recomandăm citirea instrucțiunilor
+          de pe etichetă înainte de prima utilizare.
+        </p>
+        <p class="mb-0">
+          Ca regulă generală: testează produsul pe o suprafață mică, mai puțin
+          vizibilă, înainte de a-l aplica pe toată mașina, mai ales în cazul
+          polish-urilor și soluțiilor de curățare jante.
+        </p>
       </section>
     </main>
     <!-- SECTIUNE: Footer -->
@@ -341,7 +295,7 @@
                   >Produse spălare</a
                 >
               </li>
-              <li><a href="catalog.html">Promoții</a></li>
+              <li><a href="reduceri.html">Promotii</a></li>
             </ul>
           </section>
           <section class="footer-card col-12 col-md-6 col-lg-4">
@@ -349,7 +303,11 @@
             <ul class="list-unstyled mb-0">
               <li><a href="about.html">Despre noi</a></li>
               <li><a href="information.html#termeni">Termeni și condiții</a></li>
-              <li><a href="information.html#confidentialitate">Politica de confidențialitate</a></li>
+              <li>
+                <a href="information.html#confidentialitate"
+                  >Politica de confidențialitate</a
+                >
+              </li>
               <li><a href="information.html#livrare">Livrare &amp; retur</a></li>
             </ul>
           </section>
@@ -361,7 +319,9 @@
               <li><a href="index.html#contact">Contact</a></li>
               <li><a href="information.html#faq">Întrebări frecvente</a></li>
               <li><a href="information.html#garantie">Garanție produse</a></li>
-              <li><a href="information.html#instructiuni">Instrucțiuni utilizare</a></li>
+              <li>
+                <a href="information.html#instructiuni">Instrucțiuni utilizare</a>
+              </li>
             </ul>
           </section>
         </div>
@@ -383,32 +343,38 @@
               aria-label="Pagina noastra de Facebook este in pregatire"
               class="footer-social-icon"
               title="Pagina de Facebook este in pregatire"
-              ><img
+            >
+              <img
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
                 src="images/Ikonice.assignment03/facebook.png"
-            /></span>
+              />
+            </span>
             <span
               aria-label="Pagina noastra de Instagram este in pregatire"
               class="footer-social-icon"
               title="Pagina de Instagram este in pregatire"
-              ><img
+            >
+              <img
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
                 src="images/Ikonice.assignment03/instagram.png"
-            /></span>
+              />
+            </span>
             <span
               aria-label="Pagina noastra de TikTok este in pregatire"
               class="footer-social-icon"
               title="Pagina de TikTok este in pregatire"
-              ><img
+            >
+              <img
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
                 src="images/Ikonice.assignment03/tik-tok.png"
-            /></span>
+              />
+            </span>
           </div>
         </div>
       </div>
