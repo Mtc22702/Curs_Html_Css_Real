@@ -1,8 +1,9 @@
 /* ===== shop-oop.js ===== */
-/* Logica OOP pentru magazin. Clasele nu afiseaza mesaje in consola. */
-/* Metodele doar returneaza valori, iar interfata folosește aceste valori. */
+/* Logica orientata pe obiecte a magazinului: clase de baza pentru produse,
+   utilizator si cos de cumparaturi. */
+/* Metodele claselor doar returneaza valori; afisarea pe pagina se face in alt fisier. */
 
-// Clasă Product reprezinta un produs real din magazin.
+// Clasa Product - un produs din magazin (id, nume, pret, stoc, variante).
 class Product {
   #quantity;
 
@@ -64,7 +65,7 @@ class Product {
   }
 }
 
-// Clasă User reprezinta un client simplu.
+// Clasa User - un utilizator simplu, cu autentificare de baza.
 class User {
   #isLoggedIn;
 
@@ -93,7 +94,7 @@ class User {
   }
 }
 
-// Clasă Admin mosteneste User.
+// Clasa Admin - extinde User, cu un rol si o reducere proprie.
 class Admin extends User {
   constructor(username, email, role) {
     super(username, email);
@@ -110,7 +111,7 @@ class Admin extends User {
   }
 }
 
-// Clasă Cart gestioneaza produsele din cos.
+// Clasa Cart - gestioneaza produsele adaugate in cos (adaugare, eliminare, total).
 class Cart {
   constructor() {
     this.items = [];
@@ -177,7 +178,15 @@ class Cart {
         if (this.items[i].qty > 1) {
           this.items[i].qty = this.items[i].qty - 1;
         } else {
-          this.items.splice(i, 1);
+          let newItems = [];
+
+          for (let j = 0; j < this.items.length; j++) {
+            if (j !== i) {
+              newItems.push(this.items[j]);
+            }
+          }
+
+          this.items = newItems;
         }
 
         return true;
@@ -190,7 +199,15 @@ class Cart {
   removeProduct(itemKey) {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].key === itemKey || String(this.items[i].id) === String(itemKey)) {
-        this.items.splice(i, 1);
+        let newItems = [];
+
+        for (let j = 0; j < this.items.length; j++) {
+          if (j !== i) {
+            newItems.push(this.items[j]);
+          }
+        }
+
+        this.items = newItems;
         return true;
       }
     }
@@ -219,7 +236,7 @@ class Cart {
   }
 }
 
-// Produsele reale existente in site, transformate in obiecte Product.
+// Lista de produse disponibile in magazin, construita din clasa Product.
 const shopProducts = [
   new Product(1, "Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt", 135, 15, "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg", [{ label: "1 L", price: 135 }, { label: "5 L", price: 450 }]),
   new Product(2, "Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs, 1L", 89, 8, "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg", [{ label: "1 L", price: 89 }]),

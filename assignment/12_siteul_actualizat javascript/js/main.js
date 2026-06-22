@@ -1,5 +1,6 @@
 /* ===== main.js ===== */
-/* Functii simple folosite in site. Testele din consola au fost scoase. */
+/* Functii de baza folosite in site: cupon de reducere, autentificare simpla
+   si lista de produse pentru calcule de stoc. */
 
 const PRODUCT1_NAME = "Șampon auto cu efect ceramic";
 let PRODUCT1_PRICE = 119;

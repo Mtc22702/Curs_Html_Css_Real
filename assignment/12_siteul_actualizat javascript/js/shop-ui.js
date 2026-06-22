@@ -1,6 +1,10 @@
 /* ===== shop-ui.js ===== */
-/* Aici leg clasele OOP de paginile site-ului. */
-/* Am folosit doar lucruri simple din curs: DOM, evenimente, array, clase și localStorage. */
+/* Conecteaza clasele din shop-oop.js cu elementele din pagina. */
+/* Foloseste doar instrumente simple, predate la curs: getElementById, addEventListener
+   si proprietati de baza (value, innerText, style, checked, disabled, href, src),
+   plus alert, localStorage si JSON. Elementele care se repeta pe pagina (carduri de
+   produs, recenzii, sloturi de cos etc.) sunt deja create static in HTML, cu id-uri
+   fixe, iar aici sunt doar completate cu date, prin index. */
 
 const CART_STORAGE_KEY = "adartaCart";
 const USER_STORAGE_KEY = "adartaUser";
@@ -9,6 +13,11 @@ const NEWSLETTER_STORAGE_KEY = "adartaNewsletter";
 const SEARCH_STORAGE_KEY = "adartaSearch";
 const FOOTER_CATEGORY_STORAGE_KEY = "adartaFooterCategory";
 const SHIPPING_COST = 19;
+
+const GREEN_MAIN = "rgba(22, 163, 74, 0.85)";
+const GREEN_RING = "0 0 0 3px rgba(34, 197, 94, 0.18)";
+const TEXT_SUCCESS = "#16a34a";
+const TEXT_DANGER = "#dc2626";
 
 function getPageCart() {
   return createCartFromStorage();
@@ -68,61 +77,87 @@ function saveSelectedProduct(productId) {
   localStorage.setItem("adartaSelectedProduct", productId);
 }
 
+function showMessage(elementId, message, isSuccess) {
+  let box = document.getElementById(elementId);
+
+  if (!box) {
+    return;
+  }
+
+  box.innerText = message;
+  box.style.color = isSuccess ? TEXT_SUCCESS : TEXT_DANGER;
+}
+
+/* ===== Header / Footer (comune pe toate paginile) ===== */
+
 function setupHeaderSearch() {
-  let forms = document.querySelectorAll(".header-search");
+  let form = document.getElementById("header-search-form");
+  let input = document.getElementById("header-search-input");
 
-  for (let i = 0; i < forms.length; i++) {
-    forms[i].addEventListener("submit", function (event) {
-      event.preventDefault();
+  if (!form || !input) {
+    return;
+  }
 
-      let input = this.querySelector("input");
-      let text = "";
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      if (input) {
-        text = input.value.trim();
-      }
+    let text = input.value.trim();
 
-      if (text !== "") {
-        localStorage.setItem(SEARCH_STORAGE_KEY, text);
-      } else {
-        localStorage.removeItem(SEARCH_STORAGE_KEY);
-      }
-
-      window.location.href = "catalog.html";
-    });
-
-    let input = forms[i].querySelector("input");
-    let savedSearch = localStorage.getItem(SEARCH_STORAGE_KEY) || "";
-
-    if (input && savedSearch !== "") {
-      input.value = savedSearch;
+    if (text !== "") {
+      localStorage.setItem(SEARCH_STORAGE_KEY, text);
+    } else {
+      localStorage.removeItem(SEARCH_STORAGE_KEY);
     }
+
+    window.location.href = "catalog.html";
+  });
+
+  let savedSearch = localStorage.getItem(SEARCH_STORAGE_KEY) || "";
+
+  if (savedSearch !== "") {
+    input.value = savedSearch;
   }
 }
 
 function setupFooterLinks() {
-  let categoryLinks = document.querySelectorAll("[data-footer-category]");
-  let searchLinks = document.querySelectorAll("[data-footer-search]");
+  let footerSearchLinks = [
+    { id: "footer-link-sampoane", search: "șampon" }
+  ];
+  let footerCategoryLinks = [
+    { id: "footer-link-protectie", category: "Protecție" },
+    { id: "footer-link-curatare", category: "Curățare" },
+    { id: "footer-link-accesorii", category: "Accesorii" },
+    { id: "footer-link-spalare", category: "Spălare" }
+  ];
 
-  for (let i = 0; i < categoryLinks.length; i++) {
-    categoryLinks[i].addEventListener("click", function () {
-      localStorage.setItem(FOOTER_CATEGORY_STORAGE_KEY, this.getAttribute("data-footer-category"));
-      localStorage.removeItem(SEARCH_STORAGE_KEY);
-    });
+  for (let i = 0; i < footerSearchLinks.length; i++) {
+    let link = document.getElementById(footerSearchLinks[i].id);
+    let searchValue = footerSearchLinks[i].search;
+
+    if (link) {
+      link.addEventListener("click", function () {
+        localStorage.setItem(SEARCH_STORAGE_KEY, searchValue);
+        localStorage.removeItem(FOOTER_CATEGORY_STORAGE_KEY);
+      });
+    }
   }
 
-  for (let i = 0; i < searchLinks.length; i++) {
-    searchLinks[i].addEventListener("click", function () {
-      localStorage.setItem(SEARCH_STORAGE_KEY, this.getAttribute("data-footer-search"));
-      localStorage.removeItem(FOOTER_CATEGORY_STORAGE_KEY);
-    });
+  for (let i = 0; i < footerCategoryLinks.length; i++) {
+    let link = document.getElementById(footerCategoryLinks[i].id);
+    let categoryValue = footerCategoryLinks[i].category;
+
+    if (link) {
+      link.addEventListener("click", function () {
+        localStorage.setItem(FOOTER_CATEGORY_STORAGE_KEY, categoryValue);
+        localStorage.removeItem(SEARCH_STORAGE_KEY);
+      });
+    }
   }
 
-  let yearSpans = document.querySelectorAll(".js-current-year");
-  let year = new Date().getFullYear();
+  let yearSpan = document.getElementById("footer-year");
 
-  for (let i = 0; i < yearSpans.length; i++) {
-    yearSpans[i].textContent = year;
+  if (yearSpan) {
+    yearSpan.innerText = new Date().getFullYear();
   }
 }
 
@@ -156,24 +191,6 @@ function getSavedUser() {
   return savedUser;
 }
 
-function showSmallMessage(parent, message, isSuccess) {
-  let box = parent.querySelector(".js-message");
-
-  if (!box) {
-    box = document.createElement("p");
-    box.className = "js-message small-text mt-2 mb-0";
-    parent.appendChild(box);
-  }
-
-  box.textContent = message;
-
-  if (isSuccess) {
-    box.className = "js-message small-text mt-2 mb-0 text-success";
-  } else {
-    box.className = "js-message small-text mt-2 mb-0 text-danger";
-  }
-}
-
 function addProductToStoredCart(productId, qty, variantLabel) {
   let product = findShopProductById(productId);
 
@@ -194,195 +211,185 @@ function addProductToStoredCart(productId, qty, variantLabel) {
 
 function updateHeaderUser() {
   let savedUser = getSavedUser();
-  let loginLinks = document.querySelectorAll('a[href="login.html"] span');
+  let loginText = document.getElementById("header-login-text");
 
-  for (let i = 0; i < loginLinks.length; i++) {
-    if (savedUser && savedUser.isLoggedIn) {
-      loginLinks[i].textContent = savedUser.username;
-    } else {
-      loginLinks[i].textContent = "Autentificare";
-    }
+  if (!loginText) {
+    return;
+  }
+
+  if (savedUser && savedUser.isLoggedIn) {
+    loginText.innerText = savedUser.username;
+  } else {
+    loginText.innerText = "Autentificare";
   }
 }
 
 function updateCartNumbers() {
   let cart = getPageCart();
   let count = cart.getItemsCount();
-  let cartLinks = document.querySelectorAll('a[href="cart.html"]');
+  let cartCount = document.getElementById("header-cart-count");
 
-  for (let i = 0; i < cartLinks.length; i++) {
-    let text = cartLinks[i].querySelector("span");
+  if (!cartCount) {
+    return;
+  }
 
-    if (text && text.textContent.indexOf("Co") !== -1) {
-      if (count > 0) {
-        text.textContent = "Coș (" + count + ")";
-      } else {
-        text.textContent = "Coș";
-      }
-    }
+  if (count > 0) {
+    cartCount.innerText = "Coș (" + count + ")";
+  } else {
+    cartCount.innerText = "Coș";
   }
 }
 
-function updateOneProductCard(card, product) {
+/* ===== Carduri de produs (acasa, catalog, reduceri) ===== */
+
+function updateOneProductCard(n, product) {
   let cart = getPageCart();
   let availableStock = getAvailableStock(product, cart);
-  let stockText = card.querySelector(".oop-stock");
-  let categoryText = card.querySelector(".oop-category");
+  let stockText = document.getElementById("product-" + n + "-stock");
+  let categoryText = document.getElementById("product-" + n + "-category");
+  let button = document.getElementById("product-" + n + "-btn");
 
-  if (!stockText) {
-    stockText = document.createElement("p");
-    stockText.className = "site-muted small mb-2 oop-stock";
-    let price = card.querySelector(".product-price");
-
-    if (price) {
-      price.insertAdjacentElement("afterend", stockText);
-    }
+  if (categoryText) {
+    categoryText.innerText = getProductCategory(product.name);
   }
 
-  if (!categoryText) {
-    categoryText = document.createElement("p");
-    categoryText.className = "oop-category product-badge mb-2";
-    let title = card.querySelector(".product-title");
-
-    if (title) {
-      title.insertAdjacentElement("beforebegin", categoryText);
-    }
+  if (stockText) {
+    stockText.innerText = "Stoc: " + availableStock + " buc.";
   }
-
-  categoryText.textContent = getProductCategory(product.name);
-  stockText.textContent = "Stoc: " + availableStock + " buc.";
-
-  let button = card.querySelector(".btn");
 
   if (button) {
     if (availableStock < 1) {
-      button.textContent = "Stoc epuizat";
-      button.classList.add("is-disabled");
+      button.innerText = "Stoc epuizat";
+      button.style.opacity = "0.65";
+      button.style.cursor = "not-allowed";
+      button.style.pointerEvents = "none";
     } else {
-      button.textContent = "Adaugă în coș";
-      button.classList.remove("is-disabled");
-    }
-  }
-}
-
-function refreshProductCardsStock() {
-  let cards = document.querySelectorAll(".product-card");
-
-  for (let i = 0; i < cards.length; i++) {
-    let productId = Number(cards[i].getAttribute("data-product-id"));
-    let product = findShopProductById(productId);
-
-    if (product !== null) {
-      updateOneProductCard(cards[i], product);
+      button.innerText = "Adaugă în coș";
+      button.style.opacity = "";
+      button.style.cursor = "";
+      button.style.pointerEvents = "";
     }
   }
 }
 
 function decorateProductCards() {
-  let cards = document.querySelectorAll(".product-card");
+  for (let i = 1; i <= 12; i++) {
+    let card = document.getElementById("product-card-" + i);
+    let product = shopProducts[i - 1];
 
-  for (let i = 0; i < cards.length; i++) {
-    let card = cards[i];
-    let product = shopProducts[i];
-
-    if (!product) {
+    if (!card || !product) {
       continue;
     }
 
-    card.setAttribute("data-product-id", product.id);
-    card.setAttribute("data-category", getProductCategory(product.name));
-    card.setAttribute("data-brand", "Koch Chemie");
-    card.setAttribute("data-price", product.getDefaultVariant().price);
-    card.setAttribute("data-name", product.name.toLowerCase());
-    card.setAttribute("data-search", product.name.toLowerCase() + " " + getProductCategory(product.name).toLowerCase() + " koch chemie");
-
-    let title = card.querySelector(".product-title");
-    let price = card.querySelector(".product-price");
+    let title = document.getElementById("product-" + i + "-title");
+    let price = document.getElementById("product-" + i + "-price");
+    let link = document.getElementById("product-" + i + "-link");
+    let button = document.getElementById("product-" + i + "-btn");
 
     if (title) {
-      title.textContent = getShortProductName(product.name);
+      title.innerText = getShortProductName(product.name);
     }
 
     if (price) {
-      price.textContent = formatPrice(product.getDefaultVariant().price);
+      price.innerText = formatPrice(product.getDefaultVariant().price);
     }
 
-    let productLink = card.querySelector(".product-link");
-
-    if (productLink) {
-      productLink.setAttribute("href", "product.html?id=" + product.id);
-      productLink.addEventListener("click", function () {
+    if (link) {
+      link.href = "product.html?id=" + product.id;
+      link.addEventListener("click", function () {
         saveSelectedProduct(product.id);
       });
     }
 
-    let oldButton = card.querySelector(".btn");
-
-    if (oldButton) {
-      oldButton.removeAttribute("onclick");
-      oldButton.setAttribute("href", "cart.html");
-
-      oldButton.addEventListener("click", function (event) {
+    if (button) {
+      button.href = "cart.html";
+      button.addEventListener("click", function (event) {
         let added = addProductToStoredCart(product.id, 1);
 
         if (!added) {
           event.preventDefault();
-          showSmallMessage(card, "Produsul nu mai este disponibil in stoc.", false);
+          alert("Produsul nu mai este disponibil in stoc.");
         }
 
         refreshProductCardsStock();
       });
     }
 
-    updateOneProductCard(card, product);
+    updateOneProductCard(i, product);
   }
 }
 
-function setupCatalogTools() {
-  let grid = document.querySelector(".products-grid");
-  let filterBox = document.querySelector(".filter-box");
+function refreshProductCardsStock() {
+  for (let i = 1; i <= 12; i++) {
+    let card = document.getElementById("product-card-" + i);
+    let product = shopProducts[i - 1];
 
-  if (!grid || !filterBox) {
+    if (card && product) {
+      updateOneProductCard(i, product);
+    }
+  }
+}
+
+/* ===== Catalog: filtre, sortare, paginare, cautare ===== */
+
+function setupCatalogTools() {
+  let sortSelect = document.getElementById("sortBy");
+
+  if (!sortSelect) {
     return;
   }
 
-  let resultText = document.querySelector(".results-count");
-  let sortSelect = document.getElementById("sortBy");
+  let resultText = document.getElementById("results-count");
   let applyButton = document.getElementById("applyAsideFilters");
   let clearButton = document.getElementById("clearAsideFilters");
-  let pagination = document.querySelector(".pagination");
+  let pagination = document.getElementById("pagination");
+  let pagePrevBtn = document.getElementById("page-prev-btn");
+  let page1Btn = document.getElementById("page-1-btn");
+  let page2Btn = document.getElementById("page-2-btn");
+  let pageNextBtn = document.getElementById("page-next-btn");
+  let searchInfoBox = document.getElementById("search-info-box");
+  let searchInfoText = document.getElementById("search-info-text");
+  let searchInfoClearBtn = document.getElementById("search-info-clear-btn");
+
+  let priceCheckboxIds = ["filter-price-0-50", "filter-price-50-150", "filter-price-150-plus"];
+  let priceFilterValues = ["0-50", "50-150", "150-plus"];
+  let brandCheckboxIds = ["filter-brand-koch", "filter-brand-sonax", "filter-brand-meguiars", "filter-brand-turtlewax"];
+  let brandFilterValues = ["Koch Chemie", "Sonax", "Meguiars", "Turtle Wax"];
+  let categoryCheckboxIds = ["filter-category-spalare", "filter-category-curatare", "filter-category-accesorii", "filter-category-protectie"];
+  let categoryFilterValues = ["Spălare", "Curățare", "Accesorii", "Protecție"];
+  let categoryAllId = "filter-category-all";
+
   let savedSearch = localStorage.getItem(SEARCH_STORAGE_KEY) || "";
   let savedFooterCategory = localStorage.getItem(FOOTER_CATEGORY_STORAGE_KEY) || "";
-  let priceInputs = filterBox.querySelectorAll("[data-price-filter]");
-  let brandInputs = filterBox.querySelectorAll("[data-brand-filter]");
-  let categoryInputs = filterBox.querySelectorAll("[data-category-filter]");
-  let originalCards = [];
-  let cards = grid.querySelectorAll(".product-card");
   let currentPage = 1;
   let productsPerPage = 9;
 
-  for (let i = 0; i < cards.length; i++) {
-    originalCards.push(cards[i]);
-  }
-
   if (savedFooterCategory !== "") {
-    for (let i = 0; i < categoryInputs.length; i++) {
-      if (categoryInputs[i].getAttribute("data-category-filter") === "all") {
-        categoryInputs[i].checked = false;
-      } else if (categoryInputs[i].getAttribute("data-category-filter") === savedFooterCategory) {
-        categoryInputs[i].checked = true;
+    let allCheckbox = document.getElementById(categoryAllId);
+
+    if (allCheckbox) {
+      allCheckbox.checked = false;
+    }
+
+    for (let i = 0; i < categoryCheckboxIds.length; i++) {
+      let checkbox = document.getElementById(categoryCheckboxIds[i]);
+
+      if (checkbox) {
+        checkbox.checked = categoryFilterValues[i] === savedFooterCategory;
       }
     }
 
     localStorage.removeItem(FOOTER_CATEGORY_STORAGE_KEY);
   }
 
-  function getCheckedValues(inputs, attributeName) {
+  function getCheckedValues(idList, valueList) {
     let values = [];
 
-    for (let i = 0; i < inputs.length; i++) {
-      if (inputs[i].checked) {
-        values.push(inputs[i].getAttribute(attributeName));
+    for (let i = 0; i < idList.length; i++) {
+      let checkbox = document.getElementById(idList[i]);
+
+      if (checkbox && checkbox.checked) {
+        values.push(valueList[i]);
       }
     }
 
@@ -430,67 +437,33 @@ function setupCatalogTools() {
   }
 
   function showCatalogSearchInfo(count) {
-    let productsSection = document.querySelector(".products-section");
-
-    if (!productsSection) {
+    if (!searchInfoBox || !searchInfoText) {
       return;
-    }
-
-    let oldBox = document.querySelector(".search-info-box");
-
-    if (oldBox) {
-      oldBox.remove();
     }
 
     if (savedSearch === "") {
+      searchInfoBox.style.display = "none";
       return;
     }
 
-    let box = document.createElement("div");
-    box.className = "search-info-box mb-3 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2";
-    box.innerHTML = '<span>Ai căutat: <strong>' + savedSearch + '</strong>. Produse găsite: ' + count + '.</span><button class="btn btn-secondary btn-sm" type="button">Șterge căutarea</button>';
-
-    let button = box.querySelector("button");
-    button.addEventListener("click", function () {
-      localStorage.removeItem(SEARCH_STORAGE_KEY);
-      savedSearch = "";
-      currentPage = 1;
-      applyCatalogFilters();
-    });
-
-    productsSection.insertBefore(box, productsSection.firstChild);
+    searchInfoText.innerText = "Ai căutat: " + savedSearch + ". Produse găsite: " + count + ".";
+    searchInfoBox.style.display = "";
   }
 
-  function sortCards(visibleCards) {
-    let sortedCards = [];
-
-    for (let i = 0; i < visibleCards.length; i++) {
-      sortedCards.push(visibleCards[i]);
+  function setPageButtonActive(btn, isActive) {
+    if (!btn) {
+      return;
     }
 
-    if (!sortSelect || sortSelect.value === "popular" || sortSelect.value === "new") {
-      sortedCards = [];
-
-      for (let i = 0; i < originalCards.length; i++) {
-        if (hasValue(visibleCards, originalCards[i])) {
-          sortedCards.push(originalCards[i]);
-        }
-      }
+    if (isActive) {
+      btn.style.background = "#111827";
+      btn.style.color = "#ffffff";
+      btn.style.borderColor = "#111827";
+    } else {
+      btn.style.background = "";
+      btn.style.color = "";
+      btn.style.borderColor = "";
     }
-
-    if (sortSelect && sortSelect.value === "priceLow") {
-      sortedCards.sort(function (a, b) {
-        return Number(a.getAttribute("data-price")) - Number(b.getAttribute("data-price"));
-      });
-    }
-
-    if (sortSelect && sortSelect.value === "priceHigh") {
-      sortedCards.sort(function (a, b) {
-        return Number(b.getAttribute("data-price")) - Number(a.getAttribute("data-price"));
-      });
-    }
-
-    return sortedCards;
   }
 
   function renderPagination(totalPages) {
@@ -498,76 +471,59 @@ function setupCatalogTools() {
       return;
     }
 
-    pagination.innerHTML = "";
-
     if (totalPages <= 1) {
       pagination.style.display = "none";
       return;
     }
 
-    pagination.style.display = "flex";
+    pagination.style.display = "";
 
-    let backButton = document.createElement("button");
-    backButton.className = "btn btn-nav";
-    backButton.type = "button";
-    backButton.textContent = "Înapoi";
-    backButton.disabled = currentPage === 1;
-    backButton.addEventListener("click", function () {
-      if (currentPage > 1) {
-        currentPage = currentPage - 1;
-        applyCatalogFilters();
-      }
-    });
-    pagination.appendChild(backButton);
-
-    for (let i = 1; i <= totalPages; i++) {
-      let pageButton = document.createElement("button");
-      pageButton.className = "page";
-      pageButton.type = "button";
-      pageButton.textContent = i;
-
-      if (i === currentPage) {
-        pageButton.className = "page is-active";
-      }
-
-      pageButton.addEventListener("click", function () {
-        currentPage = Number(this.textContent);
-        applyCatalogFilters();
-      });
-
-      pagination.appendChild(pageButton);
+    if (pagePrevBtn) {
+      pagePrevBtn.disabled = currentPage === 1;
     }
 
-    let nextButton = document.createElement("button");
-    nextButton.className = "btn btn-nav";
-    nextButton.type = "button";
-    nextButton.textContent = "Înainte";
-    nextButton.disabled = currentPage === totalPages;
-    nextButton.addEventListener("click", function () {
-      if (currentPage < totalPages) {
-        currentPage = currentPage + 1;
-        applyCatalogFilters();
+    if (pageNextBtn) {
+      pageNextBtn.disabled = currentPage === totalPages;
+    }
+
+    if (page1Btn) {
+      setPageButtonActive(page1Btn, currentPage === 1);
+    }
+
+    if (page2Btn) {
+      if (totalPages >= 2) {
+        page2Btn.style.display = "";
+        setPageButtonActive(page2Btn, currentPage === 2);
+      } else {
+        page2Btn.style.display = "none";
       }
-    });
-    pagination.appendChild(nextButton);
+    }
   }
 
   function applyCatalogFilters() {
-    let selectedPrices = getCheckedValues(priceInputs, "data-price-filter");
-    let selectedBrands = getCheckedValues(brandInputs, "data-brand-filter");
-    let selectedCategories = getCheckedValues(categoryInputs, "data-category-filter");
-    let visibleCards = [];
+    let selectedPrices = getCheckedValues(priceCheckboxIds, priceFilterValues);
+    let selectedBrands = getCheckedValues(brandCheckboxIds, brandFilterValues);
+    let selectedCategories = getCheckedValues(categoryCheckboxIds, categoryFilterValues);
+    let allCheckbox = document.getElementById(categoryAllId);
 
-    if (hasValue(selectedCategories, "all")) {
+    if (allCheckbox && allCheckbox.checked) {
       selectedCategories = [];
     }
 
-    for (let i = 0; i < originalCards.length; i++) {
-      let card = originalCards[i];
-      let price = Number(card.getAttribute("data-price"));
-      let brand = card.getAttribute("data-brand");
-      let category = card.getAttribute("data-category");
-      let searchText = card.getAttribute("data-search");
+    let visibleList = [];
+
+    for (let i = 1; i <= 12; i++) {
+      let card = document.getElementById("product-card-" + i);
+      let product = shopProducts[i - 1];
+
+      if (!card || !product) {
+        continue;
+      }
+
+      let price = product.getDefaultVariant().price;
+      let brand = "Koch Chemie";
+      let category = getProductCategory(product.name);
+      let searchText = (product.name + " " + category + " " + brand).toLowerCase();
       let isVisible = true;
 
       if (savedSearch !== "" && searchText.indexOf(getSearchText(savedSearch)) === -1) {
@@ -587,12 +543,23 @@ function setupCatalogTools() {
       }
 
       if (isVisible) {
-        visibleCards.push(card);
+        visibleList.push({ n: i, card: card, price: price });
+      } else {
+        card.style.display = "none";
       }
     }
 
-    let sortedCards = sortCards(visibleCards);
-    let totalPages = Math.ceil(sortedCards.length / productsPerPage);
+    if (sortSelect.value === "priceLow") {
+      visibleList.sort(function (a, b) {
+        return a.price - b.price;
+      });
+    } else if (sortSelect.value === "priceHigh") {
+      visibleList.sort(function (a, b) {
+        return b.price - a.price;
+      });
+    }
+
+    let totalPages = Math.ceil(visibleList.length / productsPerPage);
 
     if (totalPages < 1) {
       totalPages = 1;
@@ -602,41 +569,38 @@ function setupCatalogTools() {
       currentPage = totalPages;
     }
 
-    for (let i = 0; i < originalCards.length; i++) {
-      originalCards[i].style.display = "none";
-    }
-
-    for (let i = 0; i < sortedCards.length; i++) {
-      grid.appendChild(sortedCards[i]);
+    for (let i = 0; i < visibleList.length; i++) {
+      let entry = visibleList[i];
+      entry.card.style.order = i;
 
       if (i >= (currentPage - 1) * productsPerPage && i < currentPage * productsPerPage) {
-        sortedCards[i].style.display = "flex";
+        entry.card.style.display = "";
       } else {
-        sortedCards[i].style.display = "none";
+        entry.card.style.display = "none";
       }
     }
 
     if (resultText) {
-      if (sortedCards.length === 0) {
-        resultText.textContent = "Nu există produse pentru filtrele selectate.";
+      if (visibleList.length === 0) {
+        resultText.innerText = "Nu există produse pentru filtrele selectate.";
       } else {
         let firstShown = (currentPage - 1) * productsPerPage + 1;
         let lastShown = currentPage * productsPerPage;
 
-        if (lastShown > sortedCards.length) {
-          lastShown = sortedCards.length;
+        if (lastShown > visibleList.length) {
+          lastShown = visibleList.length;
         }
 
         if (savedSearch !== "") {
-          resultText.textContent = "Căutare: " + savedSearch + " - afișare " + firstShown + "-" + lastShown + " din " + sortedCards.length + " produse";
+          resultText.innerText = "Căutare: " + savedSearch + " - afișare " + firstShown + "-" + lastShown + " din " + visibleList.length + " produse";
         } else {
-          resultText.textContent = "Afișare " + firstShown + "-" + lastShown + " din " + sortedCards.length + " produse";
+          resultText.innerText = "Afișare " + firstShown + "-" + lastShown + " din " + visibleList.length + " produse";
         }
       }
     }
 
     renderPagination(totalPages);
-    showCatalogSearchInfo(sortedCards.length);
+    showCatalogSearchInfo(visibleList.length);
   }
 
   function resetPageAndFilter() {
@@ -644,20 +608,34 @@ function setupCatalogTools() {
     applyCatalogFilters();
   }
 
-  for (let i = 0; i < categoryInputs.length; i++) {
-    categoryInputs[i].addEventListener("change", function () {
-      if (this.getAttribute("data-category-filter") === "all" && this.checked) {
-        for (let j = 0; j < categoryInputs.length; j++) {
-          if (categoryInputs[j] !== this) {
-            categoryInputs[j].checked = false;
+  for (let i = 0; i < categoryCheckboxIds.length; i++) {
+    let checkbox = document.getElementById(categoryCheckboxIds[i]);
+
+    if (checkbox) {
+      checkbox.addEventListener("change", function () {
+        if (this.checked) {
+          let allCb = document.getElementById(categoryAllId);
+
+          if (allCb) {
+            allCb.checked = false;
           }
         }
-      }
 
-      if (this.getAttribute("data-category-filter") !== "all" && this.checked) {
-        for (let k = 0; k < categoryInputs.length; k++) {
-          if (categoryInputs[k].getAttribute("data-category-filter") === "all") {
-            categoryInputs[k].checked = false;
+        resetPageAndFilter();
+      });
+    }
+  }
+
+  let allCheckboxEl = document.getElementById(categoryAllId);
+
+  if (allCheckboxEl) {
+    allCheckboxEl.addEventListener("change", function () {
+      if (this.checked) {
+        for (let i = 0; i < categoryCheckboxIds.length; i++) {
+          let cb = document.getElementById(categoryCheckboxIds[i]);
+
+          if (cb) {
+            cb.checked = false;
           }
         }
       }
@@ -666,17 +644,23 @@ function setupCatalogTools() {
     });
   }
 
-  for (let i = 0; i < priceInputs.length; i++) {
-    priceInputs[i].addEventListener("change", resetPageAndFilter);
+  for (let i = 0; i < priceCheckboxIds.length; i++) {
+    let cb = document.getElementById(priceCheckboxIds[i]);
+
+    if (cb) {
+      cb.addEventListener("change", resetPageAndFilter);
+    }
   }
 
-  for (let i = 0; i < brandInputs.length; i++) {
-    brandInputs[i].addEventListener("change", resetPageAndFilter);
+  for (let i = 0; i < brandCheckboxIds.length; i++) {
+    let cb = document.getElementById(brandCheckboxIds[i]);
+
+    if (cb) {
+      cb.addEventListener("change", resetPageAndFilter);
+    }
   }
 
-  if (sortSelect) {
-    sortSelect.addEventListener("change", resetPageAndFilter);
-  }
+  sortSelect.addEventListener("change", resetPageAndFilter);
 
   if (applyButton) {
     applyButton.addEventListener("click", resetPageAndFilter);
@@ -684,30 +668,79 @@ function setupCatalogTools() {
 
   if (clearButton) {
     clearButton.addEventListener("click", function () {
-      for (let i = 0; i < priceInputs.length; i++) {
-        priceInputs[i].checked = false;
-      }
+      for (let i = 0; i < priceCheckboxIds.length; i++) {
+        let cb = document.getElementById(priceCheckboxIds[i]);
 
-      for (let i = 0; i < brandInputs.length; i++) {
-        brandInputs[i].checked = false;
-      }
-
-      for (let i = 0; i < categoryInputs.length; i++) {
-        if (categoryInputs[i].getAttribute("data-category-filter") === "all") {
-          categoryInputs[i].checked = true;
-        } else {
-          categoryInputs[i].checked = false;
+        if (cb) {
+          cb.checked = false;
         }
       }
 
-      if (sortSelect) {
-        sortSelect.value = "popular";
+      for (let i = 0; i < brandCheckboxIds.length; i++) {
+        let cb = document.getElementById(brandCheckboxIds[i]);
+
+        if (cb) {
+          cb.checked = false;
+        }
       }
 
+      for (let i = 0; i < categoryCheckboxIds.length; i++) {
+        let cb = document.getElementById(categoryCheckboxIds[i]);
+
+        if (cb) {
+          cb.checked = false;
+        }
+      }
+
+      let allCb = document.getElementById(categoryAllId);
+
+      if (allCb) {
+        allCb.checked = true;
+      }
+
+      sortSelect.value = "popular";
       localStorage.removeItem(SEARCH_STORAGE_KEY);
       savedSearch = "";
       currentPage = 1;
+      applyCatalogFilters();
+    });
+  }
 
+  if (searchInfoClearBtn) {
+    searchInfoClearBtn.addEventListener("click", function () {
+      localStorage.removeItem(SEARCH_STORAGE_KEY);
+      savedSearch = "";
+      currentPage = 1;
+      applyCatalogFilters();
+    });
+  }
+
+  if (pagePrevBtn) {
+    pagePrevBtn.addEventListener("click", function () {
+      if (currentPage > 1) {
+        currentPage = currentPage - 1;
+        applyCatalogFilters();
+      }
+    });
+  }
+
+  if (pageNextBtn) {
+    pageNextBtn.addEventListener("click", function () {
+      currentPage = currentPage + 1;
+      applyCatalogFilters();
+    });
+  }
+
+  if (page1Btn) {
+    page1Btn.addEventListener("click", function () {
+      currentPage = 1;
+      applyCatalogFilters();
+    });
+  }
+
+  if (page2Btn) {
+    page2Btn.addEventListener("click", function () {
+      currentPage = 2;
       applyCatalogFilters();
     });
   }
@@ -715,6 +748,7 @@ function setupCatalogTools() {
   applyCatalogFilters();
 }
 
+/* ===== Date statice pentru pagina de produs ===== */
 
 const PRODUCT_DETAILS = [
   {
@@ -1065,92 +1099,153 @@ function getProductDetails(productId) {
   return PRODUCT_DETAILS[0];
 }
 
-function renderPackageOptions(product, selectedPackage) {
-  let html = "";
+/* ===== Completare continut pagina de produs (sloturi statice) ===== */
 
-  for (let i = 0; i < product.variants.length; i++) {
-    let option = product.variants[i];
-    let className = "volume-option";
+function fillDescription(details) {
+  for (let i = 0; i < 3; i++) {
+    let p = document.getElementById("desc-p-" + (i + 1));
 
-    if (option.label === selectedPackage) {
-      className = "volume-option is-selected";
+    if (!p) {
+      continue;
     }
 
-    html = html + '<button class="' + className + '" data-package="' + option.label + '" type="button">' + option.label + '</button>';
-  }
-
-  return html;
-}
-
-function renderDescription(details) {
-  let html = '<h2 class="h4 mb-3">Descriere detaliată</h2>';
-
-  for (let i = 0; i < details.description.length; i++) {
-    let className = "";
-
-    if (i === details.description.length - 1) {
-      className = ' class="mb-0"';
+    if (i < details.description.length) {
+      p.innerText = details.description[i];
+      p.style.display = "";
+    } else {
+      p.style.display = "none";
     }
-
-    html = html + '<p' + className + '>' + details.description[i] + '</p>';
   }
-
-  return html;
 }
 
-function renderSpecs(details, product, selectedPackage) {
+function fillSpecs(details, product, selectedPackage) {
   let selectedVariant = product.getVariant(selectedPackage);
-  let html = '<h2 class="h4 mb-3">Specificații</h2><div class="table-responsive"><table class="table align-middle mb-0"><tbody>';
+  let brandValue = document.getElementById("spec-brand-value");
+  let packageValue = document.getElementById("spec-package-value");
+  let priceValue = document.getElementById("spec-price-value");
 
-  html = html + '<tr><th scope="row">Brand</th><td>' + details.brand + '</td></tr>';
-  html = html + '<tr><th scope="row">Ambalaj selectat</th><td>' + selectedVariant.label + '</td></tr>';
-  html = html + '<tr><th scope="row">Preț</th><td>' + formatPrice(selectedVariant.price) + '</td></tr>';
+  if (brandValue) {
+    brandValue.innerText = details.brand;
+  }
+
+  if (packageValue) {
+    packageValue.innerText = selectedVariant.label;
+  }
+
+  if (priceValue) {
+    priceValue.innerText = formatPrice(selectedVariant.price);
+  }
+
+  let otherSpecs = [];
 
   for (let i = 0; i < details.specs.length; i++) {
     if (details.specs[i][0] !== "Volum") {
-      html = html + '<tr><th scope="row">' + details.specs[i][0] + '</th><td>' + details.specs[i][1] + '</td></tr>';
+      otherSpecs.push(details.specs[i]);
     }
   }
 
-  html = html + '</tbody></table></div>';
-  return html;
-}
+  for (let i = 0; i < 4; i++) {
+    let labelEl = document.getElementById("spec-row-" + (i + 1) + "-label");
+    let valueEl = document.getElementById("spec-row-" + (i + 1) + "-value");
 
-function renderReviews(details) {
-  let html = '<h2 class="h4 mb-3">Recenzii utilizatori</h2>';
-
-  for (let i = 0; i < details.reviews.length; i++) {
-    let review = details.reviews[i];
-    let className = "review-box";
-
-    if (i < details.reviews.length - 1) {
-      className = "review-box mb-3";
+    if (!labelEl || !valueEl) {
+      continue;
     }
 
-    html = html + '<article class="' + className + '">' +
-      '<h3 class="visually-hidden">Recenzie ' + review[0] + '</h3>' +
-      '<p class="mb-1"><strong>' + review[0] + '</strong> <span class="product-stars">' + review[1] + '</span></p>' +
-      '<p class="mb-0 site-muted">"' + review[2] + '"</p>' +
-      '</article>';
+    if (i < otherSpecs.length) {
+      labelEl.innerText = otherSpecs[i][0];
+      valueEl.innerText = otherSpecs[i][1];
+    } else {
+      labelEl.innerText = "";
+      valueEl.innerText = "";
+    }
   }
-
-  return html;
 }
 
+function fillReviews(details) {
+  for (let i = 0; i < 3; i++) {
+    let nameEl = document.getElementById("review-" + (i + 1) + "-name");
+    let starsEl = document.getElementById("review-" + (i + 1) + "-stars");
+    let textEl = document.getElementById("review-" + (i + 1) + "-text");
+    let headingEl = document.getElementById("review-" + (i + 1) + "-heading");
 
-function renderSimilarProducts(currentProduct) {
-  let similarTitle = document.getElementById("similar-title");
+    if (i < details.reviews.length) {
+      let review = details.reviews[i];
 
-  if (!similarTitle || !similarTitle.parentElement) {
-    return;
+      if (nameEl) {
+        nameEl.innerText = review[0];
+      }
+
+      if (starsEl) {
+        starsEl.innerText = review[1];
+      }
+
+      if (textEl) {
+        textEl.innerText = "„" + review[2] + "”";
+      }
+
+      if (headingEl) {
+        headingEl.innerText = "Recenzie " + review[0];
+      }
+
+      if (i === 2) {
+        let box = document.getElementById("review-3-box");
+
+        if (box) {
+          box.style.display = "";
+        }
+      }
+    } else if (i === 2) {
+      let box = document.getElementById("review-3-box");
+
+      if (box) {
+        box.style.display = "none";
+      }
+    }
+  }
+}
+
+function fillPackageOptions(product, selectedPackage) {
+  let packageBtnIds = ["package-btn-1", "package-btn-2", "package-btn-3"];
+
+  for (let i = 0; i < packageBtnIds.length; i++) {
+    let btn = document.getElementById(packageBtnIds[i]);
+
+    if (!btn) {
+      continue;
+    }
+
+    if (i < product.variants.length) {
+      let option = product.variants[i];
+      btn.style.display = "";
+      btn.innerText = option.label;
+
+      if (option.label === selectedPackage) {
+        btn.style.background = GREEN_MAIN;
+        btn.style.borderColor = GREEN_MAIN;
+        btn.style.color = "#ffffff";
+      } else {
+        btn.style.background = "";
+        btn.style.borderColor = "";
+        btn.style.color = "";
+      }
+    } else {
+      btn.style.display = "none";
+    }
+  }
+}
+
+function hasSimilarProduct(list, productId) {
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].id === productId) {
+      return true;
+    }
   }
 
-  let row = similarTitle.parentElement.querySelector(".row");
+  return false;
+}
 
-  if (!row) {
-    return;
-  }
-
+function fillSimilarProducts(currentProduct) {
   let currentCategory = getProductCategory(currentProduct.name);
   let similarProducts = [];
 
@@ -1172,63 +1267,66 @@ function renderSimilarProducts(currentProduct) {
     }
   }
 
-  row.innerHTML = "";
+  for (let i = 0; i < 4; i++) {
+    let n = i + 1;
+    let box = document.getElementById("similar-" + n + "-box");
 
-  for (let i = 0; i < similarProducts.length && i < 4; i++) {
+    if (!box) {
+      continue;
+    }
+
+    if (i >= similarProducts.length) {
+      box.style.display = "none";
+      continue;
+    }
+
     let product = similarProducts[i];
-    let article = document.createElement("article");
-    article.className = "col-12 col-sm-6 col-lg-3";
-    article.innerHTML =
-      '<div class="site-card h-100 p-3 similar-product-card">' +
-      '<a class="similar-product-link d-block text-decoration-none" href="product.html?id=' + product.id + '" data-similar-id="' + product.id + '">' +
-      '<img alt="' + product.name + '" class="similar-product-img mb-3" src="' + product.image + '" />' +
-      '<h3 class="h6 text-center">' + getShortProductName(product.name) + '</h3>' +
-      '<p class="fw-bold mb-2 text-center">' + formatPrice(product.getDefaultVariant().price) + '</p>' +
-      '</a>' +
-      '<button class="btn btn-outline w-100 similar-add-btn" data-similar-cart-id="' + product.id + '" type="button">Adaugă în coș</button>' +
-      '</div>';
+    box.style.display = "";
 
-    row.appendChild(article);
-  }
+    let link = document.getElementById("similar-" + n + "-link");
+    let img = document.getElementById("similar-" + n + "-img");
+    let title = document.getElementById("similar-" + n + "-title");
+    let price = document.getElementById("similar-" + n + "-price");
+    let addBtn = document.getElementById("similar-" + n + "-addbtn");
 
-  let links = row.querySelectorAll("[data-similar-id]");
+    if (link) {
+      link.href = "product.html?id=" + product.id;
+      link.addEventListener("click", function () {
+        saveSelectedProduct(product.id);
+      });
+    }
 
-  for (let i = 0; i < links.length; i++) {
-    links[i].addEventListener("click", function () {
-      saveSelectedProduct(Number(this.getAttribute("data-similar-id")));
-    });
-  }
+    if (img) {
+      img.src = product.image;
+      img.alt = product.name;
+    }
 
-  let buttons = row.querySelectorAll("[data-similar-cart-id]");
+    if (title) {
+      title.innerText = getShortProductName(product.name);
+    }
 
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      let productId = Number(this.getAttribute("data-similar-cart-id"));
-      let added = addProductToStoredCart(productId, 1);
+    if (price) {
+      price.innerText = formatPrice(product.getDefaultVariant().price);
+    }
 
-      if (added) {
-        this.textContent = "Adăugat în coș";
-      } else {
-        this.textContent = "Stoc epuizat";
-      }
-    });
-  }
-}
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        let added = addProductToStoredCart(product.id, 1);
 
-function hasSimilarProduct(list, productId) {
-  for (let i = 0; i < list.length; i++) {
-    if (list[i].id === productId) {
-      return true;
+        if (added) {
+          addBtn.innerText = "Adăugat în coș";
+        } else {
+          addBtn.innerText = "Stoc epuizat";
+        }
+      });
     }
   }
-
-  return false;
 }
 
 function setupProductDetailPage() {
-  let productPage = document.querySelector(".product-info-card");
+  let titleEl = document.getElementById("product-title");
 
-  if (!productPage) {
+  if (!titleEl) {
     return;
   }
 
@@ -1249,62 +1347,33 @@ function setupProductDetailPage() {
 
   let cart = getPageCart();
   let availableStock = getAvailableStock(product, cart);
-  let addButton = productPage.querySelector(".btn");
-  let qtySpan = productPage.querySelector(".quantity-box span");
-  let qtyButtons = productPage.querySelectorAll(".quantity-box button");
-  let stockLabel = productPage.querySelector(".text-success, .text-danger");
-  let title = productPage.querySelector("h1");
-  let productPrice = productPage.querySelector(".product-detail-price");
-  let mainImage = document.querySelector(".product-main-img");
-  let productImageBox = null;
-  let galleryImages = [];
 
-  if (mainImage) {
-    productImageBox = mainImage.parentElement;
-    galleryImages = productImageBox.querySelectorAll(".product-gallery-img");
-  }
-  let breadcrumbCurrent = document.querySelector(".breadcrumb li[aria-current='page']");
-  let description = productPage.querySelector(".lead");
-  let brandText = productPage.querySelector(".text-uppercase.site-muted");
-  let ratingStars = productPage.querySelector(".product-stars");
-  let ratingCount = productPage.querySelector(".product-stars + .site-muted");
-  let packageTitle = productPage.querySelector(".volume-options");
-  let packageTitleText = null;
-  let descTab = document.getElementById("desc");
-  let specTab = document.getElementById("spec");
-  let reviewsTab = document.getElementById("reviews");
+  let brandText = document.getElementById("product-brand");
+  let ratingStars = document.getElementById("product-rating-stars");
+  let ratingCount = document.getElementById("product-rating-count");
+  let priceEl = document.getElementById("product-price");
+  let stockLabel = document.getElementById("product-stock-label");
+  let leadEl = document.getElementById("product-lead");
+  let breadcrumbCurrent = document.getElementById("breadcrumb-current");
+  let mainImage = document.getElementById("product-main-img");
+  let qtySpan = document.getElementById("qty-display");
+  let qtyMinusBtn = document.getElementById("qty-minus-btn");
+  let qtyPlusBtn = document.getElementById("qty-plus-btn");
+  let addButton = document.getElementById("add-to-cart-btn");
   let qty = 1;
-
-  if (packageTitle) {
-    packageTitleText = packageTitle.parentElement.querySelector(".fw-bold");
-  }
 
   if (availableStock < 1) {
     qty = 0;
   }
 
   if (brandText) {
-    brandText.textContent = details.brand;
+    brandText.innerText = details.brand;
   }
 
-  if (title) {
-    title.textContent = product.name;
-  }
+  titleEl.innerText = product.name;
 
-  if (!productPrice) {
-    let priceElements = productPage.querySelectorAll("p");
-
-    for (let i = 0; i < priceElements.length; i++) {
-      if (priceElements[i].textContent.indexOf("Ron") !== -1) {
-        productPrice = priceElements[i];
-        productPrice.classList.add("product-detail-price");
-        break;
-      }
-    }
-  }
-
-  if (productPrice) {
-    productPrice.textContent = formatPrice(product.getVariantPrice(selectedPackage));
+  if (priceEl) {
+    priceEl.innerText = formatPrice(product.getVariantPrice(selectedPackage));
   }
 
   if (mainImage) {
@@ -1312,144 +1381,147 @@ function setupProductDetailPage() {
     mainImage.alt = product.name;
   }
 
-  for (let i = 0; i < galleryImages.length; i++) {
-    galleryImages[i].src = product.image;
-    galleryImages[i].alt = product.name + " - imagine produs " + (i + 1);
-    galleryImages[i].style.cursor = "pointer";
+  for (let i = 1; i <= 3; i++) {
+    let thumb = document.getElementById("gallery-thumb-" + i);
 
-    galleryImages[i].addEventListener("click", function () {
+    if (!thumb) {
+      continue;
+    }
+
+    thumb.src = product.image;
+    thumb.alt = product.name + " - imagine produs " + i;
+    thumb.style.cursor = "pointer";
+
+    if (i === 1) {
+      thumb.style.borderColor = GREEN_MAIN;
+      thumb.style.boxShadow = GREEN_RING;
+    } else {
+      thumb.style.borderColor = "";
+      thumb.style.boxShadow = "";
+    }
+
+    thumb.addEventListener("click", function () {
       if (mainImage) {
         mainImage.src = this.src;
         mainImage.alt = this.alt;
       }
 
-      for (let j = 0; j < galleryImages.length; j++) {
-        galleryImages[j].classList.remove("is-selected");
+      for (let j = 1; j <= 3; j++) {
+        let otherThumb = document.getElementById("gallery-thumb-" + j);
+
+        if (otherThumb) {
+          otherThumb.style.borderColor = "";
+          otherThumb.style.boxShadow = "";
+        }
       }
 
-      this.classList.add("is-selected");
+      this.style.borderColor = GREEN_MAIN;
+      this.style.boxShadow = GREEN_RING;
     });
-  }
-
-  if (galleryImages.length > 0) {
-    galleryImages[0].classList.add("is-selected");
   }
 
   if (breadcrumbCurrent) {
-    breadcrumbCurrent.textContent = details.shortName;
+    breadcrumbCurrent.innerText = details.shortName;
   }
 
-  if (description) {
-    description.textContent = details.lead;
+  if (leadEl) {
+    leadEl.innerText = details.lead;
   }
 
   if (ratingStars) {
-    ratingStars.textContent = details.rating;
+    ratingStars.innerText = details.rating;
   }
 
   if (ratingCount) {
-    ratingCount.textContent = "(" + details.reviewCount + " recenzii)";
+    ratingCount.innerText = "(" + details.reviewCount + " recenzii)";
   }
 
-  if (packageTitleText) {
-    packageTitleText.textContent = details.packageTitle;
-  }
-
-  if (packageTitle) {
-    packageTitle.innerHTML = renderPackageOptions(product, selectedPackage);
-  }
-
-  if (descTab) {
-    descTab.innerHTML = renderDescription(details);
-  }
-
-  if (specTab) {
-    specTab.innerHTML = renderSpecs(details, product, selectedPackage);
-  }
-
-  if (reviewsTab) {
-    reviewsTab.innerHTML = renderReviews(details);
-  }
-
-  function updateSelectedPackage(newPackage) {
-    selectedPackage = newPackage;
-
-    if (productPrice) {
-      productPrice.textContent = formatPrice(product.getVariantPrice(selectedPackage));
-    }
-
-    if (specTab) {
-      specTab.innerHTML = renderSpecs(details, product, selectedPackage);
-    }
-
-    let packageButtons = productPage.querySelectorAll(".volume-option");
-
-    for (let i = 0; i < packageButtons.length; i++) {
-      if (packageButtons[i].getAttribute("data-package") === selectedPackage) {
-        packageButtons[i].className = "volume-option is-selected";
-      } else {
-        packageButtons[i].className = "volume-option";
-      }
-    }
-  }
-
-  let packageButtons = productPage.querySelectorAll(".volume-option");
-
-  for (let i = 0; i < packageButtons.length; i++) {
-    packageButtons[i].addEventListener("click", function () {
-      updateSelectedPackage(this.getAttribute("data-package"));
-    });
-  }
-
-  renderSimilarProducts(product);
+  fillDescription(details);
+  fillSpecs(details, product, selectedPackage);
+  fillReviews(details);
+  fillPackageOptions(product, selectedPackage);
+  fillSimilarProducts(product);
 
   document.title = "Produs - " + details.shortName;
 
   if (qtySpan) {
-    qtySpan.textContent = qty;
+    qtySpan.innerText = qty;
   }
 
   if (stockLabel) {
     if (availableStock < 1) {
-      stockLabel.textContent = "Stoc epuizat";
-      stockLabel.className = "text-danger fw-bold mb-3";
+      stockLabel.innerText = "Stoc epuizat";
+      stockLabel.style.color = TEXT_DANGER;
     } else {
-      stockLabel.textContent = "În stoc: " + availableStock + " buc.";
-      stockLabel.className = "text-success fw-bold mb-3";
+      stockLabel.innerText = "În stoc: " + availableStock + " buc.";
+      stockLabel.style.color = TEXT_SUCCESS;
     }
   }
 
-  if (qtyButtons.length === 2) {
-    qtyButtons[0].addEventListener("click", function () {
+  let packageBtnIds = ["package-btn-1", "package-btn-2", "package-btn-3"];
+
+  for (let i = 0; i < packageBtnIds.length; i++) {
+    if (i >= product.variants.length) {
+      continue;
+    }
+
+    let btn = document.getElementById(packageBtnIds[i]);
+    let variantLabel = product.variants[i].label;
+
+    if (btn) {
+      btn.addEventListener("click", function () {
+        selectedPackage = variantLabel;
+
+        if (priceEl) {
+          priceEl.innerText = formatPrice(product.getVariantPrice(selectedPackage));
+        }
+
+        fillSpecs(details, product, selectedPackage);
+        fillPackageOptions(product, selectedPackage);
+      });
+    }
+  }
+
+  if (qtyMinusBtn) {
+    qtyMinusBtn.addEventListener("click", function () {
       if (qty > 1) {
         qty = qty - 1;
-        qtySpan.textContent = qty;
+
+        if (qtySpan) {
+          qtySpan.innerText = qty;
+        }
       }
     });
+  }
 
-    qtyButtons[1].addEventListener("click", function () {
+  if (qtyPlusBtn) {
+    qtyPlusBtn.addEventListener("click", function () {
       if (qty < availableStock) {
         qty = qty + 1;
-        qtySpan.textContent = qty;
+
+        if (qtySpan) {
+          qtySpan.innerText = qty;
+        }
       }
     });
   }
 
   if (addButton) {
-    addButton.setAttribute("href", "cart.html");
+    addButton.href = "cart.html";
 
     if (availableStock < 1) {
-      addButton.textContent = "Stoc epuizat";
-      addButton.classList.add("is-disabled");
+      addButton.innerText = "Stoc epuizat";
+      addButton.style.opacity = "0.65";
+      addButton.style.cursor = "not-allowed";
+      addButton.style.pointerEvents = "none";
     } else {
-      addButton.textContent = "Adaugă în coș";
-      addButton.classList.remove("is-disabled");
+      addButton.innerText = "Adaugă în coș";
     }
 
     addButton.addEventListener("click", function (event) {
       if (qty < 1) {
         event.preventDefault();
-        showSmallMessage(productPage, "Produsul nu mai este disponibil in stoc.", false);
+        alert("Produsul nu mai este disponibil in stoc.");
         return;
       }
 
@@ -1457,7 +1529,7 @@ function setupProductDetailPage() {
 
       if (!added) {
         event.preventDefault();
-        showSmallMessage(productPage, "Cantitatea aleasă este mai mare decat stocul disponibil.", false);
+        alert("Cantitatea aleasă este mai mare decat stocul disponibil.");
         return;
       }
 
@@ -1465,56 +1537,67 @@ function setupProductDetailPage() {
     });
   }
 }
+
+/* ===== Formulare de utilizator (login / register) ===== */
+
 function setupUserForms() {
   let loginForm = document.getElementById("login-form");
 
   if (loginForm) {
     let savedUser = getSavedUser();
-    let messageBox = document.getElementById("login-message");
 
-    if (savedUser && messageBox) {
-      messageBox.textContent = "Ești autentificat ca " + savedUser.username + ".";
-      messageBox.className = "small-text mt-3 mb-0 text-center text-success";
+    if (savedUser) {
+      showMessage("login-message", "Ești autentificat ca " + savedUser.username + ".", true);
     }
   }
 
-  let registerForm = document.querySelector(".register-card form");
+  let registerForm = document.getElementById("register-form");
 
   if (registerForm) {
-    let message = document.createElement("p");
-    message.className = "small-text mt-3 mb-0 text-center";
-    registerForm.appendChild(message);
-
     registerForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      let firstName = document.getElementById("firstName").value.trim();
-      let lastName = document.getElementById("lastName").value.trim();
-      let email = document.getElementById("registerEmail").value.trim();
-      let password = document.getElementById("registerPassword").value.trim();
-      let confirmPassword = document.getElementById("confirmPassword").value.trim();
+      let firstNameEl = document.getElementById("firstName");
+      let lastNameEl = document.getElementById("lastName");
+      let emailEl = document.getElementById("registerEmail");
+      let passwordEl = document.getElementById("registerPassword");
+      let confirmPasswordEl = document.getElementById("confirmPassword");
+
+      let firstName = firstNameEl ? firstNameEl.value.trim() : "";
+      let lastName = lastNameEl ? lastNameEl.value.trim() : "";
+      let email = emailEl ? emailEl.value.trim() : "";
+      let password = passwordEl ? passwordEl.value.trim() : "";
+      let confirmPassword = confirmPasswordEl ? confirmPasswordEl.value.trim() : "";
 
       if (firstName === "" || lastName === "" || email === "" || password === "") {
-        message.textContent = "Completează toate câmpurile obligatorii.";
-        message.className = "small-text mt-3 mb-0 text-center text-danger";
+        showMessage("register-message", "Completează toate câmpurile obligatorii.", false);
         return;
       }
 
       if (password !== confirmPassword) {
-        message.textContent = "Parolele nu sunt la fel.";
-        message.className = "small-text mt-3 mb-0 text-center text-danger";
+        showMessage("register-message", "Parolele nu sunt la fel.", false);
         return;
       }
 
       let user = new User(firstName + " " + lastName, email);
       user.login();
-      localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ username: user.username, email: user.email, isLoggedIn: user.isLoggedIn, discount: user.getDiscount() }));
-      message.textContent = "Contul a fost creat și utilizatorul a fost sălvat local.";
-      message.className = "small-text mt-3 mb-0 text-center text-success";
+      localStorage.setItem(
+        USER_STORAGE_KEY,
+        JSON.stringify({
+          username: user.username,
+          email: user.email,
+          isLoggedIn: user.isLoggedIn,
+          discount: user.getDiscount()
+        })
+      );
+
+      showMessage("register-message", "Contul a fost creat și utilizatorul a fost sălvat local.", true);
       updateHeaderUser();
     });
   }
 }
+
+/* ===== Cos: sumar, cupon, checkout, comenzi, newsletter ===== */
 
 function getCartSummary(cart) {
   let subtotal = cart.getTotal();
@@ -1528,9 +1611,9 @@ function getCartSummary(cart) {
   let promo = localStorage.getItem("adartaPromo") || "";
 
   if (promo === "SAVE10") {
-    discount = Math.round(subtotal * 10 / 100);
+    discount = Math.round((subtotal * 10) / 100);
   } else if (promo === "SAVE15") {
-    discount = Math.round(subtotal * 15 / 100);
+    discount = Math.round((subtotal * 15) / 100);
   } else if (promo === "FREESHIP") {
     shipping = 0;
   }
@@ -1539,7 +1622,7 @@ function getCartSummary(cart) {
 }
 
 function setupPromoForm() {
-  let promoForm = document.querySelector(".promo-form");
+  let promoForm = document.getElementById("promo-form");
 
   if (!promoForm) {
     return;
@@ -1553,10 +1636,10 @@ function setupPromoForm() {
 
     if (isValidCoupon(code)) {
       localStorage.setItem("adartaPromo", code);
-      showSmallMessage(promoForm, "Cupon aplicăt: " + code, true);
+      showMessage("promo-message", "Cupon aplicăt: " + code, true);
     } else {
       localStorage.removeItem("adartaPromo");
-      showSmallMessage(promoForm, "Codul introdus nu este valid.", false);
+      showMessage("promo-message", "Codul introdus nu este valid.", false);
     }
 
     if (typeof refreshCartPage === "function") {
@@ -1568,62 +1651,90 @@ function setupPromoForm() {
 }
 
 function renderCheckoutSummary() {
-  let checkoutList = document.querySelector(".checkout-page .cart-items");
-  let checkoutTotal = document.querySelector(".checkout-page .total-price");
+  let itemsList = document.getElementById("checkout-items-list");
+  let checkoutTotal = document.getElementById("checkout-total");
 
-  if (!checkoutList || !checkoutTotal) {
+  if (!itemsList || !checkoutTotal) {
     return;
   }
 
   let cart = getPageCart();
-  checkoutList.innerHTML = "";
+  let emptyMessage = document.getElementById("checkout-empty-message");
+  let extraBox = document.getElementById("checkout-extra");
 
   if (cart.items.length === 0) {
-    checkoutList.innerHTML = '<li class="list-group-item px-0 py-3">Coșul este gol. Alege produse din catalog.</li>';
-    checkoutTotal.textContent = "0 Ron";
+    if (emptyMessage) {
+      emptyMessage.style.display = "";
+    }
+
+    for (let i = 1; i <= 12; i++) {
+      let row = document.getElementById("checkout-item-" + i);
+
+      if (row) {
+        row.style.display = "none";
+      }
+    }
+
+    checkoutTotal.innerText = "0 Ron";
+
+    if (extraBox) {
+      extraBox.innerText = "";
+    }
+
     return;
   }
 
-  for (let i = 0; i < cart.items.length; i++) {
-    let item = cart.items[i];
-    let li = document.createElement("li");
-    li.className = "cart-item list-group-item px-0 py-3";
+  if (emptyMessage) {
+    emptyMessage.style.display = "none";
+  }
 
-    li.innerHTML =
-      '<div class="cart-item-thumb">' +
-      '<img alt="' + item.name + '" class="img-fluid rounded-3" src="' + item.image + '" />' +
-      '</div>' +
-      '<div class="cart-item-info d-flex flex-column justify-content-start gap-2">' +
-      '<div class="d-flex justify-content-between align-items-center gap-3 mb-1">' +
-      '<p class="cart-item-title mb-0 fw-semibold">' + item.name + '</p>' +
-      '<p class="cart-item-price mb-0 fw-bold text-start">' + formatPrice(item.price * item.qty) + '</p>' +
-      '</div>' +
-      '<p class="cart-item-meta">Ambalaj: ' + item.package + ' - Cantitate: ' + item.qty + '</p>' +
-      '</div>';
+  for (let i = 1; i <= 12; i++) {
+    let row = document.getElementById("checkout-item-" + i);
 
-    checkoutList.appendChild(li);
+    if (!row) {
+      continue;
+    }
+
+    if (i <= cart.items.length) {
+      let item = cart.items[i - 1];
+      row.style.display = "";
+
+      let img = document.getElementById("checkout-item-" + i + "-img");
+      let title = document.getElementById("checkout-item-" + i + "-title");
+      let price = document.getElementById("checkout-item-" + i + "-price");
+      let meta = document.getElementById("checkout-item-" + i + "-meta");
+
+      if (img) {
+        img.src = item.image;
+        img.alt = item.name;
+      }
+
+      if (title) {
+        title.innerText = item.name;
+      }
+
+      if (price) {
+        price.innerText = formatPrice(item.price * item.qty);
+      }
+
+      if (meta) {
+        meta.innerText = "Ambalaj: " + item.package + " - Cantitate: " + item.qty;
+      }
+    } else {
+      row.style.display = "none";
+    }
   }
 
   let summary = getCartSummary(cart);
-  checkoutTotal.textContent = formatPrice(summary.total);
-
-  let totalParent = checkoutTotal.parentElement;
-
-  if (totalParent && !totalParent.querySelector(".checkout-extra")) {
-    let extra = document.createElement("div");
-    extra.className = "checkout-extra small-text mt-2";
-    totalParent.appendChild(extra);
-  }
-
-  let extraBox = totalParent.querySelector(".checkout-extra");
+  checkoutTotal.innerText = formatPrice(summary.total);
 
   if (extraBox) {
-    extraBox.innerHTML = "Subtotal: " + formatPrice(summary.subtotal) + "<br>Livrare: " + formatPrice(summary.shipping) + "<br>Reducere: " + formatPrice(summary.discount);
+    extraBox.innerText = "Subtotal: " + formatPrice(summary.subtotal) + "\nLivrare: " + formatPrice(summary.shipping) + "\nReducere: " + formatPrice(summary.discount);
   }
 }
 
 function setupCheckoutForm() {
-  let form = document.querySelector(".checkout-form");
+  let form = document.getElementById("checkout-form");
 
   if (!form) {
     return;
@@ -1641,9 +1752,7 @@ function setupCheckoutForm() {
     prenumeInput.value = savedUser.username;
   }
 
-  let message = document.createElement("p");
-  message.className = "small-text mt-3 mb-0 text-center";
-  form.appendChild(message);
+  let requiredFieldIds = ["prenume", "nume", "adresa", "tara", "oras", "codPostal", "numeCard", "numarCard", "lunaExp", "anExp", "cvc"];
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -1651,23 +1760,22 @@ function setupCheckoutForm() {
     let cart = getPageCart();
 
     if (cart.items.length === 0) {
-      message.textContent = "Coșul este gol. Nu se poate trimite comanda.";
-      message.className = "small-text mt-3 mb-0 text-center text-danger";
+      showMessage("checkout-message", "Coșul este gol. Nu se poate trimite comanda.", false);
       return;
     }
 
-    let requiredFields = form.querySelectorAll("[required]");
     let isValid = true;
 
-    for (let i = 0; i < requiredFields.length; i++) {
-      if (requiredFields[i].value.trim() === "") {
+    for (let i = 0; i < requiredFieldIds.length; i++) {
+      let field = document.getElementById(requiredFieldIds[i]);
+
+      if (field && field.value.trim() === "") {
         isValid = false;
       }
     }
 
     if (!isValid) {
-      message.textContent = "Completează câmpurile obligatorii.";
-      message.className = "small-text mt-3 mb-0 text-center text-danger";
+      showMessage("checkout-message", "Completează câmpurile obligatorii.", false);
       return;
     }
 
@@ -1687,31 +1795,33 @@ function setupCheckoutForm() {
     updateCartNumbers();
     renderCheckoutSummary();
 
-    message.textContent = "Comanda a fost sălvată local. O poti vedea in pagina Comenzi.";
-    message.className = "small-text mt-3 mb-0 text-center text-success";
+    showMessage("checkout-message", "Comanda a fost sălvată local. O poti vedea in pagina Comenzi.", true);
   });
 }
 
 function setupNewsletterForms() {
-  let forms = document.querySelectorAll(".newsletter-form");
+  let form = document.getElementById("newsletter-form");
 
-  for (let i = 0; i < forms.length; i++) {
-    forms[i].addEventListener("submit", function (event) {
-      event.preventDefault();
-      let input = this.querySelector("input");
-
-      if (input && input.value.trim() !== "") {
-        localStorage.setItem(NEWSLETTER_STORAGE_KEY, input.value.trim());
-        showSmallMessage(this, "Email sălvat pentru newsletter.", true);
-      } else {
-        showSmallMessage(this, "Introdu o adresă de email.", false);
-      }
-    });
+  if (!form) {
+    return;
   }
+
+  let input = document.getElementById("newsletterEmail");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (input && input.value.trim() !== "") {
+      localStorage.setItem(NEWSLETTER_STORAGE_KEY, input.value.trim());
+      showMessage("newsletter-message", "Email sălvat pentru newsletter.", true);
+    } else {
+      showMessage("newsletter-message", "Introdu o adresă de email.", false);
+    }
+  });
 }
 
 function renderOrdersPage() {
-  let ordersBox = document.querySelector(".orders-box");
+  let ordersBox = document.getElementById("orders-box");
 
   if (!ordersBox) {
     return;
@@ -1725,27 +1835,72 @@ function renderOrdersPage() {
     orders = [];
   }
 
-  ordersBox.innerHTML = '<h2 class="cart-title mb-3 fw-bold">Comenzile mele</h2>';
+  let emptyMessage = document.getElementById("orders-empty-message");
 
   if (orders.length === 0) {
-    ordersBox.innerHTML += '<p class="site-muted mb-0">Nu există comenzi sălvate momentan.</p>';
+    if (emptyMessage) {
+      emptyMessage.style.display = "";
+    }
+
+    for (let i = 1; i <= 10; i++) {
+      let row = document.getElementById("order-row-" + i);
+
+      if (row) {
+        row.style.display = "none";
+      }
+    }
+
     return;
   }
 
-  for (let i = 0; i < orders.length; i++) {
-    let order = orders[i];
-    let itemCount = 0;
+  if (emptyMessage) {
+    emptyMessage.style.display = "none";
+  }
 
-    for (let j = 0; j < order.items.length; j++) {
-      itemCount = itemCount + order.items[j].qty;
+  for (let i = 1; i <= 10; i++) {
+    let row = document.getElementById("order-row-" + i);
+
+    if (!row) {
+      continue;
     }
 
-    let div = document.createElement("div");
-    div.className = "order-row";
-    div.innerHTML = '<strong>Comanda #' + order.id + '</strong><br><span>' + order.date + ' - ' + itemCount + ' produse - ' + formatPrice(order.total) + '</span>';
-    ordersBox.appendChild(div);
+    if (i <= orders.length) {
+      let order = orders[i - 1];
+      let itemCount = 0;
+
+      for (let j = 0; j < order.items.length; j++) {
+        itemCount = itemCount + order.items[j].qty;
+      }
+
+      row.style.display = "";
+
+      let codeEl = document.getElementById("order-row-" + i + "-code");
+      let dateEl = document.getElementById("order-row-" + i + "-date");
+      let countEl = document.getElementById("order-row-" + i + "-count");
+      let totalEl = document.getElementById("order-row-" + i + "-total");
+
+      if (codeEl) {
+        codeEl.innerText = "Comanda #" + order.id;
+      }
+
+      if (dateEl) {
+        dateEl.innerText = order.date;
+      }
+
+      if (countEl) {
+        countEl.innerText = itemCount + " produse";
+      }
+
+      if (totalEl) {
+        totalEl.innerText = formatPrice(order.total);
+      }
+    } else {
+      row.style.display = "none";
+    }
   }
 }
+
+/* ===== Pornire ===== */
 
 setupHeaderSearch();
 setupFooterLinks();

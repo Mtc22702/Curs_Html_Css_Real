@@ -63,11 +63,13 @@
           <form
             aria-label="Caută produse"
             class="search header-search d-none d-lg-inline-flex"
+            id="header-search-form"
             role="search"
           >
             <span aria-hidden="true" class="search-icon"></span>
             <input
               class="header-search-input"
+              id="header-search-input"
               name="search"
               placeholder="Caută produse..."
               type="search"
@@ -79,6 +81,7 @@
             href="cart.html"
            
             ><img alt="" src="images/Ikonice.assignment03/cart_logo.png" /><span
+              id="header-cart-count"
               >Coș</span
             ></a
           >
@@ -88,7 +91,7 @@
             href="login.html"
           >
             <img alt="" src="images/Ikonice.assignment03/user_logo.png" />
-            <span>Autentificare</span>
+            <span id="header-login-text">Autentificare</span>
           </a>
         </div>
         <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
@@ -112,14 +115,14 @@
                 <a class="nav-link" href="index.html#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link săle-link" href="reduceri.html">Reduceri!</a>
+                <a class="nav-link sale-link" href="reduceri.html">Reduceri!</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <!-- SECTIUNE MAIN: Continut principal -->
+    <!-- SECTIUNE: Continut principal -->
     <main class="catalog-page container py-4 py-lg-5">
       <!-- SECTIUNE: Breadcrumb -->
       <nav aria-label="Breadcrumb" class="breadcrumb">
@@ -129,13 +132,13 @@
           <li aria-current="page">Vezi toate</li>
         </ol>
       </nav>
-      <!-- Header pagina: titlu + meta -->
+      <!-- Titlu pagina si optiuni de sortare -->
       <header class="page-header text-center">
         <h1>Vezi toate produsele</h1>
         <div
           class="page-meta d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3"
         >
-          <p class="results-count">Afișare 13–24 din 112 produse</p>
+          <p class="results-count" id="results-count">Afișare 13–24 din 112 produse</p>
           <div class="sort d-flex align-items-center gap-2">
             <label for="sortBy">Sortează după:</label>
             <select id="sortBy" name="sortBy">
@@ -147,7 +150,7 @@
           </div>
         </div>
       </header>
-      <!-- SECTIUNE: Catalog (Filtre + Grid produse) -->
+      <!-- SECTIUNE: Catalog - filtre si lista de produse -->
       <section aria-label="Lista produse" class="catalog">
         <div class="catalog-box">
           <aside aria-label="Filtre" class="filter-box">
@@ -162,19 +165,19 @@
                   <ul class="filter-list">
                     <li>
                       <label class="checkbox">
-                        <input data-price-filter="0-50" type="checkbox" />
+                        <input data-price-filter="0-50" id="filter-price-0-50" type="checkbox" />
                         <span>0 - 50 RON</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-price-filter="50-150" type="checkbox" />
+                        <input data-price-filter="50-150" id="filter-price-50-150" type="checkbox" />
                         <span>50 - 150 RON</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-price-filter="150-plus" type="checkbox" />
+                        <input data-price-filter="150-plus" id="filter-price-150-plus" type="checkbox" />
                         <span>150+ RON</span>
                       </label>
                     </li>
@@ -188,25 +191,25 @@
                   <ul class="filter-list">
                     <li>
                       <label class="checkbox">
-                        <input data-brand-filter="Koch Chemie" type="checkbox" />
+                        <input data-brand-filter="Koch Chemie" id="filter-brand-koch" type="checkbox" />
                         <span>Koch Chemie</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-brand-filter="Sonax" type="checkbox" />
+                        <input data-brand-filter="Sonax" id="filter-brand-sonax" type="checkbox" />
                         <span>Sonax</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-brand-filter="Meguiars" type="checkbox" />
+                        <input data-brand-filter="Meguiars" id="filter-brand-meguiars" type="checkbox" />
                         <span>Meguiars</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-brand-filter="Turtle Wax" type="checkbox" />
+                        <input data-brand-filter="Turtle Wax" id="filter-brand-turtlewax" type="checkbox" />
                         <span>Turtle Wax</span>
                       </label>
                     </li>
@@ -220,31 +223,31 @@
                   <ul class="filter-list">
                     <li>
                       <label class="checkbox">
-                        <input data-category-filter="Spălare" type="checkbox" />
+                        <input data-category-filter="Spălare" id="filter-category-spalare" type="checkbox" />
                         <span>Spălare</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-category-filter="Curățare" type="checkbox" />
+                        <input data-category-filter="Curățare" id="filter-category-curatare" type="checkbox" />
                         <span>Curățare</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-category-filter="Accesorii" type="checkbox" />
+                        <input data-category-filter="Accesorii" id="filter-category-accesorii" type="checkbox" />
                         <span>Accesorii</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input data-category-filter="Protecție" type="checkbox" />
+                        <input data-category-filter="Protecție" id="filter-category-protectie" type="checkbox" />
                         <span>Protecție</span>
                       </label>
                     </li>
                     <li>
                       <label class="checkbox">
-                        <input checked="" data-category-filter="all" type="checkbox" />
+                        <input checked="" data-category-filter="all" id="filter-category-all" type="checkbox" />
                         <span>Toate produsele</span>
                       </label>
                     </li>
@@ -261,13 +264,18 @@
             <button class="btn btn-secondary btn-block" id="applyAsideFilters" type="button">Aplica filtre</button>
             <button class="btn btn-outline-secondary btn-block mt-2" id="clearAsideFilters" type="button">Sterge filtrele</button>
           </aside>
-          <!-- Zona produse + paginare -->
+          <!-- Zona produse si paginare -->
           <div class="products-section">
+            <div class="search-info-box mb-3 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2" id="search-info-box" style="display: none;">
+              <span id="search-info-text"></span>
+              <button class="btn btn-secondary btn-sm" id="search-info-clear-btn" type="button">Șterge căutarea</button>
+            </div>
             <div class="products-grid">
-              <article class="product-card">
+              <article class="product-card" id="product-card-1">
                 <a
                   aria-label="Șampon auto cu efect ceramic"
                   class="product-link"
+                id="product-1-link"
                   href="product.html"
                 >
                   <img
@@ -280,21 +288,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-1-category"></p>
+                <h3 class="product-title" id="product-1-title">
                   Șampon auto cu efect ceramic Koch Chemie Ceramic Effect
                   Shampoo, Ces, 1Lt
                 </h3>
-                <p class="product-price">119 Ron</p>
+                <p class="product-price" id="product-1-price">119 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-1-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-1-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-2">
                 <a
                   aria-label="Șampon auto reactivare ceramică"
                   class="product-link"
+                id="product-2-link"
                   href="catalog.html"
                 >
                   <img
@@ -307,21 +319,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-2-category"></p>
+                <h3 class="product-title" id="product-2-title">
                   Șampon auto reactivare ceramică Koch Chemie Reactivation
                   Shampoo, Rs, 1L
                 </h3>
-                <p class="product-price">80 Ron</p>
+                <p class="product-price" id="product-2-price">80 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-2-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-2-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-3">
                 <a
                   aria-label="Polish 3 în 1 cu ceară Carnauba"
                   class="product-link"
+                id="product-3-link"
                   href="catalog.html"
                 >
                   <img
@@ -334,21 +350,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-3-category"></p>
+                <h3 class="product-title" id="product-3-title">
                   Polish 3 in 1 cu ceară Carnauba Koch Chemie One Cut and
                   Finish, P6.02, 1L
                 </h3>
-                <p class="product-price">280 Ron</p>
+                <p class="product-price" id="product-3-price">280 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-3-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-3-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card product-card-sale">
+              <article class="product-card product-card-sale" id="product-card-4">
                 <a
                   aria-label="Spray protecție vopsea"
                   class="product-link"
+                id="product-4-link"
                   href="catalog.html"
                 >
                   <img
@@ -361,24 +381,28 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-4-category"></p>
+                <h3 class="product-title" id="product-4-title">
                   Spray protecție vopsea Koch Chemie Spray Sealant, S0.02, 500ml
                 </h3>
-                <p class="product-price">
+                <p class="product-price" id="product-4-price">
                   <span class="price-now">108 Ron</span>
                   <span class="price-old">120 Ron</span>
                   <span class="badge price-badge">-10%</span>
                 </p>
+                <p class="site-muted small mb-2 oop-stock" id="product-4-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-4-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card product-card-sale">
+              <article class="product-card product-card-sale" id="product-card-5">
                 <a
                   aria-label="Set pensule interior"
                   class="product-link"
+                id="product-5-link"
                   href="catalog.html"
                 >
                   <img
@@ -391,24 +415,28 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-5-category"></p>
+                <h3 class="product-title" id="product-5-title">
                   Set pensule interior Koch Chemie Interior Brush Set
                 </h3>
-                <p class="product-price">
+                <p class="product-price" id="product-5-price">
                   <span class="price-now">70 Ron</span>
                   <span class="price-old">77 Ron</span>
                   <span class="badge price-badge">-10%</span>
                 </p>
+                <p class="site-muted small mb-2 oop-stock" id="product-5-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-5-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-6">
                 <a
                   aria-label="Soluție curățare auto alcalină"
                   class="product-link"
+                id="product-6-link"
                   href="catalog.html"
                 >
                   <img
@@ -421,21 +449,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-6-category"></p>
+                <h3 class="product-title" id="product-6-title">
                   Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb,
                   1L
                 </h3>
-                <p class="product-price">50 Ron</p>
+                <p class="product-price" id="product-6-price">50 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-6-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-6-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-7">
                 <a
                   aria-label="Soluție curățare generală"
                   class="product-link"
+                id="product-7-link"
                   href="catalog.html"
                 >
                   <img
@@ -448,21 +480,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-7-category"></p>
+                <h3 class="product-title" id="product-7-title">
                   Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr,
                   1L
                 </h3>
-                <p class="product-price">50 Ron</p>
+                <p class="product-price" id="product-7-price">50 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-7-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-7-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-8">
                 <a
                   aria-label="Soluție curățare jante reactivă"
                   class="product-link"
+                id="product-8-link"
                   href="catalog.html"
                 >
                   <img
@@ -475,21 +511,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-8-category"></p>
+                <h3 class="product-title" id="product-8-title">
                   Soluție curățare jante reactivă Koch Chemie Magic Wheel
                   Cleaner, Mwc, 500ml
                 </h3>
-                <p class="product-price">80 Ron</p>
+                <p class="product-price" id="product-8-price">80 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-8-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-8-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-9">
                 <a
                   aria-label="Soluție curățare universală"
                   class="product-link"
+                id="product-9-link"
                   href="catalog.html"
                 >
                   <img
@@ -502,20 +542,24 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-9-category"></p>
+                <h3 class="product-title" id="product-9-title">
                   Soluție curățare universală Koch Chemie Green Star, Gs, 1L
                 </h3>
-                <p class="product-price">42 Ron</p>
+                <p class="product-price" id="product-9-price">42 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-9-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-9-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-10">
                 <a
                   aria-label="Soluție spălare fără apă"
                   class="product-link"
+                id="product-10-link"
                   href="catalog.html"
                 >
                   <img
@@ -528,20 +572,24 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-10-category"></p>
+                <h3 class="product-title" id="product-10-title">
                   Soluție spălare fără apă Koch Chemie Wash and Finish, Wf, 1L
                 </h3>
-                <p class="product-price">65 Ron</p>
+                <p class="product-price" id="product-10-price">65 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-10-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-10-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card">
+              <article class="product-card" id="product-card-11">
                 <a
                   aria-label="Soluție spălare fără clătire"
                   class="product-link"
+                id="product-11-link"
                   href="catalog.html"
                 >
                   <img
@@ -554,21 +602,25 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-11-category"></p>
+                <h3 class="product-title" id="product-11-title">
                   Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash,
                   Rrw, 1L
                 </h3>
-                <p class="product-price">62 Ron</p>
+                <p class="product-price" id="product-11-price">62 Ron</p>
+                <p class="site-muted small mb-2 oop-stock" id="product-11-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-11-btn"
                   >Adaugă în coș</a
                 >
               </article>
-              <article class="product-card product-card-sale">
+              <article class="product-card product-card-sale" id="product-card-12">
                 <a
                   aria-label="Spumă spălare cu pH neutru"
                   class="product-link"
+                id="product-12-link"
                   href="catalog.html"
                 >
                   <img
@@ -581,18 +633,21 @@
                     "
                   />
                 </a>
-                <h3 class="product-title">
+                <p class="oop-category product-badge mb-2" id="product-12-category"></p>
+                <h3 class="product-title" id="product-12-title">
                   Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf,
                   1L
                 </h3>
-                <p class="product-price">
+                <p class="product-price" id="product-12-price">
                   <span class="price-now">81 Ron</span>
                   <span class="price-old">90 Ron</span>
                   <span class="badge price-badge">-10%</span>
                 </p>
+                <p class="site-muted small mb-2 oop-stock" id="product-12-stock"></p>
                 <a
                   class="btn btn-outline"
                   href="#"
+                  id="product-12-btn"
                   >Adaugă în coș</a
                 >
               </article>
@@ -600,27 +655,24 @@
             <nav
               aria-label="Paginare"
               class="pagination d-flex flex-wrap justify-content-center align-items-center gap-2"
+              id="pagination"
             >
-              <a class="btn btn-nav" href="catalog.html">Înapoi</a>
-              <a aria-current="page" class="page is-active" href="catalog.html"
-                >1</a
-              >
-              <a class="page" href="catalog.html">2</a>
-              <span class="dots">…</span>
-              <a class="page" href="catalog.html">9</a>
-              <a class="page" href="catalog.html">10</a>
-              <a class="btn btn-nav" href="catalog.html">Înainte</a>
+              <button class="btn btn-nav" id="page-prev-btn" type="button">Înapoi</button>
+              <button class="page" id="page-1-btn" type="button">1</button>
+              <button class="page" id="page-2-btn" type="button">2</button>
+              <button class="btn btn-nav" id="page-next-btn" type="button">Înainte</button>
             </nav>
           </div>
         </div>
       </section>
-      <!-- SECTIUNE: Newsletter  -->
+      <!-- SECTIUNE: Newsletter -->
       <section aria-label="Newsletter" class="newsletter">
         <div class="newsletter-inner">
           <h2>RĂMÂI LA CURENT CU<br />CELE MAI BUNE OFERTE!</h2>
           <form
             action="#"
             class="newsletter-form d-flex flex-column flex-sm-row gap-3"
+            id="newsletter-form"
             method="post"
           >
             <input
@@ -634,6 +686,7 @@
               Abonează-te la newsletter
             </button>
           </form>
+          <p class="small-text mt-2 mb-0" id="newsletter-message"></p>
         </div>
       </section>
     </main>
@@ -647,11 +700,11 @@
           <section class="footer-card col-12 col-md-6 col-lg-4">
             <h4>MAGAZIN</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="catalog.html" data-footer-search="șampon">Sampoane auto</a></li>
-              <li><a href="catalog.html" data-footer-category="Protecție">Ceară &amp; sealant</a></li>
-              <li><a href="catalog.html" data-footer-category="Curățare">Solutii curățare</a></li>
-              <li><a href="catalog.html" data-footer-category="Accesorii">Accesorii detailing</a></li>
-              <li><a href="catalog.html" data-footer-category="Spălare">Produse spălare</a></li>
+              <li><a data-footer-search="șampon" href="catalog.html" id="footer-link-sampoane">Sampoane auto</a></li>
+              <li><a data-footer-category="Protecție" href="catalog.html" id="footer-link-protectie">Ceară &amp; sealant</a></li>
+              <li><a data-footer-category="Curățare" href="catalog.html" id="footer-link-curatare">Solutii curățare</a></li>
+              <li><a data-footer-category="Accesorii" href="catalog.html" id="footer-link-accesorii">Accesorii detailing</a></li>
+              <li><a data-footer-category="Spălare" href="catalog.html" id="footer-link-spalare">Produse spălare</a></li>
               <li><a href="reduceri.html">Promotii</a></li>
             </ul>
           </section>
@@ -680,7 +733,7 @@
           class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start d-flex flex-wrap align-items-center gap-3 mt-4 pt-3"
         >
           <p class="footer-signature mb-0">
-            Proiectat și dezvoltat de: <strong>Matteo</strong><br><span class="footer-year">© <span class="js-current-year">2026</span> Adarta</span>
+            Proiectat și dezvoltat de: <strong>Matteo</strong><br><span class="footer-year">© <span class="js-current-year" id="footer-year">2026</span> Adarta</span>
           </p>
           <div
             class="footer-social justify-content-center d-flex align-items-center"

@@ -60,11 +60,13 @@
           <form
             aria-label="Caută produse"
             class="search header-search d-none d-lg-inline-flex"
+            id="header-search-form"
             role="search"
           >
             <span aria-hidden="true" class="search-icon"></span>
             <input
               class="header-search-input"
+              id="header-search-input"
               name="search"
               placeholder="Caută produse..."
               type="search"
@@ -76,6 +78,7 @@
             href="cart.html"
            
             ><img alt="" src="images/Ikonice.assignment03/cart_logo.png" /><span
+              id="header-cart-count"
               >Coș</span
             ></a
           >
@@ -84,6 +87,7 @@
             class="action-link icon-action"
             href="login.html"
             ><img alt="" src="images/Ikonice.assignment03/user_logo.png" /><span
+              id="header-login-text"
               >Autentificare</span
             ></a
           >
@@ -109,21 +113,21 @@
                 <a class="nav-link" href="index.html#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link săle-link" href="reduceri.html">Reduceri!</a>
+                <a class="nav-link sale-link" href="reduceri.html">Reduceri!</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
-    <!-- SECTIUNE: Main / Continut pagina -->
+    <!-- SECTIUNE: Continut principal -->
     <main class="product-page container py-4 py-lg-5">
       <!-- SECTIUNE: Breadcrumb -->
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
           <li><a href="index.html">Acasă</a></li>
           <li><a href="catalog.html">Magazin</a></li>
-          <li aria-current="page">Șampon ceramic</li>
+          <li aria-current="page" id="breadcrumb-current">Șampon ceramic</li>
         </ol>
       </nav>
       <!-- SECTIUNE: Detalii produs -->
@@ -132,6 +136,7 @@
           <img
             alt="Șampon auto Koch Chemie Ceramic Effect Shampoo"
             class="product-main-img img-fluid"
+            id="product-main-img"
             src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
           />
           <div class="row g-3 mt-2 d-none d-md-flex">
@@ -139,6 +144,7 @@
               <img
                 alt="Șampon ceramic Koch Chemie"
                 class="product-gallery-img img-fluid rounded"
+                id="gallery-thumb-1"
                 src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg"
               />
             </div>
@@ -146,6 +152,7 @@
               <img
                 alt="Șampon reactivare ceramică"
                 class="product-gallery-img img-fluid rounded"
+                id="gallery-thumb-2"
                 src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
               />
             </div>
@@ -153,6 +160,7 @@
               <img
                 alt="Spumă spălare cu pH neutru"
                 class="product-gallery-img img-fluid rounded"
+                id="gallery-thumb-3"
                 src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
               />
             </div>
@@ -160,28 +168,28 @@
         </div>
         <div class="col-12 col-lg-5 offset-lg-1">
           <article class="product-info-card site-card">
-            <p class="text-uppercase site-muted small mb-2">Koch Chemie</p>
-            <h1 class="mb-3">
+            <p class="text-uppercase site-muted small mb-2" id="product-brand">Koch Chemie</p>
+            <h1 class="mb-3" id="product-title">
               Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo
               (CES), 1L
             </h1>
             <div class="d-flex align-items-center gap-2 mb-3">
-              <span class="product-stars">★★★★★</span
-              ><span class="site-muted small">(12 recenzii)</span>
+              <span class="product-stars" id="product-rating-stars">★★★★★</span
+              ><span class="site-muted small" id="product-rating-count">(12 recenzii)</span>
             </div>
-            <p class="h3 mb-2">119 Ron</p>
-            <p class="text-success fw-bold mb-3">În stoc</p>
-            <p class="lead site-muted">
+            <p class="h3 mb-2" id="product-price">119 Ron</p>
+            <p class="text-success fw-bold mb-3" id="product-stock-label">În stoc</p>
+            <p class="lead site-muted" id="product-lead">
               Șampon cu protecție pe termen lung, ideal pentru spălarea manuală.
               Curăță și protejează rapid într-un singur pas și prelungește
               durata protecțiilor aplicăte anterior.
             </p>
             <div class="my-4">
-              <p class="fw-bold mb-2">Volum sticlă</p>
+              <p class="fw-bold mb-2" id="package-title">Volum sticlă</p>
               <div class="volume-options">
-                <button class="volume-option" type="button">50 ml</button
-                ><button class="volume-option" type="button">500 ml</button
-                ><button class="volume-option is-selected" type="button">
+                <button class="volume-option" id="package-btn-1" type="button">50 ml</button
+                ><button class="volume-option" id="package-btn-2" type="button">500 ml</button
+                ><button class="volume-option is-selected" id="package-btn-3" type="button">
                   1 L
                 </button>
               </div>
@@ -193,26 +201,28 @@
                 <button
                   aria-label="Scade cantitatea"
                   class="d-inline-flex align-items-center justify-content-center"
+                  id="qty-minus-btn"
                   type="button"
                 >
                   −</button
-                ><span>1</span
+                ><span id="qty-display">1</span
                 ><button
                   aria-label="Crește cantitatea"
                   class="d-inline-flex align-items-center justify-content-center"
+                  id="qty-plus-btn"
                   type="button"
                 >
                   +
                 </button>
               </div>
-              <a class="btn btn-outline flex-grow-1" href="cart.html"
+              <a class="btn btn-outline flex-grow-1" href="cart.html" id="add-to-cart-btn"
                 >Adaugă în coș</a
               >
             </div>
           </article>
         </div>
       </section>
-      <!-- SECTIUNE: Tabs produs (Descriere / Specificații / Recenzii) -->
+      <!-- SECTIUNE: Tabs produs - descriere, specificatii, recenzii -->
       <section
         aria-label="Descriere detaliată produs"
         class="site-card p-4 mt-4"
@@ -273,18 +283,18 @@
             role="tabpanel"
           >
             <h2 class="h4 mb-3">Descriere detaliată</h2>
-            <p>
+            <p id="desc-p-1">
               Ceramic Effect Shampoo este un șampon auto cu tehnologie de
               conservare ce creează o suprafață netedă și hidrofobă, cu luciu
               accentuat.
             </p>
-            <p>
+            <p id="desc-p-2">
               Este ideal pentru vehicule protejate anterior și ajută la
               prelungirea duratei stratului protector. Ideal pentru vopsea,
               sticlă și plastic.
             </p>
-            <p class="mb-0">
-              <strong>Mod de folosire:</strong> adaugă 50 ml la 10 L apă, spală
+            <p class="mb-0" id="desc-p-3">
+              Mod de folosire: adaugă 50 ml la 10 L apă, spală
               cu mănușă său burete, clătește bine și usucă. Nu folosi pe
               suprafețe fierbinți său în soare.
             </p>
@@ -300,20 +310,32 @@
               <table class="table align-middle mb-0">
                 <tbody>
                   <tr>
-                    <th scope="row">Volum</th>
-                    <td>1 L</td>
+                    <th scope="row">Brand</th>
+                    <td id="spec-brand-value">Koch Chemie</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tip protecție</th>
-                    <td>Hibridă</td>
+                    <th scope="row">Ambalaj selectat</th>
+                    <td id="spec-package-value">1 L</td>
                   </tr>
                   <tr>
-                    <th scope="row">Utilizare</th>
-                    <td>Spălare manuală</td>
+                    <th scope="row">Preț</th>
+                    <td id="spec-price-value">119 Ron</td>
                   </tr>
                   <tr>
-                    <th scope="row">Dozaj</th>
-                    <td>50 ml / 10 L apă</td>
+                    <th id="spec-row-1-label" scope="row">Categorie</th>
+                    <td id="spec-row-1-value">Șampon auto cu efect de protecție</td>
+                  </tr>
+                  <tr>
+                    <th id="spec-row-2-label" scope="row">Suprafețe</th>
+                    <td id="spec-row-2-value">Vopsea, plastic exterior, sticlă</td>
+                  </tr>
+                  <tr>
+                    <th id="spec-row-3-label" scope="row">Dozaj orientativ</th>
+                    <td id="spec-row-3-value">Aprox. 50 ml la 10 L apă</td>
+                  </tr>
+                  <tr>
+                    <th id="spec-row-4-label" scope="row">Potrivit pentru</th>
+                    <td id="spec-row-4-value">Întreținere după ceară, sealant său protecție ceramică</td>
                   </tr>
                 </tbody>
               </table>
@@ -327,26 +349,34 @@
           >
             <h2 class="h4 mb-3">Recenzii utilizatori</h2>
             <article class="review-box mb-3">
-              <h3 class="visually-hidden">Recenzie Andrei</h3>
+              <h3 class="visually-hidden" id="review-1-heading">Recenzie</h3>
               <p class="mb-1">
-                <strong>Andrei P.</strong>
-                <span class="product-stars">★★★★★</span>
+                <strong id="review-1-name">Andrei P.</strong>
+                <span class="product-stars" id="review-1-stars">★★★★★</span>
               </p>
-              <p class="mb-0 site-muted">
+              <p class="mb-0 site-muted" id="review-1-text">
                 „Spumăre bună și lasă un efect hidrofob vizibil. Mi-a plăcut și
                 mirosul.”
               </p>
             </article>
-            <article class="review-box">
-              <h3 class="visually-hidden">Recenzie Maria</h3>
+            <article class="review-box mb-3">
+              <h3 class="visually-hidden" id="review-2-heading">Recenzie</h3>
               <p class="mb-1">
-                <strong>Maria D.</strong>
-                <span class="product-stars">★★★★☆</span>
+                <strong id="review-2-name">Maria D.</strong>
+                <span class="product-stars" id="review-2-stars">★★★★☆</span>
               </p>
-              <p class="mb-0 site-muted">
+              <p class="mb-0 site-muted" id="review-2-text">
                 „Curăță bine și luciul e fain. Aș vrea doar un preț puțin mai
                 mic.”
               </p>
+            </article>
+            <article class="review-box" id="review-3-box">
+              <h3 class="visually-hidden" id="review-3-heading">Recenzie</h3>
+              <p class="mb-1">
+                <strong id="review-3-name"></strong>
+                <span class="product-stars" id="review-3-stars"></span>
+              </p>
+              <p class="mb-0 site-muted" id="review-3-text"></p>
             </article>
           </div>
         </div>
@@ -355,58 +385,74 @@
       <section aria-labelledby="similar-title" class="mt-5">
         <h2 class="h3 mb-3" id="similar-title">Produse similare</h2>
         <div class="row g-4">
-          <article class="col-12 col-sm-6 col-lg-3">
-            <div class="site-card h-100 p-3">
-              <img
-                alt="Spumă spălare cu pH neutru"
-                class="product-gallery-img mb-3"
-                src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
-              />
-              <h3 class="h6 text-center">
-                Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, 1L
-              </h3>
-              <p class="fw-bold mb-0 text-center">45,00 RON</p>
+          <article class="col-12 col-sm-6 col-lg-3" id="similar-1-box">
+            <div class="site-card h-100 p-3 similar-product-card">
+              <a class="similar-product-link d-block text-decoration-none" href="product.html" id="similar-1-link">
+                <img
+                  alt=""
+                  class="similar-product-img mb-3"
+                  id="similar-1-img"
+                  src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
+                />
+                <h3 class="h6 text-center" id="similar-1-title">
+                  Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, 1L
+                </h3>
+                <p class="fw-bold mb-2 text-center" id="similar-1-price">45,00 RON</p>
+              </a>
+              <button class="btn btn-outline w-100 similar-add-btn" id="similar-1-addbtn" type="button">Adaugă în coș</button>
             </div>
           </article>
-          <article class="col-12 col-sm-6 col-lg-3">
-            <div class="site-card h-100 p-3">
-              <img
-                alt="Soluție spălare fără clătire"
-                class="product-gallery-img mb-3"
-                src="images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg"
-              />
-              <h3 class="h6 text-center">
-                Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash,
-                1L
-              </h3>
-              <p class="fw-bold mb-0 text-center">30,00 RON</p>
+          <article class="col-12 col-sm-6 col-lg-3" id="similar-2-box">
+            <div class="site-card h-100 p-3 similar-product-card">
+              <a class="similar-product-link d-block text-decoration-none" href="product.html" id="similar-2-link">
+                <img
+                  alt=""
+                  class="similar-product-img mb-3"
+                  id="similar-2-img"
+                  src="images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg"
+                />
+                <h3 class="h6 text-center" id="similar-2-title">
+                  Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash,
+                  1L
+                </h3>
+                <p class="fw-bold mb-2 text-center" id="similar-2-price">30,00 RON</p>
+              </a>
+              <button class="btn btn-outline w-100 similar-add-btn" id="similar-2-addbtn" type="button">Adaugă în coș</button>
             </div>
           </article>
-          <article class="col-12 col-sm-6 col-lg-3">
-            <div class="site-card h-100 p-3">
-              <img
-                alt="Șampon reactivare ceramică"
-                class="product-gallery-img mb-3"
-                src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
-              />
-              <h3 class="h6 text-center">
-                Șampon auto reactivare ceramică Koch Chemie Reactivation
-                Shampoo, 1L
-              </h3>
-              <p class="fw-bold mb-0 text-center">60,00 RON</p>
+          <article class="col-12 col-sm-6 col-lg-3" id="similar-3-box">
+            <div class="site-card h-100 p-3 similar-product-card">
+              <a class="similar-product-link d-block text-decoration-none" href="product.html" id="similar-3-link">
+                <img
+                  alt=""
+                  class="similar-product-img mb-3"
+                  id="similar-3-img"
+                  src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
+                />
+                <h3 class="h6 text-center" id="similar-3-title">
+                  Șampon auto reactivare ceramică Koch Chemie Reactivation
+                  Shampoo, 1L
+                </h3>
+                <p class="fw-bold mb-2 text-center" id="similar-3-price">60,00 RON</p>
+              </a>
+              <button class="btn btn-outline w-100 similar-add-btn" id="similar-3-addbtn" type="button">Adaugă în coș</button>
             </div>
           </article>
-          <article class="col-12 col-sm-6 col-lg-3">
-            <div class="site-card h-100 p-3">
-              <img
-                alt="Soluție spălare fără apă"
-                class="product-gallery-img mb-3"
-                src="images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg"
-              />
-              <h3 class="h6 text-center">
-                Soluție spălare fără apă Koch Chemie Wash and Finish, 1L
-              </h3>
-              <p class="fw-bold mb-0 text-center">35,00 RON</p>
+          <article class="col-12 col-sm-6 col-lg-3" id="similar-4-box">
+            <div class="site-card h-100 p-3 similar-product-card">
+              <a class="similar-product-link d-block text-decoration-none" href="product.html" id="similar-4-link">
+                <img
+                  alt=""
+                  class="similar-product-img mb-3"
+                  id="similar-4-img"
+                  src="images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg"
+                />
+                <h3 class="h6 text-center" id="similar-4-title">
+                  Soluție spălare fără apă Koch Chemie Wash and Finish, 1L
+                </h3>
+                <p class="fw-bold mb-2 text-center" id="similar-4-price">35,00 RON</p>
+              </a>
+              <button class="btn btn-outline w-100 similar-add-btn" id="similar-4-addbtn" type="button">Adaugă în coș</button>
             </div>
           </article>
         </div>
@@ -422,11 +468,11 @@
           <section class="footer-card col-12 col-md-6 col-lg-4">
             <h4>MAGAZIN</h4>
             <ul class="list-unstyled mb-0">
-              <li><a href="catalog.html" data-footer-search="șampon">Sampoane auto</a></li>
-              <li><a href="catalog.html" data-footer-category="Protecție">Ceară &amp; sealant</a></li>
-              <li><a href="catalog.html" data-footer-category="Curățare">Solutii curățare</a></li>
-              <li><a href="catalog.html" data-footer-category="Accesorii">Accesorii detailing</a></li>
-              <li><a href="catalog.html" data-footer-category="Spălare">Produse spălare</a></li>
+              <li><a data-footer-search="șampon" href="catalog.html" id="footer-link-sampoane">Sampoane auto</a></li>
+              <li><a data-footer-category="Protecție" href="catalog.html" id="footer-link-protectie">Ceară &amp; sealant</a></li>
+              <li><a data-footer-category="Curățare" href="catalog.html" id="footer-link-curatare">Solutii curățare</a></li>
+              <li><a data-footer-category="Accesorii" href="catalog.html" id="footer-link-accesorii">Accesorii detailing</a></li>
+              <li><a data-footer-category="Spălare" href="catalog.html" id="footer-link-spalare">Produse spălare</a></li>
               <li><a href="catalog.html">Promoții</a></li>
             </ul>
           </section>
@@ -455,7 +501,7 @@
           class="footer2 justify-content-around justify-content-md-between justify-content-lg-between text-center text-md-start text-lg-start d-flex flex-wrap align-items-center gap-3 mt-4 pt-3"
         >
           <p class="footer-signature mb-0">
-            Proiectat și dezvoltat de: <strong>Matteo</strong><br><span class="footer-year">© <span class="js-current-year">2026</span> Adarta</span>
+            Proiectat și dezvoltat de: <strong>Matteo</strong><br><span class="footer-year">© <span class="js-current-year" id="footer-year">2026</span> Adarta</span>
           </p>
           <div
             class="footer-social justify-content-center d-flex align-items-center"

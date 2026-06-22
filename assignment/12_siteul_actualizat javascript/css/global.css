@@ -757,7 +757,7 @@ section + section {
   align-self: center;
 }
 
-/* Imbunatatiri simple pentru partea JS */
+/* STILURI PENTRU FUNCTIONALITATEA JS */
 .catalog-tools {
   padding: 1rem;
 }
@@ -796,7 +796,7 @@ section + section {
 }
 
 
-/* Search simplu in header */
+/* CAUTARE IN HEADER */
 .header-search {
   background: #fff;
   border: 1px solid var(--border);
