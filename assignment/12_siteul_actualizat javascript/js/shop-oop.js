@@ -7,13 +7,14 @@
 class Product {
   #quantity;
 
-  constructor(id, name, price, quantity, image, variants, discountPercent) {
+  constructor(id, name, price, quantity, image, variants, discountPercent, brand) {
     this.id = id;
     this.name = name;
     this.price = price;
     this.image = image;
     this.variants = variants || [{ label: "Standard", price: price }];
     this.discountPercent = discountPercent || 0;
+    this.brand = brand || "Koch Chemie";
     this.#quantity = quantity;
   }
 
@@ -260,7 +261,7 @@ const shopProducts = [
     "Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces, 1Lt",
     135,
     15,
-    "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg",
+    "images/1-koch-chemie-sampon-ceramic.jpg",
     [
       { label: "1 L", price: 135 },
       { label: "5 L", price: 450 }
@@ -271,7 +272,7 @@ const shopProducts = [
     "Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs, 1L",
     89,
     8,
-    "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg",
+    "images/2-koch-chemie-sampon-reactivare.jpg",
     [{ label: "1 L", price: 89 }]
   ),
   new Product(
@@ -279,7 +280,7 @@ const shopProducts = [
     "Polish 3 in 1 cu ceară Carnauba Koch Chemie One Cut and Finish, P6.02, 1L",
     306,
     5,
-    "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg",
+    "images/3-koch-chemie-polish-3in1.jpg",
     [
       { label: "250 ml", price: 95 },
       { label: "1 L", price: 306 }
@@ -290,7 +291,7 @@ const shopProducts = [
     "Spray protecție vopsea Koch Chemie Spray Sealant, S0.02, 500ml",
     138,
     20,
-    "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg",
+    "images/4-koch-chemie-spray-sealant.jpg",
     [{ label: "500 ml", price: 138 }],
     10
   ),
@@ -299,7 +300,7 @@ const shopProducts = [
     "Set pensule interior Koch Chemie Interior Brush Set",
     70,
     3,
-    "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg",
+    "images/5-koch-chemie-set-pensule.jpg",
     [{ label: "3 buc", price: 70 }],
     15
   ),
@@ -308,7 +309,7 @@ const shopProducts = [
     "Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb, 1L",
     69,
     12,
-    "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp",
+    "images/6-koch-chemie-curatare-alcalina.webp",
     [
       { label: "1 L", price: 69 },
       { label: "5 L", price: 179 }
@@ -319,7 +320,7 @@ const shopProducts = [
     "Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr, 1L",
     69,
     7,
-    "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg",
+    "images/7-koch-chemie-curatare-generala.jpg",
     [
       { label: "1 L", price: 69 },
       { label: "10 L", price: 307 }
@@ -330,7 +331,7 @@ const shopProducts = [
     "Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner, Mwc, 500ml",
     94,
     9,
-    "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg",
+    "images/8-koch-chemie-curatare-jante.jpg",
     [{ label: "500 ml", price: 94 }]
   ),
   new Product(
@@ -338,7 +339,7 @@ const shopProducts = [
     "Soluție curățare universală Koch Chemie Green Star, Gs, 1L",
     46,
     10,
-    "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg",
+    "images/9-koch-chemie-curatare-universala.jpg",
     [
       { label: "1 L", price: 46 },
       { label: "5 L", price: 190 },
@@ -350,7 +351,7 @@ const shopProducts = [
     "Soluție spălare fără apă Koch Chemie Wash and Finish, Wf, 1L",
     65,
     6,
-    "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg",
+    "images/10-koch-chemie-spalare-fara-apa.jpg",
     [{ label: "1 L", price: 65 }]
   ),
   new Product(
@@ -358,7 +359,7 @@ const shopProducts = [
     "Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash, Rrw, 1L",
     62,
     6,
-    "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg",
+    "images/11-koch-chemie-spalare-fara-clatire.jpg",
     [{ label: "1 L", price: 62 }]
   ),
   new Product(
@@ -366,12 +367,121 @@ const shopProducts = [
     "Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf, 1L",
     108,
     4,
-    "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg",
+    "images/12-koch-chemie-spuma-spalare.jpg",
     [
       { label: "1 L", price: 108 },
       { label: "5 L", price: 370 }
     ],
     10
+  ),
+  new Product(
+    13,
+    "Șampon auto cu ceară Sonax Xtreme Wash & Wax, 1L",
+    45,
+    14,
+    "images/13-sonax-wash-wax.webp",
+    [
+      { label: "500 ml", price: 28 },
+      { label: "1 L", price: 45 }
+    ],
+    0,
+    "Sonax"
+  ),
+  new Product(
+    14,
+    "Soluție curățare jante Sonax Wheel Cleaner Full Effect, 500ml",
+    38,
+    10,
+    "images/14-sonax-curatare-jante.webp",
+    [{ label: "500 ml", price: 38 }],
+    0,
+    "Sonax"
+  ),
+  new Product(
+    15,
+    "Spray ceară lichidă Sonax Xtreme Protect+Shine Spray&Seal, 750ml",
+    65,
+    9,
+    "images/15-sonax-ceramic-spray.webp",
+    [{ label: "750 ml", price: 65 }],
+    0,
+    "Sonax"
+  ),
+  new Product(
+    16,
+    "Soluție curățare interior Sonax Interior Cleaner, 500ml",
+    32,
+    11,
+    "images/16-sonax-curatare-interior.webp",
+    [{ label: "500 ml", price: 32 }],
+    0,
+    "Sonax"
+  ),
+  new Product(
+    17,
+    "Șampon auto Meguiar's Gold Class Car Wash Shampoo & Conditioner, 1.4L",
+    75,
+    8,
+    "images/17-meguiars-gold-class.webp",
+    [
+      { label: "473 ml", price: 35 },
+      { label: "1.4 L", price: 75 }
+    ],
+    0,
+    "Meguiars"
+  ),
+  new Product(
+    18,
+    "Ceară lichidă Meguiar's Ultimate Liquid Wax, 473ml",
+    95,
+    6,
+    "images/18-meguiars-liquid-wax.webp",
+    [{ label: "473 ml", price: 95 }],
+    0,
+    "Meguiars"
+  ),
+  new Product(
+    19,
+    "Soluție curățare jante Meguiar's Hot Rims Wheel & Tire Cleaner, 710ml",
+    48,
+    9,
+    "images/19-meguiars-hot-rims.webp",
+    [{ label: "710 ml", price: 48 }],
+    0,
+    "Meguiars"
+  ),
+  new Product(
+    20,
+    "Șampon auto cu ceară Turtle Wax Ice Car Wash, 1.4L",
+    40,
+    16,
+    "images/20-turtlewax-ice-carwash.jpg",
+    [
+      { label: "500 ml", price: 22 },
+      { label: "1.4 L", price: 40 }
+    ],
+    0,
+    "Turtle Wax"
+  ),
+  new Product(
+    21,
+    "Ceară spray Turtle Wax Ice Spray Wax, 500ml",
+    35,
+    12,
+    "images/21-turtlewax-spray-wax.webp",
+    [{ label: "500 ml", price: 35 }],
+    0,
+    "Turtle Wax"
+  ),
+  new Product(
+    22,
+    "Set lavete microfibră Turtle Wax Premium Microfiber Cloths",
+    45,
+    13,
+    "images/22-turtlewax-laveta-microfibra.webp",
+    [{ label: "3 buc", price: 45 }],
+    0,
+    "Turtle Wax"
   )
 ];
 

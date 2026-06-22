@@ -224,7 +224,7 @@ function getProductCategory(name) {
     return "Protecție";
   }
 
-  if (lowerName.indexOf("pensule") !== -1) {
+  if (lowerName.indexOf("pensule") !== -1 || lowerName.indexOf("lavete") !== -1) {
     return "Accesorii";
   }
 
@@ -325,7 +325,7 @@ function updateOneProductCard(n, product) {
 }
 
 function decorateProductCards() {
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= shopProducts.length; i++) {
     let card = document.getElementById("product-card-" + i);
     let product = shopProducts[i - 1];
 
@@ -372,7 +372,7 @@ function decorateProductCards() {
 }
 
 function refreshProductCardsStock() {
-  for (let i = 1; i <= 12; i++) {
+  for (let i = 1; i <= shopProducts.length; i++) {
     let card = document.getElementById("product-card-" + i);
     let product = shopProducts[i - 1];
 
@@ -492,7 +492,7 @@ function setupCatalogTools() {
   let savedFooterCategory =
     localStorage.getItem(FOOTER_CATEGORY_STORAGE_KEY) || "";
   let currentPage = 1;
-  let productsPerPage = 9;
+  let productsPerPage = 12;
 
   if (savedFooterCategory !== "") {
     let allCheckbox = document.getElementById(categoryAllId);
@@ -646,7 +646,7 @@ function setupCatalogTools() {
 
     let visibleList = [];
 
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= shopProducts.length; i++) {
       let card = document.getElementById("product-card-" + i);
       let product = shopProducts[i - 1];
 
@@ -655,7 +655,7 @@ function setupCatalogTools() {
       }
 
       let price = product.getDiscountedPrice(product.getDefaultVariant().price);
-      let brand = "Koch Chemie";
+      let brand = product.brand;
       let category = getProductCategory(product.name);
       let searchText = (
         product.name +
@@ -1393,6 +1393,407 @@ const PRODUCT_DETAILS = [
         "Ciprian L.",
         "★★★★☆",
         "Miros plăcut și spumă buna. Pentru murdărie grea folosesc și Green Star."
+      ]
+    ]
+  },
+  {
+    id: 13,
+    shortName: "Xtreme Wash & Wax 1L",
+    brand: "Sonax",
+    rating: "★★★★☆",
+    reviewCount: 14,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["500 ml", "1 L"],
+    selectedPackage: "1 L",
+    lead: "Șampon auto cu ceară carnauba, pentru spălare și protecție intr-un singur pas. Lasa o pelicula hidrofoba vizibila după clătire.",
+    description: [
+      "Xtreme Wash & Wax curată mașina și lasă in același timp un strat fin de ceară, fără pași suplimentari.",
+      "Este potrivit pentru intretinerea regulata, mai ales pe mașini care au deja o protecție de baza.",
+      "Se diluează in găleată, se spală mașina pe zone și se clătește bine inainte ca produsul să se usuce pe vopsea."
+    ],
+    specs: [
+      ["Volum", "1 L"],
+      ["Brand", "Sonax"],
+      ["Tip produs", "Șampon auto cu ceară"],
+      ["Suprafețe", "Vopsea, plastic exterior"],
+      ["Dozaj orientativ", "Aprox. 30 ml la 10 L apă"]
+    ],
+    reviews: [
+      [
+        "Bogdan T.",
+        "★★★★★",
+        "Spumă bine și lasă mașina lucioasă din prima spălare."
+      ],
+      [
+        "Diana M.",
+        "★★★★☆",
+        "Bun la întreținere, dar pe murdărie mai grea fac și o prespălare."
+      ],
+      [
+        "Cosmin V.",
+        "★★★★☆",
+        "Miros plăcut și clătire ușoară, nu lasă urme pe vopsea."
+      ]
+    ]
+  },
+  {
+    id: 14,
+    shortName: "Wheel Cleaner Full Effect 500ml",
+    brand: "Sonax",
+    rating: "★★★★★",
+    reviewCount: 21,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["500 ml"],
+    selectedPackage: "500 ml",
+    lead: "Soluție de curățare jante cu efect de schimbare a culorii, pentru a vedea exact unde acționează produsul pe praful de frana.",
+    description: [
+      "Wheel Cleaner Full Effect este conceput pentru jante din aluminiu vopsite, lăcuite său din otel.",
+      "Produsul își schimba culoarea pe zonele cu praf de frana, astfel incat sa observi vizual progresul curățării.",
+      "Se pulverizează pe janta rece, se lasă să acționeze, apoi se freaca ușor cu o perie și se clătește cu apă."
+    ],
+    specs: [
+      ["Volum", "500 ml"],
+      ["Brand", "Sonax"],
+      ["Tip produs", "Soluție curățare jante"],
+      ["Suprafețe", "Aluminiu, jante lăcuite, otel"],
+      ["Aplicare", "Pulverizare + perie pentru jante"]
+    ],
+    reviews: [
+      [
+        "Florentina A.",
+        "★★★★★",
+        "Se vede clar pe culoare unde a curatăt, foarte util."
+      ],
+      [
+        "Andrei B.",
+        "★★★★★",
+        "Scoate bine praful de frana, jantele rămân curate mult timp."
+      ],
+      [
+        "Iulian R.",
+        "★★★★☆",
+        "Funcționeaza bine, dar trebuie folosita perie pentru zonele dificile."
+      ]
+    ]
+  },
+  {
+    id: 15,
+    shortName: "Xtreme Spray & Seal 750ml",
+    brand: "Sonax",
+    rating: "★★★★☆",
+    reviewCount: 11,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["750 ml"],
+    selectedPackage: "750 ml",
+    lead: "Spray sealant pentru luciu rapid și protecție intre spălări, aplicăt direct pe vopsea umedă său uscata.",
+    description: [
+      "Xtreme Protect+Shine Spray&Seal se pulverizeaza direct pe panou și se șterge cu o lavetă microfibra.",
+      "Adaugă luciu și un efect hidrofob ușor, fără să fie nevoie de polish său aplicare cu mașina.",
+      "Este potrivit pentru intretinerea rapida intre doua spalari complete, mai ales primăvara și vara."
+    ],
+    specs: [
+      ["Volum", "750 ml"],
+      ["Brand", "Sonax"],
+      ["Tip produs", "Spray ceară / sealant"],
+      ["Suprafețe", "Vopsea, plastic exterior, crom"],
+      ["Aplicare", "Pulverizare + lavetă microfibra"]
+    ],
+    reviews: [
+      [
+        "Mircea D.",
+        "★★★★☆",
+        "Rapid de aplicăt, dă un luciu frumos pentru câteva săptămâni."
+      ],
+      [
+        "Larisa P.",
+        "★★★★★",
+        "Il folosesc după fiecare spălare, mașina rămâne lucioasă mai mult."
+      ],
+      [
+        "Sebastian K.",
+        "★★★☆☆",
+        "Bun produs, dar pe murdărie multă nu inlocuiește o ceară clasica."
+      ]
+    ]
+  },
+  {
+    id: 16,
+    shortName: "Interior Cleaner 500ml",
+    brand: "Sonax",
+    rating: "★★★★☆",
+    reviewCount: 8,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["500 ml"],
+    selectedPackage: "500 ml",
+    lead: "Soluție de curățare pentru plastic, vinil și cauciuc in interiorul mașinii, fără efect gras după uscare.",
+    description: [
+      "Interior Cleaner curată praful, petele și murdăria obișnuită de pe bord, console și panourile de plastic.",
+      "Formula nu lasă un finisaj gras, astfel incat suprafețele nu devin lipicioase sau prea lucioase.",
+      "Se pulverizează pe o lavetă moale sau direct pe suprafață, se șterge uniform și se lustruieste cu o lavetă uscata."
+    ],
+    specs: [
+      ["Volum", "500 ml"],
+      ["Brand", "Sonax"],
+      ["Tip produs", "Curățare interior"],
+      ["Suprafețe", "Plastic, vinil, cauciuc"],
+      ["Finisaj", "Mat, fără efect gras"]
+    ],
+    reviews: [
+      [
+        "Teodora S.",
+        "★★★★★",
+        "Curată bine bordul fără să lase suprafață lipicioasa."
+      ],
+      [
+        "Razvan M.",
+        "★★★★☆",
+        "Bun pentru intretinere regulata, miros discret și plăcut."
+      ],
+      [
+        "Adelina C.",
+        "★★★☆☆",
+        "Funcționeaza bine, dar pe pete vechi trebuie aplicăt de mai multe ori."
+      ]
+    ]
+  },
+  {
+    id: 17,
+    shortName: "Gold Class Shampoo & Conditioner 1.4L",
+    brand: "Meguiar's",
+    rating: "★★★★★",
+    reviewCount: 27,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["473 ml", "1.4 L"],
+    selectedPackage: "1.4 L",
+    lead: "Șampon auto spumant care curată și conditioneaza vopseaua intr-un singur pas, blând cu protecțiile existente.",
+    description: [
+      "Gold Class Car Wash Shampoo & Conditioner produce o spumă densa care ridica murdăria fără să zgârie vopseaua.",
+      "Formula conditioneaza vopseaua pe măsură ce curată, fiind potrivită și pentru mașini cu ceară sau sealant aplicăt.",
+      "Se diluează conform instrucțiunilor, se spală cu o lavetă sau mitt din microfibra și se clătește bine."
+    ],
+    specs: [
+      ["Volum", "1.4 L"],
+      ["Brand", "Meguiar's"],
+      ["Tip produs", "Șampon auto"],
+      ["Suprafețe", "Vopsea, plastic exterior"],
+      ["Potrivit pentru", "Mașini ceruite sau cu sealant"]
+    ],
+    reviews: [
+      [
+        "Gabriel N.",
+        "★★★★★",
+        "Spumă multă și deasa, mașina rămâne foarte curată."
+      ],
+      [
+        "Monica I.",
+        "★★★★★",
+        "Il folosesc de ani de zile, nu afectează ceară de pe mașina."
+      ],
+      [
+        "Vasile T.",
+        "★★★★☆",
+        "Foarte bun, doar consumul e puțin mai mare la mașini mari."
+      ]
+    ]
+  },
+  {
+    id: 18,
+    shortName: "Ultimate Liquid Wax 473ml",
+    brand: "Meguiar's",
+    rating: "★★★★★",
+    reviewCount: 17,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["473 ml"],
+    selectedPackage: "473 ml",
+    lead: "Ceară lichidă sintetica, ușor de aplicăt și de șters, pentru un luciu profund și protecție de durata.",
+    description: [
+      "Ultimate Liquid Wax combina tehnologie sintetica cu ingrediente naturale pentru un finisaj profund și umed.",
+      "Se aplică intr-un strat fin, cu un applicator din burete sau microfibra, pe mașina spălată și uscata.",
+      "După câteva minute, când produsul se uscă la o ceață fina, se lustruieste cu o lavetă microfibra curata."
+    ],
+    specs: [
+      ["Volum", "473 ml"],
+      ["Brand", "Meguiar's"],
+      ["Tip produs", "Ceară lichidă sintetica"],
+      ["Suprafețe", "Vopsea auto"],
+      ["Aplicare", "Manuala, strat fin cu applicator"]
+    ],
+    reviews: [
+      [
+        "Alexandra F.",
+        "★★★★★",
+        "Luciu foarte frumos și se da ușor, fără pete albe."
+      ],
+      [
+        "Catalin B.",
+        "★★★★★",
+        "Protecție buna câteva luni, recomand pe culori inchise."
+      ],
+      [
+        "Nicoleta R.",
+        "★★★★☆",
+        "Bun produs, doar trebuie strat foarte fin ca să nu fie de munca la lustruire."
+      ]
+    ]
+  },
+  {
+    id: 19,
+    shortName: "Hot Rims Wheel & Tire Cleaner 710ml",
+    brand: "Meguiar's",
+    rating: "★★★★☆",
+    reviewCount: 12,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["710 ml"],
+    selectedPackage: "710 ml",
+    lead: "Soluție spumanta pentru curățarea jantelor și anvelopelor, sigura pentru majoritatea finisajelor de janta.",
+    description: [
+      "Hot Rims Wheel & Tire Cleaner se pulverizează direct pe janta și pe anvelopa pentru a dizolva murdăria și praful de frana.",
+      "Spuma activa ajuta la desprinderea murdăriei fără frecare excesiva, protejand finisajul jantei.",
+      "Se lasă să acționeze câteva clipe, se freaca ușor cu o perie pentru jante și se clătește bine cu apă."
+    ],
+    specs: [
+      ["Volum", "710 ml"],
+      ["Brand", "Meguiar's"],
+      ["Tip produs", "Curățare jante și anvelope"],
+      ["Suprafețe", "Jante vopsite, lăcuite, anvelope"],
+      ["Aplicare", "Pulverizare + perie pentru jante"]
+    ],
+    reviews: [
+      [
+        "Stefania L.",
+        "★★★★☆",
+        "Curată bine și anvelopele, nu doar jantele."
+      ],
+      [
+        "Marius G.",
+        "★★★★★",
+        "Spuma activa scoate mult praf de frana fără efort."
+      ],
+      [
+        "Petru H.",
+        "★★★☆☆",
+        "Bun la murdărie obișnuită, la praf vechi e nevoie de mai mult timp."
+      ]
+    ]
+  },
+  {
+    id: 20,
+    shortName: "Ice Car Wash 1.4L",
+    brand: "Turtle Wax",
+    rating: "★★★★☆",
+    reviewCount: 22,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["500 ml", "1.4 L"],
+    selectedPackage: "1.4 L",
+    lead: "Șampon auto cu polimeri și ceară, pentru spălare ușoară, clătire rapida și un strat fin de protecție.",
+    description: [
+      "Ice Car Wash este formulat cu polimeri care ajuta apă să se scurga mai ușor de pe caroserie la clătire.",
+      "Lasă in urma un strat fin de protecție, vizibil prin efectul hidrofob de pe vopsea după spălare.",
+      "Se diluează in găleată sau se folosește cu pistolul de spumă, apoi se clătește bine inainte de uscare."
+    ],
+    specs: [
+      ["Volum", "1.4 L"],
+      ["Brand", "Turtle Wax"],
+      ["Tip produs", "Șampon auto cu ceară"],
+      ["Suprafețe", "Vopsea, plastic exterior"],
+      ["Clătire", "Rapida, datorita polimerilor"]
+    ],
+    reviews: [
+      [
+        "Doina V.",
+        "★★★★★",
+        "Clătire foarte rapida, se scurge apă bine de pe mașina."
+      ],
+      [
+        "Emil P.",
+        "★★★★☆",
+        "Bun raport calitate-pret, miros plăcut de mentă."
+      ],
+      [
+        "Roxana M.",
+        "★★★★☆",
+        "Spumă suficienta, dar la murdărie multă fac doua treceri."
+      ]
+    ]
+  },
+  {
+    id: 21,
+    shortName: "Ice Spray Wax 500ml",
+    brand: "Turtle Wax",
+    rating: "★★★★★",
+    reviewCount: 15,
+    packageTitle: "Volum ambalaj",
+    packageOptions: ["500 ml"],
+    selectedPackage: "500 ml",
+    lead: "Ceară spray pentru luciu rapid intre spălări complete, se aplică direct pe vopsea umedă sau uscata.",
+    description: [
+      "Ice Spray Wax se pulverizează pe panouri și se șterge cu o lavetă microfibra, fără apă sau frecare puternica.",
+      "Adaugă luciu și un efect de respingere a apei, util pentru intretinerea rapida in weekend.",
+      "Este potrivit și pentru retus local pe zone unde luciul s-a dus mai repede, cum ar fi capota sau plafonul."
+    ],
+    specs: [
+      ["Volum", "500 ml"],
+      ["Brand", "Turtle Wax"],
+      ["Tip produs", "Ceară spray"],
+      ["Suprafețe", "Vopsea auto"],
+      ["Aplicare", "Pulverizare + lavetă microfibra"]
+    ],
+    reviews: [
+      [
+        "Bianca O.",
+        "★★★★★",
+        "Foarte rapid de folosit, ideal când nu am timp de ceară clasica."
+      ],
+      [
+        "Cristian A.",
+        "★★★★★",
+        "Luciu frumos imediat, il țin in garaj pentru retusuri."
+      ],
+      [
+        "Ileana D.",
+        "★★★★☆",
+        "Bun produs, durata protecției e mai scurta fata de ceară lichidă."
+      ]
+    ]
+  },
+  {
+    id: 22,
+    shortName: "Premium Microfiber Cloths 3 buc",
+    brand: "Turtle Wax",
+    rating: "★★★★☆",
+    reviewCount: 10,
+    packageTitle: "Set",
+    packageOptions: ["3 buc"],
+    selectedPackage: "3 buc",
+    showPackageSection: false,
+    lead: "Set de lavete din microfibra, fără scame, pentru uscare, lustruire și aplicăt ceară sau sealant.",
+    description: [
+      "Lavetele din microfibra absorb rapid apă și sunt potrivite pentru uscarea caroseriei fără zgârieturi.",
+      "Sunt utile și pentru lustruirea finala după ceară, polish sau spray sealant, fără să lase scame pe vopsea.",
+      "Se recomanda spălarea separat de alte textile și evitarea balsamului de rufe, pentru a păstra absorbtia."
+    ],
+    specs: [
+      ["Continut", "3 lavete microfibra"],
+      ["Brand", "Turtle Wax"],
+      ["Utilizare", "Uscare, lustruire, aplicăt ceară"],
+      ["Material", "Microfibra fără scame"],
+      ["Întreținere", "Spălare separata, fără balsam de rufe"]
+    ],
+    reviews: [
+      [
+        "Daniela S.",
+        "★★★★★",
+        "Absorb foarte bine apă, mașina se usuca rapid."
+      ],
+      [
+        "Octavian R.",
+        "★★★★☆",
+        "Bune și pentru lustruit ceară, nu lasă scame."
+      ],
+      [
+        "Simona K.",
+        "★★★★☆",
+        "Set practic, dar pentru mașini mari ar fi nevoie de mai multe."
       ]
     ]
   }
