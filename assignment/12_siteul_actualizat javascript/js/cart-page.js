@@ -25,6 +25,12 @@ function renderCartItems() {
     }
 
     let item = cartPageCart.items[i - 1];
+    let product = findShopProductById(item.id);
+    let brand = "";
+
+    if (product !== null) {
+      brand = product.brand;
+    }
     article.style.display = "";
 
     let img = document.getElementById("cart-item-" + i + "-img");
@@ -43,7 +49,7 @@ function renderCartItems() {
     }
 
     if (meta) {
-      meta.innerText = "Koch Chemie - " + item.package;
+      meta.innerText = brand + " - " + item.package;
     }
 
     if (qtySpan) {
