@@ -1,0 +1,99 @@
+/* Mini eCommerce Debug Lab - CSS */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #222;
+}
+
+.shop-header {
+  padding: 16px;
+  background: #111;
+  color: white;
+}
+
+.shop-header h1,
+.subtitle {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 6px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.product-card,
+.cart-panel,
+.coupon-panel {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn {
+  padding: 10px 12px;
+  border: none;
+  background: #2d6cdf;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn:hover {
+  background: #2459b7;
+}
+
+.secondary {
+  background: #444;
+  color: white;
+}
+
+.secondary:hover {
+  background: #222;
+}
+
+.coupon-panel {
+  grid-column: 1 / -1;
+}
+
+#coupon-input {
+  padding: 9px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+#cart-list {
+  padding-left: 20px;
+}
+
+.total {
+  font-weight: bold;
+}
+
+@media (max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coupon-panel {
+    grid-column: auto;
+  }
+}
