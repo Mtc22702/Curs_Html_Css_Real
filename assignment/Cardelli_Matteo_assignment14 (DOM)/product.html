@@ -1,0 +1,441 @@
+<!doctype html>
+
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Produs - Sampon auto ceramic - Adarta</title>
+    <link
+      href="./images/Logo_Adarta.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      rel="stylesheet"
+    />
+    <!-- Stilurile proprii ale site-ului -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- SECTIUNE: Header / Navigatie -->
+    <header class="site-header">
+      <div class="navbar navbar-expand-lg bootstrap-navbar">
+        <!-- Controale mobile -->
+        <div class="mobile-controls d-flex align-items-center d-lg-none gap-2">
+          <button
+            aria-controls="primaryNav"
+            aria-expanded="false"
+            aria-label="Deschide meniul"
+            class="navbar-toggler"
+            data-bs-target="#primaryNav"
+            data-bs-toggle="collapse"
+            type="button"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a aria-label="Search" class="search mobile-search" href="shop.html">
+            <span aria-hidden="true" class="search-icon"></span>
+          </a>
+        </div>
+
+        <!-- Logo -->
+        <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
+          <a
+            aria-label="Shop"
+            class="brand-link d-flex align-items-center justify-content-center"
+            href="shop.html"
+          >
+            <img
+              alt="Logo Adarta"
+              class="brand-logo d-flex align-items-center"
+              src="images/Logo_Adarta.png"
+            />
+          </a>
+        </div>
+
+        <!-- Iconite dreapta -->
+        <div
+          class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
+        >
+          <div
+            aria-label="Search"
+            class="search d-none d-lg-inline-flex"
+            role="search"
+          >
+            <span aria-hidden="true" class="search-icon"></span>
+            <span class="search-label">Search</span>
+          </div>
+
+          <!-- Cos cu contor dinamic -->
+          <a aria-label="Cart" class="action-link icon-action" href="#">
+            <img alt="" src="images/Ikonice.assignment03/cart_logo.png" />
+            <span
+              >Cart (<span id="cart-count" class="cart-count-badge">0</span
+              >)</span
+            >
+            <span class="cart-count-sm" id="cart-count-sm" aria-hidden="true"
+              >0</span
+            >
+          </a>
+
+          <!-- Login -->
+          <a
+            aria-label="Login"
+            class="action-link icon-action"
+            href="login.html"
+          >
+            <img alt="" src="images/Ikonice.assignment03/user_logo.png" />
+            <span>Login</span>
+          </a>
+        </div>
+
+        <!-- Meniul de navigatie -->
+        <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
+          <nav aria-label="Navigatia principala" class="primary-nav ms-lg-4">
+            <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a aria-current="page" class="nav-link active" href="shop.html"
+                  >Shop</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link sale-link" href="#">Reduceri!</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTIUNE MAIN -->
+    <main class="product-page container py-4 py-lg-5">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol>
+          <li><a href="shop.html">Acasa</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li aria-current="page">Sampon ceramic</li>
+        </ol>
+      </nav>
+
+      <!-- SECTIUNE: Detalii produs -->
+      <section aria-label="Detalii produs" class="row g-4 align-items-start">
+        <!-- Imaginea principala si galeria -->
+        <div class="col-12 col-lg-6">
+          <img
+            alt="Sampon auto Koch Chemie Ceramic Effect Shampoo"
+            class="product-main-img img-fluid"
+            id="product-imagine"
+            src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg"
+          />
+          <!-- Galerie imagini -->
+          <div class="row g-3 mt-2 d-none d-md-flex">
+            <div class="col-4">
+              <img
+                alt="Sampon ceramic Koch Chemie"
+                class="product-gallery-img img-fluid rounded"
+                src="images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg"
+              />
+            </div>
+            <div class="col-4">
+              <img
+                alt="Sampon reactivare ceramica"
+                class="product-gallery-img img-fluid rounded"
+                src="images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
+              />
+            </div>
+            <div class="col-4">
+              <img
+                alt="Spuma spalare cu pH neutru"
+                class="product-gallery-img img-fluid rounded"
+                src="images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Informatii si actiuni produs -->
+        <div class="col-12 col-lg-5 offset-lg-1">
+          <article class="product-info-card site-card">
+            <p class="text-uppercase site-muted small mb-2">Koch Chemie</p>
+            <h1 class="mb-3" id="product-nume">
+              Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo
+              (CES), 1L
+            </h1>
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <span class="product-stars">★★★★★</span>
+              <span class="site-muted small">(12 recenzii)</span>
+            </div>
+            <p class="h3 mb-2" id="product-pret">119 RON</p>
+            <p class="text-success fw-bold mb-3">In stoc</p>
+            <p class="lead site-muted" id="product-descriere">
+              Sampon cu protectie pe termen lung, ideal pentru spalarea manuala.
+              Curata si protejeaza rapid intr-un singur pas.
+            </p>
+
+            <!-- Selectie culoare -->
+            <div class="my-4">
+              <p class="fw-bold mb-2">Culoare</p>
+              <div class="color-options product-options">
+                <button class="color-option is-selected" type="button">
+                  Alb
+                </button>
+                <button class="color-option" type="button">Negru</button>
+              </div>
+            </div>
+
+            <!-- Selectie marime -->
+            <div class="my-4">
+              <p class="fw-bold mb-2">Marime</p>
+              <div class="size-options product-options">
+                <button class="size-option is-selected" type="button">
+                  1 L
+                </button>
+                <button class="size-option" type="button">5 L</button>
+              </div>
+            </div>
+
+            <!-- Selectie cantitate si adaugare in cos -->
+            <div
+              class="d-flex flex-column flex-sm-row gap-3 align-items-stretch align-items-sm-center mb-3"
+            >
+              <div class="quantity-box d-inline-flex align-items-center">
+                <button aria-label="Scade cantitatea" type="button">−</button>
+                <span id="qty-display">1</span>
+                <button aria-label="Creste cantitatea" type="button">+</button>
+              </div>
+
+              <button
+                class="btn btn-outline flex-grow-1"
+                id="btn-adauga-cos"
+                type="button"
+              >
+                Adauga in cos
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTIUNE: Tabs produs -->
+      <section
+        aria-label="Descriere detaliata produs"
+        class="site-card p-4 mt-4"
+      >
+        <ul
+          class="nav nav-tabs product-tabs-bootstrap"
+          id="productTabs"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="desc"
+              aria-selected="true"
+              class="nav-link active"
+              data-bs-target="#desc"
+              data-bs-toggle="tab"
+              id="desc-tab"
+              role="tab"
+              type="button"
+            >
+              Descriere detaliata
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="spec"
+              aria-selected="false"
+              class="nav-link"
+              data-bs-target="#spec"
+              data-bs-toggle="tab"
+              id="spec-tab"
+              role="tab"
+              type="button"
+            >
+              Specificatii
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              aria-controls="reviews"
+              aria-selected="false"
+              class="nav-link"
+              data-bs-target="#reviews"
+              data-bs-toggle="tab"
+              id="reviews-tab"
+              role="tab"
+              type="button"
+            >
+              Recenzii
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content pt-4" id="productTabsContent">
+          <div
+            aria-labelledby="desc-tab"
+            class="tab-pane fade show active"
+            id="desc"
+            role="tabpanel"
+          >
+            <h2 class="h4 mb-3">Descriere detaliata</h2>
+            <p>
+              Ceramic Effect Shampoo este un sampon auto cu tehnologie de
+              conservare ce creeaza o suprafata neteda si hidrofoba, cu luciu
+              accentuat.
+            </p>
+            <p>
+              Este ideal pentru vehicule protejate anterior si ajuta la
+              prelungirea duratei stratului protector.
+            </p>
+            <p class="mb-0">
+              <strong>Mod de folosire:</strong> adauga 50 ml la 10 L apa, spala
+              cu manusa sau burete, clateste bine si usuca.
+            </p>
+          </div>
+
+          <div
+            aria-labelledby="spec-tab"
+            class="tab-pane fade"
+            id="spec"
+            role="tabpanel"
+          >
+            <h2 class="h4 mb-3">Specificatii</h2>
+            <div class="table-responsive">
+              <table class="table align-middle mb-0">
+                <tbody>
+                  <tr>
+                    <th scope="row">Marime</th>
+                    <td>1 L</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Tip protectie</th>
+                    <td>Hibrida</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Culoare</th>
+                    <td>Alb</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dozaj</th>
+                    <td>50 ml / 10 L apa</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div
+            aria-labelledby="reviews-tab"
+            class="tab-pane fade"
+            id="reviews"
+            role="tabpanel"
+          >
+            <h2 class="h4 mb-3">Recenzii utilizatori</h2>
+            <article class="mb-3">
+              <p class="mb-1">
+                <strong>Andrei P.</strong>
+                <span class="product-stars">★★★★★</span>
+              </p>
+              <p class="mb-0 site-muted">
+                "Spumare buna si lasa un efect hidrofob vizibil. Mi-a placut si
+                mirosul."
+              </p>
+            </article>
+            <article>
+              <p class="mb-1">
+                <strong>Maria D.</strong>
+                <span class="product-stars">★★★★☆</span>
+              </p>
+              <p class="mb-0 site-muted">
+                "Curata bine si luciul e fain. As vrea doar un pret putin mai
+                mic."
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SECTIUNE: Footer -->
+    <footer aria-label="Footer" class="footer">
+      <div class="footer-wrap">
+        <h3 class="visually-hidden">Linkuri utile</h3>
+        <div
+          class="footer1 row g-4 justify-content-center text-center text-md-start text-lg-center"
+        >
+          <section class="footer-card col-12 col-md-6 col-lg-4">
+            <h4>MAGAZIN</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="shop.html">Sampoane auto</a></li>
+              <li><a href="shop.html">Ceara &amp; sealant</a></li>
+              <li><a href="shop.html">Solutii interior</a></li>
+              <li><a href="shop.html">Accesorii detailing</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col-12 col-md-6 col-lg-4">
+            <h4>INFORMATII</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#">Despre noi</a></li>
+              <li><a href="shop.html">Termeni si conditii</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col-12 col-md-12 col-lg-4 text-center">
+            <h4>SUPORT CLIENTI</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#">Contact</a></li>
+              <li><a href="shop.html">Intrebari frecvente</a></li>
+            </ul>
+          </section>
+        </div>
+        <div
+          class="footer2 justify-content-around justify-content-md-between text-center d-flex flex-wrap align-items-center gap-3 mt-4 pt-3"
+        >
+          <p class="footer-signature mb-0">
+            Designed and developed by: <strong>Matteo</strong>
+          </p>
+          <div
+            class="footer-social justify-content-center d-flex align-items-center"
+          >
+            <a href="#">
+              <img
+                alt="Facebook"
+                src="images/Ikonice.assignment03/facebook.png"
+              />
+            </a>
+            <a href="#">
+              <img
+                alt="Instagram"
+                src="images/Ikonice.assignment03/instagram.png"
+              />
+            </a>
+            <a href="#">
+              <img alt="TikTok" src="images/Ikonice.assignment03/tik-tok.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script src="js/product.js"></script>
+  </body>
+</html>
