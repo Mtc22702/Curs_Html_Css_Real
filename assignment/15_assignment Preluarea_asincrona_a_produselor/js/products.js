@@ -1,4 +1,4 @@
-// Catalogul gestioneaza datele produselor, filtrele, sortarea, paginarea si cosul de cumparaturi.
+// Product catalog-ul gestioneaza datele produselor, filtrele, sortarea, Pagination si cosul de cumparaturi.
 // Aceasta sectiune defineste datele produselor in format JSON, utilizat pentru simularea raspunsului de la server.
 let productsJson = `[
   {"id":1,"name":"Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces","price":145,"currency":"RON","category":"Exterior","image":"images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg","inStock":true},
@@ -67,7 +67,7 @@ for (let i = 0; i < products.length; i++) {
   }
 }
 
-// Aceasta sectiune pastreaza starea cosului, paginarii si a containerului pentru produse.
+// Aceasta sectiune pastreaza starea cosului, Pagination si a containerului pentru produse.
 let cartCount = 0;
 let currentPage = 1;
 let productsPerPage = 12;
@@ -93,7 +93,7 @@ function getColorValue(colorName) {
   return colors[colorName] || "#e5e7eb";
 }
 
-// Functia actualizeaza contoarele cosului afisate in antet.
+// Functia actualizeaza contoarele cosului afisate in Header.
 function updateCartCounter() {
   cartCount = cartCount + 1;
   document.getElementById("cart-count").textContent = cartCount;
@@ -270,7 +270,7 @@ function updateResultsCount(shown, total) {
       " produse";
 }
 
-// Functia construieste butoanele pentru navigarea intre paginile catalogului.
+// Functia construieste Pagination controls pentru catalog.
 function renderPagination(total) {
   let pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
