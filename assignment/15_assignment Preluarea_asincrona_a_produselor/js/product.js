@@ -77,7 +77,7 @@ let products = [
     name: "Solutie curatare generala Koch Chemie Mehrzweckreiniger, Mzr",
     price: 64,
     brand: "Koch Chemie",
-    category: "Exterior",
+    category: "Interior",
     image:
       "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg",
     description:
@@ -173,7 +173,7 @@ let products = [
   {
     id: 13,
     name: "Sampon auto cu ceara Sonax Xtreme Wash & Wax",
-    price: 45,
+    price: 28,
     brand: "Sonax",
     category: "Exterior",
     image: "images/13-sonax-wash-wax.webp",
@@ -225,7 +225,7 @@ let products = [
   {
     id: 17,
     name: "Sampon auto Meguiar's Gold Class Car Wash Shampoo & Conditioner",
-    price: 75,
+    price: 35,
     brand: "Meguiar's",
     category: "Exterior",
     image: "images/17-meguiars-gold-class.webp",
@@ -264,7 +264,7 @@ let products = [
   {
     id: 20,
     name: "Sampon auto cu ceara Turtle Wax Ice Car Wash",
-    price: 40,
+    price: 22,
     brand: "Turtle Wax",
     category: "Exterior",
     image: "images/20-turtlewax-ice-carwash.jpg",
