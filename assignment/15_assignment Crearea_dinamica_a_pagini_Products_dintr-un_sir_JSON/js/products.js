@@ -1,5 +1,6 @@
-// Product catalog-ul gestioneaza datele produselor, filtrele, sortarea, Pagination si cosul de cumparaturi.
-// Aceasta sectiune defineste datele produselor in format JSON, utilizat pentru simularea raspunsului de la server.
+// PAGINA SHOP - JSON
+
+// Sir JSON cu produse
 const productsJson = `[
   {"id":1,"name":"Sampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces","price":145,"currency":"RON","category":"Exterior","image":"images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg","inStock":true},
   {"id":2,"name":"Sampon auto reactivare ceramica Koch Chemie Reactivation Shampoo, Rs","price":92,"currency":"RON","category":"Exterior","image":"images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg","inStock":true},
@@ -25,10 +26,10 @@ const productsJson = `[
   {"id":22,"name":"Set lavete microfibra Turtle Wax Premium Microfiber Cloths","price":45,"currency":"RON","category":"Accesorii","image":"images/22-turtlewax-laveta-microfibra.webp","inStock":false}
 ]`;
 
-// Textul JSON este convertit intr-un tablou JavaScript pentru prelucrarea produselor.
+// Transformare JSON in array JavaScript
 const products = JSON.parse(productsJson);
 
-// Aceasta sectiune defineste variantele disponibile pentru fiecare produs in format JSON.
+// Sir JSON cu variante
 const variantsJson = `[
   {"id":1,"brand":"Koch Chemie","colors":["Alb","Negru"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":145,"5 L":549}},
   {"id":2,"brand":"Koch Chemie","colors":["Albastru","Verde"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":92,"5 L":329}},
@@ -55,7 +56,7 @@ const variantsJson = `[
 ]`;
 const variants = JSON.parse(variantsJson);
 
-// Fiecare produs este completat cu marca, culorile, marimile si preturile variantelor sale.
+// Adaugare variante la produse
 for (let i = 0; i < products.length; i++) {
   for (let j = 0; j < variants.length; j++) {
     if (products[i].id === variants[j].id) {
@@ -67,7 +68,7 @@ for (let i = 0; i < products.length; i++) {
   }
 }
 
-// Aceasta sectiune pastreaza starea cosului, Pagination si a containerului pentru produse.
+// Variabile pentru cos si paginare
 let cartCount = 0;
 let currentPage = 1;
 let productsPerPage = 12;
@@ -93,13 +94,13 @@ function getColorValue(colorName) {
   return colors[colorName] || "#e5e7eb";
 }
 
-// Functia afiseaza valoarea curenta a cosului in Header.
+// Functie pentru actualizarea cosului
 function updateCartCounter() {
   document.getElementById("cart-count").textContent = cartCount;
   document.getElementById("cart-count-sm").textContent = cartCount;
 }
 
-// Functia adauga in cos produsul identificat prin atributul data-id al butonului.
+// Eveniment buton adauga in cos
 function addToCart() {
   let productId = parseInt(this.getAttribute("data-id"));
   cartCount = cartCount + 1;
@@ -107,7 +108,7 @@ function addToCart() {
   console.log("Produs adaugat in cos, id:", productId);
 }
 
-// Functia creeaza un buton pentru selectarea unei culori sau a unei marimi.
+// Functie pentru butoanele de variante
 function createVariantButton(className, text, isFirst) {
   let button = document.createElement("button");
   button.type = "button";
@@ -120,7 +121,7 @@ function createVariantButton(className, text, isFirst) {
   return button;
 }
 
-// Functia construieste cardul unui produs, inclusiv imaginea, variantele si actiunea de adaugare in cos.
+// Functie pentru crearea cardului
 function createProductCard(product) {
   let card = document.createElement("article");
   card.className = "product-card site-card";
@@ -218,7 +219,7 @@ function createProductCard(product) {
   return card;
 }
 
-// Functiile urmatoare citesc valorile bifate si verifica potrivirea lor cu datele produsului.
+// Functii pentru filtre
 function getCheckedValues(name) {
   let values = [];
   let inputs = document.querySelectorAll('input[name="' + name + '"]');
@@ -235,7 +236,7 @@ function matchesFilter(value, selectedValues) {
   );
 }
 
-// Functia pastreaza produsele disponibile si aplica filtrele de pret, marca si categorie.
+// Filtrarea produselor disponibile
 function getFilteredProducts() {
   let prices = getCheckedValues("price-filter");
   let brands = getCheckedValues("brand-filter");
@@ -261,7 +262,7 @@ function getFilteredProducts() {
   return result;
 }
 
-// Functia afiseaza intervalul de produse vizibil si numarul total de rezultate.
+// Functie pentru numarul de rezultate
 function updateResultsCount(shown, total) {
   let result = document.getElementById("results-count");
   if (total === 0) result.textContent = "Afisare 0 din 0 produse";
@@ -276,7 +277,7 @@ function updateResultsCount(shown, total) {
       " produse";
 }
 
-// Functia construieste Pagination controls pentru catalog.
+// Functie pentru paginare
 function renderPagination(total) {
   let pagination = document.getElementById("pagination");
   pagination.innerHTML = "";
@@ -320,7 +321,7 @@ function renderPagination(total) {
   pagination.appendChild(nextButton);
 }
 
-// Functia actualizeaza catalogul dupa filtrare, sortare si selectarea paginii curente.
+// Functie pentru afisarea produselor
 function updateCatalog() {
   let list = getFilteredProducts();
   let sortBy = document.getElementById("sortBy").value;
@@ -349,7 +350,7 @@ function updateCatalog() {
   renderPagination(list.length);
 }
 
-// Aceasta sectiune asociaza controalele de filtrare si sortare cu actualizarea catalogului.
+// Evenimente pentru sortare si filtre
 const sortSelect = document.getElementById("sortBy");
 const applyFiltersButton = document.getElementById("apply-filters");
 const allCategoriesCheckbox = document.getElementById("all-categories");

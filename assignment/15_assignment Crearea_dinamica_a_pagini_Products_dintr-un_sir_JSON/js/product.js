@@ -1,6 +1,6 @@
-// Pagina produsului afiseaza detaliile, variantele, cantitatea selectata si starea cosului.
+// PAGINA PRODUS
 
-// Aceasta sectiune defineste datele utilizate pentru afisarea fiecarui produs.
+// Lista produse
 let products = [
   {
     id: 1,
@@ -336,7 +336,7 @@ function getColorValue(colorName) {
   }
 }
 
-// Parametrul din adresa paginii identifica produsul care trebuie afisat.
+// Citire produs din URL
 let urlParams = window.location.search;
 let productId = parseInt(urlParams.split("=")[1]);
 
@@ -352,7 +352,7 @@ for (let p = 0; p < products.length; p++) {
   }
 }
 
-// Referinta pretului permite actualizarea valorii dupa alegerea marimii.
+// Variabila pentru pretul produsului
 let priceEl = null;
 
 if (foundProduct !== null) {
@@ -419,11 +419,11 @@ if (foundProduct !== null) {
   }
 }
 
-// Aceasta sectiune pastreaza numarul de produse din cos si cantitatea selectata.
+// Variabile pentru cos si cantitate
 let cartCount = 0;
 let quantity = 1;
 
-// Functia actualizeaza contoarele cosului dupa adaugarea produsului.
+// Functie pentru actualizarea cosului
 function updateCartCounter() {
   let cartCounterEl = document.getElementById("cart-count");
   if (cartCounterEl !== null) {
@@ -436,7 +436,7 @@ function updateCartCounter() {
   }
 }
 
-// Functia afiseaza cantitatea curenta in selectorul de produs.
+// Functie pentru afisarea cantitatii
 function updateQuantityDisplay() {
   let quantityDisplay = document.getElementById("qty-display");
   if (quantityDisplay !== null) {
@@ -444,7 +444,7 @@ function updateQuantityDisplay() {
   }
 }
 
-// Butonul adauga in cos transfera cantitatea selectata in contorul cosului.
+// Eveniment buton adauga in cos
 let addToCartBtn = document.getElementById("btn-adauga-cos");
 
 if (addToCartBtn !== null) {
@@ -459,7 +459,7 @@ if (addToCartBtn !== null) {
   });
 }
 
-// Butonul plus mareste cantitatea selectata cu o unitate.
+// Eveniment buton plus
 let plusBtn = document.querySelector("[aria-label='Creste cantitatea']");
 
 if (plusBtn !== null) {
@@ -469,7 +469,7 @@ if (plusBtn !== null) {
   });
 }
 
-// Butonul minus reduce cantitatea selectata fara a cobori sub o unitate.
+// Eveniment buton minus
 let minusBtn = document.querySelector("[aria-label='Scade cantitatea']");
 
 if (minusBtn !== null) {
@@ -481,7 +481,7 @@ if (minusBtn !== null) {
   });
 }
 
-// Butoanele de culoare marcheaza vizual varianta selectata.
+// Eveniment butoane culoare
 let colorButtons = document.querySelectorAll(".color-option");
 
 for (let i = 0; i < colorButtons.length; i++) {
@@ -493,7 +493,7 @@ for (let i = 0; i < colorButtons.length; i++) {
   });
 }
 
-// Butoanele de marime actualizeaza selectia si pretul produsului.
+// Eveniment butoane marime
 let sizeButtons = document.querySelectorAll(".size-option");
 
 for (let k = 0; k < sizeButtons.length; k++) {

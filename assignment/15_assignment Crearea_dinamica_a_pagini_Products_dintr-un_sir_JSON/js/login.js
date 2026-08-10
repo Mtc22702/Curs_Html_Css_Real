@@ -1,12 +1,12 @@
-// Pagina de autentificare valideaza datele formularului si afiseaza mesajele de stare.
+// PAGINA LOGIN
 
-// Aceasta sectiune selecteaza elementele formularului necesare validarii.
+// Elemente din pagina
 let loginForm = document.getElementById("login-form");
 let emailField = document.getElementById("email");
 let passwordField = document.getElementById("password");
 let statusMessage = document.getElementById("login-status");
 
-// Functia afiseaza mesajul de validare in zona de stare a formularului.
+// Functie pentru mesajul de login
 function showMessage(text, type) {
   statusMessage.textContent = text;
   statusMessage.classList.remove("status-error", "status-ok");
@@ -18,7 +18,7 @@ function showMessage(text, type) {
   }
 }
 
-// Trimiterea formularului verifica prezenta unei adrese de email si a parolei.
+// Eveniment formular login
 if (loginForm !== null) {
   loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -45,7 +45,7 @@ if (loginForm !== null) {
   });
 }
 
-// Modificarea adresei de email elimina mesajul de eroare afisat.
+// Eveniment input email
 if (emailField !== null) {
   emailField.addEventListener("input", function () {
     if (statusMessage.classList.contains("status-error")) {
@@ -55,7 +55,7 @@ if (emailField !== null) {
   });
 }
 
-// Modificarea parolei elimina mesajul de eroare afisat.
+// Eveniment input parola
 if (passwordField !== null) {
   passwordField.addEventListener("input", function () {
     if (statusMessage.classList.contains("status-error")) {

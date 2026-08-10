@@ -11,21 +11,21 @@
       sizes="32x32"
       type="image/png"
     />
-    <!-- Biblioteca Bootstrap furnizeaza grila si componentele responsive ale interfetei. -->
+    <!-- Bootstrap CSS -->
     <link
       crossorigin="anonymous"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       rel="stylesheet"
     />
-    <!-- Stylesheet-ul local defineste aspectul specific al aplicatiei. -->
+    <!-- Stilurile proprii ale site-ului -->
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Header-ul contine identitatea vizuala, actiunile rapide si Navigation-ul principal. -->
+    <!-- SECTIUNE: Header / Navigatie -->
     <header class="site-header">
       <div class="navbar navbar-expand-lg bootstrap-navbar">
-        <!-- Controalele pentru mobile permit deschiderea meniului si accesul la cautare pe ecrane mici. -->
+        <!-- Controale mobile -->
         <div class="mobile-controls d-flex align-items-center d-lg-none gap-2">
           <button
             aria-controls="primaryNav"
@@ -43,7 +43,7 @@
           </a>
         </div>
 
-        <!-- Logo-ul directioneaza utilizatorul catre pagina principala. -->
+        <!-- Logo -->
         <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
           <a
             aria-label="Shop"
@@ -58,7 +58,7 @@
           </a>
         </div>
 
-        <!-- Actiunile din dreapta ofera acces la cautare, cos si autentificare. -->
+        <!-- Iconitele din dreapta -->
         <div
           class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
         >
@@ -84,7 +84,7 @@
           </a>
         </div>
 
-        <!-- Navigation-ul listeaza sectiunile principale ale catalogului. -->
+        <!-- Meniul de navigatie -->
         <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
           <nav aria-label="Navigatia principala" class="primary-nav ms-lg-4">
             <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
@@ -109,9 +109,9 @@
       </div>
     </header>
 
-    <!-- Continutul principal ofera orientare si formularul de autentificare. -->
+    <!-- SECTIUNE MAIN -->
     <main class="login-page container py-4 py-lg-5">
-      <!-- Breadcrumb-ul indica pozitia curenta in structura site-ului. -->
+      <!-- Breadcrumb -->
       <nav aria-label="Breadcrumb" class="breadcrumb">
         <ol>
           <li><a href="shop.html">Acasa</a></li>
@@ -119,12 +119,12 @@
         </ol>
       </nav>
 
-      <!-- Header-ul paginii identifica zona de autentificare. -->
+      <!-- Titlul paginii -->
       <header class="page-header login-header text-center">
         <h1>Autentificare</h1>
       </header>
 
-      <!-- Formularul colecteaza datele de autentificare si afiseaza rezultatul validarii. -->
+      <!-- SECTIUNE: Formularul de autentificare -->
       <section
         aria-label="Formular de autentificare"
         class="login-section mb-5"
@@ -196,7 +196,7 @@
       </section>
     </main>
 
-    <!-- Footer-ul ofera legaturi informative, date de contact si retele sociale. -->
+    <!-- SECTIUNE: Footer -->
     <footer aria-label="Footer" class="footer">
       <div class="footer-wrap">
         <h3 class="visually-hidden">Linkuri utile</h3>
@@ -254,14 +254,14 @@
       </div>
     </footer>
 
-    <!-- Scriptul Bootstrap activeaza comportamentele componentelor responsive. -->
+    <!-- Bootstrap JS -->
     <script
       crossorigin="anonymous"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     ></script>
 
-    <!-- Scriptul local valideaza formularul si controleaza mesajele de stare. -->
+    <!-- Scriptul paginii de login - validare formular -->
     <script src="js/login.js"></script>
   </body>
 </html>
