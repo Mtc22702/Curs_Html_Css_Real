@@ -823,6 +823,13 @@ section + section {
   margin-top: auto;
 }
 
+.product-card .add-to-cart:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  box-shadow: none;
+  transform: none;
+}
+
 /* 13. META SI SORTARE (pagina catalog/shop) */
 .page-meta {
   display: grid;

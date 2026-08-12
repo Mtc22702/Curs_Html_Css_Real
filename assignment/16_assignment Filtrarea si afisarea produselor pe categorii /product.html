@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Produs - Șampon auto ceramic - Adarta</title>
+    <title>Produs - Adarta</title>
     <link
       href="./images/Logo_Adarta.png"
       rel="icon"
@@ -128,12 +128,15 @@
         <ol>
           <li><a href="index.html">Acasă</a></li>
           <li><a href="shop.html">Shop</a></li>
-          <li aria-current="page">Șampon ceramic</li>
+          <li aria-current="page" id="product-breadcrumb">Produs</li>
         </ol>
       </nav>
 
-      <!-- SECTIUNE: Detalii produs -->
-      <section aria-label="Detalii produs" class="row g-4 align-items-start">
+      <p class="h3 text-center py-5" hidden id="product-message"></p>
+
+      <div id="product-details">
+        <!-- SECTIUNE: Detalii produs -->
+        <section aria-label="Detalii produs" class="row g-4 align-items-start">
         <!-- Imaginea principala si galeria -->
         <div class="col-12 col-lg-6">
           <img
@@ -171,7 +174,12 @@
         <!-- Informatii si actiuni produs -->
         <div class="col-12 col-lg-5 offset-lg-1">
           <article class="product-info-card site-card">
-            <p class="text-uppercase site-muted small mb-2">Koch Chemie</p>
+            <p
+              class="text-uppercase site-muted small mb-2"
+              id="product-brand"
+            >
+              Koch Chemie
+            </p>
             <h1 class="mb-3" id="product-nume">
               Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo
               (CES), 1L
@@ -181,7 +189,9 @@
               <span class="site-muted small">(12 recenzii)</span>
             </div>
             <p class="h3 mb-2" id="product-pret">119 RON</p>
-            <p class="text-success fw-bold mb-3">În stoc</p>
+            <p class="text-success fw-bold mb-3" id="product-availability">
+              În stoc
+            </p>
             <p class="lead site-muted" id="product-descriere">
               Șampon cu protecție pe termen lung, ideal pentru spălarea manuală.
               Curăță și protejează rapid într-un singur pas.
@@ -229,13 +239,13 @@
             </div>
           </article>
         </div>
-      </section>
+        </section>
 
-      <!-- SECTIUNE: Tabs produs -->
-      <section
-        aria-label="Descriere detaliată produs"
-        class="site-card p-4 mt-4"
-      >
+        <!-- SECTIUNE: Tabs produs -->
+        <section
+          aria-label="Descriere detaliată produs"
+          class="site-card p-4 mt-4"
+        >
         <ul
           class="nav nav-tabs product-tabs-bootstrap"
           id="productTabs"
@@ -293,18 +303,9 @@
             role="tabpanel"
           >
             <h2 class="h4 mb-3">Descriere detaliată</h2>
-            <p>
-              Ceramic Effect Shampoo este un șampon auto cu tehnologie de
-              conservare ce creează o suprafață netedă și hidrofobă, cu luciu
-              accentuat.
-            </p>
-            <p>
-              Este ideal pentru vehicule protejate anterior și ajută la
-              prelungirea duratei stratului protector.
-            </p>
-            <p class="mb-0">
-              <strong>Mod de folosire:</strong> adaugă 50 ml la 10 L apă, spală
-              cu mănușa sau buretele, clătește bine și usucă.
+            <p class="mb-0" id="product-descriere-detaliata">
+              Descoperă caracteristicile și avantajele acestui produs pentru
+              îngrijirea automobilului.
             </p>
           </div>
 
@@ -319,20 +320,20 @@
               <table class="table align-middle mb-0">
                 <tbody>
                   <tr>
-                    <th scope="row">Mărime</th>
-                    <td>1 L</td>
+                    <th scope="row">Marcă</th>
+                    <td id="product-specificatie-brand">Koch Chemie</td>
                   </tr>
                   <tr>
-                    <th scope="row">Tip protecție</th>
-                    <td>Hibridă</td>
+                    <th scope="row">Categorie</th>
+                    <td id="product-specificatie-categorie">Exterior</td>
                   </tr>
                   <tr>
-                    <th scope="row">Culoare</th>
-                    <td>Alb</td>
+                    <th scope="row">Mărimi disponibile</th>
+                    <td id="product-specificatie-marimi">1 L, 5 L</td>
                   </tr>
                   <tr>
-                    <th scope="row">Dozaj</th>
-                    <td>50 ml / 10 L apă</td>
+                    <th scope="row">Culori disponibile</th>
+                    <td id="product-specificatie-culori">Alb, Negru</td>
                   </tr>
                 </tbody>
               </table>
@@ -352,8 +353,7 @@
                 <span class="product-stars">★★★★★</span>
               </p>
               <p class="mb-0 site-muted">
-                "Spumare bună și lasă un efect hidrofob vizibil. Mi-a plăcut și
-                mirosul."
+                "Produs ușor de utilizat, iar rezultatul a fost foarte bun."
               </p>
             </article>
             <article>
@@ -362,13 +362,13 @@
                 <span class="product-stars">★★★★☆</span>
               </p>
               <p class="mb-0 site-muted">
-                "Curăță bine și luciul e fain. Aș vrea doar un preț puțin mai
-                mic."
+                "Calitate bună și livrare rapidă. Voi comanda din nou."
               </p>
             </article>
           </div>
         </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <!-- SECTIUNE: Footer -->
