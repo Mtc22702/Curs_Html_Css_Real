@@ -468,21 +468,9 @@ function getColorValue(colorName) {
   }
 }
 
-// Configurare API folosita in cadrul cursului
-const PRODUCTS_API_URL = "https://api.advanziaeducation.com/api/products";
-const API_KEY =
-  "f9229bc8488ed6cb139572c8e5e6367f66bc07f78e9f4ebe33e22bcf0b8dcb91";
-
 // Variabile pentru produsul afisat
 let foundProduct = null;
 let priceEl = null;
-
-// Functie pentru normalizarea textului
-function normalizeText(value) {
-  return String(value || "")
-    .toLowerCase()
-    .trim();
-}
 
 // Functie pentru citirea id-ului din query string
 function getProductIdFromQueryString() {
@@ -499,35 +487,6 @@ function findLocalProductById(productId) {
   }
 
   return null;
-}
-
-// Functie pentru gasirea produsului in datele primite de la server
-function findApiProductByTitle(apiProducts, title) {
-  for (let i = 0; i < apiProducts.length; i++) {
-    if (normalizeText(apiProducts[i].title) === normalizeText(title)) {
-      return apiProducts[i];
-    }
-  }
-
-  return null;
-}
-
-// Functie pentru combinarea datelor de pe server cu detaliile locale
-function normalizeApiProduct(apiProduct, localProduct) {
-  return {
-    id: localProduct.id,
-    name: apiProduct.title,
-    price: Number(apiProduct.price),
-    brand: localProduct.brand,
-    category: apiProduct.category,
-    image: apiProduct.image || localProduct.image,
-    gallery: localProduct.gallery,
-    description: apiProduct.description || localProduct.description,
-    inStock: localProduct.inStock,
-    colors: localProduct.colors,
-    sizes: localProduct.sizes,
-    priceBySize: localProduct.priceBySize
-  };
 }
 
 // Functie pentru afisarea butoanelor de culoare
@@ -740,8 +699,8 @@ function showProductMessage(message) {
   }
 }
 
-// Functie pentru incarcarea produsului de pe server
-async function loadProduct() {
+// Afisarea produsului local selectat in catalog
+function loadProduct() {
   let productId = getProductIdFromQueryString();
 
   if (isNaN(productId)) {
@@ -750,39 +709,14 @@ async function loadProduct() {
 
   console.log("Id-ul produsului selectat:", productId);
 
-  let localProduct = findLocalProductById(productId);
+  let selectedProduct = findLocalProductById(productId);
 
-  if (localProduct === null) {
+  if (selectedProduct === null) {
     showProductMessage("Produsul nu a fost găsit.");
     return;
   }
 
-  try {
-    let response = await fetch(PRODUCTS_API_URL, {
-      method: "GET",
-      headers: {
-        "X-API-Key": API_KEY
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error("Eroare HTTP: " + response.status);
-    }
-
-    let apiProducts = await response.json();
-    console.log("Produse primite de la server:", apiProducts);
-
-    let apiProduct = findApiProductByTitle(apiProducts, localProduct.name);
-
-    if (apiProduct === null) {
-      throw new Error("Produsul nu a fost găsit pe server.");
-    }
-
-    showProduct(normalizeApiProduct(apiProduct, localProduct));
-  } catch (error) {
-    showProduct(localProduct);
-    console.error(error);
-  }
+  showProduct(selectedProduct);
 }
 
 // Variabile pentru cos si cantitate

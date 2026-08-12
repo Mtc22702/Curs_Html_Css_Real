@@ -375,12 +375,7 @@ function createProductCard(product) {
   button.type = "button";
   button.textContent = "Add to Cart";
   button.setAttribute("data-id", product.id);
-  if (product.inStock === false) {
-    button.textContent = "Out of Stock";
-    button.disabled = true;
-  } else {
-    button.addEventListener("click", addToCart);
-  }
+  button.addEventListener("click", addToCart);
   card.appendChild(button);
   return card;
 }
@@ -418,6 +413,7 @@ function getFilteredProducts() {
         product.price <= 150) ||
       (prices.indexOf("150+") !== -1 && product.price > 150);
     if (
+      product.inStock === true &&
       priceMatches &&
       matchesFilter(product.brand, brands) &&
       matchesFilter(product.category, categories)
