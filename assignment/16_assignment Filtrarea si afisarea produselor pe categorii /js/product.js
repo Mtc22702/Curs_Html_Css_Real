@@ -10,6 +10,11 @@ let products = [
     category: "Exterior",
     image:
       "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg",
+    gallery: [
+      "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg",
+      "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg",
+      "images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-480.jpg"
+    ],
     description:
       "Șampon cu efect ceramic pentru spălare manuală. Curăță și protejează vopseaua, sticla și plasticul într-un singur pas. Recomandat pentru suprafețe deja ceramice.",
     colors: ["Alb", "Negru"],
@@ -25,6 +30,11 @@ let products = [
     category: "Exterior",
     image:
       "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg",
+    gallery: [
+      "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg",
+      "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg",
+      "images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-480.jpg"
+    ],
     description:
       "Șampon acid pentru reactivarea acoperirilor ceramice. Elimină depunerile hidrofobe și calcarul, restaurând performanța de respingere a apei.",
     colors: ["Albastru", "Verde"],
@@ -40,6 +50,11 @@ let products = [
     category: "Exterior",
     image:
       "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg",
+    gallery: [
+      "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg",
+      "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg",
+      "images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-480.jpg"
+    ],
     description:
       "Polish de mașină pentru corecția vopselei și finisare într-un singur pas. Elimină zgârieturile fine începând de la granulația P2000 și sigilează suprafața simultan.",
     colors: ["Roșu", "Negru"],
@@ -55,6 +70,11 @@ let products = [
     category: "Exterior",
     image:
       "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg",
+    gallery: [
+      "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg",
+      "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg",
+      "images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-480.jpg"
+    ],
     description:
       "Spray sealant pentru aplicare rapidă după spălare. Sigilează vopseaua, creează o suprafață hidrofobă și oferă luciu intens cu efect până la 12 săptămâni.",
     colors: ["Gri", "Alb"],
@@ -70,6 +90,11 @@ let products = [
     category: "Exterior",
     image:
       "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp",
+    gallery: [
+      "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp",
+      "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp",
+      "images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-480.webp"
+    ],
     description:
       "Pre-spălător alcalin cu putere mare de spumare. Dizolvă insectele, excrementele de păsări și murdăria de pe caroserie și jante înainte de spălarea cu șampon.",
     colors: ["Galben", "Negru"],
@@ -85,6 +110,11 @@ let products = [
     category: "Interior",
     image:
       "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg",
+    gallery: [
+      "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg",
+      "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg",
+      "images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-480.jpg"
+    ],
     description:
       "Degresant multi-uz pentru interior. Curăță tapițeria, plasticul, bordul și căptușeala tavanului fără a necesita clătire. Aprobat Daimler.",
     colors: ["Verde", "Alb"],
@@ -100,6 +130,11 @@ let products = [
     category: "Exterior",
     image:
       "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg",
+    gallery: [
+      "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg",
+      "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg",
+      "images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-480.jpg"
+    ],
     description:
       "Curățător reactiv pentru jante care își schimbă culoarea în roșu la contactul cu particulele de fier. Curăță jantele din aliaj, crom și oțel fără acizi.",
     colors: ["Mov", "Negru"],
@@ -115,6 +150,11 @@ let products = [
     category: "Exterior",
     image:
       "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg",
+    gallery: [
+      "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg",
+      "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg",
+      "images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-480.jpg"
+    ],
     description:
       "Soluție de spălare fără apă pentru vehicule ușor murdare. Curăță, îngrijește și sigilează vopseaua, sticla și plasticul într-un singur pas.",
     colors: ["Albastru", "Gri"],
@@ -130,6 +170,11 @@ let products = [
     category: "Accesorii",
     image:
       "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg",
+    gallery: [
+      "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg",
+      "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg",
+      "images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-480.jpg"
+    ],
     description:
       "Set de pensule pentru detailing, util pentru zone greu accesibile, grile, embleme, interior și exterior. Potrivite pentru curățare delicată.",
     colors: ["Maro", "Negru"],
@@ -145,6 +190,11 @@ let products = [
     category: "Exterior",
     image:
       "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg",
+    gallery: [
+      "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg",
+      "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg",
+      "images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-480.jpg"
+    ],
     description:
       "Soluție universală concentrată pentru curățare auto. Poate fi folosită pe zone murdare ale exteriorului, jante, praguri și alte suprafețe rezistente.",
     colors: ["Verde", "Galben"],
@@ -160,6 +210,11 @@ let products = [
     category: "Exterior",
     image:
       "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg",
+    gallery: [
+      "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg",
+      "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg",
+      "images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-480.jpg"
+    ],
     description:
       "Soluție pentru spălare fără clătire, potrivită pentru curățarea rapidă a exteriorului atunci când nu este posibilă spălarea clasică cu jet de apă.",
     colors: ["Alb", "Albastru"],
@@ -175,6 +230,11 @@ let products = [
     category: "Exterior",
     image:
       "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg",
+    gallery: [
+      "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg",
+      "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg",
+      "images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-480.jpg"
+    ],
     description:
       "Spumă cu pH neutru pentru prespălare și spălare delicată. Produce spumă densă și ajută la desprinderea murdăriei de pe exteriorul mașinii.",
     colors: ["Roz", "Alb"],
@@ -189,6 +249,11 @@ let products = [
     brand: "Sonax",
     category: "Exterior",
     image: "images/13-sonax-wash-wax.webp",
+    gallery: [
+      "images/13-sonax-wash-wax.webp",
+      "images/13-sonax-wash-wax.webp",
+      "images/13-sonax-wash-wax.webp"
+    ],
     description:
       "Șampon auto cu ceară pentru spălare și luciu într-un singur pas. Este potrivit pentru întreținerea rapidă a exteriorului mașinii.",
     colors: ["Portocaliu", "Negru"],
@@ -203,6 +268,11 @@ let products = [
     brand: "Sonax",
     category: "Exterior",
     image: "images/14-sonax-curatare-jante.webp",
+    gallery: [
+      "images/14-sonax-curatare-jante.webp",
+      "images/14-sonax-curatare-jante.webp",
+      "images/14-sonax-curatare-jante.webp"
+    ],
     description:
       "Soluție pentru curățarea jantelor, utilă pentru depuneri de praf de frână și murdărie persistentă de pe roți.",
     colors: ["Roșu", "Alb"],
@@ -217,6 +287,11 @@ let products = [
     brand: "Sonax",
     category: "Exterior",
     image: "images/15-sonax-ceramic-spray.webp",
+    gallery: [
+      "images/15-sonax-ceramic-spray.webp",
+      "images/15-sonax-ceramic-spray.webp",
+      "images/15-sonax-ceramic-spray.webp"
+    ],
     description:
       "Spray de protecție pentru vopsea, folosit după spălare pentru luciu și efect hidrofob pe suprafețele exterioare.",
     colors: ["Argintiu", "Negru"],
@@ -231,6 +306,11 @@ let products = [
     brand: "Sonax",
     category: "Interior",
     image: "images/16-sonax-curatare-interior.webp",
+    gallery: [
+      "images/16-sonax-curatare-interior.webp",
+      "images/16-sonax-curatare-interior.webp",
+      "images/16-sonax-curatare-interior.webp"
+    ],
     description:
       "Soluție pentru curățarea interiorului mașinii, potrivită pentru plastic, bord și alte suprafețe interioare.",
     colors: ["Bleu", "Gri"],
@@ -245,6 +325,11 @@ let products = [
     brand: "Meguiar's",
     category: "Exterior",
     image: "images/17-meguiars-gold-class.webp",
+    gallery: [
+      "images/17-meguiars-gold-class.webp",
+      "images/17-meguiars-gold-class.webp",
+      "images/17-meguiars-gold-class.webp"
+    ],
     description:
       "Șampon auto pentru spălare delicată, cu efect de condiționare a suprafeței și finisaj lucios pe exterior.",
     colors: ["Auriu", "Negru"],
@@ -259,6 +344,11 @@ let products = [
     brand: "Meguiar's",
     category: "Exterior",
     image: "images/18-meguiars-liquid-wax.webp",
+    gallery: [
+      "images/18-meguiars-liquid-wax.webp",
+      "images/18-meguiars-liquid-wax.webp",
+      "images/18-meguiars-liquid-wax.webp"
+    ],
     description:
       "Ceară lichidă pentru protecția vopselei, recomandată pentru luciu intens și protecție pe suprafețele exterioare.",
     colors: ["Negru", "Gri"],
@@ -273,6 +363,11 @@ let products = [
     brand: "Meguiar's",
     category: "Exterior",
     image: "images/19-meguiars-hot-rims.webp",
+    gallery: [
+      "images/19-meguiars-hot-rims.webp",
+      "images/19-meguiars-hot-rims.webp",
+      "images/19-meguiars-hot-rims.webp"
+    ],
     description:
       "Soluție pentru curățarea jantelor și anvelopelor, folosită pentru murdărie, praf de frână și depuneri de pe roți.",
     colors: ["Roșu", "Gri"],
@@ -287,6 +382,11 @@ let products = [
     brand: "Turtle Wax",
     category: "Exterior",
     image: "images/20-turtlewax-ice-carwash.jpg",
+    gallery: [
+      "images/20-turtlewax-ice-carwash.jpg",
+      "images/20-turtlewax-ice-carwash.jpg",
+      "images/20-turtlewax-ice-carwash.jpg"
+    ],
     description:
       "Șampon auto cu ceară pentru spălare și protecție ușoară, potrivit pentru întreținerea exteriorului mașinii.",
     colors: ["Albastru", "Alb"],
@@ -301,6 +401,11 @@ let products = [
     brand: "Turtle Wax",
     category: "Exterior",
     image: "images/21-turtlewax-spray-wax.webp",
+    gallery: [
+      "images/21-turtlewax-spray-wax.webp",
+      "images/21-turtlewax-spray-wax.webp",
+      "images/21-turtlewax-spray-wax.webp"
+    ],
     description:
       "Ceară spray pentru aplicare rapidă, folosită pentru luciu și protecție pe vopseaua mașinii.",
     colors: ["Verde", "Negru"],
@@ -315,6 +420,11 @@ let products = [
     brand: "Turtle Wax",
     category: "Accesorii",
     image: "images/22-turtlewax-laveta-microfibra.webp",
+    gallery: [
+      "images/22-turtlewax-laveta-microfibra.webp",
+      "images/22-turtlewax-laveta-microfibra.webp",
+      "images/22-turtlewax-laveta-microfibra.webp"
+    ],
     description:
       "Set de lavete din microfibră pentru ștergere, uscare și aplicarea produselor de detailing pe interior și exterior.",
     colors: ["Alb", "Gri"],
@@ -411,6 +521,7 @@ function normalizeApiProduct(apiProduct, localProduct) {
     brand: localProduct.brand,
     category: apiProduct.category,
     image: apiProduct.image || localProduct.image,
+    gallery: localProduct.gallery,
     description: apiProduct.description || localProduct.description,
     inStock: localProduct.inStock,
     colors: localProduct.colors,
@@ -507,9 +618,6 @@ function showProduct(product) {
   let nameEl = document.getElementById("product-nume");
   let imageEl = document.getElementById("product-imagine");
   let descriptionEl = document.getElementById("product-descriere");
-  let detailedDescriptionEl = document.getElementById(
-    "product-descriere-detaliata"
-  );
   let breadcrumbEl = document.getElementById("product-breadcrumb");
   let brandEl = document.getElementById("product-brand");
   let availabilityEl = document.getElementById("product-availability");
@@ -534,7 +642,7 @@ function showProduct(product) {
   document.title = product.name + " - Adarta";
 
   if (detailsEl !== null) {
-    detailsEl.style.display = "block";
+    detailsEl.hidden = false;
   }
 
   if (messageEl !== null) {
@@ -553,7 +661,7 @@ function showProduct(product) {
   let galleryImages = document.querySelectorAll(".product-gallery-img");
 
   for (let i = 0; i < galleryImages.length; i++) {
-    galleryImages[i].src = product.image;
+    galleryImages[i].src = product.gallery[i];
     galleryImages[i].alt = product.name;
   }
 
@@ -563,10 +671,6 @@ function showProduct(product) {
 
   if (descriptionEl !== null) {
     descriptionEl.textContent = product.description;
-  }
-
-  if (detailedDescriptionEl !== null) {
-    detailedDescriptionEl.textContent = product.description;
   }
 
   if (breadcrumbEl !== null) {
@@ -627,7 +731,7 @@ function showProductMessage(message) {
   document.title = message + " - Adarta";
 
   if (detailsEl !== null) {
-    detailsEl.style.display = "none";
+    detailsEl.hidden = true;
   }
 
   if (messageEl !== null) {
