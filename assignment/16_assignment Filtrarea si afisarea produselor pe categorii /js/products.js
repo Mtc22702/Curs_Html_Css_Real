@@ -33,7 +33,7 @@ const localProducts = JSON.parse(productsJson);
 const variantsJson = `[
   {"id":1,"brand":"Koch Chemie","colors":["Alb","Negru"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":145,"5 L":549}},
   {"id":2,"brand":"Koch Chemie","colors":["Albastru","Verde"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":92,"5 L":329}},
-  {"id":3,"brand":"Koch Chemie","colors":["Rosu","Negru"],"sizes":["250 ml","1 L"],"priceBySize":{"250 ml":103,"1 L":332}},
+  {"id":3,"brand":"Koch Chemie","colors":["Roșu","Negru"],"sizes":["250 ml","1 L"],"priceBySize":{"250 ml":103,"1 L":332}},
   {"id":4,"brand":"Koch Chemie","colors":["Gri","Alb"],"sizes":["500 ml","5 L"],"priceBySize":{"500 ml":135,"5 L":549}},
   {"id":5,"brand":"Koch Chemie","colors":["Galben","Negru"],"sizes":["1 L","11 kg"],"priceBySize":{"1 L":59,"11 kg":393}},
   {"id":6,"brand":"Koch Chemie","colors":["Verde","Alb"],"sizes":["1 L","5 kg"],"priceBySize":{"1 L":64,"5 kg":194}},
@@ -44,12 +44,12 @@ const variantsJson = `[
   {"id":11,"brand":"Koch Chemie","colors":["Alb","Albastru"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":62,"5 L":259}},
   {"id":12,"brand":"Koch Chemie","colors":["Roz","Alb"],"sizes":["1 L","5 L"],"priceBySize":{"1 L":81,"5 L":299}},
   {"id":13,"brand":"Sonax","colors":["Portocaliu","Negru"],"sizes":["500 ml","1 L"],"priceBySize":{"500 ml":28,"1 L":45}},
-  {"id":14,"brand":"Sonax","colors":["Rosu","Alb"],"sizes":["500 ml"],"priceBySize":{"500 ml":38}},
+  {"id":14,"brand":"Sonax","colors":["Roșu","Alb"],"sizes":["500 ml"],"priceBySize":{"500 ml":38}},
   {"id":15,"brand":"Sonax","colors":["Argintiu","Negru"],"sizes":["750 ml"],"priceBySize":{"750 ml":65}},
   {"id":16,"brand":"Sonax","colors":["Bleu","Gri"],"sizes":["500 ml"],"priceBySize":{"500 ml":32}},
   {"id":17,"brand":"Meguiar's","colors":["Auriu","Negru"],"sizes":["473 ml","1.4 L"],"priceBySize":{"473 ml":35,"1.4 L":75}},
   {"id":18,"brand":"Meguiar's","colors":["Negru","Gri"],"sizes":["473 ml"],"priceBySize":{"473 ml":95}},
-  {"id":19,"brand":"Meguiar's","colors":["Rosu","Gri"],"sizes":["710 ml"],"priceBySize":{"710 ml":48}},
+  {"id":19,"brand":"Meguiar's","colors":["Roșu","Gri"],"sizes":["710 ml"],"priceBySize":{"710 ml":48}},
   {"id":20,"brand":"Turtle Wax","colors":["Albastru","Alb"],"sizes":["500 ml","1.4 L"],"priceBySize":{"500 ml":22,"1.4 L":40}},
   {"id":21,"brand":"Turtle Wax","colors":["Verde","Negru"],"sizes":["500 ml"],"priceBySize":{"500 ml":35}},
   {"id":22,"brand":"Turtle Wax","colors":["Alb","Gri"],"sizes":["3 buc"],"priceBySize":{"3 buc":45}}
@@ -175,7 +175,7 @@ function showProductsStatus(message, isError) {
 // Functie pentru incarcarea produselor din API
 async function loadProducts() {
   let selectedCategory = getCategoryFromQueryString();
-  showProductsStatus("Se incarca produsele...", false);
+  showProductsStatus("Se încarcă produsele...", false);
 
   try {
     let response = await fetch(PRODUCTS_API_URL, {
@@ -217,7 +217,7 @@ async function loadProducts() {
     products = filterProductsByCategory(allProducts, selectedCategory);
     selectCategoryFromQueryString(selectedCategory);
     showProductsStatus(
-      "Produsele nu pot fi actualizate momentan. Se afiseaza catalogul disponibil.",
+      "Produsele nu pot fi actualizate momentan. Se afișează catalogul disponibil.",
       true
     );
     console.error(error);
@@ -239,7 +239,7 @@ function getColorValue(colorName) {
     Negru: "#111827",
     Albastru: "#2563eb",
     Verde: "#16a34a",
-    Rosu: "#dc2626",
+    Roșu: "#dc2626",
     Gri: "#94a3b8",
     Galben: "#facc15",
     Mov: "#7c3aed",
@@ -344,7 +344,7 @@ function createProductCard(product) {
   sizeRow.className = "card-variant-row";
   let sizeLabel = document.createElement("span");
   sizeLabel.className = "card-variant-label";
-  sizeLabel.textContent = "Marime";
+  sizeLabel.textContent = "Mărime";
   sizeRow.appendChild(sizeLabel);
   let sizeContainer = document.createElement("div");
   sizeContainer.className = "size-options";
@@ -424,10 +424,10 @@ function getFilteredProducts() {
 // Functie pentru numarul de rezultate
 function updateResultsCount(shown, total) {
   let result = document.getElementById("results-count");
-  if (total === 0) result.textContent = "Afisare 0 din 0 produse";
+  if (total === 0) result.textContent = "Afișare 0 din 0 produse";
   else
     result.textContent =
-      "Afisare " +
+      "Afișare " +
       ((currentPage - 1) * productsPerPage + 1) +
       "-" +
       ((currentPage - 1) * productsPerPage + shown) +
@@ -445,7 +445,7 @@ function renderPagination(total) {
   let previousButton = document.createElement("button");
   previousButton.className = "btn btn-nav";
   previousButton.type = "button";
-  previousButton.textContent = "Inapoi";
+  previousButton.textContent = "Înapoi";
   previousButton.disabled = currentPage === 1;
   previousButton.addEventListener("click", function () {
     if (currentPage > 1) {
@@ -469,7 +469,7 @@ function renderPagination(total) {
   let nextButton = document.createElement("button");
   nextButton.className = "btn btn-nav";
   nextButton.type = "button";
-  nextButton.textContent = "Inainte";
+  nextButton.textContent = "Înainte";
   nextButton.disabled = currentPage === totalPages;
   nextButton.addEventListener("click", function () {
     if (currentPage < totalPages) {
@@ -507,7 +507,7 @@ function updateCatalog() {
     let emptyMessage = document.createElement("p");
     emptyMessage.className = "empty-products-message";
     emptyMessage.textContent =
-      "Nu exista produse disponibile pentru categoria selectata.";
+      "Nu există produse disponibile pentru categoria selectată.";
     productsContainer.appendChild(emptyMessage);
   }
   for (let i = 0; i < pageProducts.length; i++)
