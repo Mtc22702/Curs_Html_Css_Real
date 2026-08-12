@@ -1,0 +1,222 @@
+0 Matteo Cardelli
+☰
+Dynamic Interfaces: JavaScript, Data & API Integration
+Testarea cererilor
+Descarcă lecția
+HTTP folosind
+instrumentul
+Postman
+Până acum am explicat cum funcționează comunicarea HTTP între client și server. Am văzut
+că clientul trimite o cerere HTTP (request), iar serverul returnează un răspuns HTTP
+(response). În practică, programatorii doresc adesea să testeze serverul fără a construi
+întregul front-end. Pentru acest lucru se folosesc instrumente speciale care permit
+trimiterea manuală a cererilor HTTP. Unul dintre cele mai populare instrumente pentru acest
+scop este Postman.
+Ce este Postman?
+Postman este deosebit de util pentru testarea cererilor HTTP și a API-urilor fără a avea
+nevoie de un front-end. Acest instrument le permite programatorilor:
+să trimită cereri HTTP către server;
+să testeze servicii API;
+să analizeze răspunsurile serverului;
+să verifice dacă back-end-ul funcționează corect.
+Cu alte cuvinte, Postman se poate comporta ca un client, la fel ca un browser sau o aplicație
+JavaScript. Din acest motiv, Postman este foarte util atunci când dorim să verificăm cum
+reacționează serverul la diferite cereri.
+În practică puteți verifica:
+dacă serverul returnează lista de produse (GET /products);
+dacă funcția de login funcționează (POST /auth/login);
+dacă crearea unei noi comenzi funcționează (POST /orders).
+De asemenea, Postman vă permite să vedeți codurile de stare ale răspunsurilor și conținutul
+trimis de server, ceea ce ajută la identificarea problemelor atunci când ceva nu funcționează
+corect.
+Avantajele instrumentului Postman
+Postman este un instrument educațional excelent care vă ajută să înțelegeți rapid
+comunicarea HTTP. Nu este obligatoriu să îl folosiți pentru fiecare sarcină, dar merită
+explorat deoarece:
+permite învățarea mai ușoară a metodelor GET, POST, PUT și DELETE;
+vă ajută să vizualizați cum comunică serverul și clientul;
+facilitează înțelegerea codurilor de stare și a formatelor de date (JSON, XML).
+Postman poate fi descărcat de pe site-ul oficial:https://www.postman.com/downloads/și
+rulează ca o aplicație independentă.
+DDIIFF55 1177 0011 -- DDeessccăărrccaarreeaa șșii ppoorrnniirreeaa iinnssttrruummeennttuulluu
+LINKgroupEU
+Guarda su
+Trimiterea primei cereri HTTP
+Când deschidem Postman, putem trimite foarte ușor o cerere HTTP.
+Pașii sunt următorii:
+1. Dați clic pe New
+2. Selectați tipul HTTP
+3. Alegeți metoda GET
+4. Introduceți adresa URL a serverului către care trimiteți cererea
+5. Dacă serverul solicită API KEY, adăugați-l în secțiunea Headers
+6. Dați clic pe Send
+După ce dați clic pe Send, serverul va returna un răspuns care conține lista de produse în
+format JSON.
+Postman va afișa:
+codul de stare (de exemplu, 200 OK);
+antetele răspunsului;
+corpul răspunsului (response body).
+În acest mod putem vedea direct cum răspunde serverul la cererea noastră.
+Serviciu API
+Mai devreme am folosit Postman pentru a trimite manual cereri HTTP și a vedea răspunsurile
+serverului. Acest lucru ne ajută să înțelegem cum funcționează comunicarea dintre client
+(browser sau aplicație) și server.
+Următorul pas este să exersați trimiterea de cereri reale către un serviciu API real, pentru a
+vedea cum funcționează schimbul de date într-un mediu real.
+Ce este un serviciu API?
+Un serviciu API este o interfață software pe care serverul o oferă pentru a permite clienților
+să obțină date sau să trimită date înapoi.
+În cadrul cursului nostru, serviciul API de la adresa https://api.advanziaeducation.com/ ne va
+furniza date despre produse, comenzi și altele.
+De ce avem nevoie de el?
+În loc să creăm noi date fictive, vom folosi acest serviciu API pentru a vedea răspunsuri reale
+ale serverului în format JSON. Acest lucru ne permite:
+1. să exersăm trimiterea de cereri HTTP GET, POST și altele;
+2. să înțelegem cum să procesăm datele în JavaScript;
+3. să exersăm autentificarea, antetele (headers) și lucrul cu chei API reale (API KEY).
+Așadar, serviciul API este o adevărată „bază de date funcțională” pe care Postman sau o
+aplicație JavaScript o poate interoga, iar noi, în cadrul cursului, învățăm cum să trimitem
+cereri și să citim răspunsurile.
+Documentația API a serverului
+Pentru a putea utiliza un serviciu API, este necesar să știm ce cereri putem trimite și ce fel de
+răspuns putem aștepta. Toate aceste informații se găsesc în documentația API.
+Documentația pentru API-ul pe care îl folosim în acest curs este disponibilă la adresa
+https://api.advanziaeducation.com/docs/openapi.yaml.
+În documentație se află lista tuturor endpoint-urilor API pe care serverul le suportă, împreună
+cu informații despre:
+ce metodă HTTP se utilizează (GET, POST, PUT, DELETE);
+care este adresa URL a cererii;
+ce parametri sau date trebuie trimise serverului;
+ce răspuns returnează serverul.
+Cu alte cuvinte, documentația este un ghid care explică modul în care clientul poate
+comunica cu serverul back-end.
+Exemplu de citire a documentației API – înregistrarea utilizatorului
+Pentru a înțelege mai bine cum se citește documentația API, vom analiza un exemplu
+concret: înregistrarea unui utilizator nou.
+În documentație se află următorul endpoint:
+1 /api/users:
+2 post:
+3 summary: Add user
+4 tags: [Users]
+5 security:
+6 - ApiKeyAuth: []
+7 requestBody:
+8 required: true
+9 content:
+10 application/json:
+11 schema:
+12 $ref: '#/components/schemas/CreateUserRequest'
+13 responses:
+14 '201':
+15 description: User created
+16 content:
+17 application/json:
+18 schema:
+19 $ref: '#/components/schemas/User'
+La prima vedere, acest fragment poate părea complicat, dar de fapt conține câteva
+informații foarte clare. Să le interpretăm pe rând.
+Pe primul rând este indicată adresa URL, adică endpoint-ul către care se trimite cererea. În
+exemplul nostru: .
+/api/users
+Când endpoint-ul este combinat cu adresa serverului, obținem URL-ul complet:
+https://api.advanziaeducation.com/api/users.
+Vedem că pe al doilea rând este scris cuvântul , ceea ce înseamnă că se folosește
+post
+metoda POST.
+POST se folosește atunci când dorim să creăm o resursă nouă pe server, în acest caz – un
+utilizator nou. Așadar, clientul trimite o cerere POST către această adresă pentru a crea un
+utilizator nou.
+Următoarea parte importantă este:
+1 security:
+2 - ApiKeyAuth: []
+Această secțiune arată că pentru acest endpoint este necesar să se trimită o cheie API în
+header-ul cererii.
+În documentație este definit că tenant-ul se identifică prin header-ul:
+X-API-Key
+Asta înseamnă că fiecare cerere trebuie să conțină header-ul:
+X-API-Key: cheia_ta_api
+În acest mod, serverul știe cărui tenant îi aparține utilizatorul care este creat.
+Ce este un tenant?
+În sistemele care suportă mai mulți utilizatori sau organizații se folosește frecvent
+noțiunea de tenant.
+Tenant reprezintă un utilizator al sistemului care folosește aplicația și are propriile sale
+date separate.
+De exemplu, imaginați-vă o platformă care permite mai multor magazine online să
+folosească același software pentru gestionarea produselor și comenzilor. Fiecare
+magazin are propriile produse, categorii și utilizatori, dar toate magazinele folosesc
+același server și aceeași aplicație.
+Într-un astfel de sistem, fiecare magazin reprezintă un tenant.
+Cu alte cuvinte, tenant este un mediu logic separat în cadrul aceleiași aplicații, care are
+propriile date și propriii utilizatori.
+În serverul nostru API, tenant-ul este identificat prin cheia API (API key) care se trimite
+în header-ul fiecărei cereri HTTP. Pe baza acestei chei, serverul știe cărui tenant îi
+aparține cererea și la ce date trebuie să aibă acces.
+Documentația spune că cererea POST trebuie să conțină un obiect JSON definit de schema
+.
+CreateUserRequest
+În documentație, această schemă este definită astfel:
+1 CreateUserRequest:
+2 type: object
+3 required: [username, email, password]
+4 properties:
+5 username:
+6 type: string
+7 email:
+8 type: string
+9 password:
+10 type: string
+Asta înseamnă că clientul trebuie să trimită următoarele date:
+1 {
+2 "username": "alex",
+3 "email": "alex@example.com",
+4 "password": "123456"
+5 }
+Documentația spune că serverul returnează starea:
+1 201 Created
+2 {
+3 "id": 5,
+4 "username": "alex",
+5 "email": "alex@example.com"
+6 }
+Menționăm că API-ul descris este folosit pentru înregistrarea utilizatorilor unui e-commerce
+shop, nu a clienților serverului API.
+Accesul la serverul API
+Este important de menționat că serverul API utilizat în acest curs nu este disponibil public.
+Asta înseamnă că cererile nu pot fi trimise fără o înregistrare prealabilă.
+Pentru a putea utiliza acest API, este necesar să vă înregistrați și să obțineți propria cheie API
+(API key). Cheia API reprezintă un identificator unic pe care serverul îl folosește pentru a
+recunoaște cine trimite cererea și cărui utilizator sau organizație îi aparțin datele.
+După înregistrare, serverul vă va atribui o cheie API. Această cheie trebuie trimisă împreună
+cu fiecare cerere HTTP pe care o faceți către server. Cheia API se transmite în header-ul
+cererii HTTP.
+De exemplu:
+1 X-API-Key: cheia_voastra_api
+În acest mod, serverul poate identifica contul vostru și poate procesa cererea în cadrul
+mediului vostru.
+Procesul de înregistrare și obținere a cheii API va fi prezentat în detaliu în următorul tutorial
+video, unde vom parcurge pas cu pas procedura de înregistrare și primul test al API-ului
+folosind Postman.
+DDIIFF55 1177 0022 -- ÎÎnnrreeggiissttrraarreeaa șșii oobbțțiinneerreeaa cchheeiiii AAPPII
+LINKgroupEU
+Guarda su
+Următorul pas
+După lecția despre Postman, în următoarea lecție veți învăța cum se realizează schimbul de
+date între front-end și back-end folosind query string. Aici veți vedea cum clientul poate
+trimite informații serverului direct prin URL, cum sunt procesate aceste date și cum se
+returnează răspunsul, ceea ce reprezintă baza multor aplicații web și a afișării dinamice a
+conținutului.
+Multimedia
+00:01:52 00:09:25
+ 
+DIF5_17_01. DIF5_17_02.
+mp4 mp4
+Evaluați lecția
+Util Derutant
+Vă rugăm să introduceți comentariul dumneavoastră
+Înregistrează evaluarea
+Unitatea precedentă Unitatea următoare
+Modelul HTTP Schimb de date
+Request/Response între front-end și
+back-end: query
+string
+Copyright © LINK group 1998—2026. Politica de confidentialitate. Serviciul suport tehnic: support@link-academy.com

@@ -1,0 +1,242 @@
+0 Matteo Cardelli
+☰
+Dynamic Interfaces: JavaScript, Data & API Integration
+XMLHttpRequest
+Descarcă lecția
+Până acum ați văzut cum browserul trimite cereri către server:
+când deschideți o pagină;
+când dați clic pe un link;
+când trimiteți un formular.
+Toate acestea trimit o cerere GET sau POST, dar există o problemă: de fiecare dată întreaga
+pagină este reîncărcată. În cazul site-urilor simple acest lucru nu este o problemă, dar în
+aplicațiile moderne devine rapid incomod.
+Din fericire, putem folosi JavaScript pentru a trimite o cerere către server fără a reîncărca
+pagina. Asta înseamnă că utilizatorul nu observă nimic, iar noi putem modifica doar o parte a
+paginii – de exemplu lista de produse, prețul, un mesaj sau starea.
+Această modalitate „tăcută” de comunicare cu serverul se numește AJAX. Deși reîncărcarea
+clasică a paginii încă există, pentru site-urile și aplicațiile interactive moderne, AJAX (sau
+fetch) este standardul.
+Ce este AJAX?
+AJAX este abrevierea de la Asynchronous JavaScript And XML. Este un set de tehnologii
+care permite codului JavaScript pe care îl scriem să trimită o cerere HTTP către server și să
+primească un răspuns, fără a reîncărca întreaga pagină.
+Cu alte cuvinte, AJAX combină JavaScript, DOM, HTML, CSS, XML și JSON împreună cu
+API-urile browserului (precum și Fetch) pentru ca aplicațiile web să poată
+XMLHttpRequest
+actualiza doar o parte a paginii atunci când este necesar.
+Cheia comunicării cu serverul sunt interfețele de programare (API) oferite de browser. Două
+dintre cele mai importante sunt:
+XMLHttpRequest
+Fetch API
+Așadar, AJAX nu este o singură tehnologie – este o modalitate de a folosi aceste tehnologii
+împreună pentru a actualiza o parte a paginii, nu întreaga pagină.
+În această lecție ne vom concentra pe , iar lecția următoare va fi despre
+XMLHttpRequest
+Fetch API.
+Ce este XMLHttpRequest?
+(XHR) este un obiect care permite comunicarea cu serverul. Cu ajutorul lui
+XMLHttpRequest
+putem trimite și primi date în diferite formate: JSON, XML, HTML sau text simplu.
+Pentru a folosi XHR, mai întâi trebuie să îl creăm (instanțiem), la fel ca orice alt obiect în
+JavaScript:
+let xhr = new XMLHttpRequest();
+Modul de bază de utilizare al XHR include patru pași:
+1. Crearea și inițializarea cererii – definim ce trimitem și unde.
+2. Trimiterea cererii – serverul primește cererea.
+3. Ascultarea evenimentelor – XHR emite evenimente care ne spun în ce stare se află
+procesarea cererii.
+4. Primirea și procesarea răspunsului – procesăm datele returnate de server.
+Haideți să vedem fiecare pas separat.
+1. Inițializarea și trimiterea cererii folosind obiectul XMLHttpRequest
+Primul pas în utilizarea obiectului XMLHttpRequest este să inițializăm cererea. Acest lucru se
+face cu metoda . Sintaxa ei arată astfel:
+open()
+xhr.open(method, url, [async, user, password])
+Metoda poate primi doi parametri obligatorii și trei opționali:
+open()
+(obligatoriu) – metoda HTTP pe care dorim să o folosim, de exemplu " ",
+method GET
+" ", " ", " ".
+POST PUT DELETE
+(obligatoriu) – adresa serverului sau fișierului către care trimitem cererea.
+url
+(opțional, implicit ) – stabilește dacă cererea este asincronă ( ) sau
+async true true
+sincronă ( ). Majoritatea browserelor nu mai suportă astăzi cereri sincrone, iar
+false
+modul asincron permite ca execuția codului să continue în timp ce așteptăm răspunsul.
+, (opțional, implicit ) – numele de utilizator și parola dacă serverul
+user password null
+solicită autentificare.
+Pe baza metodei prezentate, putem scrie codul pentru inițializarea cererii:
+1 let xhr = new XMLHttpRequest();
+2 xhr.open('GET', users.php');
+Prin aceasta:
+1. Am creat obiectul XHR.
+2. Am definit că dorim o cerere GET.
+3. Am stabilit că cererea va fi trimisă către adresa relativă (un script aflat în
+users.php
+același folder ca fișierul nostru JavaScript).
+Dacă dorim să trimitem o cerere către un alt domeniu, folosim o adresă URL absolută:
+1 let xhr = new XMLHttpRequest();
+2 xhr.open('GET', 'http://www.mysite.com/users.php');
+Notă
+Căile URL absolute se folosesc doar atunci când cererea este trimisă către un server
+care nu se află pe același domeniu.
+Acum știți cum funcționează metoda . Deși numele ei poate sugera că „deschide o
+open()
+conexiune” cu serverul, acest lucru nu este de fapt cazul. Ea doar configurează cererea HTTP,
+dar nu o trimite către server.
+2. Trimiterea cererii folosind obiectul XMLHttpRequest
+Pentru a trimite într-adevăr cererea, este necesar să apelăm metoda . Sintaxa este
+send()
+următoarea:
+xhr.send([body])
+Metoda poate primi un parametru care nu este obligatoriu:
+send()
+– datele care vor fi plasate în corpul cererii
+body
+Notă
+Cererea GET, de obicei, nu are corp, deci body nu este utilizat în mod obișnuit.
+Pentru cererile POST, este folosit pentru a trimite date către server (de exemplu,
+body
+formulare sau JSON).
+Exemplu minim de cerere GET:
+1 let xhr = new XMLHttpRequest();
+2 xhr.open('GET', users.php');
+3 xhr.send();
+Prin acest pas, cererea HTTP GET este trimisă către server, iar următorul pas este
+procesarea răspunsului pe care serverul îl returnează.
+3. Ascultarea diferitelor evenimente ale obiectului XMLHttpRequest
+Când trimitem o cerere HTTP către server, bineînțeles că așteptăm și un răspuns. Primirea
+acestuia poate dura diferit, în funcție de complexitatea cererii și de încărcarea curentă a
+serverului. De aceea este important să scriem o logică ce se va executa doar atunci când
+răspunsul ajunge.
+În cazul obiectului (XHR), acest lucru se face prin evenimente (events). Ele
+XMLHttpRequest
+ne permit să „ascultăm” starea cererii și să reacționăm când apare răspunsul.
+Trei dintre cele mai importante evenimente:
+1. – se activează când cererea a fost complet procesată, iar răspunsul complet al
+load
+serverului este disponibil.
+2. – se activează dacă cererea nu a putut fi trimisă, de exemplu din cauza unei
+error
+probleme de rețea.
+3. – se activează periodic în timp ce datele din răspuns sunt descărcate; oferă
+progress
+informații despre cât din date a fost deja primit.
+Cum ascultăm evenimentele
+Există două moduri de „abonare” la evenimente.
+Prima metodă presupune utilizarea proprietăților corespunzătoare pe care le are obiectul
+XMLHttpRequest:
+onload
+onerror
+onprogress
+Acestor proprietăți li se pot atribui referințe către funcții care se vor executa atunci când
+apare evenimentul respectiv:
+1 xhr.onload = function () {
+2 console.log('Response loaded: ' + xhr.response);
+3 };
+4 xhr.onerror = function () {
+5 console.log('Network Error');
+6 };
+7 xhr.onprogress = function (event) {
+8 console.log('Received ' + event.loaded + ' of ' + event.total
+9 };
+A doua metodă de abonare la evenimentele prezentate mai sus este utilizarea metodei
+:
+addEventListener()
+1 xhr.addEventListener("load", function () {
+2 console.log('Response loaded: ' + xhr.response);
+3 });
+4 xhr.addEventListener("error", function () {
+5 console.log('Network Error');
+6 });
+7 xhr.addEventListener("progress", function (event) {
+8 console.log('Received ' + event.loaded + ' of ' + event.total
+9 });
+Notă
+Ambele metode funcționează la fel, dar este mai flexibilă
+addEventListener
+deoarece permite adăugarea mai multor funcții pentru același eveniment.
+4. Procesarea răspunsului primit de la server
+Când cererea este procesată cu succes (evenimentul ), pe lângă datele propriu-zise,
+load
+putem obține și informații suplimentare despre răspunsul serverului.
+Cele mai importante proprietăți ale obiectului XHR sunt următoarele:
+– codul de status al răspunsului HTTP, de exemplu 200 înseamnă succes,
+xhr.status
+404 înseamnă că resursa nu există.
+– mesajul textual care însoțește starea, de exemplu OK pentru 200,
+xhr.statusText
+Not Found pentru 404.
+– conținutul corpului răspunsului HTTP (datele trimise de server către
+xhr.response
+client).
+Implicit, este text simplu. Dacă știm tipul de date pe care îl așteptăm, putem
+xhr.response
+folosi pentru a parsa sau converti automat răspunsul:
+xhr.responseType
+Valoare Ce face
+"" sau "text" Returnează text simplu
+Convertește într-un obiect
+"arraybuffer"
+ArrayBuffer
+Convertește într-un obiect
+"blob" Blob
+Parsează într-un obiect
+"document" XMLDocument
+Parsează JSON într-un obiect
+"json"
+JavaScript
+Tabelul 20.01.
+Proprietățile vechi și încă există, dar este mai bine să fie
+responseText responseXML
+înlocuite cu combinația și .
+xhr.response xhr.responseType
+Pe lângă date, permite obținerea și a informațiilor din headerele
+XMLHttpRequest
+răspunsului HTTP.
+– returnează valoarea unui header;
+xhr.getResponseHeader(name)
+– returnează toate headerele.
+xhr.getAllResponseHeaders()
+Exemplu: Cerere GET pentru date JSON
+Dacă, de exemplu, de la server așteptăm date în format JSON, putem scrie ceva de genul:
+1 let xhr = new XMLHttpRequest();
+2 xhr.open('GET', 'countries.json');
+3 xhr.responseType = 'json'; // parsarea automată a JSON-ului
+4 xhr.send();
+5
+6 xhr.onload = function () {
+7 if (xhr.status === 200) { // verificarea stării
+8 let countries = xhr.response; // obiect JavaScript automat
+9
+10 for (let i = 0; i < countries.length; i++) {
+11 console.log(countries[i].name);
+12 }
+13 } else {
+14 console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
+15 }
+16 };
+Explicație:
+Înainte de trimiterea cererii, am setat pentru ca textul
+xhr.responseType = 'json'
+JSON să fie convertit automat într-un obiect JavaScript.
+în interiorul funcției onload conține acum direct un șir de obiecte.
+xhr.response
+Astfel putem accesa imediat datele fără a mai folosi .
+JSON.parse()
+Următorul pas
+În lecția următoare veți învăța cum să trimiteți date către server folosind obiectul
+XMLHttpRequest, permițând schimbul interactiv de date fără reîncărcarea paginii.
+Evaluați lecția
+Util Derutant
+Vă rugăm să introduceți comentariul dumneavoastră
+Înregistrează evaluarea
+Unitatea precedentă Unitatea următoare
+Transmiterea Trimiterea datelor
+datelor către către server
+server folosind folosind obiectul
+formulare HTML XMLHttpRequest
+Copyright © LINK group 1998—2026. Politica de confidentialitate. Serviciul suport tehnic: support@link-academy.com

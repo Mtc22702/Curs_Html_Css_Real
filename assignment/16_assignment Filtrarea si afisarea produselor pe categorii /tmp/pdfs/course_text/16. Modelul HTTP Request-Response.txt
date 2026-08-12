@@ -1,0 +1,269 @@
+0 Matteo Cardelli
+☰
+Dynamic Interfaces: JavaScript, Data & API Integration
+Modelul HTTP
+Descarcă lecția
+Request/Response
+Programarea front-end este partea aplicației web pe care utilizatorul o vede și cu care
+interacționează direct – tot ceea ce se afișează în browser. Însă, în spatele acestei părți
+„vizibile” există aproape întotdeauna și o logică care rulează în fundal – back-end-ul.
+Putem crea și un site complet static, fără back-end, dar un astfel de site poate doar să
+afișeze informații. În momentul în care dorim ceva puțin mai complex – de exemplu, un
+formular de contact, autentificarea utilizatorului sau salvarea datelor – avem nevoie de un
+server și de logică back-end.
+De aceea spunem că logica aplicațiilor web moderne se execută în două locuri:
+în browser (front-end);
+pe server (back-end).
+Deoarece acestea sunt două componente separate, ele trebuie să comunice. Această
+comunicare se reduce la schimbul de date – front-end-ul trimite o cerere, back-end-ul
+trimite un răspuns.
+În această lecție veți învăța cum funcționează această comunicare și ce tehnici folosim
+pentru a trimite date către server și pentru a primi un răspuns.
+Modelul client-server
+În cursurile anterioare ați învățat deja că aplicațiile web funcționează într-un mediu pe care îl
+numim arhitectură client-server, care are trei componente:
+clientul – folosește browserul pentru a accesa aplicația;
+serverul – calculatorul pe care se află codul aplicației și datele acesteia;
+internetul – servește ca mijloc de comunicare între client și server.
+Arhitectura client-server
+După cum puteți vedea, comunicarea dintre client și server nu are loc oricum. Ea se
+desfășoară conform unor reguli bine definite, adică printr-un protocol numit HTTP.
+Despre HTTP
+Practic, întregul web funcționează pe protocolul HTTP sau pe versiunea sa mai sigură –
+HTTPS. Puteți observa și singuri acest lucru atunci când deschideți orice site. De exemplu:
+https://www.google.com/
+Acel http sau https de la începutul adresei înseamnă că browserul și serverul comunică
+folosind regulile HTTP/HTTPS.
+Reminder
+Fiecare resursă de pe web (pagină, imagine, fișier, video etc.) are propria adresă unică.
+Această adresă ne permite să o diferențiem de toate celelalte și să o accesăm.
+Această adresă se numește URL (Uniform Resource Locator). Mai simplu spus, URL-ul
+este ceea ce introduceți în browser atunci când doriți să deschideți un site.
+Despre URL deja s-a discutat mai detaliat într-unul dintre primele cursuri.
+HTTP este un așa-numit protocol request–response, ceea ce înseamnă că modul său de
+funcționare se bazează pe alternarea cererilor și răspunsurilor între două calculatoare –
+serverul și clientul.
+Schimbul de cereri și răspunsuri respectând regulile HTTP
+Din toate acestea putem concluziona că comunicarea dintre client și server pe web se
+reduce la doi pași de bază, conform regulilor protocolului HTTP:
+cerere HTTP (request) – clientul trimite o cerere către server;
+răspuns HTTP (response) – serverul trimite un răspuns către client.
+Așadar, mai întâi vine cererea, apoi răspunsul. Aceasta este logica de bază a funcționării
+comunicării web.
+Cererea HTTP
+Modelul de bază de comunicare prin care clienții se adresează serverelor HTTP este cererea
+HTTP. Cel mai simplu exemplu de cerere HTTP pentru o pagină web poate arăta astfel:
+GET /index.html HTTP/1.1
+host: www.mysite.com
+Cererea prezentată este ceea ce browserul web trimite unui server atunci când introduceți în
+bara de adrese: www.mysite.com.
+Aceasta este alcătuită din mai multe părți:
+GET – numele metodei HTTP;
+/index.html – resursa solicitată;
+HTTP/1.1 – versiunea protocolului;
+host: www.mysite.com – numele hostului.
+În practică, cererile HTTP sunt adesea mult mai complexe, cu antete și date suplimentare,
+dar structura de bază trebuie întotdeauna să respecte regulile protocolului.
+Putem să ne imaginăm acest lucru astfel: să spunem că doriți să citiți un articol pe un site.
+Introduceți adresa site-ului în browser și apăsați Enter. Browserul devine client și trimite o
+cerere HTTP către serverul pe care se află site-ul. Serverul primește cererea, o procesează și
+trimite un răspuns – de obicei o pagină HTML pe care o vedeți pe ecran.
+Așadar, cererea HTTP este întotdeauna trimisă de client (cel mai adesea browserul web),
+iar serverul doar o primește și răspunde.
+Structura cererii HTTP
+Cererea HTTP este alcătuită din două părți principale și câteva subpărți:
+1. cap (head)
+linia de început sau linia cererii (start line, request line)
+antete (headers)
+2. corp (body)
+Dacă am reprezenta grafic structura unei cereri HTTP, aceasta ar arăta ca în imagine.
+Structura cererii HTTP
+Cererea pe care am prezentat-o mai devreme era alcătuită doar din linia cererii și un singur
+antet. În practică, o cerere HTTP nu este aproape niciodată atât de simplă.
+Pe lângă antetul care spune către ce host este trimisă cererea, se pot adăuga numeroase
+alte antete care descriu mai detaliat cererea – de exemplu, ce tip de date acceptă clientul, ce
+limbă utilizează, dacă trimite cookie-uri și altele.
+De aceea, o cerere HTTP reală arată de obicei mult mai „bogat” decât în exemplul nostru de
+bază, așa cum este prezentat în imagine.
+Exemplu de cerere HTTP
+După cum se vede în imagine, cererea începe cu linia cererii (eng. request line). Linia cererii
+începe prin specificarea metodei HTTP, care definește mai precis scopul cererii trimise
+serverului. După linia cererii, sunt enumerate mai multe antete care descriu mai detaliat
+cererea în sine. Corpul cererii este gol.
+Metode HTTP
+Pentru ca clientul și serverul să poată „vorbi” prin internet, se folosesc mai multe tipuri de
+modele de comunicare, numite metode HTTP. Acestea îi spun serverului ce anume dorim să
+facem cu o anumită resursă.
+Iată câteva dintre cele mai importante metode HTTP:
+GET – solicită datele unei resurse;
+HEAD – solicită doar antetul HTTP, fără corpul răspunsului;
+POST – trimite o resursă nouă către server;
+PUT – înlocuiește o resursă existentă cu una nouă;
+DELETE – șterge o resursă de pe server;
+OPTIONS – întreabă serverul ce metode suportă;
+TRACE – testează și face debug unei cereri prin faptul că serverul returnează ceea ce a
+primit;
+PATCH – modifică o parte dintr-o resursă existentă.
+Poate că aceste metode par abstracte, mai ales pentru că nu sunt vizibile utilizatorului, dar în
+practică sunt foarte clare. De exemplu, atunci când citiți un articol pe un blog, browserul
+vostru trimite o cerere GET pentru a obține conținutul paginii. Totul se întâmplă în fundal și
+nici nu observați.
+Pe de altă parte, atunci când creați un cont pe o rețea socială sau trimiteți un mesaj, se
+folosește metoda POST. Aceasta permite trimiterea datelor către server prin corpul cererii
+HTTP.
+Așadar, GET obține date, iar POST trimite date noi sau actualizate. GET nu modifică starea
+serverului, în timp ce POST poate modifica starea serverului (de exemplu, poate adăuga o
+nouă înregistrare în baza de date).
+Reminder
+GET – atunci când se folosește metoda GET, datele sunt trimise către server ca parte
+a adresei URL (în cadrul query string-ului). Asta înseamnă că sunt vizibile în bara de
+adrese a browserului și pot fi limitate de lungimea URL-ului (de obicei până la
+aproximativ 8000 de caractere). Din acest motiv, GET nu este potrivit pentru
+trimiterea unor cantități mari de date sau a informațiilor sensibile. GET se folosește
+atunci când dorim doar să preluăm sau să obținem date de la server, fără a modifica
+conținutul existent.
+POST – în cazul metodei POST, datele sunt trimise către server în corpul cererii HTTP,
+nu prin URL. Acest lucru permite trimiterea unor cantități mai mari de date și a
+informațiilor sensibile (de exemplu, parole, parametri de configurare, fișiere). POST se
+folosește atunci când dorim să creăm sau să modificăm o resursă pe server.
+Celelalte metode, precum PUT, DELETE sau PATCH, au, de asemenea, un rol important, dar
+pentru început este suficient să înțelegeți GET și POST – acestea sunt cel mai frecvent
+utilizate în navigarea zilnică pe web.
+Imaginea prezintă un exemplu de cerere POST, unde corpul cererii conține datele trimise
+către server.
+Exemplu de cerere HTTP trimisă folosind metoda POST
+Răspunsul HTTP
+Atunci când serverul primește o cerere de la client, o procesează și trimite înapoi un răspuns
+HTTP. Este mesajul prin care serverul informează clientul dacă cererea a fost procesată cu
+succes și, dacă este necesar, trimite datele solicitate.
+Un exemplu simplu de răspuns poate arăta astfel:
+1 HTTP/1.1 200 OK
+2 Content-Type: text/html
+3 Content-Length: 500
+4
+5 <html>
+6 <body>
+7
+8 some server response...
+9 </body>
+10 </html>
+La fel cum cererea HTTP are propria structură, și răspunsul trebuie să respecte anumite
+reguli definite de protocol. Cu alte cuvinte, și răspunsul HTTP are o structură clară.
+Structura răspunsului HTTP
+Structura răspunsului HTTP este aproape identică cu structura cererii HTTP. Aceasta este
+alcătuită din:
+1. Linia de stare (start line / status line) – oferă informații despre versiunea protocolului,
+codul de stare și descrierea textuală a stării.
+2. Antetele (headers) – informații suplimentare despre răspuns, cum ar fi tipul
+conținutului (Content-Type) sau lungimea (Content-Length).
+3. Corpul răspunsului (body) – conținutul pe care serverul îl trimite clientului, de exemplu
+o pagină HTML, date JSON, o imagine etc.
+Cea mai mare diferență dintre cererea HTTP și răspuns este în linia inițială: în cazul cererii se
+numește linia cererii, iar în cazul răspunsului linia de stare. Aceasta conține:
+versiunea protocolului (de exemplu, HTTP/1.1);
+codul de stare (de exemplu, 200);
+textul stării (de exemplu, OK).
+În imaginea de mai jos se vede cum răspunsul serverului începe cu linia de stare, care îi spune
+imediat clientului dacă cererea a fost procesată cu succes. În plus, corpul răspunsului poate
+conține datele pe care serverul le trimite înapoi, acesta fiind adesea motivul principal pentru
+care cererea există.
+Exemplu de răspuns HTTP
+Coduri de stare HTTP
+Atunci când clientul trimite o cerere către server, acesta așteaptă un răspuns care să îi
+spună imediat dacă totul a decurs corect sau dacă a apărut o eroare. Aici intervin
+codurile de stare HTTP – numere pe care serverul le returnează în linia de stare a
+răspunsului și care oferă clientului informații de bază despre rezultatul procesării
+cererii.
+De exemplu, codul 200 înseamnă că cererea a fost procesată cu succes și că serverul
+trimite datele solicitate.
+Codurile de stare sunt împărțite în grupuri, care sunt adesea numite clase de stare:
+1xx – informații;
+2xx – executarea cu succes a logicii serverului la procesarea cererii;
+3xx – redirecționări (redirections);
+4xx – erori de client;
+5xx – erori de server.
+Unele dintre cele mai cunoscute coduri pe care le veți întâlni frecvent sunt:
+200 (OK) – totul este în regulă, serverul a returnat datele solicitate.
+201 (Created) – cererea este reușită și serverul a creat o resursă nouă.
+301 (Moved Permanently) – resursa a fost mutată permanent la o nouă adresă.
+302 (Found) – resursa a fost mutată temporar.
+304 (Not Modified) – resursa nu s-a modificat de la ultima accesare; este adesea
+folosit pentru caching.
+400 (Bad Request) – serverul nu înțelege cererea.
+401 (Unauthorized) – este necesară autentificarea sau trimiterea unor date de
+autentificare valide.
+403 (Forbidden) – accesul la resursă este interzis.
+404 (Not Found) – resursa solicitată nu există pe server.
+500 (Internal Server Error) – serverul a întâmpinat o eroare în timpul procesării
+cererii.
+În practică, codurile 2xx înseamnă „totul este în regulă”, codurile 4xx indică o problemă
+la nivelul clientului, iar codurile 5xx indică o problemă la nivelul serverului. Atunci când
+vedeți, de exemplu, 404 sau 500, știți imediat unde să căutați problema.
+Exemplu
+Imaginați-vă că un utilizator încearcă să se autentifice în contul său pe un web shop.
+1. Clientul (browserul sau aplicația) trimite o cerere POST către server:
+1 POST /login
+2 Content-Type: application/json
+3
+4 {
+5 "username": "ana@gmail.com",
+6 "password": "ana"
+7 }
+2. Serverul verifică datele de autentificare și observă că nu sunt corecte.
+Serverul returnează codul de stare 401 Unauthorized și mesajul:
+1 HTTP/1.1 401 Unauthorized
+2 Content-Type: application/json
+3
+4 {
+5 "error": "Invalid credentials."
+6 }
+3. Clientul identifică codul de stare:
+Dacă este 401, știe că utilizatorul nu este autorizat.
+Poate afișa o eroare pe ecran: „Nume de utilizator sau parolă greșite” și poate împiedica
+acțiuni suplimentare.
+4. Dacă serverul ar returna 200 OK, clientul ar ști că autentificarea a avut succes și ar putea
+salva tokenul pentru sesiune.
+Codul de stare este o modalitate rapidă prin care clientul identifică rezultatul unei
+cereri HTTP și decide cum să reacționeze, fără a fi nevoie să citească conținutul
+detaliat al răspunsului.
+Exemplul 2
+Imaginați-vă că aplicația dorește să obțină detaliile unui produs cu ID-ul 123.
+1. Clientul trimite o cerere GET către server:
+1 GET /products/123
+2. Posibile răspunsuri ale serverului:
+Status Semnificație Exemplu
+Serverul returnează
+200 OK Produs găsit JSON cu detaliile
+produsului
+Serverul returnează {
+404 Not Found Produsul nu există "error": "Product
+not found" }
+Serverul returnează {
+"error": "Server
+500 Internal Server Error Problemă pe server
+error, try again
+later" }
+3. Clientul identifică starea și reacționează:
+200: Afișează produsul utilizatorului.
+404: Afișează mesajul „Produsul nu a fost găsit” și poate sugera produse similare.
+500: Informează utilizatorul că a apărut o eroare și sugerează să încerce mai târziu.
+Următorul pas
+În lecția următoare veți vedea ce este Postman și cum se utilizează. Postman este un
+instrument care permite trimiterea manuală de cereri HTTP către server, testarea API-urilor
+și vizualizarea imediată a răspunsurilor serverului. În acest fel puteți verifica cum funcționează
+back-end-ul, fără a fi nevoie să construiți întregul front-end, ceea ce este deosebit de util în
+procesul de învățare și testare a aplicațiilor.
+Evaluați lecția
+Util Derutant
+Vă rugăm să introduceți comentariul dumneavoastră
+Înregistrează evaluarea
+Unitatea precedentă Unitatea următoare
+Serializarea JSON- Testarea cererilor
+ului HTTP folosind
+instrumentul
+Postman
+Copyright © LINK group 1998—2026. Politica de confidentialitate. Serviciul suport tehnic: support@link-academy.com
+×
+Încărcarea conţinutului
+×
+Încărcarea conţinutului

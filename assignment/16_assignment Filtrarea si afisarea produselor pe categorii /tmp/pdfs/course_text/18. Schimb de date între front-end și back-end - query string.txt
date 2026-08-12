@@ -1,0 +1,152 @@
+0 Matteo Cardelli
+☰
+Dynamic Interfaces: JavaScript, Data & API Integration
+Schimb de date
+Descarcă lecția
+î
+între front-end și
+back-end: query
+string
+Dacă vă întrebați de ce în lecția precedentă am vorbit despre protocolul HTTP, cereri și
+răspunsuri – motivul este simplu. Acesta este mecanismul de bază prin care clientul și
+serverul fac schimb de date.
+Deoarece HTTP este principalul protocol de comunicare pe web, toate datele pe care front-
+end-ul și back-end-ul le schimbă se află fie în antetul (header), fie în corpul (body) cererilor și
+răspunsurilor HTTP.
+De aceea este foarte important să înțelegem cum funcționează modelul request-response.
+Acesta este fundamentul oricărei aplicații web – fără el nu există comunicare între browser și
+server.
+Atunci când dorim să trimitem date către server, programatorul de front-end are mai multe
+modalități de a face acest lucru:
+query string;
+formulare (HTML forms);
+AJAX.
+În această lecție ne vom concentra pe cea mai simplă metodă de trimitere a datelor, care nu
+necesită JavaScript.
+Transmiterea datelor către server folosind
+query string
+Ați învățat deja că URL-ul poate fi format din numeroase părți, care permit definirea precisă a
+locației unde se află resursa solicitată. Totuși, pe lângă aceste părți, URL-ul permite și
+transmiterea unor date către server sub forma perechilor de chei și valori.
+Segmentul query string al unei adrese URL
+Imaginea ilustrează structura unei adrese URL cu accent special pe ultimul său segment –
+query string.
+Query string este partea din URL care permite să „trimitem” informații suplimentare
+serverului direct în adresă. De exemplu, atunci când căutăm produse într-un magazin online
+sau filtrăm rezultate, parametrii din query string îi spun serverului exact ce dorim să primim.
+Aceste date devin imediat parte din cererea HTTP, iar serverul le folosește pentru a returna
+conținutul corespunzător.
+În URL, query string se scrie după semnul întrebării ?. Perechile cheie-valoare din query string
+se scriu în formatul , iar diferitele perechi sunt separate între ele prin semnul
+cheie=valoare
+ampersand ( ) sau punct și virgulă ( ).
+& ;
+Exemplu de URL cu query string:
+Exemplu de adresă URL cu query string
+În cadrul URL-ului din imagine, query string este:
+1 id=1&mode=user
+Important
+Query string este vizibil în URL, deci nu se folosește pentru date sensibile precum
+parole, tokenuri sau alte informații confidențiale.
+Exemplu de cerere
+Un exemplu de cerere pe care o trimitem pentru afișarea unei pagini referitoare la un produs
+concret ar fi: http://mydomain.com/product?productID=105, unde în loc de mydomain.com
+se va afla numele real al domeniului pe care se află aplicația.
+Prin query string-ul i-am spus serverului că dorim datele exact pentru
+productID=105
+produsul care are identificatorul 105.
+Exemplu de adresă URL cu query string
+Probabil acum vă întrebați dacă utilizatorul trebuie să cunoască identificatorul fiecărui
+produs pe care dorește să îl afișeze. Și răspunsul este, desigur, că nu trebuie.
+Cum ajunge utilizatorul pe pagina de afișare a produsului? Prin faptul că apasă pe imaginea
+produsului care îl interesează, pe pagina de afișare a tuturor produselor.
+Acest lucru ne arată că trebuie să ne întoarcem un pas înapoi și să analizăm cum am scris
+secțiunea de afișare a unui produs pe pagina shop.html.
+Dacă vă uitați la codul paginii voastre pe care l-ați scris urmând exemplele și micro-exercițiile
+din lecții, probabil aveți o secțiune de afișare a produsului similară cu următoarea:
+1 <div class="product-card">
+2 <img class="product-img" src="images/65.png" alt="Elegant A-
+3 line trousers">
+4 <p class="product-title">Elegant A-line trousers</p>
+5 <div class="price-row">
+6 <span class="price">$72</span>
+7 </div>
+8 <button class="btn">Add to Cart</button>
+</div>
+Pentru ca, prin apăsarea pe imaginea produsului, să se deschidă o pagină separată, trebuie
+să adăugăm elementul <a> în jurul imaginii produsului. Atributul href va avea o valoare care
+corespunde URL-ului pe care l-am menționat deja.
+1 <a href="http://mydomain.com/product?productID=105">
+2 <img class="product-img" src="images/65.png"
+3 alt="Elegant A-line trousers">
+4
+5 </a>
+Acesta este un exemplu de link, adică un element <a>, al cărui atribut href are o valoare cu un
+URL care conține query string. Prin query string, prin apăsarea pe link, serverului HTTP îi sunt
+transmise parametrii și valorile. Query string-ul este vizibil utilizatorului în bara de adrese a
+browserului și poate fi modificat manual.
+Exemplu practic
+Acum să folosim serverul nostru WEB API și să scriem o cerere pentru obținerea tuturor
+produselor care se află în baza de date. Să ne amintim că este necesar să folosim API Key
+pentru acest tip de cerere.
+Dacă vă uitați în documentație, veți vedea că este necesar să trimiteți o cerere GET la
+următoarea adresă: https://api.advanziaeducation.com/api/products.
+Cererea trebuie să conțină și în Header.
+x-api-key
+În imagine vedem și răspunsul primit, după ce am apăsat pe butonul Send. Am obținut lista
+tuturor produselor.
+Cum putem acum să cerem un produs concret? Răspunsul despre cum arată o cerere GET
+cu parametri pentru obținerea unui singur produs îl găsim în documentație:
+1 /api/products/{id}:
+2 parameters:
+3 - in: path
+4 name: id
+5 required: true
+6 schema:
+7 type: integer
+8 - $ref: '#/components/parameters/TenantApiKeyHeader'
+9 get:
+10 summary: Get product by id
+11 tags: [Products]
+12 security:
+13 - ApiKeyAuth: []
+14 responses:
+15 '200':
+16 description: Product details
+17 content:
+18 application/json:
+19 schema:
+20 $ref: '#/components/schemas/Product'
+De exemplu, dacă dorim să obținem datele despre produsul care are id-ul 85, vom trimite
+următoarea cerere:
+https://api.advanziaeducation.com/api/products/85
+Notă
+Deoarece acest API necesită X-API-Key în antetul cererii, browserul obișnuit nu poate
+trimite direct o cerere cu acel header doar prin URL. Deocamdată folosim Postman
+pentru a testa cererile, iar în lecțiile următoare veți învăța cum putem realiza același
+lucru folosind JavaScript.
+Micro-exercițiu
+Acum este rândul vostru! Trebuie să trimiteți, folosind Postman, cereri HTTP către serverul
+eSHOP API pentru a obține date despre categoriile de produse.
+Nu uitați că serverul API folosește header-ul X-API-Key pentru a ști cărui tenant îi aparține
+cererea. Înainte de trimiterea cererii, adăugați acest header în Postman.
+Sarcină:
+1. Creați o cerere GET care returnează lista tuturor categoriilor.
+2. Apoi trimiteți o cerere GET pentru o categorie concretă folosind ID-ul ei și verificați
+datele pe care le returnează serverul.
+Următorul pas
+Până acum ați văzut cum puteți prelua date de pe server folosind API și Postman, dar
+aplicațiile web au adesea nevoie și de trimiterea de date către server – de exemplu, atunci
+când utilizatorul completează un formular de contact, își creează un cont sau face o
+comandă. De aceea, în lecția următoare veți învăța cum să trimiteți date către server folosind
+o cerere POST.
+Evaluați lecția
+Util Derutant
+Vă rugăm să introduceți comentariul dumneavoastră
+Înregistrează evaluarea
+Unitatea precedentă Unitatea următoare
+Testarea cererilor Transmiterea
+HTTP folosind datelor către
+instrumentul server folosind
+Postman formulare HTML
+Copyright © LINK group 1998—2026. Politica de confidentialitate. Serviciul suport tehnic: support@link-academy.com

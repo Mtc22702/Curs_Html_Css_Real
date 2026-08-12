@@ -1,0 +1,217 @@
+☰
+Revenire la module
+Assignment - Filtrarea și
+afișarea produselor pe categorii
+Exerciţiu
+În cadrul acestei sarcini, cursanții îmbunătățesc funcționalitatea paginii de start a aplicației e-commerce,
+cu un accent special pe lucrul cu parametrii query string, trimiterea de cereri către server, încărcarea
+asincronă a datelor de pe server, procesarea șirurilor JSON și filtrarea datelor folosind JavaScript.
+Până acum, pe pagina shop.html erau afișate toate produsele. Scopul acestei sarcini este ca, la trecerea
+de pe pagina principală către pagina de afișare a produselor, să fie afișate doar produsele din categoria
+selectată.
+Pe pagina de start se află trei butoane care reprezintă diferite categorii de produse:
+Women
+Kids
+Men
+Prin apăsarea unuia dintre ele, utilizatorul este redirecționat către pagina shop.html, iar în URL este
+adăugat un parametru query string care indică categoria selectată (de exemplu: shop.html?
+category=women).
+Sarcina este împărțită în două părți:
+1. În prima parte trebuie implementată logica pe pagina de start astfel încât clic pe buton să deschidă
+pagina shop.html și să transmită categoria selectată prin parametrul query string din URL.
+2. În a doua parte, pe pagina shop.html, se preia valoarea categoriei din query string, apoi se trimite o
+cerere către server folosind Fetch API pentru a obține lista de produse. După aceea, șirul de produse
+obținut este filtrat pe baza categoriei selectate, iar produsele filtrate sunt afișate dinamic pe pagină
+folosind JavaScript.
+Scop
+Scopul acestei sarcini este să învățați cum să:
+folosiți parametrii query string pentru transmiterea informațiilor între pagini;
+încărcați date de pe server folosind Fetch API;
+filtrați un șir de obiecte folosind metoda JavaScript filter();
+generați dinamic conținut HTML și afișați produse pe pagină.
+Sarcini
+1. Pregătirea paginii de start
+Pe pagina de start (index.html) este necesar să adăugați trei butoane care reprezintă diferite categorii
+de produse:
+Women
+Kids
+Men
+Fiecare buton trebuie să aibă un unic pentru a putea fi selectat în JavaScript.
+id
+2. Verificarea tokenului la încărcarea paginii
+Este necesar să scrieți cod JavaScript care reacționează la clic pe buton.
+Când utilizatorul apasă pe un buton, trebuie să se deschidă pagina shop.html și să fie transmisă
+categoria selectată prin parametrul .
+query string
+Clic pe butonul Women trebuie să deschidă noua pagină -> .
+shop.html?category=women
+Clic pe butonul Kids trebuie să deschidă noua pagină -> .
+shop.html?category=kids
+Clic pe butonul Men trebuie să deschidă noua pagină -> .
+shop.html?category=men
+Pentru realizare este necesar să:
+selectați butoanele folosind ;
+getElementById
+adăugați event listener de tip click;
+folosiți pentru redirecționarea către o nouă pagină.
+window.location.href
+3. Pregătirea paginii shop.html
+Pe pagina shop.html este necesar să creați o secțiune în care produsele vor fi adăugate dinamic.
+Exemplu:
+<section class="col-8 offset-2 products-grid" id="productsContainer">
+</section>
+Secțiunea trebuie să fie goală, deoarece produsele vor fi generate folosind JavaScript.
+4. Citirea categoriei din query string
+Când pagina shop.html este încărcată, este necesar să fie citită valoarea parametrului category din
+URL.
+Exemplu de URL:
+shop.html?category=women
+Pentru aceasta este necesar să folosiți obiectul . Pe baza acestuia obținem valoarea
+URLSearchParams
+variabilei .
+selectedCategory
+Puteți folosi următoarea funcție pentru obținerea categoriei din QueryString:
+function getCategoryFromQueryString() {
+const params = new URLSearchParams(window.location.search);
+return params.get("category");
+}
+5. Încărcarea produselor de pe server
+Este necesar să creați o funcție async care trimite o cerere GET către server și primește lista de
+produse.
+Endpoint-ul API utilizat este următorul:
+https://api.advanziaeducation.com/api/products
+Cererea trebuie să conțină X-API-Key în header. Serverul returnează un șir JSON de produse.
+6. Filtrarea produselor pe categorie
+După ce toate produsele au fost preluate de pe server, este necesar să fie filtrat șirul de produse astfel
+încât să rămână doar cele care aparțin categoriei selectate.
+Pentru filtrare se folosește metoda JavaScript:
+array.filter()
+Se compară valoarea cu categoria obținută din query string.
+product.category
+Hint: folosiți funcția .
+startsWith()
+product.category.toLowerCase().startsWith(selectedCategory.toLowerCase());
+7. Afișarea dinamică a produselor
+Produsele filtrate trebuie afișate pe pagină folosind JavaScript.
+Pentru fiecare produs este necesar să fie generată o secțiune HTML cu clasa , care are
+product-card
+aspectul din imagine.
+Elementele HTML sunt generate dinamic și inserate în secțiunea productsContainer.
+8. Testarea funcționalității
+La final este necesar să verificați dacă aplicația funcționează corect.
+Testați următoarele scenarii:
+Clic pe Women afișează doar produsele pentru femei.
+Clic pe Kids afișează doar produsele pentru copii; în exemplul nostru de API nu există produse pentru
+copii.
+Clic pe Men afișează doar produsele pentru bărbați.
+Produsele sunt încărcate dinamic de pe server și afișate pe pagină.
+Sarcină bonus – Afișarea imaginilor reale ale produselor
+În timpul testării aplicației puteți observa că pentru toate produsele se afișează aceeași imagine. Acest
+lucru se întâmplă deoarece API-ul pe care îl folosim în prezent nu returnează imagini unice pentru fiecare
+produs, ci pentru toate produsele este utilizată aceeași valoare în câmpul image.
+Sarcina este să îmbunătățim afișarea produselor astfel încât să folosim imagini locale care se află în
+proiect.
+1. Pregătirea folderului cu imagini
+În cadrul proiectului este necesar să creați folderul: images
+În acest folder trebuie să fie plasate imaginile produselor. Numele fiecărei imagini trebuie să
+corespundă ID-ului produsului.
+Exemplu:
+images/1.png
+images/2.png
+images/3.png
+images/4.png
+images/5.png
+În acest mod, fiecare imagine este asociată cu produsul corespunzător. Dacă nu știți ce ID corespunde
+fiecărui produs, puteți folosi instrumentul Postman pentru a obține afișarea tuturor produselor.
+2. Modificarea căii imaginii în codul JavaScript
+În funcția care generează HTML pentru produs este necesar să modificați calea imaginii.
+În loc să folosim valoarea returnată de API:
+<img class="product-img"
+src="https://api.advanziaeducation.com${product.image}" alt="${product.title}">
+trebuie să generăm calea pe baza ID-ului produsului.
+Exemplu de nouă cale:
+src="images/${product.id}.png"
+Acum, noul aspect al paginilor de afișare a produselor este următorul:
+Sfaturi pentru realizarea cu succes a sarcinii
+Testați navigarea între pagini. După clic pe butonul de pe pagina de start verificați dacă în adresa URL
+apare parametrul query string corespunzător. De exemplu: shop.html?category=women
+Verificați valoarea categoriei în consolă. Înainte de a începe filtrarea produselor, afișați valoarea
+variabilei în consolă folosind . În acest mod vă asigurați că
+selectedCategory console.log()
+parametrul a fost citit corect din URL.
+Verificați structura datelor returnate de server. După fetch afișați lista de produse în consolă. Acest
+lucru vă ajută să vedeți ce proprietăți are obiectul produsului (de exemplu id, title, price, category,
+image).
+Acordați atenție literelor mari și mici. La compararea categoriilor este recomandată utilizarea
+metodei pentru a evita erorile de filtrare.
+toLowerCase()
+Verificați dacă secțiunea pentru produse are ID-ul corect. Dacă JavaScript nu poate găsi elementul în
+care trebuie inserate produsele, conținutul nu va fi afișat pe pagină.
+Folosiți Developer Tools din browser.
+În caz de eroare verificați:
+Console tab – afișează erorile JavaScript;
+Network tab – afișează dacă cererea API a fost trimisă cu succes și dacă serverul a returnat datele.
+Aveți grijă la structura HTML-ului generat. Fiecare produs trebuie să aibă aceeași structură (product-
+card, product-img, product-title, price). În acest mod stilurile CSS vor fi aplicate corect.
+Verificați dacă imaginile există în folderul images. Dacă realizați sarcina bonus, numele imaginii
+trebuie să corespundă ID-ului produsului. De exemplu:
+images/3.png pentru produsul al cărui id = 3.
+Testați toate cele trei categorii. Apăsați pe rând pe Women, Kids și Men și verificați dacă sunt afișate
+doar produsele din categoria selectată.
+Procesul de evaluare
+Coordonatorul cursului vă va verifica lucrarea și va oferi feedback în termen de 24 de ore. Dacă primiți
+comentarii și sugestii, veți avea ocazia să modificați o singură dată și să retrimiteți lucrarea.
+Criterii de evaluare
+Evaluarea se face conform următoarelor criterii cheie:
+Navigarea și transmiterea categoriei prin URL
+Dacă clic pe butoanele Women, Kids și Men redirecționează corect utilizatorul către pagina
+shop.html.
+Dacă categoria selectată este transmisă prin parametrul query string în URL (de exemplu,
+shop.html?category=women).
+Dacă butoanele sunt selectate corect și este implementat event listener-ul de tip click.
+Citirea parametrului query string
+Dacă aplicația citește corect valoarea categoriei din URL folosind obiectul URLSearchParams.
+Dacă valoarea obținută este utilizată corect în logica aplicației.
+Încărcarea datelor de pe server
+Dacă este implementat corect Fetch API pentru trimiterea cererii GET către endpoint-ul API.
+Dacă cererea conține X-API-Key în header și dacă șirul JSON primit este procesat corect.
+Filtrarea produselor după categorie
+Dacă șirul de produse este filtrat corect folosind metoda filter() pe baza categoriei selectate.
+Dacă comparația ține cont de litere mari și mici (de exemplu, folosind toLowerCase()).
+Afișarea dinamică a produselor
+Dacă produsele filtrate sunt generate și afișate dinamic pe pagină folosind JavaScript.
+Dacă fiecare produs are structura corectă (imagine, nume, preț) și dacă elementele sunt inserate
+corect în secțiunea productsContainer.
+Corectitudinea logică și organizarea codului
+Dacă codul rulează fără erori JavaScript.
+Dacă variabilele și funcțiile sunt denumite clar și organizate logic.
+Dacă codul este lizibil și ușor de înțeles.
+Testare și verificare funcțională
+Dacă aplicația afișează corect produsele pentru fiecare categorie (Women, Kids, Men).
+Dacă este testat faptul că filtrarea funcționează și că produsele sunt încărcate de pe server fără
+erori.
+Trimiterea sarcinii
+Când finalizați sarcina, încărcați (upload) lucrarea în format zip pe aceeași pagină unde se află descrierea
+assignment-ului.
+Salvați fișierul sarcinii sub numele: prenume_nume_assignment02.zip
+Dimensiunea maximă permisă a fișierului este 50 MB. Dacă fișierul depășește această limită, folosiți
+site-ul WeTransfer.
+Cum se folosește WeTransfer
+1. Deschideți site-ul wetransfer.com.
+2. Apăsați pe „Add your files” și selectați fișierele pe care doriți să le trimiteți – trimiteți obligatoriu
+fișierul arhivat zip.
+3. Adăugați adresa voastră de e-mail.
+4. Ca Title introduceți același nume ca fișierul sarcinii.
+5. În mesaj menționați obligatoriu: pernumele și numele și numele cursului.
+6. Termenul de descărcare al fișierului este de 3 zile.
+7. Apăsați pe cele trei puncte și selectați opțiunea „Create link”.
+8. Apoi apăsați pe „Get a link”.
+9. Introduceți codul de verificare primit pe e-mail.
+10. Linkul obținut pentru descărcare îl trimiteți coordonatorului cursului pe pagina de trimitere a
+sarcinilor.
+Descarcă PDF
+Răspuns
+Scrieți răspunsul dvs. aici...
+Încărcaţi fişierul max 50M
+Trimite assignment
+Copyright © LINK group 1998—2026. Politica de confidentialitate. Serviciul suport tehnic: support@link-academy.com
