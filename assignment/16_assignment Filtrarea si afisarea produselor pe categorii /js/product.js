@@ -313,7 +313,7 @@ let products = [
     ],
     description:
       "Soluție pentru curățarea interiorului mașinii, potrivită pentru plastic, bord și alte suprafețe interioare.",
-    colors: ["Bleu", "Gri"],
+    colors: ["Albastru", "Gri"],
     sizes: ["500 ml"],
     priceBySize: { "500 ml": 32 },
     inStock: true
@@ -459,7 +459,7 @@ function getColorValue(colorName) {
     return "#f97316";
   } else if (colorName === "Argintiu") {
     return "#cbd5e1";
-  } else if (colorName === "Bleu") {
+  } else if (colorName === "Albastru") {
     return "#38bdf8";
   } else if (colorName === "Auriu") {
     return "#d97706";
