@@ -132,7 +132,7 @@ function normalizeApiProduct(apiProduct) {
     price: Number(apiProduct.price),
     currency: localProduct.currency,
     category: apiProduct.category,
-    image: localProduct.image,
+    image: "images/" + apiProduct.id + ".png",
     description: apiProduct.description || "",
     inStock: localProduct.inStock,
     brand: localProduct.brand,
