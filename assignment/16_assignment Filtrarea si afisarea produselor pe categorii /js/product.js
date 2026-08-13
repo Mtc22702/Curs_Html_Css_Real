@@ -336,9 +336,9 @@ function getColorValue(colorName) {
   }
 }
 
-// Citire produs din URL
-let urlParams = window.location.search;
-let productId = parseInt(urlParams.split("=")[1]);
+// Citire produs din URL folosind parametrul query string "id"
+const params = new URLSearchParams(window.location.search);
+let productId = parseInt(params.get("id"));
 
 if (isNaN(productId)) {
   productId = 1;

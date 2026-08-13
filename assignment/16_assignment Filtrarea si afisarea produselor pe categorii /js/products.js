@@ -2,28 +2,28 @@
 
 // Sir JSON cu produse
 const productsJson = `[
-  {"id":1,"name":"Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces","price":145,"currency":"RON","category":"Exterior","image":"images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg","inStock":true},
-  {"id":2,"name":"Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs","price":92,"currency":"RON","category":"Exterior","image":"images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg","inStock":true},
-  {"id":3,"name":"Polish 3 în 1 cu ceară Carnauba Koch Chemie One Cut and Finish, P6.02","price":103,"currency":"RON","category":"Exterior","image":"images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg","inStock":true},
-  {"id":4,"name":"Spray protecție vopsea Koch Chemie Spray Sealant, S0.02","price":135,"currency":"RON","category":"Exterior","image":"images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg","inStock":false},
-  {"id":5,"name":"Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb","price":59,"currency":"RON","category":"Exterior","image":"images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp","inStock":true},
-  {"id":6,"name":"Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr","price":64,"currency":"RON","category":"Interior","image":"images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg","inStock":true},
-  {"id":7,"name":"Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner, Mwc","price":97,"currency":"RON","category":"Exterior","image":"images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg","inStock":true},
-  {"id":8,"name":"Soluție spălare fără apă Koch Chemie Wash and Finish, Wf","price":79,"currency":"RON","category":"Exterior","image":"images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg","inStock":true},
-  {"id":9,"name":"Set pensule interior Koch Chemie Interior Brush Set","price":70,"currency":"RON","category":"Accesorii","image":"images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg","inStock":true},
-  {"id":10,"name":"Soluție curățare universală Koch Chemie Green Star, Gs","price":42,"currency":"RON","category":"Exterior","image":"images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg","inStock":true},
-  {"id":11,"name":"Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash, Rrw","price":62,"currency":"RON","category":"Exterior","image":"images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg","inStock":true},
-  {"id":12,"name":"Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf","price":81,"currency":"RON","category":"Exterior","image":"images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg","inStock":true},
-  {"id":13,"name":"Șampon auto cu ceară Sonax Xtreme Wash & Wax","price":28,"currency":"RON","category":"Exterior","image":"images/13-sonax-wash-wax.webp","inStock":true},
-  {"id":14,"name":"Soluție curățare jante Sonax Wheel Cleaner Full Effect","price":38,"currency":"RON","category":"Exterior","image":"images/14-sonax-curatare-jante.webp","inStock":true},
-  {"id":15,"name":"Spray ceară lichidă Sonax Xtreme Protect+Shine Spray&Seal","price":65,"currency":"RON","category":"Exterior","image":"images/15-sonax-ceramic-spray.webp","inStock":false},
-  {"id":16,"name":"Soluție curățare interior Sonax Interior Cleaner","price":32,"currency":"RON","category":"Interior","image":"images/16-sonax-curatare-interior.webp","inStock":true},
-  {"id":17,"name":"Șampon auto Meguiar's Gold Class Car Wash Shampoo & Conditioner","price":35,"currency":"RON","category":"Exterior","image":"images/17-meguiars-gold-class.webp","inStock":true},
-  {"id":18,"name":"Ceară lichidă Meguiar's Ultimate Liquid Wax","price":95,"currency":"RON","category":"Exterior","image":"images/18-meguiars-liquid-wax.webp","inStock":true},
-  {"id":19,"name":"Soluție curățare jante Meguiar's Hot Rims Wheel & Tire Cleaner","price":48,"currency":"RON","category":"Exterior","image":"images/19-meguiars-hot-rims.webp","inStock":true},
-  {"id":20,"name":"Șampon auto cu ceară Turtle Wax Ice Car Wash","price":22,"currency":"RON","category":"Exterior","image":"images/20-turtlewax-ice-carwash.jpg","inStock":true},
-  {"id":21,"name":"Ceară spray Turtle Wax Ice Spray Wax","price":35,"currency":"RON","category":"Exterior","image":"images/21-turtlewax-spray-wax.webp","inStock":true},
-  {"id":22,"name":"Set lavete microfibră Turtle Wax Premium Microfiber Cloths","price":45,"currency":"RON","category":"Accesorii","image":"images/22-turtlewax-laveta-microfibra.webp","inStock":false}
+  {"id":1,"apiId":564,"name":"Șampon auto cu efect ceramic Koch Chemie Ceramic Effect Shampoo, Ces","price":145,"currency":"RON","category":"Exterior","image":"images/1-sampon-auto-cu-efect-ceramic-koch-chemie-ceramic-effect-shampoo-ces-1l-438344-768.jpg","inStock":true},
+  {"id":2,"apiId":565,"name":"Șampon auto reactivare ceramică Koch Chemie Reactivation Shampoo, Rs","price":92,"currency":"RON","category":"Exterior","image":"images/2-sampon-auto-reactivare-ceramica-koch-chemie-reactivation-shampoo-1l-767567-768.jpg","inStock":true},
+  {"id":3,"apiId":566,"name":"Polish 3 în 1 cu ceară Carnauba Koch Chemie One Cut and Finish, P6.02","price":103,"currency":"RON","category":"Exterior","image":"images/3-Pasta-Polish-3-in-1-Koch-Chemie-One-Cut-Finish-P6.02-250ml-1000x1000-768.jpg","inStock":true},
+  {"id":4,"apiId":567,"name":"Spray protecție vopsea Koch Chemie Spray Sealant, S0.02","price":135,"currency":"RON","category":"Exterior","image":"images/4-spray-protectie-vopsea-koch-chemie-spray-sealant-s0-02-500ml-673060-768.jpg","inStock":false},
+  {"id":5,"apiId":568,"name":"Soluție curățare auto alcalină Koch Chemie VorreinigerB, Vb","price":59,"currency":"RON","category":"Exterior","image":"images/6-solutie-curatare-auto-alcalina-koch-chemie-vorreinigerb-vb-1l-505138-768.webp","inStock":true},
+  {"id":6,"apiId":569,"name":"Soluție curățare generală Koch Chemie Mehrzweckreiniger, Mzr","price":64,"currency":"RON","category":"Interior","image":"images/7-Solutie-Curatare-Generala-Koch-Chemie-MZR-Mehrzweckreiniger-1L-1000x1000h-768.jpg","inStock":true},
+  {"id":7,"apiId":570,"name":"Soluție curățare jante reactivă Koch Chemie Magic Wheel Cleaner, Mwc","price":97,"currency":"RON","category":"Exterior","image":"images/8-solutie-curatare-jante-reactiva-koch-chemie-magic-wheel-cleaner-mwc-500ml-573022-768.jpg","inStock":true},
+  {"id":8,"apiId":571,"name":"Soluție spălare fără apă Koch Chemie Wash and Finish, Wf","price":79,"currency":"RON","category":"Exterior","image":"images/10-solutie-spalare-fara-apa-koch-chemie-wash-and-finish-wf-1l-977478-768.jpg","inStock":true},
+  {"id":9,"apiId":572,"name":"Set pensule interior Koch Chemie Interior Brush Set","price":70,"currency":"RON","category":"Accesorii","image":"images/5-Set-Pensule-Detailing-Interior-Koch-Chemie-3-buc-1000x1000-768.jpg","inStock":true},
+  {"id":10,"apiId":573,"name":"Soluție curățare universală Koch Chemie Green Star, Gs","price":42,"currency":"RON","category":"Exterior","image":"images/9-solutie-curatare-universala-koch-chemie-green-star-gs-1l-3229062912-768.jpg","inStock":true},
+  {"id":11,"apiId":574,"name":"Soluție spălare fără clătire Koch Chemie Rapid Rinseless Wash, Rrw","price":62,"currency":"RON","category":"Exterior","image":"images/11-solutie-spalare-fara-clatire-koch-chemie-rapid-rinseless-wash-rrw-1l-685449-768.jpg","inStock":true},
+  {"id":12,"apiId":575,"name":"Spumă spălare cu pH neutru Koch Chemie Gentle Snow Foam, Gsf","price":81,"currency":"RON","category":"Exterior","image":"images/12-spuma-spalare-cu-ph-neutru-koch-chemie-gentle-snow-foam-gsf-1l-592375-768.jpg","inStock":true},
+  {"id":13,"apiId":576,"name":"Șampon auto cu ceară Sonax Xtreme Wash & Wax","price":28,"currency":"RON","category":"Exterior","image":"images/13-sonax-wash-wax.webp","inStock":true},
+  {"id":14,"apiId":577,"name":"Soluție curățare jante Sonax Wheel Cleaner Full Effect","price":38,"currency":"RON","category":"Exterior","image":"images/14-sonax-curatare-jante.webp","inStock":true},
+  {"id":15,"apiId":578,"name":"Spray ceară lichidă Sonax Xtreme Protect+Shine Spray&Seal","price":65,"currency":"RON","category":"Exterior","image":"images/15-sonax-ceramic-spray.webp","inStock":false},
+  {"id":16,"apiId":579,"name":"Soluție curățare interior Sonax Interior Cleaner","price":32,"currency":"RON","category":"Interior","image":"images/16-sonax-curatare-interior.webp","inStock":true},
+  {"id":17,"apiId":580,"name":"Șampon auto Meguiar's Gold Class Car Wash Shampoo & Conditioner","price":35,"currency":"RON","category":"Exterior","image":"images/17-meguiars-gold-class.webp","inStock":true},
+  {"id":18,"apiId":581,"name":"Ceară lichidă Meguiar's Ultimate Liquid Wax","price":95,"currency":"RON","category":"Exterior","image":"images/18-meguiars-liquid-wax.webp","inStock":true},
+  {"id":19,"apiId":582,"name":"Soluție curățare jante Meguiar's Hot Rims Wheel & Tire Cleaner","price":48,"currency":"RON","category":"Exterior","image":"images/19-meguiars-hot-rims.webp","inStock":true},
+  {"id":20,"apiId":583,"name":"Șampon auto cu ceară Turtle Wax Ice Car Wash","price":22,"currency":"RON","category":"Exterior","image":"images/20-turtlewax-ice-carwash.jpg","inStock":true},
+  {"id":21,"apiId":584,"name":"Ceară spray Turtle Wax Ice Spray Wax","price":35,"currency":"RON","category":"Exterior","image":"images/21-turtlewax-spray-wax.webp","inStock":true},
+  {"id":22,"apiId":585,"name":"Set lavete microfibră Turtle Wax Premium Microfiber Cloths","price":45,"currency":"RON","category":"Accesorii","image":"images/22-turtlewax-laveta-microfibra.webp","inStock":false}
 ]`;
 
 // Transformare JSON in array JavaScript pentru detaliile locale ale produselor
@@ -89,7 +89,18 @@ function getCategoryFromQueryString() {
   return params.get("category");
 }
 
-// Functie pentru gasirea produsului in lista locala
+// Functie pentru gasirea produsului dupa ID-ul primit de la API
+function findLocalProductByApiId(apiId) {
+  for (let i = 0; i < localProducts.length; i++) {
+    if (localProducts[i].apiId === Number(apiId)) {
+      return localProducts[i];
+    }
+  }
+
+  return null;
+}
+
+// Varianta de rezerva pentru cazul in care produsele sunt recreate pe server
 function findLocalProductByTitle(title) {
   let normalizedTitle = normalizeText(title);
 
@@ -104,7 +115,11 @@ function findLocalProductByTitle(title) {
 
 // Functie pentru combinarea datelor API cu variantele locale
 function normalizeApiProduct(apiProduct) {
-  let localProduct = findLocalProductByTitle(apiProduct.title);
+  let localProduct = findLocalProductByApiId(apiProduct.id);
+
+  if (localProduct === null) {
+    localProduct = findLocalProductByTitle(apiProduct.title);
+  }
 
   if (localProduct === null) {
     return null;
@@ -117,7 +132,7 @@ function normalizeApiProduct(apiProduct) {
     price: Number(apiProduct.price),
     currency: localProduct.currency,
     category: apiProduct.category,
-    image: apiProduct.image || localProduct.image,
+    image: localProduct.image,
     description: apiProduct.description || "",
     inStock: localProduct.inStock,
     brand: localProduct.brand,
