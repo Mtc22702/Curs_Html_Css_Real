@@ -1,0 +1,329 @@
+<!doctype html>
+
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Finalizare comandă - Adarta</title>
+    <link
+      href="./images/Logo_Adarta.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      rel="stylesheet"
+    />
+    <!-- Stilurile proprii ale site-ului -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- SECTIUNE: Header / Navigatie -->
+    <header class="site-header">
+      <div class="navbar navbar-expand-lg bootstrap-navbar">
+        <!-- Controale mobile -->
+        <div class="mobile-controls d-flex align-items-center d-lg-none gap-2">
+          <button
+            aria-controls="primaryNav"
+            aria-expanded="false"
+            aria-label="Deschide meniul"
+            class="navbar-toggler"
+            data-bs-target="#primaryNav"
+            data-bs-toggle="collapse"
+            type="button"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a aria-label="Search" class="search mobile-search" href="shop.html">
+            <span aria-hidden="true" class="search-icon"></span>
+          </a>
+        </div>
+
+        <!-- Logo -->
+        <div class="brand navbar-brand m-0 p-0 d-flex align-items-center">
+          <a
+            aria-label="Pagina principală Adarta"
+            class="brand-link d-flex align-items-center justify-content-center"
+            href="index.html"
+          >
+            <img
+              alt="Logo Adarta"
+              class="brand-logo d-flex align-items-center"
+              src="images/Logo_Adarta.png"
+            />
+          </a>
+        </div>
+
+        <!-- Iconite dreapta -->
+        <div
+          class="actions order-lg-3 ms-auto d-flex align-items-center justify-content-end"
+        >
+          <div
+            aria-label="Search"
+            class="search d-none d-lg-inline-flex"
+            role="search"
+          >
+            <span aria-hidden="true" class="search-icon"></span>
+            <span class="search-label">Search</span>
+          </div>
+          <a aria-label="Cart" class="action-link icon-action" href="checkout.html">
+            <img alt="" src="images/Ikonice.assignment03/cart_logo.png" />
+            <span>Cart</span>
+          </a>
+          <a
+            aria-label="Login"
+            class="action-link icon-action"
+            href="login.html"
+          >
+            <img alt="" src="images/Ikonice.assignment03/user_logo.png" />
+            <span>Login</span>
+          </a>
+        </div>
+
+        <!-- Meniul de navigatie -->
+        <div class="collapse navbar-collapse order-lg-2" id="primaryNav">
+          <nav aria-label="Navigația principală" class="primary-nav ms-lg-4">
+            <ul class="navbar-nav mb-2 mb-lg-0 list-unstyled">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop.html">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contact">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link sale-link" href="shop.html">Reduceri!</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTIUNE: Finalizare comanda -->
+    <main class="checkout-page container py-4 py-lg-5">
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="breadcrumb mb-2">
+        <ol>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li aria-current="page">Checkout</li>
+        </ol>
+      </nav>
+
+      <!-- Titlu pagina -->
+      <header class="page-header checkout-header text-center">
+        <h1>Finalizare comandă</h1>
+      </header>
+
+      <!-- Formular si sumar comanda -->
+      <section aria-label="Finalizare comandă" class="checkout mb-5">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <!-- Formular comanda -->
+          <div class="col-12 col-lg-6 order-2 order-lg-1">
+            <form action="#" class="checkout-form" id="checkout-form" method="post">
+              <div class="shipping-box site-card p-3 p-sm-4 mb-4">
+                <h2 class="checkout-section-title mb-3 fw-bold">
+                  Informații de livrare
+                </h2>
+                <p class="form-required-note small-text mb-3">
+                  Câmpurile marcate cu <span class="required-mark">*</span> sunt
+                  obligatorii.
+                </p>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6 form-group">
+                    <label class="form-label fw-medium" for="prenume"
+                      >Prenume <span class="required-mark">*</span></label
+                    >
+                    <input class="form-control" id="prenume" name="prenume" required type="text" />
+                  </div>
+                  <div class="col-12 col-md-6 form-group">
+                    <label class="form-label fw-medium" for="nume"
+                      >Nume <span class="required-mark">*</span></label
+                    >
+                    <input class="form-control" id="nume" name="nume" required type="text" />
+                  </div>
+                  <div class="col-12 form-group">
+                    <label class="form-label fw-medium" for="adresa"
+                      >Adresă <span class="required-mark">*</span></label
+                    >
+                    <input class="form-control" id="adresa" name="adresa" required type="text" />
+                  </div>
+                  <div class="col-12 form-group">
+                    <label class="form-label fw-medium" for="adresa2"
+                      >Apartament, etaj etc. (opțional)</label
+                    >
+                    <input class="form-control" id="adresa2" name="adresa2" type="text" />
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="tara"
+                      >Țară <span class="required-mark">*</span></label
+                    >
+                    <select class="form-select" id="tara" name="tara" required>
+                      <option value="">Selectează</option>
+                      <option value="Romania">România</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="oras"
+                      >Oraș <span class="required-mark">*</span></label
+                    >
+                    <input class="form-control" id="oras" name="oras" required type="text" />
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="codPostal"
+                      >Cod poștal <span class="required-mark">*</span></label
+                    >
+                    <input class="form-control" id="codPostal" name="codPostal" required type="text" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="payment-box site-card p-3 p-sm-4">
+                <h2 class="checkout-section-title mb-3 fw-bold">
+                  Metoda de plată
+                </h2>
+                <div class="payment-methods row g-2 mb-3">
+                  <div class="col-12 col-sm-6">
+                    <label class="payment-option paypal is-selected w-100 d-flex align-items-center gap-3">
+                      <input checked name="payment" type="radio" value="paypal" />
+                      <img alt="PayPal" src="images/Ikonice.assignment03/paypal.png" />
+                    </label>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <label class="payment-option w-100 d-flex align-items-center gap-3">
+                      <input name="payment" type="radio" value="card" />
+                      <span>Card bancar</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="row g-3">
+                  <div class="col-12 form-group">
+                    <label class="form-label fw-medium" for="numeCard">Numele de pe card</label>
+                    <input class="form-control" id="numeCard" name="numeCard" type="text" />
+                  </div>
+                  <div class="col-12 form-group">
+                    <label class="form-label fw-medium" for="numarCard">Numărul cardului</label>
+                    <input class="form-control" id="numarCard" name="numarCard" type="text" />
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="lunaExp">Luna expirării</label>
+                    <select class="form-select" id="lunaExp" name="lunaExp">
+                      <option value="">Luna</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="anExp">Anul expirării</label>
+                    <select class="form-select" id="anExp" name="anExp">
+                      <option value="">Anul</option>
+                      <option value="2026">2026</option>
+                      <option value="2027">2027</option>
+                      <option value="2028">2028</option>
+                      <option value="2029">2029</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-4 form-group">
+                    <label class="form-label fw-medium" for="cvc">CVC</label>
+                    <input class="form-control" id="cvc" maxlength="3" name="cvc" type="text" />
+                  </div>
+                </div>
+                <button class="btn btn-primary w-100 mt-4" type="submit">
+                  Plasează comanda
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Sumar comanda -->
+          <aside class="col-12 col-lg-6 order-1 order-lg-2">
+            <div class="cart-check site-card p-3 p-sm-4">
+              <h2 class="cart-title mb-3 fw-bold">Verifică coșul</h2>
+              <p class="site-muted mb-0">
+                Nu există produse adăugate în coș momentan.
+              </p>
+              <div class="cart-total pt-3 mt-3 border-top d-flex justify-content-between fw-bold">
+                <span>Total</span>
+                <span class="total-price">0 RON</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- SECTIUNE: Footer -->
+    <footer aria-label="Footer" class="footer">
+      <div class="footer-wrap">
+        <h3 class="visually-hidden">Secțiune magazin</h3>
+        <div
+          class="footer1 row g-4 justify-content-center text-center text-md-start text-lg-center"
+        >
+          <section class="footer-card col-12 col-md-6 col-lg-4">
+            <h4>MAGAZIN</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="shop.html">Șampoane auto</a></li>
+              <li><a href="shop.html">Ceară &amp; sealant</a></li>
+              <li><a href="shop.html">Soluții interior</a></li>
+              <li><a href="shop.html">Accesorii detailing</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col-12 col-md-6 col-lg-4">
+            <h4>INFORMAȚII</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="index.html#about">Despre noi</a></li>
+              <li><a href="shop.html">Termeni și condiții</a></li>
+            </ul>
+          </section>
+          <section class="footer-card col-12 col-md-12 col-lg-4 text-center">
+            <h4>SUPORT CLIENȚI</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </section>
+        </div>
+        <div
+          class="footer2 justify-content-around justify-content-md-between text-center text-md-start d-flex flex-wrap align-items-center gap-3 mt-4 pt-3"
+        >
+          <p class="footer-signature mb-0">
+            Designed and developed by: <strong>Matteo</strong>
+          </p>
+          <div class="footer-social justify-content-center d-flex align-items-center">
+            <a href="#"><img alt="Facebook" src="images/Ikonice.assignment03/facebook.png" /></a>
+            <a href="#"><img alt="Instagram" src="images/Ikonice.assignment03/instagram.png" /></a>
+            <a href="#"><img alt="TikTok" src="images/Ikonice.assignment03/tik-tok.png" /></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      crossorigin="anonymous"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Script pentru verificarea tokenului -->
+    <script src="js/auth.js"></script>
+  </body>
+</html>
