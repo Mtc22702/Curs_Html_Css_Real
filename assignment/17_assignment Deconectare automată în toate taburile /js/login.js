@@ -3,7 +3,7 @@
 // Configurare API folosita in cadrul cursului
 const LOGIN_API_URL = "https://api.advanziaeducation.com/api/auth/login";
 const LOGIN_API_KEY =
-  "d7534cbd9ee8a1d277508f05318830010270e1c3699cacf82f8ec53f79b486a2";
+  "f9229bc8488ed6cb139572c8e5e6367f66bc07f78e9f4ebe33e22bcf0b8dcb91";
 
 // Elemente din pagina
 let loginForm = document.getElementById("login-form");
