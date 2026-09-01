@@ -39,9 +39,8 @@ function loginUser(username, password) {
   xhr.setRequestHeader("X-API-Key", LOGIN_API_KEY);
 
   xhr.onload = function () {
-    let data = JSON.parse(xhr.responseText);
-
     if (xhr.status === 200) {
+      let data = JSON.parse(xhr.responseText);
       let tokenExpiresAt = new Date(data.expiresAt).getTime();
 
       localStorage.setItem("logged", "true");
@@ -50,7 +49,7 @@ function loginUser(username, password) {
       showMessage("Login successful. Welcome!", "ok");
     } else {
       saveFailedLogin();
-      showMessage(data.error || "Login failed.", "error");
+      showMessage("Login failed.", "error");
     }
   };
 
