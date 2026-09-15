@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", Arial, sans-serif;
+  color: #1b2546;
+  background: #f4f6fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+button {
+  font: inherit;
+}
+.app-shell {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: hidden;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 8% 10%, #e4e9ff 0, transparent 29%),
+    linear-gradient(135deg, #f9faff, #edf1fb);
+}
+.ambient-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.65;
+}
+.ambient-shape--one {
+  width: 410px;
+  height: 410px;
+  top: -200px;
+  right: -120px;
+  background: #d7c9ff;
+}
+.ambient-shape--two {
+  width: 290px;
+  height: 290px;
+  bottom: -115px;
+  left: -90px;
+  background: #b9e5df;
+}
+.profile-panel {
+  position: relative;
+  width: min(100%, 880px);
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 84%);
+  box-shadow: 0 28px 70px rgb(38 56 104 / 15%);
+  backdrop-filter: blur(12px);
+}
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 38px;
+  border-bottom: 1px solid #e8ebf4;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #283558;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.brand-mark {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: #5d52d7;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: 1.15rem;
+}
+.status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #65708c;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.status i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #42bd8c;
+  box-shadow: 0 0 0 4px #e0f6ee;
+}
+.profile-content {
+  padding: 49px 60px 60px;
+}
+.intro {
+  max-width: 525px;
+}
+.eyebrow {
+  margin: 0 0 9px;
+  color: #7568d7;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+h1 {
+  margin-bottom: 12px;
+  color: #1d294a;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.25rem, 5vw, 3.15rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+.intro > p:last-child {
+  margin-bottom: 31px;
+  color: #6d7790;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.user-card {
+  padding: 26px 28px;
+  border: 1px solid #e8ebf5;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 9px 22px rgb(42 54 95 / 5%);
+}
+.user-identity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #eef0f7;
+}
+.avatar {
+  display: grid;
+  width: 53px;
+  height: 53px;
+  place-items: center;
+  border-radius: 17px;
+  background: linear-gradient(145deg, #6f63dc, #4940b7);
+  box-shadow: 0 8px 18px rgb(84 72 195 / 25%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.user-name {
+  margin: 0 0 3px;
+  color: #253052;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+.user-role {
+  margin: 0;
+  color: #8790a7;
+  font-size: 0.85rem;
+}
+.details-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px 28px;
+  margin: 22px 0 0;
+}
+.details-list div {
+  min-width: 0;
+}
+.details-list .password-detail {
+  grid-column: span 2;
+}
+dt {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 6px;
+  color: #9098ad;
+  font-size: 0.73rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+}
+dt span {
+  color: #7b70dc;
+  font-size: 0.9rem;
+  line-height: 0.8;
+}
+dd {
+  overflow: hidden;
+  margin: 0;
+  color: #35405e;
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+code {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 7px;
+  background: #f3f2ff;
+  color: #574bc2;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.security-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 17px;
+  margin-top: 20px;
+  padding: 23px 25px;
+  border-radius: 19px;
+  background: linear-gradient(115deg, #292161, #41388d);
+  color: white;
+  box-shadow: 0 15px 27px rgb(50 41 128 / 20%);
+}
+.security-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  border-radius: 13px;
+  background: rgb(255 255 255 / 14%);
+  color: #d8d3ff;
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+.security-copy .eyebrow {
+  margin-bottom: 4px;
+  color: #c4bcff;
+  font-size: 0.65rem;
+}
+.security-copy h2 {
+  margin: 0 0 5px;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+.security-copy > p:last-child {
+  margin: 0;
+  color: #d3d0ec;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+.generate-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 15px;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 10px;
+  background: #fff;
+  color: #393080;
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.generate-button:hover {
+  box-shadow: 0 6px 16px rgb(0 0 0 / 18%);
+  transform: translateY(-2px);
+}
+.generate-button:active {
+  transform: translateY(0);
+}
+.generate-button:focus-visible {
+  outline: 3px solid #c5bfff;
+  outline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .app-shell {
+    align-items: start;
+    padding: 16px;
+  }
+  .profile-panel {
+    border-radius: 21px;
+  }
+  .profile-header {
+    padding: 19px 21px;
+  }
+  .status {
+    font-size: 0;
+  }
+  .status i {
+    width: 9px;
+    height: 9px;
+  }
+  .profile-content {
+    padding: 36px 20px 24px;
+  }
+  .details-list {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+  .details-list .password-detail {
+    grid-column: span 1;
+  }
+  .security-card {
+    grid-template-columns: auto 1fr;
+    padding: 20px;
+  }
+  .generate-button {
+    grid-column: span 2;
+    width: 100%;
+  }
+}
