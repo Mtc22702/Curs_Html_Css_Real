@@ -4,11 +4,7 @@
 function CartItem(props) {
   return (
     <article className="cart-item">
-      <img
-        className="cart-item__image"
-        src={props.image}
-        alt={props.name}
-      />
+      <img className="cart-item__image" src={props.image} alt={props.name} />
 
       <div className="cart-item__details">
         <h2>{props.name}</h2>
@@ -30,7 +26,7 @@ function CartItem(props) {
         </button>
       </div>
     </article>
-  )
+  );
 }
 
-export default CartItem
+export default CartItem;

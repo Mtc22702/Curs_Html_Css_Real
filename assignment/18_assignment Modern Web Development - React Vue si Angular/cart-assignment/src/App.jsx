@@ -1,11 +1,11 @@
 // COMPONENTA PRINCIPALA
 
-import Cart from './components/Cart.jsx'
-import './App.css'
+import Cart from "./components/Cart.jsx";
+import "./App.css";
 
 // Afisarea componentei Cart
 function App() {
-  return <Cart />
+  return <Cart />;
 }
 
-export default App
+export default App;

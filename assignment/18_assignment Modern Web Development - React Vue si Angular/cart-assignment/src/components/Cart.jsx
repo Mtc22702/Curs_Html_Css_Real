@@ -1,66 +1,65 @@
 // COMPONENTA CART
 
-import { Component } from 'react'
-import CartItem from './CartItem.jsx'
+import { Component } from "react";
+import CartItem from "./CartItem.jsx";
 
 class Cart extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     // Lista initiala cu produsele din cos
     this.state = {
       products: [
         {
           id: 1,
-          name: 'Blazer',
+          name: "Blazer",
           price: 95,
-          color: 'Beige',
-          size: 'S',
+          color: "Beige",
+          size: "S",
           quantity: 1,
-          image: '/images/blazer.png',
+          image: "/images/blazer.png"
         },
         {
           id: 2,
-          name: 'Chunky Knit Sweater',
+          name: "Chunky Knit Sweater",
           price: 55,
-          color: 'Brown',
-          size: 'M',
+          color: "Brown",
+          size: "M",
           quantity: 1,
-          image: '/images/sweater.png',
+          image: "/images/sweater.png"
         },
         {
           id: 3,
-          name: 'Mesh Sleeve Blouse',
+          name: "Mesh Sleeve Blouse",
           price: 32,
-          color: 'Yellow',
-          size: 'S',
+          color: "Yellow",
+          size: "S",
           quantity: 1,
-          image: '/images/blouse.png',
+          image: "/images/blouse.png"
         },
         {
           id: 4,
-          name: 'Retro Jeans',
+          name: "Retro Jeans",
           price: 70,
-          color: 'Black',
-          size: 'S',
+          color: "Black",
+          size: "S",
           quantity: 1,
-          image: '/images/jeans.png',
-        },
-      ],
-    }
+          image: "/images/jeans.png"
+        }
+      ]
+    };
   }
 
   // Functie pentru calcularea valorii totale a produselor
   calculateTotal() {
-    let total = 0
+    let total = 0;
 
     for (let i = 0; i < this.state.products.length; i++) {
       total =
-        total +
-        this.state.products[i].price * this.state.products[i].quantity
+        total + this.state.products[i].price * this.state.products[i].quantity;
     }
 
-    return total
+    return total;
   }
 
   render() {
@@ -87,8 +86,8 @@ class Cart extends Component {
           <strong>${this.calculateTotal()}</strong>
         </div>
       </main>
-    )
+    );
   }
 }
 
-export default Cart
+export default Cart;
