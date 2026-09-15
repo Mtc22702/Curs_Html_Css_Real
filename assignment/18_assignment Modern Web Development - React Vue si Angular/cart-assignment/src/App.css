@@ -2,27 +2,34 @@
 .cart {
   width: calc(100% - 48px);
   max-width: 680px;
-  margin: 48px auto;
-  padding: 32px;
-  background: #ffffff;
+  margin: 28px auto;
+  padding: 22px 28px 38px;
+  background: #faf8f8;
   border: 1px solid #e5e5e5;
+  border-radius: 12px;
   box-shadow: 0 14px 40px rgba(40, 35, 30, 0.08);
 }
 
 /* 2. PRODUS DIN COS */
 .cart-item {
   display: grid;
-  grid-template-columns: 130px 1fr auto;
-  gap: 20px;
+  grid-template-columns: 148px 1fr auto;
+  gap: 30px;
   min-height: 148px;
   padding: 18px 0;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 2px solid #bfbfbf;
+}
+
+/* Nell'immagine di riferimento l'ultimo prodotto lascia più respiro
+   prima della linea che separa il totale. */
+.cart-item:last-child {
+  padding-bottom: 52px;
 }
 
 /* 3. IMAGINE PRODUS */
 .cart-item__image {
-  width: 130px;
-  height: 148px;
+  width: 148px;
+  height: 120px;
   object-fit: cover;
   background: #f1efec;
 }
@@ -53,6 +60,7 @@
   height: 28px;
   margin-top: auto;
   border: 1px solid #d7d3cf;
+  border-radius: 10px;
 }
 
 .quantity button,
@@ -62,22 +70,15 @@
   justify-content: center;
   min-width: 0;
   border: 0;
-  background: #ffffff;
+  background: #faf8f8;
   color: #2b2927;
   font: inherit;
   font-size: 13px;
+  border-radius: 10px;
 }
 
 .quantity button {
   cursor: pointer;
-}
-
-.quantity button:first-child {
-  border-right: 1px solid #d7d3cf;
-}
-
-.quantity button:last-child {
-  border-left: 1px solid #d7d3cf;
 }
 
 /* 6. PRET SI BUTON REMOVE */
@@ -100,7 +101,7 @@
   background: transparent;
   color: #8a8580;
   font: inherit;
-  font-size: 13px;
+  font-size: 15px;
   cursor: pointer;
 }
 
@@ -135,6 +136,10 @@
   .cart-item__image {
     width: 96px;
     height: 122px;
+  }
+
+  .cart-item:last-child {
+    padding-bottom: 32px;
   }
 
   .cart-item__details h2 {
