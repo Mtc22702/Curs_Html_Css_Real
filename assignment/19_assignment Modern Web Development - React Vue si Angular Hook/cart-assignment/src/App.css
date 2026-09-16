@@ -1,0 +1,154 @@
+/* 1. CONTAINER CART */
+.cart {
+  width: calc(100% - 48px);
+  max-width: 680px;
+  margin: 28px auto;
+  padding: 22px 28px 38px;
+  background: #faf8f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  box-shadow: 0 14px 40px rgba(40, 35, 30, 0.08);
+}
+
+/* 2. PRODUS DIN COS */
+.cart-item {
+  display: grid;
+  grid-template-columns: 148px 1fr auto;
+  gap: 30px;
+  min-height: 148px;
+  padding: 18px 0;
+  border-bottom: 2px solid #bfbfbf;
+}
+
+/* Mai mult spatiu inainte de linia care separa valoarea totala. */
+.cart-item:last-child {
+  padding-bottom: 52px;
+}
+
+/* 3. IMAGINE PRODUS */
+.cart-item__image {
+  width: 148px;
+  height: 120px;
+  object-fit: cover;
+  background: #f1efec;
+}
+
+/* 4. DETALII PRODUS */
+.cart-item__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cart-item__details h2 {
+  margin: 2px 0 8px;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.cart-item__details p {
+  margin: 0 0 3px;
+  color: #77716c;
+  font-size: 14px;
+}
+
+/* 5. CONTROL CANTITATE */
+.quantity {
+  display: grid;
+  grid-template-columns: 30px 32px 30px;
+  height: 28px;
+  margin-top: auto;
+  border: 1px solid #d7d3cf;
+  border-radius: 10px;
+}
+
+.quantity button,
+.quantity span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  border: 0;
+  background: #faf8f8;
+  color: #2b2927;
+  font: inherit;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.quantity button {
+  cursor: pointer;
+}
+
+/* 6. PRET SI BUTON REMOVE */
+.cart-item__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 2px 0 3px;
+}
+
+.cart-item__actions strong {
+  font-size: 16px;
+}
+
+.remove-button {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #8a8580;
+  background: transparent;
+  color: #8a8580;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* 7. VALOAREA TOTALA */
+.cart__total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  font-size: 18px;
+}
+
+.cart__total strong {
+  font-size: 20px;
+}
+
+/* 8. MESAJ COS GOL */
+.cart__empty {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* 9. STILURI RESPONSIVE */
+@media (max-width: 600px) {
+  .cart {
+    width: 100%;
+    margin: 0;
+    padding: 24px 18px;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .cart-item {
+    grid-template-columns: 96px 1fr auto;
+    gap: 12px;
+    min-height: 122px;
+  }
+
+  .cart-item__image {
+    width: 96px;
+    height: 122px;
+  }
+
+  .cart-item:last-child {
+    padding-bottom: 32px;
+  }
+
+  .cart-item__details h2 {
+    font-size: 15px;
+  }
+}
