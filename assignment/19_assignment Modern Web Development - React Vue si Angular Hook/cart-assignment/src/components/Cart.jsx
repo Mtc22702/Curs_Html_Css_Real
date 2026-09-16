@@ -49,6 +49,10 @@ function Cart() {
   // Afisarea starii cosului dupa fiecare modificare
   useEffect(() => {
     console.log("Cart updated:", products);
+
+    if (products.length === 0) {
+      console.log("Your cart is empty.");
+    }
   }, [products]);
 
   // Functie pentru marirea cantitatii unui produs
