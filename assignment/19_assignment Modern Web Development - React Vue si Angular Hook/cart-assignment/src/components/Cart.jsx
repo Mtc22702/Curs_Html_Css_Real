@@ -55,7 +55,15 @@ function Cart() {
   function increaseQuantity(productId) {
     const updatedProducts = products.map((product) => {
       if (product.id === productId) {
-        return { ...product, quantity: product.quantity + 1 };
+        return {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          color: product.color,
+          size: product.size,
+          quantity: product.quantity + 1,
+          image: product.image
+        };
       }
 
       return product;
@@ -68,7 +76,15 @@ function Cart() {
   function decreaseQuantity(productId) {
     const updatedProducts = products.map((product) => {
       if (product.id === productId && product.quantity > 1) {
-        return { ...product, quantity: product.quantity - 1 };
+        return {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          color: product.color,
+          size: product.size,
+          quantity: product.quantity - 1,
+          image: product.image
+        };
       }
 
       return product;
